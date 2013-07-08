@@ -311,9 +311,9 @@ def updateAlphabet(coded,real):
     change()
             
 # Szótár 
-dbfile = open('..\\dic.txt','r')
+dbfile = open('..\\..\\dic.txt','r')
 # Dekódolandó szöveg
-inputfile = open('..\\example.txt','r')
+inputfile = open('..\\..\\example.txt','r')
 
 # Szótár 
 db = {}
