@@ -6,6 +6,8 @@ Created on 2013.06.28.
 
 '''
 
+# I LOVE GAJDOS
+
 
 # Entry class: a dekódolandó szöveg egy szavát ábrázolja
 # coded: A kódszó
