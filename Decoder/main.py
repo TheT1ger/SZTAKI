@@ -297,11 +297,13 @@ def removeLetters(letter,wlist,index):
         if word[index] not in possibleLetters:
             possibleLetters.append(word[index])
     i=len(a_info[letter]["options"])-1
-    while i>=0:
+    while i>=0 and len(a_info[letter]["options"]) >1:
         if a_info[letter]["options"][i] not in possibleLetters:
             a_info[letter]["options"].remove(a_info[letter]["options"][i])
             isRemoved = True
         i=i-1
+    if len(a_info[letter]["options"]) == 1:
+        updateAlphabet(letter, a_info[letter]["options"][0])
     return isRemoved
   
 # Egy entitás kódszaván végigmegy, és minden betű options listáját szűkíti, annak megfelelően, hogy az entitás options listája alapján, mi szerepelhet ott.
@@ -458,7 +460,17 @@ while isRemoved:
     for e in two:
         isRemoved = isRemoved or reduceOptions(e)
 
-
+ 
+isRemoved = True
+while isRemoved:
+    isRemoved = False
+    for e in three:
+        isRemoved = isRemoved or reduceLetterOptions(e)
+             
+    for e in three:
+        isRemoved = isRemoved or reduceOptions(e)
+        
+        
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
 
