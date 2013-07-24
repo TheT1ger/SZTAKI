@@ -52,7 +52,7 @@ class Entry:
             if self.pattern[i] == '?':
                 if ip[i]!='?':
                     return False
-                # Ha az input adott poizicioju betüje már ismert, akkor a kódszó mintájában bent kell legyen, nem kérdőjel
+                # Ha az input adott pozicioju betüje már ismert, akkor a kódszó mintájában bent kell legyen, nem kérdőjel
                 if word[i] in alphabet.values():
                     return False
             # Ha a kódszó mintájában szám van
@@ -289,6 +289,43 @@ def getFrequentLetters():
         if value["frequency"] in temp and key not in most_frequent_letters:
             most_frequent_letters.append(key)
 
+# Adott kód-betű options listájából, eltávolítja azt, ami a wlist (szólista) szavainak adott index-ű betűi között nem szerepel
+def removeLetters(letter,wlist,index):
+    isRemoved=False
+    possibleLetters = list()
+    for word in wlist:
+        if word[index] not in possibleLetters:
+            possibleLetters.append(word[index])
+    i=len(a_info[letter]["options"])-1
+    while i>=0 and len(a_info[letter]["options"]) >1:
+        if a_info[letter]["options"][i] not in possibleLetters:
+            a_info[letter]["options"].remove(a_info[letter]["options"][i])
+            isRemoved = True
+        i=i-1
+    if len(a_info[letter]["options"]) == 1:
+        updateAlphabet(letter, a_info[letter]["options"][0])
+    return isRemoved
+  
+# Egy entitás kódszaván végigmegy, és minden betű options listáját szűkíti, annak megfelelően, hogy az entitás options listája alapján, mi szerepelhet ott.
+# Magasabb betűszámú szavaknál veszélyes lehet a hívása, hiszen nem lehet garantálni, hogy tényleg minden lehetséges szó benne van az options listában.           
+def reduceLetterOptions(entity):
+    for i in range(0,entity.length):
+        removeLetters(entity.coded[i],entity.options,i)
+            
+# Egy entitás options listájából eltávolitja azt, aminek adott pozicioban lévő betűje, nem szerepel a kódszó adott pozicioju betűjének options listájában
+def reduceOptions(entity):
+    isRemoved = False
+    i = len(entity.options)-1
+    while i>=0:
+        for j in range(0,entity.length):
+            if entity.options[i][j] not in a_info[entity.coded[j]]["options"]:
+                entity.options.remove(entity.options[i])
+                isRemoved = True
+                break
+        i=i-1
+    return isRemoved
+                
+            
 # Az ABC frissítése, coded betű jelöli a real-t
 # Az összes beolvasott szó mintájában behelyettesít
 # Kiszedi az adott betűt az ABC maradék betűjének options listájából
@@ -300,20 +337,24 @@ def updateAlphabet(coded,real):
         for i in range(0,len(e.coded)):
             if e.coded[i] == coded:
                 e.pattern[i] = real
-    a_info[real]["options"].clear()
-    a_info[real]["options"].append(real)    
+    a_info[coded]["options"].clear()
+    a_info[coded]["options"].append(real)    
     for letter in a_info:
-        if letter != real:
+        if letter != coded:
             if real in a_info[letter]["options"]:
                 a_info[letter]["options"].remove(real)
                 if len(a_info[letter]["options"]) == 1:
                     updateAlphabet(letter, a_info[letter]["options"][0])
     change()
-            
+       
+       
+##############################################################################################
+###################################    Script     ############################################
+##############################################################################################     
 # Szótár 
-dbfile = open('..\\..\\dic.txt','r')
+dbfile = open('D:\\SZTAKKI\\dic.txt','r')
 # Dekódolandó szöveg
-inputfile = open('..\\..\\example.txt','r')
+inputfile = open('D:\\SZTAKKI\\example.txt','r')
 
 # Szótár 
 db = {}
@@ -410,7 +451,26 @@ elif len(oneletter) == 2:
 elif len(oneletter) > 2:
     raise Exception("WARNING: Több egy betűs szó van")
 
+isRemoved = True
+while isRemoved:
+    isRemoved = False
+    for e in two:
+        isRemoved = isRemoved or reduceLetterOptions(e)
+            
+    for e in two:
+        isRemoved = isRemoved or reduceOptions(e)
 
+ 
+isRemoved = True
+while isRemoved:
+    isRemoved = False
+    for e in three:
+        isRemoved = isRemoved or reduceLetterOptions(e)
+             
+    for e in three:
+        isRemoved = isRemoved or reduceOptions(e)
+        
+        
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
 
@@ -420,6 +480,8 @@ for l in two:
     l.p()
 for l in three:
     l.p()
+     
+
 
 print_options()
 print() 
@@ -428,15 +490,19 @@ print()
 print_alphabetic()
 print()
 
-while len(text) > 0:
-    temp = text[0]
-    max = text[0].frequency
-    for e in text:
-        if e.frequency > max:
-            temp = e
-            max = e.frequency
-    print(temp.coded + " , " + "".join(temp.pattern) + ": " + str(max))
-    text.remove(temp)
+for e in two:
+    if e.coded == "fw":
+        print(e.options)
+
+# while len(text) > 0:
+#     temp = text[0]
+#     max = text[0].frequency
+#     for e in text:
+#         if e.frequency > max:
+#             temp = e
+#             max = e.frequency
+#     print(temp.coded + " , " + "".join(temp.pattern) + ": " + str(max))
+#     text.remove(temp)
 
 
 dbfile.close()
