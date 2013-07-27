@@ -25,7 +25,10 @@ class Entry:
         self.coded = word
         self.pattern = list(getPattern(word)) # Lista, nem string
         self.length = len(word)
-        self.options = get("".join(self.pattern)) # A get paraméterében a lista string-é konvertálása
+        if get("".join(self.pattern)) is not None:
+            self.options = get("".join(self.pattern)) # A get paraméterében a lista string-é konvertálása
+        else:
+            self.options = []
         
     # Kiírja a fontosabb tulajdonságait az osztálynak
     def p(self):
@@ -312,6 +315,10 @@ def removeLetters(letter,wlist,index):
 # Magasabb betűszámú szavaknál veszélyes lehet a hívása, hiszen nem lehet garantálni, hogy tényleg minden lehetséges szó benne van az options listában.           
 def reduceLetterOptions(entity):
     for i in range(0,entity.length):
+        print("###############")
+        print(entity.options)
+        print(entity.pattern)
+        print(entity.coded)
         removeLetters(entity.coded[i],entity.options,i)
             
 # Egy entitás options listájából eltávolitja azt, aminek adott pozicioban lévő betűje, nem szerepel a kódszó adott pozicioju betűjének options listájában
@@ -378,7 +385,7 @@ def updateAlphabet(coded,real):
 ###################################    Script     ############################################
 ##############################################################################################     
 # Szótár 
-dbfile = open('D:\\SZTAKKI\\dic.txt','r')
+dbfile = open('D:\\GitHub\\SZTAKI\\ExpandedDic.txt','r')
 # Dekódolandó szöveg
 inputfile = open('D:\\SZTAKKI\\example.txt','r')
 
@@ -492,7 +499,7 @@ print(missingletters)
 deselect(textwords[5])
 print(missingletters)   
 deselect(textwords[6])
-print(missingletters)   
+print(missingletters) 
         
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
