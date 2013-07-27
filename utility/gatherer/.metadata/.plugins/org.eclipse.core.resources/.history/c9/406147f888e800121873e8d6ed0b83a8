@@ -1,0 +1,33 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		String DicPath = "..\\..\\veryverycleandic.txt";
+		try {		
+			String currentLine1 = null;
+			String currentLine2 = null;
+			BufferedReader br1 = new BufferedReader(new FileReader(DicPath));
+			BufferedReader br2 = new BufferedReader(new FileReader(DicPath));
+		 
+
+			while ((currentLine1 = br1.readLine()) != null) {
+				while ((currentLine2 = br2.readLine()) != null) {
+					if(currentLine1.equals(currentLine2)){
+						System.out.println(currentLine2);
+					}
+				}
+			}
+			
+			br1.close();
+			br2.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,0 +1,80 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		String origDicPath = "..\\..\\proba.txt";
+		String newDicPath = "..\\..\\NewCleanDic.txt";
+		
+		try {		
+			String currentLine1 = null;
+			String currentLine2 = null;
+			BufferedReader br1 = new BufferedReader(new FileReader(origDicPath));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(newDicPath));
+			boolean isFirstOccurance = true;
+			ArrayList<String> WordsToRemove = new ArrayList<String>(null);
+
+			System.out.println("Words that'll be removed:");
+			
+			while ((currentLine1 = br1.readLine()) != null) {
+				isFirstOccurance = true;
+				for(String st : WordsToRemove){
+					if(currentLine1.equals(st)){
+						isFirstOccurance = false;
+					}
+				}
+				BufferedReader br2 = new BufferedReader(new FileReader(origDicPath));
+				while ((currentLine2 = br2.readLine()) != null) {
+					if(currentLine1.equals(currentLine2) && isFirstOccurance){
+						isFirstOccurance = false;
+					}else if(currentLine1.equals(currentLine2)){
+						for(String str : WordsToRemove){
+							if(str.equals(currentLine2)){
+								System.out.println("BLA");
+							}
+						}
+						//System.out.println(currentLine2);
+						/*String[] str = new String[2];
+						str[0] = currentLine2;
+						str[1] =*/ 
+						//WordsToRemove.add(currentLine2);
+					}
+				}
+				br2.close();
+			}
+			
+			
+			br1.close();
+			bw.close();
+			
+			/*String currentLine3 = null;
+			BufferedReader br3 = new BufferedReader(new FileReader(origDicPath));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(newDicPath));
+			while ((currentLine3 = br3.readLine()) != null) {
+				isFirstOccurance = true;
+				for(String it : WordsToRemove){
+					if(it.equals(currentLine3)){
+						
+					}
+				}
+				if(isFirstOccurance){
+					bw.write(currentLine3);
+					bw.newLine();
+				}
+				
+			}
+			*/
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
