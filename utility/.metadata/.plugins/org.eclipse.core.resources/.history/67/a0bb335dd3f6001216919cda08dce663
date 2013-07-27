@@ -11,13 +11,11 @@ import java.util.List;
 
 public class Main {
 	public static final int MAX_WORD_LENGTH = 4;
-	public static final int MIN_WORD_LENGTH = 3;
 	public static void main(String[] args) {
 		//Input dic
 		String origDicPath = "..\\..\\dic.txt";
 		//Input text
-		String text = "..\\..\\red hat.txt";
-		
+		String text = "..\\..\\text.txt";
 		//Output dic
 		String newDicPath = "..\\..\\ExpandedDic.txt";
 		
@@ -43,12 +41,13 @@ public class Main {
 				//Szavakra bontas
 				for (int index = 0; index < currentLine.length(); index++) {
 					while (index < currentLine.length()
-							&& !Character.isLetter(currentLine.charAt(index))
+							&& !Character.isJavaIdentifierStart(currentLine.charAt(index))
 							&& currentLine.charAt(index) != ' ') {
 						currentLine = currentLine.replace(
 								Character.toString(currentLine.charAt(index)), "");
 					}
 				}
+				
 				//Megvannak a szavak
 				String[] lines = currentLine.split(" ");
 				
@@ -69,8 +68,8 @@ public class Main {
 								break;
 							}
 						}
-						//Ha nincs es nem ures string, beirjuk
-						if(!gotWord && !s.equals("")){
+						//Ha nincs beirjuk
+						if(!gotWord){
 							System.out.println("New word: " + s + "," + getPattern(s) + "," + "1");
 							String[] addable = new String[3];
 							addable[0] = s;

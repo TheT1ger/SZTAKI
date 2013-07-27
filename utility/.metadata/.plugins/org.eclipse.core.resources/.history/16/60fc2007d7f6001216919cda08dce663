@@ -17,7 +17,7 @@ public class Main {
 		String origDicPath = "..\\..\\dic.txt";
 		//Input text
 		String text = "..\\..\\red hat.txt";
-		
+		text.
 		//Output dic
 		String newDicPath = "..\\..\\ExpandedDic.txt";
 		

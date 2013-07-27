@@ -5225,7 +5225,7 @@ GATEWAY=<address>
 where <address> is the IP address of the network router or gateway device (if any).
 HWADDR=<MAC-address>
 where <MAC-address> is the hardware address of the Ethernet device in the form
-AA:BB:CC:DD:EE:FF. This directive is useful for machines with multiple NICs to ensure that
+:BB:CC:DD:EE:FF. This directive is useful for machines with multiple NICs to ensure that
 the interfaces are assigned the correct device names regardless of the configured load
 order for each NIC's module. This directive should not be used in conjunction with MACADDR.
 IPADDR=<address>
