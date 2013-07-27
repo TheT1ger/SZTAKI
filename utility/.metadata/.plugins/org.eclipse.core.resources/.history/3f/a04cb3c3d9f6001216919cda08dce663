@@ -14,12 +14,12 @@ public class Main {
 	public static final int MIN_WORD_LENGTH = 2;
 	public static void main(String[] args) {
 		//Input dic
-		String origDicPath = "..\\..\\ExpandedDic.txt";
+		String origDicPath = "..\\..\\dic.txt";
 		//Input text
-		String text = "..\\..\\utility\\statistic\\english\\results - Copy\\dorian gray.txt";
+		String text = "..\\..\\red hat.txt";
 		
 		//Output dic
-		String newDicPath = "..\\..\\ExpandedDic2.txt";
+		String newDicPath = "..\\..\\ExpandedDic.txt";
 		
 		try {		
 			String currentLine = null;

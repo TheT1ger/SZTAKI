@@ -11,15 +11,15 @@ import java.util.List;
 
 public class Main {
 	public static final int MAX_WORD_LENGTH = 4;
-	public static final int MIN_WORD_LENGTH = 2;
+	public static final int MIN_WORD_LENGTH = 3;
 	public static void main(String[] args) {
 		//Input dic
-		String origDicPath = "..\\..\\ExpandedDic.txt";
+		String origDicPath = "..\\..\\dic.txt";
 		//Input text
-		String text = "..\\..\\utility\\statistic\\english\\results - Copy\\dorian gray.txt";
+		String text = "..\\..\\red hat.txt";
 		
 		//Output dic
-		String newDicPath = "..\\..\\ExpandedDic2.txt";
+		String newDicPath = "..\\..\\ExpandedDic.txt";
 		
 		try {		
 			String currentLine = null;
@@ -59,7 +59,7 @@ public class Main {
 					//String[] currEntry;
 					int index = 0;
 					//Csak akkor van moka ha a max szohossznal nem hosszabb + 1 a /n miatt
-					if(s.length() < MAX_WORD_LENGTH + 1 && s.length() > MIN_WORD_LENGTH - 1){
+					if(s.length() < MAX_WORD_LENGTH + 1 && s.length() > MIN_WORD_LENGTH + 1){
 						
 						//Megnezzuk hogy a szo benne van-e a szotarban
 						for(int i = 0; i < Dictionary.size(); i++){
