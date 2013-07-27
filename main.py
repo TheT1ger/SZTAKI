@@ -432,11 +432,9 @@ for line in inputfile:
                 text.append(temp)
             # one,two,three listákhoz értelemszerűen hozzáadja
             if len(word) == 1:
-                if temp not in one:
-                    one.append(temp)
                 if word not in oneletter:
                     oneletter.append(word)
-            elif len(word) < 7:
+            if len(word) < 7:
                 if len(word) in textwords:
                     # Ha már van
                     if temp not in textwords[len(word)]:
@@ -455,9 +453,6 @@ for line in inputfile:
 getFrequentLetters()  
 
 print(most_frequent_letters)   
-# Kettő és három hosszú szavakra leellenőrzi hogy 'i', 'a' szerepel-e benne     
-one_letter_filter(textwords[2])          
-one_letter_filter(textwords[3])
 
 # Megkeresi, hogy melyik kódolt betű szerepel a leggyakrabban, az lesz az 'e'
 key = list(a_info.keys())[0]
@@ -486,18 +481,24 @@ elif len(oneletter) == 2:
 elif len(oneletter) > 2:
     raise Exception("WARNING: Több egy betűs szó van")
 
+deselect(textwords[1])
+print(missingletters)
 deselect(textwords[2])
 print(missingletters)
 deselect(textwords[3])
 print(missingletters)
 deselect(textwords[4])
 print(missingletters)   
+deselect(textwords[5])
+print(missingletters)   
+deselect(textwords[6])
+print(missingletters)   
         
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
 
 
-for i in range(2,4):
+for i in range(1,4):
     for l in textwords[i]:
         l.p()
      
