@@ -218,6 +218,7 @@ def fill_alphabetic_info():
 def print_alphabetic():
     for letter in sorted(alphabet):
         print(letter + ": " + alphabet[letter])
+        
 # Előfordulási sorrendben kiírja az ABC-t (KÖZBEN TÖRLI AZ ELEMEIT, kiüriti a map-et!!!)
 def print_frequency():
     while len(a_info)>0:
@@ -292,18 +293,19 @@ def getFrequentLetters():
 # Adott kód-betű options listájából, eltávolítja azt, ami a wlist (szólista) szavainak adott index-ű betűi között nem szerepel
 def removeLetters(letter,wlist,index):
     isRemoved=False
-    possibleLetters = list()
-    for word in wlist:
-        if word[index] not in possibleLetters:
-            possibleLetters.append(word[index])
-    i=len(a_info[letter]["options"])-1
-    while i>=0 and len(a_info[letter]["options"]) >1:
-        if a_info[letter]["options"][i] not in possibleLetters:
-            a_info[letter]["options"].remove(a_info[letter]["options"][i])
-            isRemoved = True
-        i=i-1
-    if len(a_info[letter]["options"]) == 1:
-        updateAlphabet(letter, a_info[letter]["options"][0])
+    if len(a_info[letter]["options"]) > 1:
+        possibleLetters = list()
+        for word in wlist:
+            if word[index] not in possibleLetters:
+                possibleLetters.append(word[index])
+        i=len(a_info[letter]["options"])-1
+        while i>=0 and len(a_info[letter]["options"]) >1:
+            if a_info[letter]["options"][i] not in possibleLetters:
+                a_info[letter]["options"].remove(a_info[letter]["options"][i])
+                isRemoved = True
+            i=i-1
+        if len(a_info[letter]["options"]) == 1:
+            updateAlphabet(letter, a_info[letter]["options"][0])
     return isRemoved
   
 # Egy entitás kódszaván végigmegy, és minden betű options listáját szűkíti, annak megfelelően, hogy az entitás options listája alapján, mi szerepelhet ott.
@@ -315,16 +317,40 @@ def reduceLetterOptions(entity):
 # Egy entitás options listájából eltávolitja azt, aminek adott pozicioban lévő betűje, nem szerepel a kódszó adott pozicioju betűjének options listájában
 def reduceOptions(entity):
     isRemoved = False
-    i = len(entity.options)-1
-    while i>=0:
-        for j in range(0,entity.length):
-            if entity.options[i][j] not in a_info[entity.coded[j]]["options"]:
-                entity.options.remove(entity.options[i])
-                isRemoved = True
-                break
-        i=i-1
+    if len(entity.options) >1:
+        i = len(entity.options)-1
+        while i>=0:
+            for j in range(0,entity.length):
+                if entity.options[i][j] not in a_info[entity.coded[j]]["options"]:
+                    entity.options.remove(entity.options[i])
+                    isRemoved = True
+                    break
+            i=i-1
     return isRemoved
-                
+ 
+def deselect(ilist):
+    isRemoved = True
+    while isRemoved:
+        isRemoved = False
+        done = False
+        for e in ilist:
+            done = False
+            for l in missingletters:
+                if l in e.coded and not done:
+                    isRemoved = isRemoved or reduceLetterOptions(e)
+                    done = True
+                  
+        for e in ilist:
+            done = False
+            for l in missingletters:
+                if l in e.coded and not done:
+                    isRemoved = isRemoved or reduceOptions(e) 
+                    done = True
+    
+    missingletters.clear()
+    for l in sorted(a_info):
+        if len(a_info[l]["options"]) > 1:
+            missingletters.append(l)
             
 # Az ABC frissítése, coded betű jelöli a real-t
 # Az összes beolvasott szó mintájában behelyettesít
@@ -368,6 +394,7 @@ build(db,dbfile)
 fill_alphabet()
 fill_alphabetic_info()
 
+missingletters = list()
 # Beolvasott szöveg
 text = list()
 # egy hosszú szavak listája(entity/osztály!)
@@ -380,13 +407,15 @@ most_frequent_letters = list()
 two = list()
 # három hosszú szavak listája(entity/osztály!)
 three = list()
+# negy hosszú szavak listája(entity/osztály!)
+four = list()
 
 # Szöveg beolvasása, speciális karakterek törlése
 for line in inputfile:
     line = line.lower()
     words = line.split(" ")
     for word in words:
-        word = word.strip('"!?-[]{}();:\'.\n0123456789')
+        word = word.strip(',"!?-[]{}();:\'.\n0123456789')
         if len(word) > 0:
             find = False
             # Végig nézi az eddig beolvasott szavakat
@@ -412,6 +441,9 @@ for line in inputfile:
             elif len(word) ==3:
                 if temp not in three:
                     three.append(temp)
+            elif len(word) ==4:
+                if temp not in three:
+                    four.append(temp)
             # Betűgyakoriság 
             for l in word:
                 if l.isalpha():
@@ -451,25 +483,12 @@ elif len(oneletter) == 2:
 elif len(oneletter) > 2:
     raise Exception("WARNING: Több egy betűs szó van")
 
-isRemoved = True
-while isRemoved:
-    isRemoved = False
-    for e in two:
-        isRemoved = isRemoved or reduceLetterOptions(e)
-            
-    for e in two:
-        isRemoved = isRemoved or reduceOptions(e)
-
- 
-isRemoved = True
-while isRemoved:
-    isRemoved = False
-    for e in three:
-        isRemoved = isRemoved or reduceLetterOptions(e)
-             
-    for e in three:
-        isRemoved = isRemoved or reduceOptions(e)
-        
+deselect(two)
+print(missingletters)
+deselect(three)
+print(missingletters)
+deselect(four)
+print(missingletters)   
         
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
@@ -480,6 +499,8 @@ for l in two:
     l.p()
 for l in three:
     l.p()
+for l in four:
+    l.p()
      
 
 
@@ -489,10 +510,6 @@ print_frequency()
 print()
 print_alphabetic()
 print()
-
-for e in two:
-    if e.coded == "fw":
-        print(e.options)
 
 # while len(text) > 0:
 #     temp = text[0]
