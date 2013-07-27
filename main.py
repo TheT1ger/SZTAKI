@@ -52,7 +52,7 @@ class Entry:
             if self.pattern[i] == '?':
                 if ip[i]!='?':
                     return False
-                # Ha az input adott poizicioju betüje már ismert, akkor a kódszó mintájában bent kell legyen, nem kérdőjel
+                # Ha az input adott pozicioju betüje már ismert, akkor a kódszó mintájában bent kell legyen, nem kérdőjel
                 if word[i] in alphabet.values():
                     return False
             # Ha a kódszó mintájában szám van
@@ -218,6 +218,7 @@ def fill_alphabetic_info():
 def print_alphabetic():
     for letter in sorted(alphabet):
         print(letter + ": " + alphabet[letter])
+        
 # Előfordulási sorrendben kiírja az ABC-t (KÖZBEN TÖRLI AZ ELEMEIT, kiüriti a map-et!!!)
 def print_frequency():
     while len(a_info)>0:
@@ -289,6 +290,68 @@ def getFrequentLetters():
         if value["frequency"] in temp and key not in most_frequent_letters:
             most_frequent_letters.append(key)
 
+# Adott kód-betű options listájából, eltávolítja azt, ami a wlist (szólista) szavainak adott index-ű betűi között nem szerepel
+def removeLetters(letter,wlist,index):
+    isRemoved=False
+    if len(a_info[letter]["options"]) > 1:
+        possibleLetters = list()
+        for word in wlist:
+            if word[index] not in possibleLetters:
+                possibleLetters.append(word[index])
+        i=len(a_info[letter]["options"])-1
+        while i>=0 and len(a_info[letter]["options"]) >1:
+            if a_info[letter]["options"][i] not in possibleLetters:
+                a_info[letter]["options"].remove(a_info[letter]["options"][i])
+                isRemoved = True
+            i=i-1
+        if len(a_info[letter]["options"]) == 1:
+            updateAlphabet(letter, a_info[letter]["options"][0])
+    return isRemoved
+  
+# Egy entitás kódszaván végigmegy, és minden betű options listáját szűkíti, annak megfelelően, hogy az entitás options listája alapján, mi szerepelhet ott.
+# Magasabb betűszámú szavaknál veszélyes lehet a hívása, hiszen nem lehet garantálni, hogy tényleg minden lehetséges szó benne van az options listában.           
+def reduceLetterOptions(entity):
+    for i in range(0,entity.length):
+        removeLetters(entity.coded[i],entity.options,i)
+            
+# Egy entitás options listájából eltávolitja azt, aminek adott pozicioban lévő betűje, nem szerepel a kódszó adott pozicioju betűjének options listájában
+def reduceOptions(entity):
+    isRemoved = False
+    if len(entity.options) >1:
+        i = len(entity.options)-1
+        while i>=0:
+            for j in range(0,entity.length):
+                if entity.options[i][j] not in a_info[entity.coded[j]]["options"]:
+                    entity.options.remove(entity.options[i])
+                    isRemoved = True
+                    break
+            i=i-1
+    return isRemoved
+ 
+def deselect(ilist):
+    isRemoved = True
+    while isRemoved:
+        isRemoved = False
+        done = False
+        for e in ilist:
+            done = False
+            for l in missingletters:
+                if l in e.coded and not done:
+                    isRemoved = isRemoved or reduceLetterOptions(e)
+                    done = True
+                  
+        for e in ilist:
+            done = False
+            for l in missingletters:
+                if l in e.coded and not done:
+                    isRemoved = isRemoved or reduceOptions(e) 
+                    done = True
+    
+    missingletters.clear()
+    for l in sorted(a_info):
+        if len(a_info[l]["options"]) > 1:
+            missingletters.append(l)
+            
 # Az ABC frissítése, coded betű jelöli a real-t
 # Az összes beolvasott szó mintájában behelyettesít
 # Kiszedi az adott betűt az ABC maradék betűjének options listájából
@@ -300,16 +363,20 @@ def updateAlphabet(coded,real):
         for i in range(0,len(e.coded)):
             if e.coded[i] == coded:
                 e.pattern[i] = real
-    a_info[real]["options"].clear()
-    a_info[real]["options"].append(real)    
+    a_info[coded]["options"].clear()
+    a_info[coded]["options"].append(real)    
     for letter in a_info:
-        if letter != real:
+        if letter != coded:
             if real in a_info[letter]["options"]:
                 a_info[letter]["options"].remove(real)
                 if len(a_info[letter]["options"]) == 1:
                     updateAlphabet(letter, a_info[letter]["options"][0])
     change()
-            
+       
+       
+##############################################################################################
+###################################    Script     ############################################
+##############################################################################################     
 # Szótár 
 dbfile = open('D:\\SZTAKKI\\dic.txt','r')
 # Dekódolandó szöveg
@@ -327,6 +394,7 @@ build(db,dbfile)
 fill_alphabet()
 fill_alphabetic_info()
 
+missingletters = list()
 # Beolvasott szöveg
 text = list()
 # egy hosszú szavak listája(entity/osztály!)
@@ -336,16 +404,19 @@ oneletter = list()
 # Három leggyakoribb betű(döntetlen helyezett esetén lehet több is)
 most_frequent_letters = list()
 # kettő hosszú szavak listája(entity/osztály!)
-two = list()
-# három hosszú szavak listája(entity/osztály!)
-three = list()
+# two = list()
+# # három hosszú szavak listája(entity/osztály!)
+# three = list()
+# # negy hosszú szavak listája(entity/osztály!)
+# four = list()
+textwords = {}
 
 # Szöveg beolvasása, speciális karakterek törlése
 for line in inputfile:
     line = line.lower()
     words = line.split(" ")
     for word in words:
-        word = word.strip('"!?-[]{}();:\'.\n0123456789')
+        word = word.strip(',"!?-[]{}();:\'.\n0123456789')
         if len(word) > 0:
             find = False
             # Végig nézi az eddig beolvasott szavakat
@@ -365,12 +436,17 @@ for line in inputfile:
                     one.append(temp)
                 if word not in oneletter:
                     oneletter.append(word)
-            elif len(word) == 2:
-                if temp not in two:
-                    two.append(temp)
-            elif len(word) ==3:
-                if temp not in three:
-                    three.append(temp)
+            elif len(word) < 7:
+                if len(word) in textwords:
+                    # Ha már van
+                    if temp not in textwords[len(word)]:
+                        textwords[len(word)].append(temp)
+                    # Ha még nincs ilyen kulcsú elem
+                else:
+                    textwords.update({len(word):list()})
+                    if temp not in textwords[len(word)]:
+                        textwords[len(word)].append(temp)
+                    
             # Betűgyakoriság 
             for l in word:
                 if l.isalpha():
@@ -380,8 +456,8 @@ getFrequentLetters()
 
 print(most_frequent_letters)   
 # Kettő és három hosszú szavakra leellenőrzi hogy 'i', 'a' szerepel-e benne     
-one_letter_filter(two)          
-one_letter_filter(three)
+one_letter_filter(textwords[2])          
+one_letter_filter(textwords[3])
 
 # Megkeresi, hogy melyik kódolt betű szerepel a leggyakrabban, az lesz az 'e'
 key = list(a_info.keys())[0]
@@ -410,16 +486,22 @@ elif len(oneletter) == 2:
 elif len(oneletter) > 2:
     raise Exception("WARNING: Több egy betűs szó van")
 
-
+deselect(textwords[2])
+print(missingletters)
+deselect(textwords[3])
+print(missingletters)
+deselect(textwords[4])
+print(missingletters)   
+        
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
 
-for l in one:
-    l.p()
-for l in two:
-    l.p()
-for l in three:
-    l.p()
+
+for i in range(2,4):
+    for l in textwords[i]:
+        l.p()
+     
+
 
 print_options()
 print() 
@@ -428,15 +510,15 @@ print()
 print_alphabetic()
 print()
 
-while len(text) > 0:
-    temp = text[0]
-    max = text[0].frequency
-    for e in text:
-        if e.frequency > max:
-            temp = e
-            max = e.frequency
-    print(temp.coded + " , " + "".join(temp.pattern) + ": " + str(max))
-    text.remove(temp)
+# while len(text) > 0:
+#     temp = text[0]
+#     max = text[0].frequency
+#     for e in text:
+#         if e.frequency > max:
+#             temp = e
+#             max = e.frequency
+#     print(temp.coded + " , " + "".join(temp.pattern) + ": " + str(max))
+#     text.remove(temp)
 
 
 dbfile.close()
