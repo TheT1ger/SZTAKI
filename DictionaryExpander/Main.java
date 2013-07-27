@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public class Main {
-
+	public static final int MAX_WORD_LENGTH = 4;
 	public static void main(String[] args) {
 		//Input dic
 		String origDicPath = "..\\..\\dic.txt";
@@ -27,7 +27,7 @@ public class Main {
 
 			//Beolvassuk a szotarat
 			while ((currentLine = br.readLine()) != null) {
-				String word[] = new String[2];
+				String word[] = new String[3];
 				word = currentLine.split(",");
 				Dictionary.add(word);
 			}
@@ -37,16 +37,17 @@ public class Main {
 			//Beolvassuk a szoveget
 			br = new BufferedReader(new FileReader(text));
 			while ((currentLine = br.readLine()) != null) {
+				
 				//Szavakra bontas
 				for (int index = 0; index < currentLine.length(); index++) {
 					while (index < currentLine.length()
-							&& !Character.isJavaIdentifierStart(currentLine
-									.charAt(index))
+							&& !Character.isJavaIdentifierStart(currentLine.charAt(index))
 							&& currentLine.charAt(index) != ' ') {
 						currentLine = currentLine.replace(
 								Character.toString(currentLine.charAt(index)), "");
 					}
 				}
+				
 				//Megvannak a szavak
 				String[] lines = currentLine.split(" ");
 				
@@ -54,31 +55,51 @@ public class Main {
 				for(String s : lines){
 					s = s.toLowerCase();
 					gotWord = false;
-					//Megnezzuk hogy a szo benne van-e a szotarban vagy a hossza nagyobb mint 4 betu + \n
-					for(String[] dicWord : Dictionary){
-						if(s.equals(dicWord[0]) || s.length() > 5){
-							gotWord = true;
-							break;
+					//String[] currEntry;
+					int index = 0;
+					//Csak akkor van moka ha a max szohossznal nem hosszabb + 1 a /n miatt
+					if(s.length() < MAX_WORD_LENGTH + 1){
+						
+						//Megnezzuk hogy a szo benne van-e a szotarban
+						for(int i = 0; i < Dictionary.size(); i++){
+							if(s.equals(Dictionary.get(i)[0])){
+								index = i;
+								gotWord = true;
+								break;
+							}
 						}
-					}
-					//Ha nincs beirjuk
-					if(!gotWord){
-						System.out.println("New word: " + s + "," + getPattern(s));
-						String[] addable = new String[2];
-						addable[0] = s;
-						addable[1] = getPattern(s);
-						Dictionary.add(addable);
+						//Ha nincs beirjuk
+						if(!gotWord){
+							System.out.println("New word: " + s + "," + getPattern(s) + "," + "1");
+							String[] addable = new String[3];
+							addable[0] = s;
+							addable[1] = getPattern(s);
+							addable[2] = "1";
+							Dictionary.add(addable);
+							
+						//Ha van freq-et modositunk
+						}else if(gotWord){
+							String [] currWord = Dictionary.get(index);
+							int freq = Integer.parseInt(currWord[2]);
+							freq++;
+							currWord[2] = Integer.toString(freq);
+							System.out.println("Frequency modified: " + currWord[0] + "," + currWord[2]);
+							Dictionary.set(index, currWord);
+						}
 					}
 				}
 			}
 		
 		br.close();
+		
 		//Rendezes sajat rendezovel
 		Collections.sort(Dictionary, new CustomArrayListComparator());
+		//Iras file-ba
 		for(String[] s : Dictionary){
-			bw.write(s[0] + "," + s[1]);
+			bw.write(s[0] + "," + s[1] + "," + s[2]);
 			bw.newLine();
 		}
+		
 		bw.close();
 			
 		} catch (IOException e) {

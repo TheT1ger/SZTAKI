@@ -1,0 +1,78 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		//Input dic
+		String origDicPath = "..\\..\\dic.txt";
+		//Input text
+		String text = "..\\..\\text.txt";
+		//Output dic
+		String newDicPath = "..\\..\\ExpandedDic.txt";
+		
+		try {		
+			String currentLine = null;
+			BufferedReader br = new BufferedReader(new FileReader(origDicPath));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(newDicPath));
+			ArrayList<String[]> Dictionary = new ArrayList<String[]>();
+
+			//Beolvassuk a szotarat
+			while ((currentLine = br.readLine()) != null) {
+				String word[] = new String[2];
+				word = currentLine.split(",");
+				Dictionary.add(word);
+			}
+			
+			br.close();
+			
+			//Beolvassuk a szoveget
+			br = new BufferedReader(new FileReader(text));
+			while ((currentLine = br.readLine()) != null) {
+				//Szavakra bontas
+				for (int index = 0; index < currentLine.length(); index++) {
+					while (index < currentLine.length()
+							&& !Character.isJavaIdentifierStart(currentLine
+									.charAt(index))
+							&& currentLine.charAt(index) != ' ') {
+						currentLine = currentLine.replace(
+								Character.toString(currentLine.charAt(index)), "");
+					}
+				}
+				//Megvannak a szavak
+				String[] lines = currentLine.split(" ");
+				
+				boolean gotWord = false;
+				for(String s : lines){
+					s = s.toLowerCase();
+					gotWord = false;
+					//Megnezzuk hogy a szo benne van-e a szotarban
+					for(String[] dicWord : Dictionary){
+						if(s.equals(dicWord[0]) || s.length() > 4){
+							gotWord = true;
+							break;
+						}
+					}
+					//Ha nincs beirjuk
+					if(!gotWord){
+						System.out.println("New word: " + s);
+					}
+				}
+			}
+			
+			
+			
+		
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

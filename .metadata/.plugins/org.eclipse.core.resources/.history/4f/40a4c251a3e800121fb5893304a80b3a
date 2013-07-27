@@ -1,0 +1,39 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		//Input file
+		String origDicPath = "..\\..\\dic.txt";
+		//Output file
+		String newDicPath = "..\\..\\ExpandedDic.txt";
+		
+		try {		
+			String currentLine = null;
+			BufferedReader br = new BufferedReader(new FileReader(origDicPath));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(newDicPath));
+			ArrayList<String[]> Dictionary = new ArrayList<String[]>();
+
+			//Beolvassuk a szotarat
+			while ((currentLine = br.readLine()) != null) {
+				String word[] = new String[2];
+				word = currentLine.split(",");
+				System.out.println(word[0]+ "SEP" + word[1]);
+				//Dictionary.add(word);
+			}
+			
+		
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

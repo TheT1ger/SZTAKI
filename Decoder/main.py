@@ -352,9 +352,9 @@ def updateAlphabet(coded,real):
 ###################################    Script     ############################################
 ##############################################################################################     
 # Szótár 
-dbfile = open('D:\\SZTAKKI\\dic.txt','r')
+dbfile = open('..\\..\\dic.txt','r')
 # Dekódolandó szöveg
-inputfile = open('D:\\SZTAKKI\\example.txt','r')
+inputfile = open('..\\..\\example.txt','r')
 
 # Szótár 
 db = {}
