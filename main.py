@@ -7,6 +7,10 @@ Created on 2013.06.28.
 '''
 
 
+import re
+
+WordLength=8
+
 # Entry class: a dekódolandó szöveg egy szavát ábrázolja
 # coded: A kódszó
 # pattern: A kódszóhoz tartozó minta
@@ -242,9 +246,12 @@ def print_options():
 
 # A beolvasott szöveg minden szavánál frissíti a lehetséges szavak listáját (szűkíti)
 def change():
-    for e in text:
-        e.constraint()
-
+#     for e in text:
+#         e.constraint()
+    for i in range(1,WordLength):
+        for e in textwords[i]:
+            e.constraint()
+            
 # Egy input szólistára(a listán bellül azonos hosszú szavak állnak) megnézi, hogy az egybetűs szavak betűje, 
 # ha szerepel benne, akkor törli azokat az entitás options listájából, amiben nem szerepel 'i', 'a'
 # ha nem szerepel benne, akkor törli azokat az entitás options listájából, amiben szerepel 'i','a'        
@@ -296,13 +303,13 @@ def getFrequentLetters():
 # Adott kód-betű options listájából, eltávolítja azt, ami a wlist (szólista) szavainak adott index-ű betűi között nem szerepel
 def removeLetters(letter,wlist,index):
     isRemoved=False
-    if len(a_info[letter]["options"]) > 1:
+    if len(a_info[letter]["options"]) > 1 and len(wlist) > 0:
         possibleLetters = list()
         for word in wlist:
             if word[index] not in possibleLetters:
                 possibleLetters.append(word[index])
         i=len(a_info[letter]["options"])-1
-        while i>=0 and len(a_info[letter]["options"]) >1:
+        while i>=0:# and len(a_info[letter]["options"]) >1:
             if a_info[letter]["options"][i] not in possibleLetters:
                 a_info[letter]["options"].remove(a_info[letter]["options"][i])
                 isRemoved = True
@@ -315,10 +322,6 @@ def removeLetters(letter,wlist,index):
 # Magasabb betűszámú szavaknál veszélyes lehet a hívása, hiszen nem lehet garantálni, hogy tényleg minden lehetséges szó benne van az options listában.           
 def reduceLetterOptions(entity):
     for i in range(0,entity.length):
-        print("###############")
-        print(entity.options)
-        print(entity.pattern)
-        print(entity.coded)
         removeLetters(entity.coded[i],entity.options,i)
             
 # Egy entitás options listájából eltávolitja azt, aminek adott pozicioban lévő betűje, nem szerepel a kódszó adott pozicioju betűjének options listájában
@@ -343,14 +346,14 @@ def deselect(ilist):
         for e in ilist:
             done = False
             for l in missingletters:
-                if l in e.coded and not done:
+                if not done and l in e.coded:
                     isRemoved = isRemoved or reduceLetterOptions(e)
                     done = True
                   
         for e in ilist:
             done = False
             for l in missingletters:
-                if l in e.coded and not done:
+                if not done and l in e.coded:
                     isRemoved = isRemoved or reduceOptions(e) 
                     done = True
     
@@ -365,11 +368,21 @@ def deselect(ilist):
 # Ha egy betű options listája 1 hosszú lett, akkor azt beírja az ABC-be (rekurzió!)
 # Szűkíti a szavak options listáját            
 def updateAlphabet(coded,real):
+      
     alphabet[coded]=real
-    for e in text:
-        for i in range(0,len(e.coded)):
-            if e.coded[i] == coded:
-                e.pattern[i] = real
+    ### TODO
+#     for e in text:
+#         for i in range(0,len(e.coded)):
+#             if e.coded[i] == coded:
+#                 e.pattern[i] = real
+    #### TODO END
+    
+    for i in range(1,WordLength):
+        for e in textwords[i]:
+            for i in range(0,len(e.coded)):
+                if e.coded[i] == coded:
+                    e.pattern[i] = real
+                    
     a_info[coded]["options"].clear()
     a_info[coded]["options"].append(real)    
     for letter in a_info:
@@ -385,9 +398,9 @@ def updateAlphabet(coded,real):
 ###################################    Script     ############################################
 ##############################################################################################     
 # Szótár 
-dbfile = open('D:\\GitHub\\SZTAKI\\ExpandedDic.txt','r')
+dbfile = open('D:\\GitHub\\SZTAKI\\ExpandedDic2.txt','r')
 # Dekódolandó szöveg
-inputfile = open('D:\\SZTAKKI\\example.txt','r')
+inputfile = open('D:\\GitHub\\SZTAKI\\example3.txt','r')
 
 # Szótár 
 db = {}
@@ -421,6 +434,8 @@ textwords = {}
 # Szöveg beolvasása, speciális karakterek törlése
 for line in inputfile:
     line = line.lower()
+    line = re.sub("\s\w[.]","",line)
+    line = re.sub("\d+\w+","",line)
     words = line.split(" ")
     for word in words:
         word = word.strip(',"!?-[]{}();:\'.\n0123456789')
@@ -441,7 +456,7 @@ for line in inputfile:
             if len(word) == 1:
                 if word not in oneletter:
                     oneletter.append(word)
-            if len(word) < 7:
+            if len(word) < WordLength:
                 if len(word) in textwords:
                     # Ha már van
                     if temp not in textwords[len(word)]:
@@ -468,9 +483,9 @@ for l in a_info:
     if a_info[l]["frequency"] > maxm:
         maxm = a_info[l]["frequency"]
         key = l 
- 
+
 updateAlphabet(key, 'e')
-      
+
 # Az egy betűs szavaknál, amelyik egy betűs szó betűje benne van a leggyakoribb betűk listájába, az lesz az 'a'    
 if len(oneletter) == 0:
     raise Exception("WARNING: Nincs egy betűs szó")
@@ -488,27 +503,21 @@ elif len(oneletter) == 2:
 elif len(oneletter) > 2:
     raise Exception("WARNING: Több egy betűs szó van")
 
-deselect(textwords[1])
-print(missingletters)
-deselect(textwords[2])
-print(missingletters)
-deselect(textwords[3])
-print(missingletters)
-deselect(textwords[4])
-print(missingletters)   
-deselect(textwords[5])
-print(missingletters)   
-deselect(textwords[6])
-print(missingletters) 
+
+for i in range(1,WordLength):
+    deselect(textwords[i])
+    print(missingletters)
+
         
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
 
 
-for i in range(1,4):
+for i in range(1,WordLength):
     for l in textwords[i]:
         l.p()
      
+
 
 
 print_options()
@@ -518,6 +527,22 @@ print()
 print_alphabetic()
 print()
 
+
+
+
+outputstr = str("")
+inputfile = open('D:\\GitHub\\SZTAKI\\example3.txt','r')
+
+for line in inputfile:
+    for l in line:
+        if l in alphabet:
+            outputstr = outputstr + alphabet[l]
+        else:
+            outputstr = outputstr + l
+       
+     
+print(outputstr)
+        
 # while len(text) > 0:
 #     temp = text[0]
 #     max = text[0].frequency

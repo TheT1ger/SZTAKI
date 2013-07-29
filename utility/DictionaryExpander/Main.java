@@ -10,13 +10,14 @@ import java.util.List;
 
 
 public class Main {
-	public static final int MAX_WORD_LENGTH = 4;
+	public static final int MAX_WORD_LENGTH = 7;
 	public static final int MIN_WORD_LENGTH = 2;
 	public static void main(String[] args) {
 		//Input dic
 		String origDicPath = "..\\..\\ExpandedDic.txt";
 		//Input text
 		String text = "..\\..\\utility\\statistic\\english\\results - Copy\\dorian gray.txt";
+		//String text = "..\\..\\red hat.txt";
 		
 		//Output dic
 		String newDicPath = "..\\..\\ExpandedDic2.txt";
