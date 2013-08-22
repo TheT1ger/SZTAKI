@@ -303,6 +303,8 @@ def getFrequentLetters():
 # Adott kód-betű options listájából, eltávolítja azt, ami a wlist (szólista) szavainak adott index-ű betűi között nem szerepel
 def removeLetters(letter,wlist,index):
     isRemoved=False
+    if letter not in a_info:
+        return isRemoved
     if len(a_info[letter]["options"]) > 1 and len(wlist) > 0:
         possibleLetters = list()
         for word in wlist:
@@ -400,7 +402,8 @@ def updateAlphabet(coded,real):
 # Szótár 
 dbfile = open('D:\\GitHub\\SZTAKI\\ExpandedDic2.txt','r')
 # Dekódolandó szöveg
-inputfile = open('D:\\GitHub\\SZTAKI\\example3.txt','r')
+inp='D:\\GitHub\\SZTAKI\\example5.txt'
+inputfile = open(inp,'r')
 
 # Szótár 
 db = {}
@@ -531,7 +534,7 @@ print()
 
 
 outputstr = str("")
-inputfile = open('D:\\GitHub\\SZTAKI\\example3.txt','r')
+inputfile = open(inp,'r')
 
 for line in inputfile:
     for l in line:
