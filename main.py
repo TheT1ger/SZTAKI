@@ -60,7 +60,7 @@ class Entry:
                 if ip[i]!='?':
                     return False
                 # Ha az input adott pozicioju betüje már ismert, akkor a kódszó mintájában bent kell legyen, nem kérdőjel
-                if word[i] in alphabet.values():
+                if word[i] in alphabet.values() and word[i].upper() in alphabet.values():
                     return False
             # Ha a kódszó mintájában szám van
             elif self.pattern[i].isdigit():
@@ -68,7 +68,7 @@ class Entry:
                 if self.pattern[i] != ip[i]:
                     return False
                 # Ha az input adott poizicioju betüje már ismert, akkor a kódszó mintájában bent kell legyen, nem kérdőjel
-                if word[i] in alphabet.values():
+                if word[i] in alphabet.values() and word[i].upper() in alphabet.values():
                     return False
             # Ha a kódszóban már beírt betű van
             else:
@@ -96,6 +96,7 @@ class Entry:
                 word = self.options[i]
                 if not self.match(word):
                     self.options.remove(word)
+
                 i=i-1
                 
 # Class vége ##################################################
@@ -188,38 +189,90 @@ def fill_alphabet():
     alphabet.update({"x":"?"})
     alphabet.update({"y":"?"})
     alphabet.update({"z":"?"})
+    alphabet.update({"A":"?"})
+    alphabet.update({"B":"?"})
+    alphabet.update({"C":"?"})
+    alphabet.update({"D":"?"})
+    alphabet.update({"E":"?"})
+    alphabet.update({"F":"?"})
+    alphabet.update({"G":"?"})
+    alphabet.update({"H":"?"})
+    alphabet.update({"I":"?"})
+    alphabet.update({"J":"?"})
+    alphabet.update({"K":"?"})
+    alphabet.update({"L":"?"})
+    alphabet.update({"M":"?"})
+    alphabet.update({"N":"?"})
+    alphabet.update({"O":"?"})
+    alphabet.update({"P":"?"})
+    alphabet.update({"Q":"?"})
+    alphabet.update({"R":"?"})
+    alphabet.update({"S":"?"})
+    alphabet.update({"T":"?"})
+    alphabet.update({"U":"?"})
+    alphabet.update({"V":"?"})
+    alphabet.update({"W":"?"})
+    alphabet.update({"X":"?"})
+    alphabet.update({"Y":"?"})
+    alphabet.update({"Z":"?"})
 
 
-abc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+abc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
 # Feltölt egy hashmap-et a szótárnak (betű gyakorisággal, és lehetséges betűkkel)
 def fill_alphabetic_info():
-    a_info.update({"a":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"b":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"c":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"d":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"e":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"f":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"g":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"h":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"i":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"j":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"k":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"l":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"m":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"n":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"o":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"p":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"q":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"r":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"s":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"t":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"u":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"v":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"w":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"x":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"y":{"frequency":0,"options":abc.copy()}})
-    a_info.update({"z":{"frequency":0,"options":abc.copy()}})
+    a_info.update({"a":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"b":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"c":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"d":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"e":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"f":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"g":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"h":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"i":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"j":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"k":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"l":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"m":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"n":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"o":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"p":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"q":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"r":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"s":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"t":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"u":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"v":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"w":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"x":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"y":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"z":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"A":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"B":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"C":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"D":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"E":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"F":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"G":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"H":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"I":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"J":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"K":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"L":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"M":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"N":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"O":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"P":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Q":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"R":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"S":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"T":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"U":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"V":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"W":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"X":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Y":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Z":{"frequency":0,"options":abc.copy(),"first": False}})
     
 # Kiírja az ABC-t, és hogy melyik betű mit kódol (KÓDOLT: JELÖLT)
 def print_alphabetic():
@@ -255,33 +308,33 @@ def change():
 # Egy input szólistára(a listán bellül azonos hosszú szavak állnak) megnézi, hogy az egybetűs szavak betűje, 
 # ha szerepel benne, akkor törli azokat az entitás options listájából, amiben nem szerepel 'i', 'a'
 # ha nem szerepel benne, akkor törli azokat az entitás options listájából, amiben szerepel 'i','a'        
-def one_letter_filter(source):
-    if len(oneletter) == 1:
-        for e in source:
-            for ind in range(0,len(source[0].coded)):
-                if e.coded[ind] == oneletter[0]:
-                    i = len(e.options)-1
-                    while i>=0:
-                        if e.options[i][ind] != 'i' and e.options[i][ind] != 'a':
-                            e.options.remove(e.options[i]) 
-                        i = i-1
-    elif len(oneletter) == 2:
-        for e in source:
-            for ind in range(0,len(source[0].coded)):
-                if e.coded[ind] == oneletter[0] or e.coded[ind] == oneletter[1]:
-                    i = len(e.options)-1
-                    while i>=0:
-                        if e.options[i][ind] != 'i' and e.options[i][ind] != 'a':
-                            e.options.remove(e.options[i]) 
-                        i = i-1
-                else: 
-                    i = len(e.options)-1
-                    while i>=0:
-                        if e.options[i][ind] == 'i' or e.options[i][ind] == 'a':
-                            e.options.remove(e.options[i]) 
-                        i = i-1
-    else:
-        raise Exception("WARNING: Több egy betűs szó")
+# def one_letter_filter(source):
+#     if len(oneletter) == 1:
+#         for e in source:
+#             for ind in range(0,len(source[0].coded)):
+#                 if e.coded[ind] == oneletter[0]:
+#                     i = len(e.options)-1
+#                     while i>=0:
+#                         if e.options[i][ind] != 'i' and e.options[i][ind] != 'a':
+#                             e.options.remove(e.options[i]) 
+#                         i = i-1
+#     elif len(oneletter) == 2:
+#         for e in source:
+#             for ind in range(0,len(source[0].coded)):
+#                 if e.coded[ind] == oneletter[0] or e.coded[ind] == oneletter[1]:
+#                     i = len(e.options)-1
+#                     while i>=0:
+#                         if e.options[i][ind] != 'i' and e.options[i][ind] != 'a':
+#                             e.options.remove(e.options[i]) 
+#                         i = i-1
+#                 else: 
+#                     i = len(e.options)-1
+#                     while i>=0:
+#                         if e.options[i][ind] == 'i' or e.options[i][ind] == 'a':
+#                             e.options.remove(e.options[i]) 
+#                         i = i-1
+#     else:
+#         raise Exception("WARNING: Több egy betűs szó")
 
 # Egy listába teszi a három leggyakoribb betűt    
 def getFrequentLetters():
@@ -310,7 +363,9 @@ def removeLetters(letter,wlist,index):
         for word in wlist:
             if word[index] not in possibleLetters:
                 possibleLetters.append(word[index])
+                possibleLetters.append(word[index].upper())
         i=len(a_info[letter]["options"])-1
+
         while i>=0:# and len(a_info[letter]["options"]) >1:
             if a_info[letter]["options"][i] not in possibleLetters:
                 a_info[letter]["options"].remove(a_info[letter]["options"][i])
@@ -318,6 +373,13 @@ def removeLetters(letter,wlist,index):
             i=i-1
         if len(a_info[letter]["options"]) == 1:
             updateAlphabet(letter, a_info[letter]["options"][0])
+        elif len(a_info[letter]["options"]) == 2:
+            if a_info[letter]["options"][0].upper() == a_info[letter]["options"][1] or a_info[letter]["options"][0].lower() == a_info[letter]["options"][1]:
+                if a_info[letter]["first"]:
+                    updateAlphabet(letter, a_info[letter]["options"][0].upper())
+                else:
+                    updateAlphabet(letter, a_info[letter]["options"][0].lower())
+                    
     return isRemoved
   
 # Egy entitás kódszaván végigmegy, és minden betű options listáját szűkíti, annak megfelelően, hogy az entitás options listája alapján, mi szerepelhet ott.
@@ -329,15 +391,21 @@ def reduceLetterOptions(entity):
 # Egy entitás options listájából eltávolitja azt, aminek adott pozicioban lévő betűje, nem szerepel a kódszó adott pozicioju betűjének options listájában
 def reduceOptions(entity):
     isRemoved = False
+    if entity.coded == 'mwKU':
+        print(entity.options)
+        print(entity.pattern)
     if len(entity.options) >1:
         i = len(entity.options)-1
+
         while i>=0:
             for j in range(0,entity.length):
-                if entity.options[i][j] not in a_info[entity.coded[j]]["options"]:
+                if entity.options[i][j] not in a_info[entity.coded[j]]["options"] and entity.options[i][j].upper() not in a_info[entity.coded[j]]["options"]:
                     entity.options.remove(entity.options[i])
                     isRemoved = True
                     break
             i=i-1
+        if entity.coded == 'mwKU':
+            print(entity.options)
     return isRemoved
  
 def deselect(ilist):
@@ -383,7 +451,7 @@ def updateAlphabet(coded,real):
         for e in textwords[i]:
             for i in range(0,len(e.coded)):
                 if e.coded[i] == coded:
-                    e.pattern[i] = real
+                    e.pattern[i] = real.lower()
                     
     a_info[coded]["options"].clear()
     a_info[coded]["options"].append(real)    
@@ -393,7 +461,7 @@ def updateAlphabet(coded,real):
                 a_info[letter]["options"].remove(real)
                 if len(a_info[letter]["options"]) == 1:
                     updateAlphabet(letter, a_info[letter]["options"][0])
-    change()
+#     change()
        
        
 ##############################################################################################
@@ -402,7 +470,7 @@ def updateAlphabet(coded,real):
 # Szótár 
 dbfile = open('D:\\GitHub\\SZTAKI\\ExpandedDic2.txt','r')
 # Dekódolandó szöveg
-inp='D:\\GitHub\\SZTAKI\\example5.txt'
+inp='D:\\GitHub\\SZTAKI\\example7.txt'
 inputfile = open(inp,'r')
 
 # Szótár 
@@ -433,15 +501,26 @@ most_frequent_letters = list()
 # # negy hosszú szavak listája(entity/osztály!)
 # four = list()
 textwords = {}
-
+    
 # Szöveg beolvasása, speciális karakterek törlése
 for line in inputfile:
-    line = line.lower()
+#     line = line.lower()
     line = re.sub("\s\w[.]","",line)
     line = re.sub("\d+\w+","",line)
     words = line.split(" ")
+    lastword = False
     for word in words:
-        word = word.strip(',"!?-[]{}();:\'.\n0123456789')
+        if lastword:
+            lastword = False
+            if word[0].isalpha():
+                a_info[word[0]]["first"] = True
+            
+        if re.match(".*\.\s", word) :
+            lastword = True
+            
+        word = re.sub("\W","",word)
+        word = re.sub("\d","",word)
+        word = re.sub("[ôéáíöüőóúű]","",word)
         if len(word) > 0:
             find = False
             # Végig nézi az eddig beolvasott szavakat
@@ -472,12 +551,12 @@ for line in inputfile:
                     
             # Betűgyakoriság 
             for l in word:
-                if l.isalpha():
+                if l in a_info.keys():
                     a_info[l]["frequency"] = a_info[l]["frequency"] +1
 
 getFrequentLetters()  
 
-print(most_frequent_letters)   
+print(most_frequent_letters)
 
 # Megkeresi, hogy melyik kódolt betű szerepel a leggyakrabban, az lesz az 'e'
 key = list(a_info.keys())[0]
@@ -490,21 +569,23 @@ for l in a_info:
 updateAlphabet(key, 'e')
 
 # Az egy betűs szavaknál, amelyik egy betűs szó betűje benne van a leggyakoribb betűk listájába, az lesz az 'a'    
-if len(oneletter) == 0:
-    raise Exception("WARNING: Nincs egy betűs szó")
-elif len(oneletter) == 1:
-    updateAlphabet(oneletter[0], 'a')
-elif len(oneletter) == 2:
-    if oneletter[0] in most_frequent_letters and oneletter[1] not in most_frequent_letters:
-        updateAlphabet(oneletter[0], 'a')
-        
-    elif oneletter[1] in most_frequent_letters and oneletter[0] not in most_frequent_letters:
-        updateAlphabet(oneletter[0], 'a')
-    else:
-        raise Exception("WARNING: Mindkét betű gyakorisága Top3, vagy egyiké sem")
-    
-elif len(oneletter) > 2:
-    raise Exception("WARNING: Több egy betűs szó van")
+# if len(oneletter) == 0:
+#     raise Exception("WARNING: Nincs egy betűs szó")
+# elif len(oneletter) == 1:
+#     updateAlphabet(oneletter[0], 'a')
+# elif len(oneletter) == 2:
+#     if oneletter[0] in most_frequent_letters and oneletter[1] not in most_frequent_letters:
+#         updateAlphabet(oneletter[0], 'a')
+#         
+#     elif oneletter[1] in most_frequent_letters and oneletter[0] not in most_frequent_letters:
+#         updateAlphabet(oneletter[1], 'a')
+#     else:
+#         print(oneletter)
+#         raise Exception("WARNING: Mindkét betű gyakorisága Top3, vagy egyiké sem")
+#     
+# elif len(oneletter) > 3:
+#     print(oneletter)
+#     raise Exception("WARNING: Több egy betűs szó van")
 
 
 for i in range(1,WordLength):
@@ -529,9 +610,7 @@ print_frequency()
 print()
 print_alphabetic()
 print()
-
-
-
+print(alphabet["i"])
 
 outputstr = str("")
 inputfile = open(inp,'r')
