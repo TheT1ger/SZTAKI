@@ -1,18 +1,192 @@
-History (from Greek ??????? - historia, meaning "inquiry, knowledge acquired by investigation"[2]) is an umbrella term that relates to past events as well as the discovery, collection, organization, and presentation of information about these events. The term includes cosmic, geologic, and organic history, but is often generically implied to mean human history. Scholars who write about history are called historians.
-History can also refer to the academic discipline which uses a narrative to examine and analyse a sequence of past events, and objectively determine the patterns of cause and effect that determine them.[3][4]
-Historians sometimes debate the nature of history and its usefulness by discussing the study of the discipline as an end in itself and as a way of providing "perspective" on the problems of the present.[3][5][6][7]
-Stories common to a particular culture, but not supported by external sources (such as the tales surrounding King Arthur) are usually classified as cultural heritage or legends, because they do not support the "disinterested investigation" required of the discipline of history.[8][9] Events occurring prior to written record are considered prehistory.
-Herodotus, a 5th-century B.C. Greek historian is considered within the Western tradition to be the "father of history", and, along with his contemporary Thucydides, helped form the foundations for the modern study of human history. Their work continues to be read today and the divide between the culture-focused Herodotus and the military-focused Thucydides remains a point of contention or approach in modern historical writing. In the Eastern tradition, a state chronicle the Spring and Autumn Annals was known to be compiled from as early as 722 BCE although only 2nd century BCE texts survived.
-Ancient influences have helped spawn variant interpretations of the nature of history which have evolved over the centuries and continue to change today. The modern study of history is wide-ranging, and includes the study of specific regions and the study of certain topical or thematical elements of historical investigation. Often history is taught as part of primary and secondary education, and the academic study of history is a major discipline in University studies.
-A derivation from *weid- "know" or "see" is attested as "the reconstructed etymon wid-tor ["one who knows"] (compare to English wit) a suffixed zero-grade form of the PIE root *weid- 'see' and so is related to Greek eid�nai, to know".[2][10]
-Ancient Greek ???????[11] (h�stor) means "inquiry","knowledge from inquiry", or "judge". It was in that sense that Aristotle used the word in his ???? ?? ??? ????????[12] (Peri Ta Z�a ?istor�ai "Inquiries about Animals"). The ancestor word ????? is attested early on in Homeric Hymns, Heraclitus, the Athenian ephebes' oath, and in Boiotic inscriptions (in a legal sense, either "judge" or "witness", or similar).
-The word entered the English language in 1390 with the meaning of "relation of incidents, story". In Middle English, the meaning was "story" in general. The restriction to the meaning "record of past events" arose in the late 15th century. It was still in the Greek sense that Francis Bacon used the term in the late 16th century, when he wrote about "Natural History". For him, historia was "the knowledge of objects determined by space and time", that sort of knowledge provided by memory (while science was provided by reason, and poetry was provided by fantasy).
-In an expression of the linguistic synthetic vs. analytic/isolating dichotomy, English like Chinese (? vs. ?) now designates separate words for human history and storytelling in general. In modern German, French, and most Germanic and Romance languages, which are solidly synthetic and highly inflected, the same word is still used to mean both "history" and "story".
-The adjective historical is attested from 1661, and historic from 1669.[13]
-Historian in the sense of a "researcher of history" is attested from 1531. In all European languages, the substantive "history" is still used to mean both "what happened with men", and "the scholarly study of the happened", the latter sense sometimes distinguished with a capital letter, "History", or the word historiography.[12]
-Historians write in the context of their own time, and with due regard to the current dominant ideas of how to interpret the past, and sometimes write to provide lessons for their own society. In the words of Benedetto Croce, "All history is contemporary history". History is facilitated by the formation of a 'true discourse of past' through the production of narrative and analysis of past events relating to the human race.[13] The modern discipline of history is dedicated to the institutional production of this discourse.
-All events that are remembered and preserved in some authentic form constitute the historical record.[14] The task of historical discourse is to identify the sources which can most usefully contribute to the production of accurate accounts of past. Therefore, the constitution of the historian's archive is a result of circumscribing a more general archive by invalidating the usage of certain texts and documents (by falsifying their claims to represent the 'true past').
-The study of history has sometimes been classified as part of the humanities and at other times as part of the social sciences.[15] It can also be seen as a bridge between those two broad areas, incorporating methodologies from both. Some individual historians strongly support one or the other classification.[16] In the 20th century, French historian Fernand Braudel revolutionized the study of history, by using such outside disciplines as economics, anthropology, and geography in the study of global history.
-Traditionally, historians have recorded events of the past, either in writing or by passing on an oral tradition, and have attempted to answer historical questions through the study of written documents and oral accounts. For the beginning, historians have also used such sources as monuments, inscriptions, and pictures. In general, the sources of historical knowledge can be separated into three categories: what is written, what is said, and what is physically preserved, and historians often consult all three.[17] But writing is the marker that separates history from what comes before.
-Archaeology is a discipline that is especially helpful in dealing with buried sites and objects, which, once unearthed, contribute to the study of history. But archaeology rarely stands alone. It uses narrative sources to complement its discoveries. However, archaeology is constituted by a range of methodologies and approaches which are independent from history; that is to say, archaeology does not "fill the gaps" within textual sources. Indeed, Historical Archaeology is a specific branch of archaeology, often contrasting its conclusions against those of contemporary textual sources. For example, Mark Leone, the excavator and interpreter of historical Annapolis, Maryland, USA has sought to understand the contradiction between textual documents and the material record, demonstrating the possession of slaves and the inequalities of wealth apparent via the study of the total historical environment, despite the ideology of "liberty" inherent in written documents at this time.
-There are varieties of ways in which history can be organized, including chronologically, culturally, territorially, and thematically. These divisions are not mutually exclusive, and significant overlaps are often present, as in "The International Women's Movement in an Age of Transition, 1830�1975." It is possible for historians to concern themselves with both the very specific and the very general, although the modern trend has been toward specialization. The area called Big History resists this specialization, and searches for universal patterns or trends. History has often been studied with some practical or theoretical aim, but also may be studied out of simple intellectual curiosity.[18]
+﻿A film napjaink egyik legnépszerűbb információs, ismeretterjesztő, szórakoztatási és művészeti célú médiuma. Ma már nem is rövid története első pillanatától kezdve a látható világ megörökítésére, dokumentatív szándékkal is használták. Az audiovizuális mozgókép (már régen idetartozik a televíziózás, a videó is) mennyiségét tekintve ma is elsősorban ezt teszi: információkat gyűjt, rögzít és közöl.
+
+Ha filmről beszélünk, hagyományosan elsősorban mégis a filmművészetről beszélünk.
+
+A filmművészet a hetedik művészeti ág. Az alkotó művészetek között az első, amelyik a teret és az időt egyszerre: közvetlenül használja föl, időben és térben egyszerre működik.
+A film története[szerkesztés]
+
+Searchtool right.svg 	Bővebben: A film története
+
+
+Az első vetítés programja
+A mozi (filmszínház) születésének azt a pillanatot tekintjük, amikor a kinematográf feltalálói először tartottak vetítést fizető közönségnek.
+
+Lumière-fivérek[szerkesztés]
+
+
+Auguste és Louis Lumière
+
+
+Népszerüsítő plakát
+1895 februárjában szabadalmaztatták a kinematográfot, a Lumière fivérek találmányát. 1895. december 28-án Louis Jean Lumière és fivére, Auguste saját filmjeikből álló előadásukat a párizsi Grand Caféban tartották.
+
+Pathé-fivérek[szerkesztés]
+A Pathé Cinema céget Charles és Émile Pathé saját filmek gyártására alapította. A Pathé Fréres pedig a kinematográfok építésével foglalkozott. A két vállalkozás vezető pozíciót vívott ki egész Európában.
+
+Gaumont[szerkesztés]
+A Pathé egyetlen komoly vetélytársa a Société Gaumont volt, amely 1910 után felül is kerekedett a versengésben.
+
+Megszólal a film[szerkesztés]
+A fonográf megjelenése után Muybridge javasolta Edisonnak, hogy a két találmányt kombinálják. 1904-ben Oscar Mester, német producer saját fejlesztésű berendezésével, a biofonnal kápráztatta el a St. Louis-i világkiállítás látogatóit az új hangosítási kísérletével.
+
+Hangzótól a digitális hangzásig[szerkesztés]
+1922-ben három német mérnök – Hans Vogt, Joseph Massolle és Benedict Engel – levetítette első hangosfilmjét Berlinben. Az általuk feltalált új eljárást használták.
+
+A Warner Brothers A dzsesszénekes című 1927-es munkájával vette kezdetét a hangosfilm korszaka.
+
+A hangosfilm leglátványosabb áldozata maga a filmművészet volt, ugyanis a korai hangfelvételek rejtett mikrofonokkal készültek. A színészeknek a mikrofon irányába kellett beszélniük, a színészi mimikát ezzel korlátozva.
+
+1930-ban bemutatták Budapesten a Kék Bálványt, az első magyarországi hangosfilmet. Ezt követi a Hyppolit, a lakáj. Az 1930-as években elterjedt a Movietone eljárás. A keverésnek köszönhetően hamarosan a film összes hangja egyetlen hangsávba került. 1940-ben Walt Disney Fantázia című rajzfilmjében használták először a sztereó hangot.
+
+A hetvenes években fejlesztette a ki a Dolby laboratórium zajszűrő rendszerét. Majd a 80-as években megjelent a digitális hangrögzítés.
+
+Színes film[szerkesztés]
+1907-ben a Lumière fivérek bemutatták az autokróm eljárást. 1909-ben a londoni Palace varietében levetítették az első színes hatású filmet. 1917-ben a tényleges színes film bemutatkozására az Amerikai Egyesült Államokban a technicolor eljárás adott lehetőséget. 1936-ban a szubtraktív színkeverés fejlettebb eljárást alkalmazták, ami az Agfacolor néven vált ismerté a színes filmek körében. A német gyártót az Eastman Kodak követte Kodakchrome néven.
+
+A fájlhoz képjegyzet tartozik
+ 
+Walt Disney (balra)
+A Technicolor vállalat 1930-ra dolgozta ki a három alapszín, illetve a keverésükkel létrehozott többi színnel készíthető filmek gyártási lehetőségét. Walt Disney fejlesztette ki az eljárást. A Hiúság vására című film 1935-ben készült, de a színes film valódi premierjére 1937-ben került sor Disney Hófehérke és a hét törpe című klasszikusának bemutatójával.
+
+A számítógépes film[szerkesztés]
+A '80-as–'90-es évekre a számítógépek fejlődésével egyre inkább elterjedt a CGI (Computer-Generated Imagery – számítógépes ábrázolás). Ez egyre meggyőzőbbé, könnyebbé és olcsóbbá vált, így fokozatosan kiszorította a maketten alapuló ábrázolást. 2002-ben A Gyűrűk Ura második fejezetében sok ezernyi mellékszereplő nélkül hoztak létre élethű méretű hadsereget több hónapnyi számítógépen végzett képszerkesztés segítségével. Az igazi áttörés egy évvel korábban az animációs filmek terén következett be, a Final fantasy – A harc szelleme című egész estés filmmel, amely teljes egészében számítógéppel készült, és az ábrázolás csaknem fényképhű. Lásd még: motion graphics.
+
+Amerikai filmstúdiók[szerkesztés]
+Searchtool right.svg 	Bővebben: Hollywoodi filmgyártás
+A világ első műtermét Thomas Alva Edison építette 1893-ban. Beceneve Black Maria volt, mert külseje a korabeli rabszállítókra emlékeztett.[1] Az 1920-as évek végére az amerikai filmipar stúdiók rendszerébe szerveződött. A „Big Five” (a nagy ötös) – a Paramount, a MGM, a Fox Film, a Warner Brothers és az RKO – mind saját stúdióval és mozilánccal rendelkeztek. A másik három kisebb cégnek – Universal, Columbia, United Artists – nem voltak filmszínházai.
+
+Az ötösfogat a filmek bevételeinek jelentős hányadára tett szert. Az új filmeket először csak saját mozijaikban vetítették és a vetítési jogokat csak később adták át a kisebb, független filmszínházaknak. A filmekbe fektetett tőke maximális megtérülését a nemzetközi forgalmazás jelentette. A többi ország saját nemzeti piacának egy részét kénytelen volt átengedni az amerikai filmiparnak.
+
+A klasszikus hollywoodi játékfilm és filmkészítés világszerte követendő példává vált. A nagy gazdasági világválság hatására, 1930 és 1934 között csaknem 25%-kal csökkentek a mozik jegybevételei. Bevételpótlásként a mozitulajdonosok ajándéktárgyakat osztogattak a jegyvásárlóknak és büféket nyitottak. A stúdiók létszámleépítést hajtottak végre, a megtartott alkalmazottaknak pedig csökkentették bérét. Ebben a kritikussá vált helyzetben kezdtek egységes szervezetbe tömörülni az alkalmazottak, és létrejöttek a filmipar legbefolyásosabb szakszervezetei, amelyek máig jelentős hatalommal rendelkeznek.
+
+A II. világháború utáni első években a nézők rekordszámra látogatták a mozikat, ami egy rövid időre újra fellendítette a filmipart. A társadalmi és gazdasági változások hatására a stúdiórendszer is hanyatlásnak indult. A televízió elterjedése és az amerikai lakosság tömeges külvárosokba költözése következtében, a belvárosi mozik látogatottsága mélyrepülésbe kezdett. A nagy stúdiók filmvetítési jogait 1948-ban az USA Legfelsőbb Bíróságnak a trösztök felszámolásáról szóló ítélete pecsételte meg. A „Paramount-ítélet” kötelezte az ötösfogat tagjait filmszínházaik értékesítésére.
+
+A televízió új lehetőségeket nyitott a stúdiók számára. Bár a hagyományos stúdiórendszer felbomlott, a nagyobb hollywoodi cégek mégis életben maradtak. Filmmegjelenési lehetőségeiket az újonnan felépített bevásárlóközpontokban kialakított mozikban aknázták ki. Káprázatos filmeket mutattak be, amiket a mozikból való kifutásuk után átadtak a televízióknak.
+
+Független alkotóként kezdték kezelni a sztárokat, a rendezőket és a producereket. Az átalakulás egyetlen áldozata, az amúgy is betegeskedő RKO Pictures volt. A többi cég a mai napig fennáll.
+
+20th Century Fox – A cég William Fox (született Fried Vilmos, édesanyja után azonban Fuchs Vilmos.) filmszínházbirodalmából, a Fox Film Corporation-ből (alapítva: 1914) és a Twentieth Century Pictures-ből fejlődött ki. A két cég 1933-ban olvadt egybe.
+Columbia Pictures – Az 1919-ben alapított vállalat működésének első három évtizedében a cég elnöke Harry Cohn volt. Neki köszönhetően még a gazdasági világválság idején is nyereségesen működött a Columbia.
+DreamWorks SKG – A céget 1994-ben alapította Steven Spielberg, David Geffen és Jeffrey Katzenberg. Az SKG rövidítés hármójuk nevének kezdőbetűiből származik.
+Miramax – A céget Harvey és Bob Weinsten alapította 1980-ban. A 90-es évek elején vált sikeres filmforgalmazóvá.
+Metro-Goldwyn-Mayer (MGM) – az MGM a harmincas években Hollywood leghíresebb stúdiója volt.
+New Line Cinema – A Robert Shyne által létrehozott New Line 1967-ben kezdett el tevékenykedni underground filmek független forgalmazójaként
+Orion Pictures – Az Orion Pictures vállalat a Kaszás csillagkép latin nevéről kölcsönözte a nevét, maga a logója is a csillagkép. 1978-ban alapította öt, United Artists-ból kivált vezető.
+Paramount Pictures – A magyar származású Adolf Zukor alapította a Famous Players Film Company átszervezésével.
+Tri-Star Pictures – A CBS Televízió, a Home Box Office (HBO) és a Columbia Pictures hozta létre 1982-ben. Ma a Tri-Star a Sony Pictures Entertainment holding önálló részeként működik Kaliforniában. Korai sikerei között található Alan Parker Madárka, a Nicsak ki beszél és Paul Verhoeven Az emlékmás című mozija, a Hook, A szerelem hullámhosszán és a Függő játszma.
+United Artists – Mary Pickford (1892–1979), Douglas Fairbanks (1883–1939), Charles Chaplin és D. W. Griffith (1875–1948) alapította 1919-ben, hogy független gyártású filmjeiket forgalmazhassák.
+Universal Pictures – Carl Laemmle alapította 1912-ben. Los Angeles környékén nyitotta meg a Universal City stúdiótelepét, a világ legnagyobb filmgyártó vállalkozását
+Warner Brothers – 1903-ban kezdték meg működésüket, de csak 1925-ben kezdődött a Warners Stúdió szárnyalása, mikor a cég hajlandó volt kockáztatni a hangosfilm technológiájával.
+RKO Pictures – A Radio–Keith–Orfeum a többi stúdióhoz képest későn, 1928-ban jelent meg, mikor a stúdiók a hangosfilm átállás lázában égtek.
+Idő szerinti osztályozás[szerkesztés]
+Searchtool right.svg 	Bővebben: Kategória:Évek a filmművészetben
+1890-es évek[szerkesztés]
+1895-ben Filoteo Albertini olasz feltaláló szabadalmaztatta kinetografónak nevezett, mozgóképet bemutató készülékét, majd Párizsban a Lumière fivérek megtartották első nyilvános vetítésüket. Egy évvel később a Thomas Alva Edison által alapított társaság New Yorkban megrendezte az első nyilvános filmvetítés az Egyesült Államokban, valamint Budapesten megtartották az első mozielőadást a körúti Royal Szállóban, melyet egy éven át naponta többször is megismételtek.
+
+1900-as évek[szerkesztés]
+1902-ben Georges Méliès bemutatta az Utazás a Holdba című trükkfilmjét, amely a sci-fi elődje is volt. 1903-ban Edwin S. Porter elkészítette A nagy vonatrablás című filmjét, mely megteremtette a western műfaját. Ekkor alkalmazzák először a „fártot”, a sínen mozgó felvevőgépet.
+
+
+
+A nagy vonatrablás
+1904-ben szabadalmaztatták a hangzófilmet. Két évvel később megnyitották Budapesten az első igazi mozgóképszínházat, a Projectograph-ot. Robbanásszerűen megnőtt a produkciók száma. Stúdiókat, műtermeket rendeztek be, hogy függetlenítsék magukat az időjárási és egyéb változásoktól. 1906-ban a világ első, egész estét betöltő filmjének a melbourne-i városházán ünnepelték a bemutatóját. A Tait testvérek filmje, a Kelly bandájának története az ausztráliai mindennapokat elevenítette meg. Rá egy évre az Egyesült Államokban az igazságszolgáltatás kiterjesztette a szerzői jog elvét a filmre is.
+
+1910-es évek[szerkesztés]
+
+
+Egy nemzet születése, (1915)
+1911-ben Hollywoodban megnyílt az első filmstúdió. A következő évben erőteljesen gyarapodik a számuk, ami felkeltette a filmgyártók érdeklődését. Ennek talán az oka az volt, hogy a szenzációhajhász históriák jól megalapozott piacába nem volt nehéz bekerülni. Az izgalom, a feszültség tetőfokán végződő részek így biztosítani tudták a moziba járó tömegek visszatérését. 1913-ban Charlie Chaplin, artista kialakította a kacsázva járó, bánatos toprongy figuráját. Két évre rá az Egyesült Államokban a Fox vállalat kerül az élre. 1917-ben megszületett az első színes film, a The Gulf Between. 1919-ben Magyarországon államosították a filmipart.
+
+1920-as évek[szerkesztés]
+
+
+D.W.Griffith
+1920-ban Lugosi Béla Hollywoodba került. Neve még ma is fogalom. Ő játszotta legmeggyőzőbben a vérszívó erdélyi vámpírt, Drakulát. 1921-ben D. W. Griffith megalkotta első hangosfilmkísérletét, Az álmok utcáját. A némafilm egyes részeihez hangot adott. 1924-ben Walt Disney filmtrükkproducer először mutatott be rajzfilmet. Két évvel később az egyszerű, olcsó „kismozikat” óriási filmpaloták váltották fel. A némafilmkorszak végére a film, a „hetedik művészet” is kivívta az őt megillető helyet. 1927-ben hódítani kezdett a hangosfilm a A dzsesszénekessel. A hangosfilmek zenéjének története 2 szakaszra osztható: 1925–1960-ig, illetve 1960-tól napjainkig. A filmtörténet kezdetén nem a szavaknak, hanem a zenének jutott szerep, és eleinte úgy tűnt, a hangosfilm alig különbözik majd a némafilmtől. Ekkor indult el a musical. 1927-ben létrehozták Hollywood első önkorlátozó szabálygyűjteményét.
+
+1930-as évek[szerkesztés]
+1932-ben Velencében megrendezték az első Velencei Nemzetközi Filmfesztivált, kiosztották a fesztivál fődíját, az Arany Oroszlán-díjat. 1936-ban George Cukor magyar származású filmrendező és producer elkészítette a Rómeó és Júlia című filmjét, melyet később Franco Zeffirelli is filmre vitt 1967-ben. 1939-ben Az Oscar-díjas Elfújta a szél került bemutatásra.
+
+1940-es évek[szerkesztés]
+1946-ban a cannes-i lett a legfontosabb európai filmfesztivál, amelynek a fődíja az Arany Pálma.
+
+1960-as évek[szerkesztés]
+1963-ban az USA-ban a fekete polgárjogi szervezet panaszt emelt a hollywoodban tapasztalható faji megkülönböztetés ellen. A leghosszabb nap című filmben ugyanis, amely egy fontos háborús esemény hiteles bemutatásának tekinthető, az együtt harcoló 1500 katona között egy fekete bőrű katona sem található. A tiltakozás eredményeként augusztus 20-án a NAACP megegyezett a nagy filmstúdiókkal a fekete szereplők kötelező arányáról. 1963-ban a Kopár élet című film Rio de Janeiró-i bemutatásával a brazil cinéma novo (új film) mutatkozott be.
+
+1970-es évek[szerkesztés]
+1970-re az amerikai mozik válságba kerültek, a stúdiók 5 hónap alatt 700 alkalmazottat bocsátottak el. 1976-ban Párizsban először osztották ki a César-díjat. Egy évvel később az Egyesült Államokban bemutatták George Lucas filmjét a Csillagok háborúját, amelynek a amerikai bevételi rekordját jóval később csak a Titanic tudta csak megdönteni; az inflációt is figyelembe véve még ma is abszolút első. Mindemellett a Csillagok háborúja volt az első film, amit Dolby Stereo hanggal mutattak be.
+
+1980-as évek[szerkesztés]
+1986-ban az amerikai Canon cég megszerezte Anglia legnagyobb moziláncát. Ezzel az angol mozik 40%-a a Canon kezébe került. Az ú.n. független filmstúdiók és a hollywoodi B-kategóriájú filmek hatalmas hulláma mind az USA-ban, mind a világ egyéb pontjain elárasztja a mozikat és a video-kölcsönzőket, köszönhetően a csökkenő előállítási költségeknek, és olyan országok anyagi és humán "ébredésének", mint Hong Kong (lásd kung-fu filmek), India (Bollywood!). Franciaországban hatalmas összegeket költ az állam az európai (értsd francia) filmek támogatására, megpróbálván ellenállni Hollywood dömpingjének.
+
+1990-es évek[szerkesztés]
+1996-ban a mozi századik évfordulójának ünnepségsorozata keretében első ízben rendezték meg Budapesten a Magyar Filmesek Világtalálkozóját. A kínai kormány betiltja a Disney, a Sony és az MGM amerikai filmgyártó cégek működését Kínában. Az indok: a Kundun, a Hét év Tibetben, és a Vörös sarok című filmek torz képet festenek Kínáról. 1998-ban a Titanic című film nemzetközi bevétele átlépte bűvös egymilliárd dollárt.
+
+Filmgyártás[szerkesztés]
+
+Searchtool right.svg 	Bővebben: Filmgyártás
+A filmgyártás az egész világon más rendszerben működik. Sok hollywoodi film 3D animációt, robottechnikát, CGI-t használ. A filmesek szakszervezetekbe tömörülnek, munkájuk igen jól szervezett, szerződéseikben előre meghatározott tiszteletdíjakat kötnek ki. Európában a filmművészet dominál és nem a filmipar. A fizetések sokszor nagyon alacsonyak, kis stábbal dolgoznak, a forgatási nyersanyaggal takarékosan bánnak.
+
+A filmgyártás lépései 5 szakaszra bonthatók:
+
+Forgatókönyv
+Előkészítés
+Forgatás
+Utómunkálatok
+Forgalmazás
+Filmek csoportosítása[szerkesztés]
+
+Már a filmtörténet kezdetén felmerült az igény arra, hogy a filmeket valamilyen szempont szerint csoportokba sorolják. Először az irodalmat hívták segítségül, és megszületett pl. a filmvers, a filmeposz, a filmdráma stb., azonban hamar rájöttek, hogy ez nem a megfelelő kategorizálási mód, mivel az irodalom anyaga a szöveg, a film viszont a látványon alapszik.
+
+A mai napig nem sikerült olyan osztályozási rendszert kialakítani, amibe minden egyes film tökéletesen beilleszthető lenne. Van azonban néhány jó szempont:
+
+Műfaj szerint
+A rendező szándéka és a nézői elvárás szerint
+A valósághoz való viszony szerint
+Műfaj szerint[szerkesztés]
+A műfajok (zsánerek) alatt a filmek rokonsági csoportjait értjük. Közös bennük, hogy hasonló a történet, a karakterek, a konfliktusok, az ábrázolási módok. A filmeket különböző műfajokba soroljuk a következő paraméterek figyelembevételével:
+
+a film hossza;
+a film dramaturgiája;
+a film témája;
+a film történésének helyszíne;
+a film történésének ideje.[2]
+
+A rendező szándéka és a nézői elvárás szerint[szerkesztés]
+A rendező szándéka és a nézői elvárás szerint kétféle filmtípust lehet megkülönböztetni: közönségfilmet és szerzői filmet.
+
+Searchtool right.svg 	Bővebben: Közönségfilm
+A közönségfilmek (tömegfilm, zsánerfilm, műfaji film) a populáris kultúra részét képezik, a tömegek számára készülnek. A készítők célja a profitszerzés, ebből kifolyólag a nézők szórakoztatására összpontosítanak. Szinte mindig besorolhatók egy-egy filmműfajba. Régi, jól bevált történeteket elevenítenek fel, a jó és a rossz örök harcát mutatják be, ahol szinte mindig a jó győzedelmeskedik, az ábrázolási módokban nem igazán kísérleteznek. (A leggyakoribb műfaji filmes irányzatok: burleszk, western, film-noir, bűnügyi film, melodráma, romantikus film, vígjáték, művészfilm, akciófilm, horrorfilm, thriller, filmdráma, bábfilm, rajzfilm, animációs film stb.) Ebből a kategóriából a legjobban kitörni vágyó irányzat a film-noir, nem véletlenül erre az irányzatra építkeztek leginkább a francia új hullám (a szerzői film) megalapítói.
+
+Searchtool right.svg 	Bővebben: Szerzői film
+A szerzői filmek (rendezői film) a magaskultúra részét képezik. Az uralkodó jegyük nem a műfaj (átalában többműfajúak), hanem a stílus, a rendező személyisége ugyanis átüt a filmen. Jacques Rivette meghatározása a legelfogadotabb, miszerint: "a szerzői film az, amikor a rendező első szám egyes személyben beszél." Témájuk általában a hétköznapi élet; a mindennapi élet egyszerű embereinek láthatatlan drámáit mutatják meg. Gyakran nagyon eseménytelenek és befejezetlenek. A rendezők szívesen alkalmaznak egyéni megoldásokat, így pl. összekeverik az idősíkokat, az ok-okozati viszonyok néha nehezen érzékelhetők. A szerzői filmek célja legtöbbször nem a puszta szórakoztatás (még Chaplin esetében sem), inkább a szellemi továbbgondolás előidézése, az "elgondolkodtatás". Ebből következően a szerzői film sohasem egyműfajú, s ezáltal lesz több az egyszerű, redukált tömegfilmnél. Azonban a szezői filmeken belül is meg kell különböztetni a nézők (és producerek) felé is "kikacsintó" tömegművészfilmeket. Éppen ezért lesz örök harc, hogy a választás ki mellett dőljön el: Godard vagy Truffaut, Keaton vagy Chaplin...
+
+A XX. század végére létrejött egy harmadik meghatározó irányzat is, amely e két filmtípus között helyezkedik el, amely a szélesebb közönség számára gyárt tömegesen szerzői filmeket, amelyeket a filmtípust meghatározóan kifacsart elnevezéssel tömeg-művészfilmeknek nevezzünk. (Az irányzat egyik legjelentékenyebb képviselője Quentin Tarantino.)
+
+A valósághoz való viszony szerint[szerkesztés]
+Searchtool right.svg 	Bővebben: Dokumentumfilm
+A dokumentumfilm gyökerei a filmhíradókban fogantak. Olyan tényeken alapuló film, amely valós eseményekről és emberekről szól. A műfaj megnevezése a francia „documentaire” kifejezésből származik, amelyet eredetileg útifilmekre használtak.
+
+Searchtool right.svg 	Bővebben: Játékfilm
+A játékfilm műfaja az első filmek korában alakult ki, amikor a filmesek ráébredtek, hogy érdemes filmre vinni különféle kitalált történeteket is. A film ekkor lett a szórakoztatóipar egyik alapköve. Az elmúlt 100 év során rengeteg játékfilmes műfaj keletkezett.
+
+Searchtool right.svg 	Bővebben: Animációs film
+Az animációs film rajzok olyan fényképészeti reprodukálása, amihez különböző technikákkal mozgást és hangot illesztenek. Az ötletet a rajz és filmkamera segítségével valósítják meg. A művész megrajzolja a cselekmény színterét és szereplőit mozgás közben. Ahhoz, hogy a mozgás láthatóvá váljon, egy 24 rajzból álló sorozatot kell készíteni úgy, hogy minden következő rajzon a mozdulat másik mozzanata látszódjék. Ezután minden egyes rajzot kamerával rögzítenek, s így lesz a 24 rajzból az ábrázolt mozgás egy másodperce. Míg a játékfilm és a dokumentumfilm készítője a valós térből rögzít élő mozgást, a rajzfilm szerzője a teret és a mozgást is megrajzolja.
+
+Filmes munkakörök[szerkesztés]
+
+Searchtool right.svg 	Bővebben: Filmes munkakörök
+Egy játékfilm megszületéséhez legalább száz ember munkája szükséges, de némely szuperprodukció több ezer filmes munkáját is igényli (Például A Gyűrűk Ura című filmen 3000 ember dolgozott). Magyarországon a stáb szűk alkotói csapatához tartozik a rendező, az operatőr, a forgatókönyvíró, a dramaturg, a jelmez- és díszlettervező és a hangmérnök. A gyártási munkálatok felügyelői pedig a producer, a rendező, a gyártás- és felvételvezető.
+
+Földrajzi osztályozás[szerkesztés]
+
+Európai film[szerkesztés]
+Searchtool right.svg 	Bővebben: Európai film
+Az európai film az amerikai filmmel összehasonlítva sokkal liberálisabb világnézetet mutat, amikor a meztelenséget és a szexualitást ábrázolja, de kevésbé megengedő, amikor az erőszakot mutat be.
+
+Amerikai film[szerkesztés]
+Searchtool right.svg 	Bővebben: Amerikai film
+A 20. század végére mind a nézők, mind a filmkészítők számára világossá vált, hogy a filmgyártás fő vonalát egyértelműen az amerikai film képviseli. Egészen pontosan a hollywoodi filmgyártás; ez a dollármilliós költségvetésű, még több dollármilliókat hozó filmekre specializálódott „gépezet”. A műfajt, sztorit, színészeket, technikai elemeket és – sokszor utolsóként – a rendezőt gondosan választják ki, mindent a gazdasági haszon érdekében. A legnagyobb amerikai filmrendezők közé tartoznak Charlie Chaplin, Orson Welles, a magyar származású George Cukor és Kertész Mihály, Alfred Hitchcock és Stanley Kubrick, a ma élők közül Francis Ford Coppola, Steven Spielberg, Martin Scorsese, Woody Allen és a független filmes Quentin Tarantino. (A leghíresebb amerikai filmsztárokat lásd a Hollywoodi filmsztárok listája szócikkben!)
+
+Ázsiai film[szerkesztés]
+Searchtool right.svg 	Bővebben: Ázsiai film, kínai filmművészet, Bollywood, japán filmművészet és koreai filmművészet
+India a világ legnagyobb filmgyártó országa. Az indiai hagyományokat követő zenés tömegfilmek mellett több világhírű filmalkotás fűződik Szatyadzsit Raj és Mira Nair nevéhez. A japán filmművészet világhírű mesterei Jaszudzsiro Ozu és Akira Kuroszava. A kínai film a 90-es évek óta ér el komoly nemzetközi sikereket, elsősorban Csen Kaj-ge és Csang Ji-mu alkotásaival. Meg kell még említeni a grúz Tengiz Abuladze filmjeit, az iráni Dzsafar Panahi, Mohszen Makhmalbaf és Abbasz Kiarosztami különleges filmkölteményeit, valamint a koreai rendező, Kim Ki-duk filmjeinek legújabb nemzetközi sikerét.

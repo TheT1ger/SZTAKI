@@ -10,23 +10,24 @@ Created on 2013.06.28.
 import re
 import argparse
 import os
+import codecs
 
-#Initializing argparser
-parser = argparse.ArgumentParser()
-parser.add_argument("-i",metavar="INPUT", required=True, help="The input text file", type=str)
-parser.add_argument("-o",metavar="OUTPUT", required=True, help="The output text file", type=str)
-parser.add_argument("-l",metavar="LANGUAGE", required=True, help="Language of the text file",type = str)
-args = parser.parse_args()
-
-# Parameter checking
-if not os.path.exists(args.i):
-    print("ERROR: The given input file does not exist.")
-    sys.exit(1)
-else: # Everything seems to be all right
-    #Storing the parameters in variables
-    outputPath= args.o
-    inputPath = args.i
-    
+## Initializing argparser
+# parser = argparse.ArgumentParser()
+# parser.add_argument("-i",metavar="INPUT", required=True, help="The input text file", type=str)
+# parser.add_argument("-o",metavar="OUTPUT", required=True, help="The output text file", type=str)
+# parser.add_argument("-l",metavar="LANGUAGE", required=True, help="Language of the text file",type = str)
+# args = parser.parse_args()
+# 
+##  Parameter checking
+# if not os.path.exists(args.i):
+#     print("ERROR: The given input file does not exist.")
+#     sys.exit(1)
+# else: # Everything seems to be all right
+#     Storing the parameters in variables
+#     outputPath= args.o
+#     inputPath = args.i
+#     
     
 WordLength=8
 
@@ -162,6 +163,7 @@ def add(db,pattern,word):
 def build(db,file):
     for line in file:
         words = line.split(',')
+        words[0] = words[0].strip('\ufeff')
         if len(words[0]) in db:
             # Ha már van
             add(db[len(words[0])],words[1].strip('\n'),words[0])
@@ -234,12 +236,33 @@ def fill_alphabet():
     alphabet.update({"X":"?"})
     alphabet.update({"Y":"?"})
     alphabet.update({"Z":"?"})
+    
+    alphabet.update({"á":"?"})
+    alphabet.update({"é":"?"})
+    alphabet.update({"í":"?"})
+    alphabet.update({"ó":"?"})
+    alphabet.update({"ö":"?"})
+    alphabet.update({"ő":"?"})
+    alphabet.update({"ú":"?"})
+    alphabet.update({"ü":"?"})
+    alphabet.update({"ű":"?"})
+    alphabet.update({"Á":"?"})
+    alphabet.update({"É":"?"})
+    alphabet.update({"Í":"?"})
+    alphabet.update({"Ó":"?"})
+    alphabet.update({"Ö":"?"})
+    alphabet.update({"Ő":"?"})
+    alphabet.update({"Ú":"?"})
+    alphabet.update({"Ü":"?"})
+    alphabet.update({"Ű":"?"})
 
 
 abc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+hunabc = ['á','é','í','ó','ö','ő','ú','ü','ű','Á','É','Í','Ó','Ö','Ő','Ú','Ü','Ű']
 
 # Feltölt egy hashmap-et a szótárnak (betű gyakorisággal, és lehetséges betűkkel)
 def fill_alphabetic_info():
+    abc.extend(hunabc)
     a_info.update({"a":{"frequency":0,"options":abc.copy(),"first": False}})
     a_info.update({"b":{"frequency":0,"options":abc.copy(),"first": False}})
     a_info.update({"c":{"frequency":0,"options":abc.copy(),"first": False}})
@@ -292,6 +315,26 @@ def fill_alphabetic_info():
     a_info.update({"X":{"frequency":0,"options":abc.copy(),"first": False}})
     a_info.update({"Y":{"frequency":0,"options":abc.copy(),"first": False}})
     a_info.update({"Z":{"frequency":0,"options":abc.copy(),"first": False}})
+    
+    a_info.update({"á":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"é":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"í":{"frequency":0,"options":abc.copy(),"first": False}})    
+    a_info.update({"ó":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"ö":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"ő":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"ú":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"ü":{"frequency":0,"options":abc.copy(),"first": False}})    
+    a_info.update({"ű":{"frequency":0,"options":abc.copy(),"first": False}})
+    
+    a_info.update({"Á":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"É":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Í":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Ó":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Ö":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Ő":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Ú":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Ü":{"frequency":0,"options":abc.copy(),"first": False}})
+    a_info.update({"Ű":{"frequency":0,"options":abc.copy(),"first": False}})
     
 # Kiírja az ABC-t, és hogy melyik betű mit kódol (KÓDOLT: JELÖLT)
 def print_alphabetic():
@@ -374,6 +417,9 @@ def getFrequentLetters():
 
 # Adott kód-betű options listájából, eltávolítja azt, ami a wlist (szólista) szavainak adott index-ű betűi között nem szerepel
 def removeLetters(letter,wlist,index):
+#     if letter == 'q' :
+#         print('-------')
+#         print(a_info[letter]["options"])
     isRemoved=False
     if letter not in a_info:
         return isRemoved
@@ -392,39 +438,46 @@ def removeLetters(letter,wlist,index):
             i=i-1
         if len(a_info[letter]["options"]) == 1:
             updateAlphabet(letter, a_info[letter]["options"][0])
+            
         elif len(a_info[letter]["options"]) == 2:
             if a_info[letter]["options"][0].upper() == a_info[letter]["options"][1] or a_info[letter]["options"][0].lower() == a_info[letter]["options"][1]:
                 if a_info[letter]["first"]:
                     updateAlphabet(letter, a_info[letter]["options"][0].upper())
                 else:
                     updateAlphabet(letter, a_info[letter]["options"][0].lower())
-                    
+       
+#     if letter == 'q' :
+#         print(a_info[letter]["options"])
+#         lastw.p()
+#         print('-------')
+#         input()              
     return isRemoved
   
 # Egy entitás kódszaván végigmegy, és minden betű options listáját szűkíti, annak megfelelően, hogy az entitás options listája alapján, mi szerepelhet ott.
 # Magasabb betűszámú szavaknál veszélyes lehet a hívása, hiszen nem lehet garantálni, hogy tényleg minden lehetséges szó benne van az options listában.           
 def reduceLetterOptions(entity):
+    global lastw
+    lastw = entity
     for i in range(0,entity.length):
         removeLetters(entity.coded[i],entity.options,i)
             
 # Egy entitás options listájából eltávolitja azt, aminek adott pozicioban lévő betűje, nem szerepel a kódszó adott pozicioju betűjének options listájában
 def reduceOptions(entity):
+#     print('#################')
+#     entity.p()
     isRemoved = False
-    if entity.coded == 'mwKU':
-        print(entity.options)
-        print(entity.pattern)
     if len(entity.options) >1:
         i = len(entity.options)-1
 
         while i>=0:
             for j in range(0,entity.length):
-                if entity.options[i][j] not in a_info[entity.coded[j]]["options"] and entity.options[i][j].upper() not in a_info[entity.coded[j]]["options"]:
+                if entity.coded[j] in a_info and entity.options[i][j] not in a_info[entity.coded[j]]["options"] and entity.options[i][j].upper() not in a_info[entity.coded[j]]["options"]:
                     entity.options.remove(entity.options[i])
                     isRemoved = True
                     break
             i=i-1
-        if entity.coded == 'mwKU':
-            print(entity.options)
+#     print(entity.options)
+#     print('#################')
     return isRemoved
  
 def deselect(ilist):
@@ -450,6 +503,9 @@ def deselect(ilist):
     for l in sorted(a_info):
         if len(a_info[l]["options"]) > 1:
             missingletters.append(l)
+
+
+
             
 # Az ABC frissítése, coded betű jelöli a real-t
 # Az összes beolvasott szó mintájában behelyettesít
@@ -457,7 +513,10 @@ def deselect(ilist):
 # Ha egy betű options listája 1 hosszú lett, akkor azt beírja az ABC-be (rekurzió!)
 # Szűkíti a szavak options listáját            
 def updateAlphabet(coded,real):
-      
+#     print(coded)
+#     print(real)  
+#     if coded == 'q' :
+#         input() 
     alphabet[coded]=real
     ### TODO
 #     for e in text:
@@ -479,7 +538,23 @@ def updateAlphabet(coded,real):
             if real in a_info[letter]["options"]:
                 a_info[letter]["options"].remove(real)
                 if len(a_info[letter]["options"]) == 1:
+                    print("\nwhitin")
                     updateAlphabet(letter, a_info[letter]["options"][0])
+                if real == 'e':
+                    a_info[letter]["options"]
+                    
+    for i in range(1,WordLength):
+        for l in textwords[i]:
+            if len(l.options) > 1:
+                k = len(l.options) -1
+                while k >= 0:
+                    o = l.options[k]
+                    for j in range(0,l.length):
+                        if l.pattern[j] in a_info:
+                            if o[j] != l.pattern[j] and o[j].upper() != l.pattern[j]:
+                                l.options.remove(l.options[k])
+                                break
+                    k = k-1
 #     change()
        
        
@@ -487,9 +562,10 @@ def updateAlphabet(coded,real):
 ###################################    Script     ############################################
 ##############################################################################################     
 # Szótár 
-dbfile = open('D:\\GitHub\\SZTAKI\\ExpandedDic2.txt','r')
+dbfile = codecs.open('D:\\GitHub\\SZTAKI\\HunDic.txt','r',"UTF-8")
 # Dekódolandó szöveg
-inputfile = open(inputPath,'r')
+inputPath = 'd:\\GitHub\\SZTAKI\\example9.txt' 
+inputfile = codecs.open(inputPath,'r',"UTF-8")
 
 # Szótár 
 db = {}
@@ -538,7 +614,7 @@ for line in inputfile:
             
         word = re.sub("\W","",word)
         word = re.sub("\d","",word)
-        word = re.sub("[ôéáíöüőóúű]","",word)
+        word = re.sub("[ô]","",word)
         if len(word) > 0:
             find = False
             # Végig nézi az eddig beolvasott szavakat
@@ -576,6 +652,8 @@ getFrequentLetters()
 
 print(most_frequent_letters)
 
+lastw = t = Entry('a')
+
 # Megkeresi, hogy melyik kódolt betű szerepel a leggyakrabban, az lesz az 'e'
 key = list(a_info.keys())[0]
 maxm = a_info[key]["frequency"]
@@ -583,7 +661,6 @@ for l in a_info:
     if a_info[l]["frequency"] > maxm:
         maxm = a_info[l]["frequency"]
         key = l 
-
 updateAlphabet(key, 'e')
 
 # Az egy betűs szavaknál, amelyik egy betűs szó betűje benne van a leggyakoribb betűk listájába, az lesz az 'a'    
@@ -605,22 +682,40 @@ updateAlphabet(key, 'e')
 #     print(oneletter)
 #     raise Exception("WARNING: Több egy betűs szó van")
 
+for l in textwords[3]:
+    if l.coded == 'Őtg':
+        temp = l
 
-for i in range(1,WordLength):
-    deselect(textwords[i])
-    print(missingletters)
+for l in textwords[3]:
+    if l.coded == 'qtZ':
+        temp = l
+
+temp.p()
+
+for l in sorted(a_info):
+    if len(a_info[l]["options"]) > 1:
+        missingletters.append(l)
+            
+for j in range(1,WordLength):
+    for i in range(1,j):
+        print(missingletters)
+        i = j-i
+        deselect(textwords[i])
+        for e in textwords[i]:
+            e.p()
 
         
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
 
 
-for i in range(1,WordLength):
-    for l in textwords[i]:
-        l.p()
      
 
 
+for i in range(1,WordLength):
+    for l in textwords[i]:
+        l.p()
+    #input('Enter your input:')
 
 print_options()
 print() 
@@ -629,9 +724,12 @@ print()
 print_alphabetic()
 print()
 
+
+
 outputstr = str("")
-inputfile = open(inputPath,'r')
-outputfile = open(outputPath,'w')
+inputfile = codecs.open(inputPath,'r',"UTF-8")
+outputPath = 'D:\\GitHub\\Sztaki\\example9out.txt'
+outputfile = codecs.open(outputPath,'w',"UTF-8")
 
 for line in inputfile:
     for l in line:

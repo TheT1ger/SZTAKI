@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 public class Main {
 	public static String home="..\\";
@@ -34,16 +36,17 @@ public class Main {
 		boolean word = false;
 		boolean endOfSentence = false;
 
-		File folder = new File(home + "statistic\\english");
+		File folder = new File(home + "statistic\\hungarian\\");
 		File[] files = folder.listFiles();
 
 		for (File f : files) {
-			if(f.isDirectory())break;
+			System.out.println(f);
+			if(f.isDirectory())continue;
 			FileReader fr;
 			try {
 				fr = new FileReader(f);
 			
-			BufferedReader br = new BufferedReader(fr);
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f),"UTF-8"));
 
 			String line;
 
@@ -187,7 +190,8 @@ public class Main {
 	public static void save(String s,Map m){
 		
 		try {
-			PrintWriter writer = new PrintWriter(home + "statistic\\english\\results\\"+ s +".txt");
+			//PrintWriter writer = new PrintWriter(home + "statistic\\english\\results\\"+ s +".txt");
+			PrintWriter writer = new PrintWriter(home + "statistic\\hungarian\\results\\"+ s +".txt");
 			list(writer,m);
 			writer.close();
 		} catch (FileNotFoundException  e) {
@@ -216,7 +220,8 @@ public class Main {
 	public static void listWords(Map m){
 		
 		try {
-			PrintWriter writer = new PrintWriter(home + "statistic\\english\\results\\Words.txt");
+			//PrintWriter writer = new PrintWriter(home + "statistic\\english\\results\\Words.txt");
+			PrintWriter writer = new PrintWriter(home + "statistic\\hungarian\\results\\Words.txt");
 			for (int i = 0; i < 17; i++) {
 				list(writer,(Map) m.get(i));
 			}

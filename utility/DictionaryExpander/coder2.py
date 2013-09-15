@@ -167,7 +167,7 @@ for l in alphabet:
 for l in sorted(alphabet):
     print(l + ": " + alphabet[l])
     
-inputfile = codecs.open("D:\\GitHub\\SZTAKI\\hunout.txt",'r',"UTF-8")
+inputfile = codecs.open("D:\\GitHub\\SZTAKI\\inputfile.txt",'r',"UTF-8")
 outputstr = ""
 for line in inputfile:
     for l in line:
