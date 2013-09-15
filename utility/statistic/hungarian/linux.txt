@@ -1,0 +1,2560 @@
+﻿Blahota István
+Ubuntu Linux kezdőknek
+2011
+Szerző: Dr. Blahota István, PhD, főiskolai tanár
+(NyF, FSF.hu)
+Ubuntu Linux kezdőknek
+2011. május 7.
+Lektorálta: Dr. Kovács Zoltán, Csc, főiskolai tanár,
+egyetemi docens, (NyF, DE),
+Mátó Péter (FSF.hu)
+További segítség: Papp Valéria
+Készült a Nyíregyházi Főiskola Norvég Finanszírozási Mechanizmusból támogatásban részesülő
+„Partiumi Tudáscentrum fejlesztése” elnevezésű (száma: 0022/NA/200-1/ÖP-4) projekt
+Partium Vizuális Campus alprojekt keretében megvalósuló fejlesztésekhez kapcsolódóan.
+PVC 002 e-Multi, „Tanuljunk multiul!” elektronikus oktatási program
+ISBN szám: lesz
+2
+1. Miről, kiknek szól ez a jegyzet?
+Miről szól ez a jegyzet? Röviden: bevezet a Linux használatába. Kicsit hosszabban: segít megtenni
+az első pár lépést egy, az átlagos felhasználó számára ismeretlen rendszer megismeréséhez,
+valamint elegendő ismeretet nyújt az önálló, mindennapos használathoz.
+Nem baj, ha azt sem tudjuk pontosan, mi is az operációs rendszer, pláne, hogy mi az a Linux. Ez a
+kis segítség elég is lesz a kezdéshez.
+A pontos megfogalmazás miatt le kell szögeznünk, hogy a „Linux” mást jelent a szakemberek és
+mást a laikus felhasználók számára. A szakemberek a számítógépet működtető teljes szoftver
+miskulancia egy kicsi de fontos részét nevezik Linuxnak, ez a rendszer „magja”. Így a szabatos
+kifejezés tehát „Linux alapú operációs rendszerek” lenne. Csakhogy a köznyelv egyszerűsít, és
+minden ilyen rendszert nemes egyszerűséggel Linuxnak titulál. A jegyzet a könnyebb érthetőség
+miatt a továbbiakban a Linux kifejezés alatt a köznyelvi jelentést fogja érteni, kivéve ha azt külön
+kihangsúlyozza.
+Kinek szól ez a könyv? Nagyjából mindenkinek, aki nem használt még Linuxot. Vagy használt, de
+nem nagyon értette, mi történik. Annak, aki használt már Windowst és vagy értette mi történik,
+vagy nem. Azoknak is szól, akik – tényleg, vagy nem is annyira – értenek a Windowshoz, aztán azt
+hiszik, hogy ezért a Linuxszal is rögtön boldogulnak, elég csak odaülni elé. Pedig nem. Aztán
+olyankor halljuk rögtön azt, hogy a Linux, hogy is mondjam, szóval nem jó. Pedig de. Csak nem
+Windows. Szükséges hozzá egy kis szemléletváltás.
+Magyarul, ez a könyv a magyar számítógépet használó lakosság többségéhez szól. Már most szólok,
+hogy a technikai részleteknél leginkább nem általában fogok beszélni a Linuxról, hanem egy
+konkrét változat, az Ubuntu Linux lesz a téma.
+Ez a jegyzet rövid, sok témába vágó képpel, és reményeim szerint könnyen emészthető. Rövid, mert
+korunk tipikus emberének készült. Aki használja a számítógépet. Olvasgat és ír az interneten,
+levelezik, cseveg, filmet néz, zenét hallgat, esetleg játszik. Vagy aki a munkájához, tanuláshoz
+használja, de ott is leginkább csak szöveget, táblázatot szerkeszt, információt keres, esetleg néhány
+speciális szoftvert használ. Tehát nem rendszergazdáknak vagy programozóknak szól, bár nekik is
+hasznos lehet az első lépések megtételében. Aztán meg azoknak is kellenek alapismeretek, akik nem
+profik. Hiszen a számítástechnika használata összetettebb, mint más technika – TV, DVD lejátszó –
+használata. Egy kicsit mégiscsak tanulni kell.
+Óhatatlanul lesz szó néhány dologról, ami az alapismeretek közé tartozik, de túlmutat a legelemibb
+felhasználói szinten. Tehát a rendszer kissé mélyebb ismerete, telepítése, alapvető beállításai,
+programok telepítése, a rendszer adminisztrációjának alapjai. Úgy gondolom, nem minden tanulság
+nélkül való a telepítési folyamat átnézése akkor sem, ha nem valószínű, hogy magunk telepítjük
+rendszerünket. Nagyobb rálátásunk lesz az Ubuntu lelkivilágára, ami sosem árt.
+Aztán az eddigi kliens (desktop) információkon túl egy kis betekintést láthatunk abba, amiben a
+Linux igazán otthon van; vagyis a parancssoros üzemmódba.
+3
+Mivel a jegyzet eredendően távoktatási segédanyagnak készült, ezért néhány fejezet végén
+feladatok segítenek az olvasottak megértésének ellenőrzésében. Ezek néha kitekintést is nyújtanak;
+megoldásuk nemegyszer további keresést, kutatómunkát, utánaolvasást és gyakorlást kíván.
+4
+2. Megtudhatjuk, mi is az operációs rendszer, és elkezdünk
+ismerkedni a Linuxszal
+Mi az az operációs rendszer? Ez elég komolyan hangzik, de bármennyire is fontos dologról van szó,
+amely nagyon sok mindenért felel a számítógép működése közben, leginkább a szemlélet
+kialakításához van szükségünk arra, hogy beszéljünk róla. Ahhoz viszont igen fontos.
+Vágjunk bele a közepébe. Ma a világ felhasználóinak döntő többsége valamilyen Windows
+operációs rendszer változatot (leggyakrabban XP-t, esetleg Vistát, mostanában inkább 7-est)
+használ. Ez az arány most kb. 90% (nemigen lehet egészen pontos adatokat kapni). Vannak az
+informatikának ágai, ahol ez az arány több, van ahol kevesebb. Például egy igen fontos területen, a
+web kiszolgálóknál, a Microsoft sosem tudott ilyen meghatározó szereplővé válni. Sőt még csak
+nem is vezeti a statisztikát. Ott egy olyan program (az Apache) az uralkodó, ami leggyakrabban
+Linuxon fut. (Forrás: http://www.netcraft.com/)
+A számítógépen programokat futtatunk. Program a böngésző (pl. Internet Explorer, Firefox), a
+szövegszerkesztő (pl. Word, LibreOffice), de bármi más, képnézegető, zenelejátszó stb. Ezek a
+programok általában nem közvetlenül érik el a számítógép erőforrásait. Egy köztes programmal
+kommunikálnak, egy rendszerszoftverrel, az ún. operációs rendszerrel. Mikor egy számítógép
+„kijön a gyárból”, még nem működik. Ahhoz, hogy használni tudjuk, kell rá operációs rendszer. Ezt
+a telepítési műveletet a boltban kapható, előre összeszerelt gépeknél előre elvégzi a gyártó, így a
+vásárló az árlistában (és az árban) láthatja, hogy milyen operációs rendszert kap a géppel együtt.
+Ha már van operációs rendszer a gépben, igényeinknek megfelelően szükség lesz még felhasználói
+programokra, olyanokra, amelyek együtt tudnak működni (kompatibilisek) a telepített operációs
+rendszerrel. Egy Vistához készült program nem biztos hogy használható XP-vel. Minél nagyobb a
+5
+1. ábra: Hálózati kiszolgálók elterjedtsége a világban
+két rendszer közti különbség, annál valószínűbb, hogy nem fog működni az egyik rendszerre szánt
+program a másikon.
+Az operációs rendszereknek sok tulajdonságuk van, sokféleképpen lehet őket csoportosítani. Most
+minket elsősorban a Linux érdekel majd, és mivel az újdonsült Linux felhasználók zöme Windows
+felhasználó is, leginkább csak ezzel a két rendszerrel fogunk foglalkozni. Jegyezzük meg azért,
+hogy a Windows név valójában gyűjtőfogalom, több különböző változatot jelent, melyek nem
+egységes felépítésűek. A múlt évezred Windowsai (95, 98, Me és a korábbiak pláne) még csak
+grafikus felületű „ruhák” voltak egy karakteres felületű operációs rendszeren, a DOS-on. A
+„modern” Windowsok (XP, Vista, 7, de már az NT és a 2000 is) grafikus felületű operációs
+rendszerek, ami azt jelenti, hogy bár az operációs rendszer fő funkciói ezt feltétlenül nem igénylik,
+a rendszer elválaszthatatlan részei az asztal, a tálca és még sok más program, és jó régóta már az
+Internet Explorer is. Lehet hogy meglepő, de például ahhoz, hogy egy levelet megírjunk Wordben,
+nem kellene, hogy a gépen tálca legyen, mégsem lehet a tálcát „letörölni”. A Windowsban
+összedrótoztak jó sok mindent. Ennek vannak előnyei és vannak hátrányai. Ha ki akarnánk húzni
+egy gerendát, lehet, hogy összedőlne a ház. Lehet, hogy nem rögtön. Lehet, hogy csak akkor, ha a
+nagypapa felmegy a padlásra. Így ha a Windowst megpróbálnánk „karcsúsítani”, komoly az esélye,
+hogy instabil rendszert kapunk. Tehát nem igazán éri meg, napi használatra szánt gépen semmiképp
+sem.
+Azért hangsúlyoztam ezt ennyire, mert a Linux nem ilyen. A Linux, mint operációs rendszer más
+felépítésű, szerkezetű, más jogi hátterű. És más céllal készült. Ez így kicsit sok egyszerre, de majd
+mindenre sort kerítünk.
+Nézzük, mit kell tudni a Linuxról, mint operációs rendszerről. A Linux szorosan véve csupán az a
+felhasználó számára láthatatlan rendszermag (idegen szóval kernel), ami a háttérben teszi a dolgát.
+Kezeli a hardverelemeket (billentyűzetet, monitort, memóriát, nyomtatót, stb.), irányítja és
+kiszolgálja a felhasználói programokat. A grafikus felület sem több, csak egy felhasználói program
+a sok közül. Ha van egyáltalán. Mert például egy kiszolgálóra (szerverre, például web-,
+6
+2. ábra: Tux, a pingvin – 1996-tól a
+Linux kabalafigurája
+fájlszerverre, vagy bármi más, a felhasználót szolgáló, de számára közvetlenül nem elérhető gépre)
+szánt változatára fölösleges biztonsági kockázat lenne a – ráadásul erőforrás igényes – grafikus
+felület. De nem kell aggódnunk, az a Linux változat, amit felhasználóknak szántak, minden
+megszokott, kényelmes grafikus segédeszközt tartalmaz. A Linux tehát rugalmasan testre szabható –
+méghozzá nagyon nagy mértékben –, de valójában ehhez sem kell értenünk, a változatok
+(úgynevezett disztribúciók) készítői ezt a munkát már elvégezték nekünk, ha úgy tetszik helyettünk.
+Az a rendszer, amiről ez a jegyzet szól, nagy mértékben hasonlít az általánosan használt Windows
+rendszerekhez. Legalábbis külsőleg és funkcionálisan. Mi az Ubuntu nevű Linux változattal fogunk
+foglalkozni. Hogy miért, az a Linux története részből fog kiderülni.
+7
+3. A Linux előnyeiről lesz szó, de megismerjük a szabad
+szoftver és a Linux történetét, valamint egy kicsit
+eltöprengünk az informatikai biztonságról is
+Lesz hát egy operációs rendszerünk, ami nem a Windows, de hasonlóan tudjuk használni, hasonló
+célokra, hasonló eredményességgel. De miért van rá szükségünk? Miért használjunk Linuxot?
+Használjunk-e egyáltalán Linuxot? Ezekre a kérdésekre sokféle választ lehet adni.
+A Linuxnak sok előnye van, bár akadnak hátrányai is. A vállalati és állami (oktatási, közigazgatási)
+szférában komoly előnye, hogy ingyenes. (Léteznek „fizetős” Linuxok, de ezeknél általában pénzt a
+rendszerhez tartozó támogatásért kell fizetni és nem magáért a szoftverért.) Ezt a témát rendesen
+körül kell járni, mert ami ingyen van, az gyanús, ott valami átverést sejtünk. Sok gazdasági vezetőt,
+menedzsert épp ez bizonytalanít el. Egyelőre elég legyen annyi, hogy a Linux nekünk ingyenes, de
+a révészt persze valaki kifizeti. Bár a Linux hobbi operációs rendszernek indult, amit a fejlesztők
+szabad idejükben, érdekességképpen, tudásvágyból, lelkesedéssel, ingyen fejlesztettek és ma is
+rengeteg önkéntes segíti a munkát, azonban ma már a fontosabb fejlesztők tőkeerős cégek
+alkalmazottai, akik főállású programozóként fejlesztik a rendszert. Egyszerűen azt kell
+megértenünk, hogy ez csupán egy más gazdasági modell, mint amit a Microsoft alkalmaz.
+A helyzet persze sokkal árnyaltabb. Hogy megérthessük, jöjjön hát némi történeti áttekintés. Sok
+könyvben van ilyen, de itt ez tényleg fontos. Ismernünk kell a múltat, hogy képben legyünk a
+8
+3. ábra: Ken Thompson és Dennis Ritchie 1972-ben a Unixon dolgoznak
+jelenben.
+Nem megyünk vissza Ádámig és Éváig, de mondjuk a 70-es évekig érdemes. Ekkor kezdenek el
+szaporodni a számítógépek. Leginkább még kutatóintézetekben, egyetemeken, speciális állami
+alkalmazásoknál (pl. népszámlálás) találjuk őket, nem is minden országban, de egyre több van
+belőlük és egyre olcsóbbak. Tömeggyártás kezdődik (no nem millió számra, inkább százas
+nagyságrendre kell gondolni), ami igényt támaszt egységes operációs rendszerre, legalábbis
+készítésük során egyre több egységes elvre, hordozhatóságra. Eleinte ugyanis a számítógépek és a
+rájuk írt programok teljesen egyediek voltak, a számítógépeket nem gyártották, hanem építették, a
+rájuk írt programok semmilyen más gépen nem működtek. Az első igazán rugalmas, többféle
+számítógépen is használható, tömegesen elterjedt operációs rendszer a Unix volt. (A sikertörténet a
+mai napig folytatódik, több, mint harminc éve!) A Unix Ken Thompson és Dennis Ritchie nevéhez
+fűződik, akik „mellesleg” kifejlesztették a máig egyik legsikeresebb programozási nyelvet, a C-t. A
+helyzet persze nem volt ilyen szép, hiszen a Unixból sok verzió készült, az idő múlásával ezek
+egyre kevésbé voltak egymással köszönőviszonyban. A számítógépek ekkor a mai szemmel még
+mindig nagy és drága monstrumok voltak, kizárólag komoly, nagy tudású szakemberek
+„játékszerei”. A 80-as évekre a technika fejlődésével, az alkatrészek olcsóbbá válásával és az
+ismeretek mélyülésével egy másik irányzat is kibontakozott. Ennek előzménye az volt, hogy lelkes
+fél-amatőrök elkezdtek saját gépeket barkácsolni. Néhányan közülük üzleti lehetőséget láttak ebben.
+Míg korábban volt egy olyan szemlélet, hogy a számítógép olyan komoly dolog, amire az
+átlagembernek sose lesz szüksége, ekkorra már minden technika-megszállott saját gépet akart.
+Régebben ennek nem volt realitása, de másképp is gondoltak a számítógépek használatára. Például
+1943-ban, az IBM akkori vezetője úgy vélte, hogy mindösszesen öt számítógépre lesz szükség a
+világon. De még 1977-ben is ez hangzott el Ken Olsen, a Digital Equipment Corporation elnöke
+szájából: „Ugyan miért akarna bárki is az otthonába egy számítógépet?!”
+A 80-as években megjelentek az úgynevezett mikroszámítógépek. Ezeknek eleinte nem sok hasznuk
+volt, de hamar kiderült, hogy izgalmas barkácsélményt nyújtanak, és jól lehet velük játszani. Nem
+sokkal később már milliószámra gyártották a Spektrumokat, Commodore-okat és a többi hasonlót.
+A számítástechnika eljutott az átlagemberhez. Ebből a vonalból nőttek ki az IBM-PC-k és klónjaik.
+Ezek azok a gépek, amikből most is a legtöbb van, ezek leszármazottai találhatóak
+munkahelyeinken és otthonainkban. A leginkább játékra, egyszerűbb irodai alkalmazásra alkalmas
+IBM-PC-ken ekkor a DOS volt az egyeduralkodó operációs rendszer (és később a Windows, ami a
+DOS-ból nőtt ki), míg a nagygépes, komoly gépeket továbbra is a Unix (vagy valamilyen Unixszerű
+rendszer) uralta, és így van ez ma is, bár a határok elkezdtek összemosódni. A PC-k egyre
+többet tudnak, egyre nagyobb teljesítményűek, és sokkal olcsóbb több PC összekapcsolásával nagy
+teljesítményű gépet összeállítani (ún. szuperszámítógép vagy felhő), mint egy óriás gépet vásárolni.
+A Windowsra sem kizárólag úgy gondolunk már, mint egy hobbigép operációs rendszerére, és a
+Unix klónok is terjednek az desktop felhasználók körében.
+Egy kicsit előreszaladtunk, menjünk vissza 1991-be, a Linux születéséhez. Az IBM-PC-k már
+tömegesen elterjedtek, egy átlagos jóléti társadalombeli fiatal könnyen saját géppel rendelkezhet.
+Egy informatikát tanuló diák, a Helsinki egyetem hallgatója, Linus Torvalds kísérletezni kezd
+frissen vásárolt (386-os AT) IBM-PC-jével (a svéd anyanyelvű, finn állampolgárságú fiú 21 éves
+ekkor). A DOS-ban rejlő lehetőségekkel elégedetlen, így egy oktatási célzattal készült operációs
+rendszerrel, a Minixszel kísérletezik. Ez a korszak az Internet tömeges térhódításának hajnala, bár
+nálunk még eltelik pár év, míg pl. a magyar felsőoktatásban a világháló első szolgáltatásait
+elkezdhetjük használni, magyar családoknak pedig még további pár évig csak vágyálom marad az
+otthoni Internet. Akkoriban maga az Internet sem az, amire most gondolunk, ekkor leginkább az email,
+a levelezőlisták, FTP szerverek és néhány más, mára lényegében kihalt szolgáltatás hódít, az
+9
+első böngészőprogramot, a Mosaic-ot csak később, 1993-ban fejlesztik ki.
+Linus Torvalds saját operációs rendszert, egy Unix-klónt kezd fejleszteni. Mivel a Unix bejegyzett
+márkanév, maga az operációs rendszer egy jogvédett termék, célja nem annak lemásolása, hanem
+hasonló funkcionalitással rendelkező, PC-n használható rendszerszoftver előállítása volt. Eleinte
+azonban jóval kisebb, szerényebb céljai voltak. Álljon itt történelmi dokumentumként egy részlet
+1991. augusztus 25-én, a Minix listára küldött e-mail-jének fordításából:
+„Üdv minden Minix-felhasználónak odaát! Egy (ingyenes) operációs rendszert csinálok (csak
+hobbiból, nem lesz olyan nagy és profi, mint a gnu) a 386-os (486-os) AT-klónokhoz. Április óta
+érlelem, és lassan elkészül. Szeretnék visszajelzéseket arról, hogy mi tetszik és mi nem tetszik a
+Minixben az embereknek, mivel az én operációs rendszerem némileg hasonlít rá...
+...pár hónapon belül valami hasznosat fogok kapni, és kíváncsi lennék, milyen funkciókat
+szeretnének legtöbben. Minden javaslatot szívesen veszek, azt viszont nem ígérem, hogy meg is
+valósítom őket :-)
+- Linus (torvalds@kruuna.helsinki.fi)
+Ui.: Igen! Nincs benne Minix-kód... Nem hordozható (a 386 feladatváltást használja stb.), és lehet,
+hogy soha nem is fog az AT-merevlemezeken kívül bármi mást támogatni, minthogy nekem csak ez
+van :-(.”
+Bár ez csak egy részlet, az alaphangulatára így is ráérezhetünk. Talán egy ismeretlen fogalom
+szerepel benne, ez a „gnu” (helyesen: GNU). Nem hagyhatjuk ki, hamarosan lesz róla szó.
+Fontos hangsúlyozni, hogy egy rövid, kezdeti időszak után Linus már nem egyedül fejlesztette a
+rendszert. A Linux közösségi alkotás. Hogy megérthessük, mit is jelent ez, és milyen komoly
+jelentősége lett ennek a Linux fejlesztése során, újabb kitérőt kell tennünk.
+Ott tartottunk, hogy a Linux ingyenes. Akkor hogy is van ez?! GNU, GPL, nyílt forráskód, szabad
+szoftver, mik is ezek?!
+10
+4. ábra: Linus Torvalds
+(2001-ben)
+A klasszikus Unixos hőskortól kezdve (70-es évek) kezdtek megjelenni a kereskedelmi szoftverek.
+Volt értelme áruba bocsátani egy programot, hiszen egy szoftver nem volt többé egyedi, nem csak
+egyetlen gépen lehetett futtatni, ugyanakkor egy-egy szoftver fejlesztésébe nagyon sok energiát
+kellett belefektetni. Megérte megvenni a más által írottat, hiszen ha valaki több példányban el tudja
+adni ugyanazt a szoftvert, akkor az mindenképpen olcsóbb, mint kizárólag saját célra fejlesztetni
+egy terméket. Persze ha egyedi igényeink vannak, akkor nem biztos, hogy megfelel nekünk a
+tömegtermék.
+Ez így közgazdasági gondolkodással elég logikus, de ott van azért az emberi tényező is. A
+programokat ugyanis nem közgazdászok, bankárok fejlesztették, akik csak az anyagi hasznot látják.
+Akkoriban még nem léteztek megélhetési informatikusok, vagyis olyanok, akik valójában csak azért
+űzik ezt a szakmát, mert nincs jobb ötletük a pénzszerzésre. Az még a hőskor volt, amikor az
+emberek csodát láttak a számítógépekben (akik nem szerették a technikát, azok is), amikor azon
+kevesek, akik számítógépekkel foglalkozhattak, különleges, szerencsés embereknek tartották
+magukat. Imádták munkájukat, ez volt az életük. Akkor még nem volt hardveres, meg szoftveres,
+mindenhez kellett egyszerre érteni, hogy alkotni lehessen. Ők nem voltak átlagemberek. Varázslók
+voltak, akik elsősorban nem anyagi előnyökért dolgoztak. Egy különc klikket alkottak, akik
+folyamatosan megosztottak egymással minden információt. Együtt fedeztek fel egy új világot, és a
+hatékony felfedezőmunkához – ahogy ez a tudományos életben is van – szabad információáramlás
+kell. Akkoriban nem voltak kitaposott ösvények. Így aztán ezek az emberek nem fogadták jól,
+amikor a cégük titoktartási kötelezettséget írt elő nekik, amikor megtiltotta, hogy megmutassák az
+általuk készített kódot a haverjuknak, akivel mondjuk történetesen rendszeresen együtt ötleteltek,
+bár az egy másik vállalatnál dolgozott. Ez összhangban volt azzal is, hogy míg eleinte a hardverek
+áraihoz képest az emberek munkadíja és így a szoftverek ára is elenyésző volt, később a hardverek
+ára csökkenni kezdett, a kereskedelmi szoftverek megjelenésével pedig kezdtek a programok valódi
+értéket képviselni.
+Egy rövid technikai kitérőt kell tennünk, hogy értsük, hogyan folyik a programfejlesztés. A
+számítógépnek saját nyelve van, és csak ezt érti. Ez a nyelv az úgynevezett gépi kód. Ez az ember
+számára rettenetesen nehezen követhető, ezért kitalálták a programozási nyelveket. A programok
+ilyen, az ember számára is átlátható programozási nyelven készülnek. A programnak ez a
+forráskódja, ami tehát egy programozási nyelven készült szöveg. Gyakorlatilag kódolt utasítások
+11
+5. ábra: Richard M. Stallman (valamikor a múltban)
+halmaza, amit a programozó bepötyög a billentyűzeten.
+A két leírás közti különbség kissé szemléletesebben valahogy így néz ki:
+Forráskód: Gépi kód:
+írd_ki('Helló világ!'); 011011011110000111100011110101110000111...
+Hogy a gép megértse a programozók által írt és érthető forráskódot, azt le kell a számára fordítani.
+Ezt a munkát a fordítóprogramok végzik el. Ők értelmezik az ember által érthető nyelvet és ezt
+átültetik a gép által érthetőre. Ami ekkor keletkezik, az a futtatható fájl. Windowson ilyenek az exe
+kiterjesztésű fájlok (bár attól, hogy valaki mondjuk vicces kedvében egy szövegfájlnak exe
+kiterjesztést ad, az attól nyilván nem lesz futtatható). Kereskedelmi programok esetében a
+forráskódot hét lakat alatt tartják, amikor megvásároljuk a programot, akkor csak a futtatható fájlt
+kaphatjuk meg. Ezt a futtatható fájlt nagyon nehézkes módosítani, gyakorlatilag lehetetlen
+fejleszteni, a trükkös próbálkozásokat pedig licencek tiltják a törvények szigorával. Szemléletes
+kifejezéssel az ilyen programokat zárt forráskódúaknak nevezzük.
+Ott tartottunk, hogy voltak programozók, akiknek nem tetszett ez az új rendszer. Ne felejtsük el, a
+60-as évek hippikorszaka akkor még sokak fejéből nem kopott ki. Ezen zsörtölődők élére állt egy
+nagy tekintélyű amerikai szakember, Richard M. Stallman, amikor 1983 szeptemberében elindította
+a GNU (GNU is not Unix) projektet és létrehozott egy alapítványt FSF (Free Software Foundation)
+néven azzal a céllal, hogy létrehozzon egy szabad Unix-szerű operációs rendszert. Egy olyan
+operációs rendszert, aminek a forráskódja bárki által hozzáférhető, módosítható, no meg ingyenes.
+És nem csak egy ilyen operációs rendszer lenne jó – gondolták –, hanem mindenféle hasznos
+felhasználói program, hasonlóan szabad elvek szerint fejlesztve. Jobbára hobbiból, szabadidejükben
+dolgoztak. Szakmai érdeklődésből, kivagyiságból, hírnévért, meg hogy jobb legyen a világ. Kicsit
+ezért, kicsit azért.
+Jogi védelmül saját licencet találtak ki, a GPL-t (General Public License). Ennek lényege, hogy a
+program szabadon terjeszthető (pénzért vagy ingyen, mindegy), szabadon módosítható, de a
+terjesztései és a módosítások szintén GPL licenc alatt kell, hogy megjelenjenek. Ez a kiegészítés
+azért kell, hogy szabad programon alapuló program szabad maradjon, ne „zárhassa be” senki a
+mások által fejlesztett programot. Vegyük észre, hogy a zárt kód a nyílt kódnak technikai
+értelemben ellentéte. Jogi értelemben a nyílt forráskódú szoftver ellentéte a tulajdonosi szoftver.
+12
+6. ábra: A GNU mozgalom logója
+Nem sokan bíztak benne, hogy a GNU valaha is sikeres lehet, mert az ötlet eléggé utópisztikusnak
+tűnt. Pár megszállott ember egy ilyen grandiózus vállalkozáshoz. Azért szép lassan haladtak. Egyre
+többen lettek. Sok program elkészült, de ezek egyelőre csak Unixon futottak, a szabad operációs
+rendszer (a Hurd) készítése nehezen haladt.
+Ekkor jött Linus Torvalds a semmiből. Ő volt a megfelelő ember, jó helyen, jó időben. A nyílt
+alapokon, kezdettől GPL licenccel fejlesztett PC-s „Unix-pótléka” az interneten összejött közösség
+által fejlesztve berobbant a szakmai köztudatba. A Linuxnak elnevezett rendszer, használva a GNU
+projekt programjait (ezért is szokás a Linuxot sokszor GNU/Linux rendszernek nevezni, ahogy azt
+Stallman el is várja), hamar közkedvelt lett leginkább olyan helyeken, ahol korábban Unixot
+használtak.
+Ez a nyílt forráskódú fejlesztési modell, melyet Eric S. Raymond híres esszéjében, a „Katedrális és
+bazár”-ban annak látszólagos összevisszasága miatt bazárhoz hasonlított, eddig teljesen ismeretlen
+13
+7. ábra: GNU és Tux, a páros
+8. ábra: A könyv magyar
+kiadásának borítója
+volt. Minden tudományosan lefektetett szoftverfejlesztési elvnek (katedrális modell, az elnevezés
+szintén Raymondé) ellentmondott. Nem hitték el, hogy működhet, de működött. Lényege az, hogy
+(a projekt méretétől függően) az egy vagy néhány fejlesztő munkája nagyban támaszkodik a
+projekthez szorosan véve nem tartozó önkéntes tesztelőkre, akik a fejlődő kódot folyamatosan
+látják, a funkciókat kipróbálják, javaslatokat tesznek a célokra. Ezzel szemben a zárt forráskódú
+fejlesztési modell esetén a terméket akkor láthatják a felhasználók, ha az lényegileg készen van, de
+mivel a kódhoz akkor sem férhetnek hozzá, nem lesznek részei a fejlesztési folyamatnak. Ez két
+különböző fejlesztési módszer, valamikor az egyik hatékonyabb, van amikor a másik.
+No de most már mégis, hogy lehet ingyenes a Linux és a nyílt forrású programok? Valójában a nyílt
+forrás nem elsősorban az ingyenességről szól, hanem a szabadságról. Ezzel mindig is voltak
+értelmezési problémák, félreértések. Kezdetben nem is nyílt forráskódúnak hívták az ilyen típusú
+szoftvereket, hanem szabad szoftvernek. Ez angolul free software, és az angolban a free nem csak
+szabadot, hanem ingyeneset is jelent. Ez azonban megrémítette a befektetőket. Hogy fogok pénzt
+keresni valamivel, ami ingyenes? - kérdezték. Ekkor kezdték használni az open source (nyílt
+forráskódú) kifejezést. Ma már nem lepődünk meg a „felhasználók számára ingyenes”-ségen
+alapuló üzleti modelleken. Például rengeteg ingyenes szolgáltatást találunk az interneten, ami
+reklámokból él, vagy más, kevésbé szembetűnő üzleti modellt alkalmaz. Létezik rengeteg zárt
+forráskódú ingyenes program is. Mindenki ismeri például az Adobe Reader nevű PDF néző
+programot, vagy ugyancsak az Adobe által birtokolt, böngészőkbe telepíthető Flash lejátszót.
+A szabad szoftverek zöme is ingyenes a felhasználók számára. A kisebb projektek fejlesztése
+általában hobbi szinten, a fejlesztők szabadidejében folyik. Sok projekt munkáját segítik a
+felhasználók adományokkal, de ha valamelyikük termékét sokan kezdik használni, majdnem mindig
+feltűnik valamilyen cég (magán vagy állami), aminek érdeke lesz pénzt fektetni bele a célból, hogy
+14
+9. ábra: Az ubuntu.com honlapja, a 10.04 kiadása után
+az ő igényeinek minél jobban megfeleljen. A Linux rendszermag fejlesztőit rendszerint
+hardvergyártók alkalmazzák, hogy az operációs rendszer jól ki tudja használni az általuk fejlesztett
+alkatrész képességeit. Sok cég, így az Ubuntu Linux disztribúció mögött álló Canonical
+terméktámogatást (supportot) árul, valamint internetes boltot tart fent, ahol a rajongók pólókat,
+bögréket stb. vehetnek Ubuntu logóval. Maga a szoftver így tud ingyenes lenni, mind magán, mind
+üzleti célra.
+A kereskedelmi szoftverek elsődleges célja a minél nagyobb profit termelése. A nyílt forráskódú
+programok nagy része semmilyen profitot nem termel, sok projekttel az volt a fejlesztők célja, hogy
+írjanak egy olyan programot, amire saját maguknak szükségünk van. Az ő céljuk tehát az, hogy a
+program minél jobb legyen. A nagyobb profit elérésének hajszolása sokszor nem eredményez jobb
+minőségű terméket, ez a gazdaság minden területén látszik. Sokszor nem kifizetődő igazán jó
+minőségű terméket előállítani, és ez a szoftverpiacra is igaz. Sokszor érdemesebb a fejlesztés
+helyett a marketingbe fektetni. Ezt sajnos naponta tapasztalhatjuk.
+Mivel a Linuxot először kiszolgálók üzemeltetésére, illetve szerverként használták, otthoni
+használatára leginkább csak szakemberek vállalkoztak, ezért nem is volt túl felhasználóbarát. Mivel
+nem volt profitorientált termék, a fejlesztőknek nem volt érdeke, hogy „akárki” tudja használni. Ez
+nem volt szempont a fejlesztés során. Így a Linuxnak „veszett” híre alakult ki, nem is alaptalanul.
+Aztán teltek az évek és egyre másra születtek meg azok az alkalmazások, amik egyre könnyebbé
+tették a telepítését és a napi használatot. A felhasználói igények egyre szélesebb rétegét fedték le a
+hozzáférhető programok, egyre több szoftvergyártó jelentette meg szoftvereit Linuxra is, nem csak
+Windowsra, egyre több hardvergyártó készített linuxos meghajtóprogramot (drivert) termékéhez
+(vagy adott ki dokumentációt, amivel mások elkészíthették azt), ami segítségével Linuxon is
+15
+10. ábra: Az ubuntu.hu honlapja 2010-ben
+használhatjuk az adott eszközt.
+A Linux előnyeiről szólva eddig csak az árról szóltunk, valamint a kód nyitottságáról. Látom
+viszont magam előtt a szomszéd Pistikét, aki kajánul vigyorog, mondván ő még sosem fizetett
+szoftverért, mégis mindene megvan, amire csak szüksége van.
+Valóban, megteheti, és bár van azért ennek a hozzáállásnak is kockázata, ez manapság,
+Magyarországon sajnos bevett felhasználói hozzáállás. Nem az viszont céges keretek között. Ma
+már egyetlen piaci tényező vagy állami intézmény sem engedheti meg magának, hogy illegális,
+kalóz szoftverekre alapozza a mindennapi működését. Árban jelentős tételnek számít az operációs
+rendszer és az irodai szoftver (ez esetben a Windows és az MS Office) beszerzési költsége. Ezt az
+összeget lehet megspórolni Linux és a szintén szabad és ingyenes irodai programcsomag, az (MS
+Office-szal nagy mértékben kompatibilis) OpenOffice.org és LibreOffice használatával. Ez a „nagy
+mértékben” kifejezés erősen szubjektív, van olyan, akinek ez tökéletes lesz, van aki néha
+problémákba ütközik. A tökéletes kompatibilitás elérése egyrészt azért sem lehetséges, mert az MS
+Office változatok egymással sem kompatibilisek 100%-ban, másrészt zárt forrású termékek,
+jogszerűen nem ismerhető meg, hogy valójában hogyan is működnek. Ez a titkosság egy elég
+komoly problémát vetett fel, legmagasabb, állami szinteken. Ugyanis ha titkos, hogy hogyan is épül
+fel egy MS Office dokumentum (doc kiterjesztésű fájl) és azt egyedül egy magánkézben lévő cég
+(Microsoft) szoftverével (MS Word, az MS Office része) lehet megnézni (olyan módon, hogy
+tényleg azt látjuk, amit kellene), akkor ki tudja garantálni, hogy mondjuk 50 év múlva lesz olyan
+szoftver, ami működik egy akkori gépen és megbízhatóan kezeli az adott fájlt, amiben például
+fontos adatokat tárolnak? Mi lesz, ha addigra a Microsoft eltűnik a süllyesztőben? Ez persze csak
+fikció, de a világ történetében sokszor volt már, hogy egy nagy világcég eltűnt a gazdaság
+színpadáról. Emlékezzünk a 80-as évek talán legnagyobb sikerszámítógépeire, a Commodore-okra.
+Gyártó cége pár évvel piacvezetővé válásuk után rossz döntések sorozatával lenullázta magát,
+jelentéktelenre zsugorodott, majd 1996-ban az utolsó irodája is végleg bezárt. Tehát vannak
+hátrányai a zárt forrásnak, a zárt formátumoknak, technológiáknak. És hát ott van a félelem, a
+paranoia. Hogyan bízzak meg egy olyan termékben, amiről nem tudhatom meg, hogy valójában mit
+is csinál? Sok zárt forrású szoftverről derült már ki, hogy gyanús, néha bűnös dolgokat csinál.
+Kéretlenül telepít szoftvereket gépünkre (ezek szélsőséges esetekben kártékony programok, pl.
+vírusok is lehetnek), kémkedik utánunk, jelent rólunk. És nem csak gyanús sufnicégek termékei
+lehetnek veszélyesek. Nagy botrány volt, mikor a Microsoft Media Playeréről kiderült, hogy
+titokban jelenti milyen zenéket hallgatunk, milyen filmeket nézünk. Ezek a problémák vezettek
+arra, hogy mostanra a Microsoft kénytelen volt egyes kormányoknak megengedni, hogy
+beletekinthessenek a Windows forráskódjába, valamint létrejött egy nyílt dokumentum formátum és
+egy azt támogató, használó szövetség, aminek a Microsoft is kénytelen volt tagjává válni (mert
+nyilván nem akarja, hogy ne feleljen meg az állami megrendelések feltételeinek).
+A nyíltság kérdése olyan témakör, ami az egyszerű felhasználót nem érinti közvetlenül (hisz nem
+fogja a forráskódot böngészni, módosítani), de mivel a lehetőség adott, mindig lesznek olyanok
+akik ez megteszik. És ha áttételesen is, de ez jó mindenkinek.
+A nyíltság érinti a biztonságot is. De nem csak titkosszolgálati szempontból, államérdekből, hanem
+a személyes szinten is. Ma mindenki hallott már kártékony programokról. Együtt élünk
+veszélyükkel, Damoklész kardjaként lebeg a fejünk fölött; elveszhetnek adataink, megszerezhetik
+személyes titkainkat, vásárolhatnak hitelkártyánkkal. Kicsit úgy vagyunk ezzel, mint az időjárással:
+nem tudjuk, esni fog-e a jövő héten, és ha esne, akkor sem tudnánk megakadályozni. Persze a
+legtöbben próbálnak védekezni. Vírusirtókat, személyes tűzfalakat használnak. Jól teszik. Bár a
+tapasztalat azt mutatja, hogy hatásuk nem elhanyagolható, közel sem nyújtanak teljes védelmet.
+16
+Néhány dolgot tisztáznunk kell. A számítástechnika bonyolult, összetett dolog (ez gondolom már
+feltűnt :-)). A programok sokszor rendkívül összetettek, annyira, hogy garantáltan tartalmaznak
+hibákat. Ezek egy része sosem derül ki. Ez sajnos a technika ilyen bonyolultsági szintjén
+elkerülhetetlen. A kiderülő hibákat, tervezési hiányosságokat használják ki a kártékony programok
+írói. Ezért is fontos, hogy letöltsük és telepítsük a biztonsági frissítéseket, amiket a modern,
+felhasználóbarát rendszerek jobbára önállóan is megtesznek. A mai Windowsok már kinőtték azokat
+a gyermekbetegségeket, amik leginkább a Windows 95/98/ME vonalat jellemezték, mégis maradt
+még hátránya a Windowsnak a Linuxhoz képest a biztonság terén. Mivel sokkal többen használják a
+Windowst, jobban megéri arra fejleszteni kártékony programot. Nem beszélve arról, hogy a
+Linuxok sokfélék és új verziók is gyakran jelennek meg különböző szoftver-összeállítással,
+rendszermaggal, ami jelentősen megnehezít egy tömeges fertőzést. A biológusok jól tudják: a
+monokultúrák a legsebezhetőbbek. Ez az informatikában is így van. Belegondoltunk már abba,
+hogy miért épp az operációs rendszerekből terjedt el csak egy tömegesen? Azt mindenki
+természetesnek veszi, hogy többféle autómárka létezik, független gyártóktól. Csak a szabványok
+rögzítettek. Az utak adottak, sokkal szélesebb autókat nem érdemes gyártani. Pedig ha
+belegondolunk, lennének előnyei, ha csak egyféle autó létezne. Olcsóbb lenne az új is, a javítás is.
+De akarnánk ezt? Nem hiszem, hogy népszerű ötlet lenne.
+Vírusokat, trójai programokat minden rendszerre lehet írni. Windowsra rengeteg ilyen ismert,
+számuk százezres nagyságrendű. Ezek mind különbözőek, amelyik igazán elterjed, annak példányai
+millió számra fertőzik meg a felhasználók gépeit.
+Nem tisztem tovább részletezni ezt a témát, hiszen most a Linuxszal foglalkozunk és itt sokkal
+kisebb a veszély. És bár – ahogy ezt már hangsúlyoztam – minden rendszerre lehet vírust írni, ezek
+mind a mai napig nem jelentek meg Linux alapú rendszereken. Egy olyan sem, ami Windowson
+mindennapos. Azért ez különbség, nem?
+17
+Feladatok
+1. Milyen szerverszoftvereket futtatnak Linuxon? Keressen nagy szolgáltatókat akik Linuxot
+használnak!
+2. Keressen szabad szoftvereket használó nagy világcégeket!
+3. Keressen szabad szoftvereket fejlesztő nagy világcégeket!
+4. Hogyan változott a Microsoft hozzáállása a szabad szoftverekhez? Keressen konkrét
+nyilatkozatokat a régmúltból és a közelmúltból!
+5. Keressen példákat nagy szabad szoftver migrációs projektekre!
+6. Milyen legális kereseti lehetőséget kínál a programozóknak a szabad szoftveres világban R.
+M. Stallman?
+7. Foglalja össze a GPL lényegét pontokba szedve!
+18
+4. A Linux használatának hátrányairól, az átállás
+buktatóiról hallhatunk. Menet közben megtudhatunk némi
+alapvető információt a Ubuntu Linuxról
+Tagadhatatlan, hogy vannak hátrányai is ha Linuxot használunk Windows helyett. Már maga az
+átállás is egy nehézség, hiszen az életben minden változás konfliktusokkal jár. Akkor változtatunk,
+ha az elégedetlenségi szintünk eléri azt a határt, amit már nem tudunk vagy nem akarunk tolerálni.
+Ha nem érdekünk többé a régit használni. Az is lehet, hogy a fejünk fölött döntenek úgy – mondjuk
+munkahelyünk vezetői jutnak erre az elhatározásra –, de a lényeg ugyanaz. Ha belevágunk,
+tanulnunk kell, meg kell ismerni az új környezetet. Sok, gyakran kompromisszumos döntést kell
+hozni. Ha elszenvedői vagyunk a változásnak, mondjuk a cégnél azt mondják, holnaptól ezen
+dolgozol, a döntések nagyját már megtették helyettünk. Azért nézzük át, mi is a folyamat, és
+egyúttal világítsunk rá az esetleges nehézségekre.
+Kezdjük a Linux kiválasztásával. Mivel a forrás szabad, rengeteg Linux disztribúció létezik, hisz
+bárki; cég, állam, iskola, magánember készíthet saját disztribúciót. Mit jelent a disztribúció
+fogalma? Fogjuk a Linux kernelt, válogatunk hozzá felhasználói programokat, készítünk (vagy
+választunk egyet a meglévők közül, hisz ez is csak egy program) egy telepítőt és kész a disztribúció.
+A disztribúció kifejezés helyett magyarul sokszor terjesztést használunk. Maguk a disztribúciók
+azért jöttek létre, hogy megkönnyítsék a telepítést, ne kelljen mindenkinek saját rendszert építenie a
+legkisebb alkotóelemekből. (Léteznek szoftverek, melyek segítségével különösebb hozzáértés
+nélkül csinálhatunk saját változatot mondjuk egy Ubuntuból kiindulva.) A
+http://www.distowatch.com oldalon találjuk a legnépszerűbb száz terjesztés bemutatását. A bőség
+zavara elbizonytalaníthatja a kezdőt.
+19
+11. ábra: Az első tíz
+legnépszerűbb disztribúció
+a distrowatch.com-ról
+(2011. április)
+Bár a disztribúciók általában hasonló elveken alapulnak, egy kezdő számára feltehetőleg
+használhatatlan lenne egy általában a Linuxszal foglalkozó témájú könyv. (Haladók számára
+készülnek ilyenek.) Így le kell tennünk a garast, válasszuk az évek óta listavezető Ubuntu Linuxot.
+Esetleg szóba jöhető, kezdőknek is ajánlott, ismert változatok még a Fedora, az openSUSE és a
+Mandriva. A Linux hátrányaként (meg előnyeként) is szokták emlegetni sokszínűségét, ami a
+disztribúciók számában is tükröződik. Nem egyszerű a szoftvergyártóknak a sok különböző
+változathoz hozzáigazítani a programokat, általában nem is teszik. Valójában ez nem okoz akkora
+gondot, mert mivel Linuxon leggyakrabban nyílt forráskódú programokat használunk, belőlük a
+disztribúció készítői saját futtatható változatot (ún. binárist) készíthetnek. A zárt forráskódú
+programokkal ritkábban használt disztribúciókon lehetnek gondok, de ezen problémák általában
+áthidalhatók. Hogy kevesebbet kelljen barkácsolni, célszerű népszerű, sokak által használt
+disztribúciót választani. Ezért is választottuk az Ubuntut.
+A Linuxok sokféleségének legszembetűnőbb megnyilvánulásai vizuális természetűek. Ahogy már
+említettem, a Linuxnak (a Windowszal ellentétben) nem elválaszthatatlan része a grafikus felület,
+bár – nyugodjunk meg – desktopra szánt rendszernek azért ma már ez elvárt eleme. Viszont sokféle
+van belőle. A különböző desktopra szánt disztribúciók általában telepítés után egy alapértelmezett
+felülettel indulnak, de ha ki akarunk próbálni valami mást, a grafikus felületet le is cserélhetjük.
+Gyengébb gépekhez például használhatunk kevés erőforrást igénylő, minimalista környezeteket (pl.
+XFCE, Openbox), az átlagos felhasználó azonban jellemzően a GNOME-ot vagy a KDE-t
+használja. Ez a bőség szintén meg szokta zavarni a kezdőket, ezért foglalkozunk részletesen csak
+eggyel, az Ubuntu alapértelmezettjével, a GNOME környezettel.
+20
+12. ábra: openSUSE 11.3, KDE felülettel
+De honnan jön egyáltalán ez az Ubuntu elnevezés? Ubuntu?! Miféle név az, hogy Ubuntu?
+Kezdetben volt a Debian. A Debian egy főleg rendszergazdák körében népszerű, mai napig is létező
+és népszerű Linux terjesztés. A Debian az egyetlen a „nagy” disztribúciók közül, amely elsősorban
+közösségi fejlesztésű, nem egy cég határozza meg a fejlesztési irányokat. Se szeri, se száma a
+Debian alapú disztribúcióknak. Csomagkezelő rendszerét számos másik terjesztés is használja.
+Hogy mi az a „csomag” és hogyan „kezeljük”, később kiderül.
+Debiant használt a meggazdagodásához Mark Shuttleworth dél-afrikai IT szakember is. El szokás
+róla még mondani, hogy ő volt a világ második űrturistája (az első afrikai űrhajós). Ő alapította a
+Canonical-t, az Ubuntu mögött álló céget. Az Ubuntut 2004. április táján kezdték el fejleszteni,
+Debian alapokon. Az első hivatalos verzió 2004. október 20-án jelent meg, Warty Warthog néven,
+4.10 verziószámmal, ami a kiadás dátumára utal. A játékos névhez (Rücskös Varacskos disznó) a
+korai verzió viszonylagos csiszolatlansága adta az ötletet. A későbbi verziók neve is valamilyen
+jelzős (létező, vagy mesebeli) állat lett. A 10.04 verzió számú neve például Lucid Lynx (Értelmes
+Hiúz). A 2010 október 10-én megjelent 10.10 verziószámú változat, melynek neve Maverick
+Meerkat (Szabadúszó/Antiszociális Szurikáta) lett, míg a 11.04-esé Natty Narwhal (Elegáns
+Narvál). (Ezek a jelzők azért nem mindig fordíthatók egyszerűen, egy szóban...)
+21
+13. ábra: Debian, XFCE felülettel
+Maga az Ubuntu egy afrikai szó, egy alapelv, jelentése „emberiesség másokkal szemben”. Az
+Ubuntunak, mint terméknek a szlogenje pedig „Linux for human beings”, vagyis „Linux emberi
+lények (értsd: nem szakemberek, hanem közönséges földi halandók) számára”. Ezek a mondatok
+tökéletesen ki is fejezik a projekt célkitűzéseit.
+Tegyük fel, hogy megtörtént a kiválasztás, Ubuntut szeretnénk használni. Milyen gondok lehetnek
+még? Tagadhatatlan, hogy egyik Linux verzió sem fog annyi hardvert támogatni, mint a Windows.
+Windowshoz a legtöbb eszközmeghajtót maguk a hardvergyártók készítik el a termékükhöz,
+akiknek sokszor nem éri meg egy kisebb mértékben használt rendszerhez is fejleszteni. Ez azonban
+sokkal kisebb gondot okoz, mint évekkel ezelőtt. Ugyanis Linux alá is egyre több meghajtóprogram
+készül el, gyakran a hardvergyártóktól függetlenül. És ha az új hardverek beszerzésénél az is
+szempont lesz, hogy működjön, jól működjön Linux alatt, akkor nem lehet probléma a
+hardvertámogatás. Néhány perces internetes kereséssel könnyedén kiválaszthatjuk a Linux által is
+támogatott hardvereket az aktuálisan kaphatók közül. Ezek aránya ugyan függ a hardver
+kategóriájától, de manapság az átlag otthoni felhasználónak semmiben nem kell nélkülöznie.
+Másként megfogalmazva, ma már azok a számítógép alkatrészek sokkal ritkábbak, melyeket nem
+támogatnak a Linux rendszerek.
+Nagy, komoly cégek, szervezetek álltak át mára (szinte) kizárólag Linux használatára. Sok, jól
+működő példa van erre szerte a világban. Ezek mind tovább erősítik a Linux használhatóságát, az
+esélyt, hogy Linux alatt jól használható rendszert rakhassunk össze nagyobb bonyodalmak nélkül,
+sőt a „vaktában” összerakott gépünkkel se legyen problémánk ha Linuxot szeretnénk használni.
+További gond lehet, hogy nem minden Windowson népszerű program készült el Linuxra, illetve
+22
+14. ábra: A Gimp indulása – kiváló
+program
+amiket használhatunk helyettük, azok nem pont azt, nem pont úgy tudják, mint ahogy azt elvárnánk.
+Ezt a problémát sokszor át lehet hidalni, de néhány speciális helyzetben nem fogunk elfogadható
+megoldást találni. Például a mérnöki tervezésnél gyakran használt AutoCAD és a profi
+képmanipulátorok kedvence, a Photoshop Linuxon nem elérhető, az alternatívák pedig nem
+tökéletesen váltják ki az eredetit. De például családi képek retusálását, átméretezését a Gimp nevű
+(egyébként Windowson is elérhető) programmal is könnyedén elvégezhetjük. Jó tudni azért, hogy
+egyes windowsos programokat használhatunk Linuxon trükkös módon (emuláció, virtualizáció
+segítségével), erről később még lesz szó.
+Ez a probléma szélsőséges esetben okozhatja azt is, hogy a Linux használata nehézkessé válik,
+egyszerűen technikailag nem lehet megoldani hogy a kívánt munkát elvégezzük. A legtöbb
+munkahelyen használt gépen azonban nem használnak olyan speciális programokat, amik a váltást
+lehetetlenné tennék. Mindenesetre egy esetlegesen felmerülő váltás előtt a helyzetet fel kell mérni, a
+használt szoftverparkot tanulmányozni kell. Ez a rendszergazdák feladata, a döntéshozók
+felelőssége.
+Sok helyen azt a megoldást alkalmazzák, hogy a gépek zömére Linuxot raknak, a néhány speciális,
+erősen Windowshoz kötődő program futtatására pedig megtartanak néhány windowsos gépet. Ez
+nem okoz gondot, mert a legtöbb alkalmazott által végzett tevékenységhez megtalálható a
+megfelelő eszköz, Firefox (vagy Chrome, esetleg Opera) böngésző a hálózat használatához,
+23
+15. ábra: Firefox, Chromium és Opera böngészők Ubuntu 10.04 alatt
+OpenOffice.org (Ubuntu 11.04-től LibreOffice) irodai programcsomag a dokumentumok,
+táblázatok, prezentációk készítéséhez és kezeléséhez. Kicsit más a helyzet az otthoni számítógép
+használattal. A legtöbb probléma a játékokkal kapcsolatban merül fel. Ez nem azt jelenti, hogy ne
+találnánk szinte minden játékkategóriában jó linuxos programot, viszont problémát jelenthet, hogy
+egyes konkrét játékokat nem biztos, hogy tudunk Linuxon futtatni. Létezik ugyan néhány
+kezdeményezés ami segíthet (a Wine project és társai, amikről a későbbiekben részletesebben
+szólunk), de sokszor nincs tökéletes megoldás. Bár a játékpiac elmozdult a számítógéptől a
+konzolok felé, ez még mindig komoly problémát jelent. A lényeg, hogy komoly játékfüggőségben
+szenvedőknek nem javaslom a Linux használatát.
+24
+Feladatok
+1. Milyen disztribúciókat ajánlanak készítőik és a szakma elsősorban szerverre, és melyeket
+desktopra?
+2. Soroljon fel öt Debian alapú disztribúciót!
+3. Milyen funkciókat látnak el a Debian kiadások (segítség: Sid és a másik kettő)?
+4. Milyen fontosabb felhasználói programok hiánya nehezíti a Linux elterjedését? Soroljon fel
+legalább hármat!
+5. Milyen cégnek lehet kifizetődő egy linuxos átállás? Gondolja végig a migráció esetleges
+lépéseit!
+25
+5. Megismerjük az Ubuntu változatait, támogatási
+rendszerét és előkészületeket teszünk a telepítésre
+Van egy jó hírem a bizonytalanoknak. Ki lehet próbálni az Ubuntut telepítés nélkül is. A konkrét
+kipróbálásról a következő fejezetben lesz szó, először szerezzük be a telepítő készletet.
+Tehát először is kell egy Ubuntu CD. Honnan lesz nekem ilyen? Persze kérhetek is valakitől, akinek
+van, de le is tölthetem az Internetről. Ugyanis az Ubuntu, mint a legtöbb Linux verzió, teljesen
+jogtisztán, szabadon másolható akárhány példányban, tetszőleges számú gépre telepíthető
+ingyenesen, tekintet nélkül arra, hogy milyen célból használjuk. Honnan tölthetjük le?
+Legegyszerűbb, ha meglátogatjuk a http://www.ubuntu.hu honlapot, ahol nem lesz nehéz
+megtalálni. (Kattintsunk a Letöltés-re.)
+Átlagos felhasználásra, otthonra vagy munkába szánják az ún. desktop verziót (Desktop Edition), de
+készül szerver verzió (Server Edition) is minden kiadásból. Itt az aktuális kernelhez más szoftverek
+(ún. szerverprogramok) vannak válogatva, és telepítés után még grafikus felületünk sem lesz, hiszen
+ez egy szerveren felesleges. Valójában bármelyik változatból elő lehet állítani a másikat programok
+telepítésével és törlésével, de ez két eléggé eltérő változat, célszerű azt választani, amelyik közelebb
+áll az elképzeléseinkhez. Kis képernyős laptopokhoz, az ún. netbookokhoz esetleg jobb döntés a
+netbook verzió (Netbook Remix, későbbi nevén Netbook Edition), ami tulajdonképpen egy desktop
+változat, méghozzá a képernyő mérete által inspirált speciális asztali környezettel. Az Ubuntu
+11.04-től a hivatalos Netbook kiadás megszűnt, az új, alapértelmezett Unity felület miatt
+fölöslegesnek tartották ezt a külön ágat is továbbvinni.
+Minket elsősorban a desktop változat érdekel, a szerver verzióról nem lesz szó.
+Ki kell választanunk még, hogy 32 vagy 64 bites változatot akarunk használni. Ez a gépünk
+processzorától függ. Sokan még nem tartják teljesen kiforrottnak a 64 bites szoftvereket (például
+egyes szoftverek 64 bites változatainak hiányozhatnak 64 biten működőképes kiegészítői), így
+desktopra ma még a 32 bites verzió tekinthető ajánlottnak. Ebből baj nem lehet, működni a 32 bites
+változat minden gépen működni fog. Az átlagos felhasználás szintjén jelenleg egyébként sem
+tapasztalhatunk lényeges gyorsaságbeli különbséget is a 32 bites és a 64 bites operációs rendszerek
+között.
+Léteznek további hivatalos (a Canonical által készített) és számtalan további „nemhivatalos”
+Ubuntu telepítő médiák (hisz ilyet bárki készíthet, van is belőlük jó sokféle).
+A CD kiadás mellett készítenek DVD-s változatot is, ami jóval több programot tartalmaz. Az
+átlagos felhasználónak erre nemigen van szüksége, hisz a DVD-n pluszban található programok a
+CD-s változatot telepítők számára is elérhetőek, könnyen telepíthetőek internetkapcsolaton
+keresztül.
+A Canonical az eredeti CD-s változat mellett speciális program-összeállítással készíti például – csak
+hogy a legfontosabbakat említsük – a KDE alapértelmezett grafikus környezettel felálló Kubuntut
+és az oktatási szoftvereket tartalmazó, valamint az órai közös munkát támogató Edubuntut.
+26
+Százával léteznek ilyen, az alap Ubuntu módosításával létrehozott disztribúciók. Kicserélgetik a
+telepítőlemez programjait, megváltoztatják a rendszer megjelenését. Speciális nyelvi, vallási, céges,
+oktatási tartalommal, esetleg extra hardvertámogatással bővítik.
+Bár az Ubuntu eleve rengeteg nyelvet támogat, köztük a magyart is, sok nyelvhez faragnak saját
+verziót, plusz tartalommal. A tartalmi változás oka lehet még például a különböző országok eltérő
+jogrendje. A magyar és román felhasználóknak szánt Kiwi Linux például tartalmaz olyan
+szoftvereket is, amik az amerikai törvények miatt nem lehetnek az eredeti telepítőlemezen.
+Mi itt a leggyakoribbat, az eredeti Ubuntu verziót mutatjuk be, de ne aggódjunk, nem maradunk le
+semmiről, ha esetleg hiányolunk valamilyen tengerentúli jogi akadály miatt kimaradt szoftvert,
+könnyedén telepíthetjük utólag is.
+Ha valakinek arra van szüksége, létezik keresztény, muszlim, sőt még sátánista kiadás is az
+Ubuntuból.
+A Canonical reklámcélból éveken keresztül készített hivatalos, gyári kinézetű CD-ket, ízléses
+tokban, Ubuntu, Kubuntu és Edubuntu változatokban. Ezeket meg lehetett rendelni honlapjukról
+(„ShipIt” akció). Mindez nem került nekünk semmibe. Sem anyag-, sem postaköltséget nem kellett
+fizetnünk. Mivel semmilyen extra információt, programot nem tartalmazott a honlapjukról
+letölthető telepítő médiához képest (azzal bitre pontosan megegyezett), csak akkor volt értelme a
+rendelésnek, ha gondjaink lettek volna ekkora méretű (kb. 700 MB-os) fájl letöltésével, vagy
+valamilyen oknál fogva fontos számunkra a lemez szép, esztétikus külseje. A mai világban nem
+valószínű, hogy egy ekkora letöltés bárkinek problémát jelentett volna, inkább akkor lehetett
+hasznos, ha nem akarunk egy csúnya, másolt, arra filctollal írt CD-t egy döntéshozó kezébe nyomni.
+27
+16. ábra: Hivatalos Ubuntu 10.04 telepítő CD tok
+Ha mégis szeretnénk ilyen telepítő CD-t, esetleg DVD-t, jutányos áron hozzájuthatunk a Canonical
+online boltjában, melynek címe: http://shop.canonical.com/
+Mivel az Ubuntu kiadások a Windows verziókhoz képest lényegesen gyakrabban jelennek meg,
+rövidebb is a támogatási idejük. Ez azt jelenti, hogy egy átlagos desktop kiadáshoz másfél évig, a
+szerver verzióhoz 3 évig jelennek meg (zömmel) biztonsági frissítések. Ez azt jelenti, hogy ha
+valamilyen durva, jellemzően a rendszer biztonságát veszélyeztető hibát találnak valamilyen
+programban, nem kell várnunk a következő kiadás megjelenésére, a rendszer jelezni fogja, hogy
+letöltené az adott program javítását. Ez teljesen automatikus, letölti, feltelepíti, nekünk csak rá kell
+bólintanunk, hogy beleegyezünk. Hogy konkrétan hogyan is megy ez, meglátjuk majd a telepítést
+bemutató fejezet után. Minden páros év első kiadásai úgynevezett LTS (Long Term Support,
+magyarul: hosszú támogatási idejű) kiadások. Ez desktopon 3 évet, szerveren 5 évet jelent. A
+jelenlegi legutolsó ilyen a 10.04-es is. Éppen ezért erről szól ez a jegyzet. Nem kell azonban
+félévente újratelepíteni rendszerünket, akkor sem, ha mindig a legfrissebbet akarjuk használni.
+Lehetőség van verziófrissítésre, ekkor internetkapcsolat birtokában, pár kattintással (és a hálózat
+gyorsaságától függően, de legfeljebb pár óra alatt) frissíthetjük Ubuntu verziónkat. Főleg szerverek
+üzemeltetőinek lehet hasznos funkció, hogy LTS verzió használata esetén lehetséges frissíteni –
+verziókat átugorva – a következő LTS verzióra, mikor az megjelent.
+A frissítéseket nagyon fontos a lehető leghamarabb telepítenünk. Ne legyünk saját magunk
+ellenségei. Nem bonyolult, nem fárasztó, a folyamat közben nem kell megszakítanunk munkánkat,
+szórakozásunkat. Persze a gép dolgozik olyankor, letöltéshez használja a hálózatot, de a mai átlagos
+sávszélességű interneteléréssel pillanatok alatt végez.
+Egy átlagos felhasználó a legújabb (nem feltétlenül LTS) desktop változatot használja. Célszerű
+lehet a legfrissebbet (általában félévente jelenik meg az új), hisz az fogja támogatni a legújabb
+hardvereket, az tartalmazza a legfrissebb szoftvereket. A Windowszal ellentétben ugyanis a
+rendszermag és kiegészítői (ún. moduljai) rengeteg hardver működéséhez szükséges
+programrészleteket, drivereket tartalmaznak, valamint egy tipikus disztribúció nem csak a rendszer
+működéséhez szükséges legalapvetőbb programokat tartalmazza. Régebben például a SuSE Linux
+hat darab CD-n jelent meg, rengeteg programot felrakott automatikusan telepítéskor, például volt
+vagy ötféle CD író szoftver. Más taktikát választottak az Ubuntu készítői. A telepítő egyetlen CD,
+leggyakrabban a „minden célra egy szoftver” elv jegyében.
+Azonban lehetnek hátrányai is a legújabb, legfrissebb változat megjelenés utáni gyors telepítésének.
+A többség elégedett, de sokan kritizálják az Ubuntu feszített (fél évenkénti) kiadási ütemét, mely
+felelős lehet sok ki nem javított hibáért, esetleges regresszióért (vagyis olyan problémáért, ami
+elromlott, a korábbi verzióban még helyesen működött). Így szerencsésebb, ha éles rendszerünk
+frissítésével az új verzió megjelenése esetén egy-két hónapig még várunk. Ha tehetjük, érdemes
+valamilyen tesztrendszeren kipróbálnunk a frissítést. A megjelenés után néhány hónappal már sok
+hibát javítanak, esetleg ismertté válnak hasznos „workaround”-ok (a probléma tényleges megoldása
+helyetti időleges, kerülő megoldások, trükkök).
+28
+Feladatok
+1. Milyen módokon juthatunk hozzá az Ubuntuhoz, ha telepíteni akarjuk? Miért a torrent a
+legjobb választás?
+2. Soroljon fel legalább tíz Ubuntu verziót (pl. Kubuntu), illetve Ubuntu származékot (pl. Kiwi
+Linux)
+3. Melyek voltak az eddig megjelent LTS verziók? Mit jelent az Ubuntu „point release”?
+4. Próbálja ki a telepítőmédián található Wubi programot Windows alól! Válassza a „Telepítés
+a Windowson belül” opciót!
+29
+6. Végre tényleg kipróbáljuk az Ubuntut, egyelőre telepítés
+nélkül. Megismerjük a telepítő CD használatát
+Kiválasztottuk tehát a megfelelő CD ISO fájlt. Töltsük le! Mielőtt azonban lemezre pörkölnénk,
+ellenőrizzük le, hogy nem sérült-e a fájl letöltés közben. Ha körülnézünk a letöltési oldalon, látunk
+egy furcsaságot, a neve MD5SUM. Ha megnézzük az MD5SUM eredményeket, egy
+szabálytalannak tűnő karaktersorozatot láthatunk az egyes ISO fájlok nevei előtt. Ezek a sorozatok
+az ún. ellenőrzőösszegek, amiket az md5 algoritmus állított elő a fájlokból. Ha egy fájl megsérül,
+akár csak egy kicsit is, az ellenőrző összege nem fog stimmelni. Vagyis az összehasonlításhoz elő
+kell állítanunk a letöltött fájl ellenőrző összegét. Ennek előállítására használhatjuk az md5sum nevű
+programot Linux alatt, Windows rendszerekre pedig számos ingyenesen használható program
+letölthető. Ha a két ellenőrző összeg megegyezik, biztosak lehetünk benne, hogy fájlunk
+megegyezik az eredetivel. Ezt a módszert, amely nagyban növeli a biztonságot, számos rendszer,
+így az Ubuntu is automatizálva használja rendszerfrissítéskor és programok telepítésekor (más
+módszerekkel együtt).
+Ha nem egyezne a két összeg, ne kísérletezzünk a fájllal, töröljük és töltsük le még egyszer (ha
+csökkenteni akarjuk a letöltött forgalmat, akkor használhatunk rsync programot, mely csak a hibás
+részt hozza le újra). Az eltérés nem gyakori, de néha mégis előfordul.
+Ha mindent rendben találtunk, írjuk ki az ISO-t egy CD-re. Tipikus hiba (és ez nem Linuxspecifikus
+probléma), hogy adat CD-t készítenek, ami tartalmazza az ISO fájlt. Nem erre van
+szükségünk, a CD képmás (ISO) fájlból készítsünk CD-t. Nyilván mindegy, milyen operációs
+rendszert futtató gépet használunk a letöltéshez és a lemez égetéséhez.
+Mielőtt a telepítés folyamatát néznénk végig, tegyünk kis kitérőket, érdemes lesz. Nézzük meg
+először a rendszerindítás folyamatát, mi is történik a számítógép bekapcsolása után. Persze csak
+annyira részletesen, amennyire feltétlenül szükséges. Megnyomtuk tehát bekapcsolás gombját. A
+gép áram alá kerül, ha a legfontosabb hardverelemek rendben vannak és a monitor is be van
+kapcsolva, mindenféle feliratok jelennek meg a képernyőn. Ezek az ún. BIOS (Basic Input / Output
+System, magyarul: alapvető bemeneti / kimeneti rendszer) üzenetei. A BIOS-ban (most minket csak
+ennyi érdekel róla) lehet beállítani, hogy a gép honnan kezdje el betölteni a használni kívánt
+operációs rendszert, vagyis – meghonosodott kifejezéssel élve – miről bootoljon. Általában a
+merevlemezről (ha több van a gépben, akkor melyikről), CD, DVD meghajtóban lévő lemezről,
+valamilyen USB-s eszközről (USB-s merevlemez, CD, DVD meghajtó, pendrive), ritkábban
+hálózatról. Ha CD-ről szeretnénk telepíteni, be kell állítani a BIOS-ban, hogy az a rendszert először
+innen próbálja meg betölteni. A legtöbb Linuxot, így az Ubuntut is CD-ről, esetleg DVD-ről
+telepítjük. Ha nincs a gépben ilyen olvasó, pendrive-ról is, sőt hálózatról is lehet telepíteni. Mi a
+klasszikus, CD-s telepítést fogjuk tárgyalni. Ha a gépben DVD meghajtó található, akkor
+érdemesebb a CD képmást egy DVD-re írni. Igaz, hogy így nem használjuk ki annak teljes
+kapacitását, de a rendszer telepítése lényegesen gyorsabb lesz, mivel a DVD eszköz sokkal
+gyorsabban olvas DVD-ről, mint CD-ről.
+Ott tartunk tehát, hogy megnézzük, hogyan próbálhatjuk ki új rendszerünket tényleges telepítés
+nélkül. Ez azt jelenti, hogy anélkül, hogy módosítanánk merevlemezünk tartalmát. Erre több
+30
+lehetőségünk is van. Viszont azoknak sem tanulság nélküli ez a rész, akik nem próbálgatni akarnak,
+hanem rászánták magukat a telepítésre, hiszen a telepítőlemez használatát egyébként is meg kell
+ismerniük, és itt azt is ismertetni fogom.
+Az itt leírtak konkrétan az Ubuntu 10.04-es verziójáról fognak szólni, képernyőképek is arról
+készültek. Ez az a verzió, ahol a megjelenés számos ráncfelvarráson esett túl. Az alapértelmezett
+megjelenés kezdetektől jellemző barnás színvilágát mostanra egy sötét bordós (egyesek szerint ez
+lilás-narancs) stílus váltotta. A korábbi verziókhoz képest kisebb, nem jelentős eltérések a telepítés
+folyamatában is lehetnek.
+Az Ubuntu telepítőlemeze jó néhány verzió óta egyben ún. live-CD. Hogy megtudjuk hogy ez mit
+jelent, először bootoljuk a gépet a telepítő CD-ről. Ha tényleg a telepítőmédiáról kezdett bootolni a
+gépünk, az első kép, amit láthatunk, nem lesz túl sokat mondó (lásd 17. ábra). Egy majdnem üres,
+sötétbordó képernyőt láthatunk, csak az alján lesz egy kis ábra, ami arra utal, hogy ha be akarunk
+avatkozni a folyamatba, nyomjunk meg egy tetszőleges billentyűt. Tegyünk most így, nyomjunk
+31
+17. ábra: Az első
+kép, alul
+18. ábra: A (részleges) nyelvi támogatás már az elején kiválasztható
+meg egy billentyűt!
+Ekkor egy menüt fogunk látni, de előtte válasszuk ki a telepítés nyelvét! Ha harminc másodpercig
+nem nyúlunk a billentyűzethez, automatikusan el fog indulni az rendszer betöltődése az
+alapértelmezett angol nyelvet használva. Viszont van magyar is a nyelvek közt, válasszuk azt! A
+navigáláshoz a billentyűzet fel, le, jobbra, balra gombjait, kiválasztáshoz pedig az Entert
+használhatjuk, az egér ilyenkor még nem működik.
+A telepítő lemezen lévő nyelvi támogatás – ahogyan később láthatjuk – nem teljes, csak a
+közvetlenül a telepítéshez tartozó dolgokat tartalmazza. Nem is férne el a CD-n annak a sok
+nyelvnek a teljes rendszerre vonatkozó támogatása. A tényleges településnek része lesz a
+kiválasztott nyelv többi csomagjának automatikus letöltése és beüzemelése.
+Tehát a nyelv kiválasztása után vehetjük szemügyre a tényleges menüt. A képernyő alján az F1-F6
+funkcióbillentyűk megnyomásának hatásait láthatjuk. Ha egy kezdőnek valamelyiket meg kellene
+nyomnia, azt olyan probléma felmerülése okozná, amit úgy sem tudna egyedül kezelni, úgyhogy
+hagyjuk ezt a részt. Nagyon valószínű, hogy amúgy sem lesz szükség rájuk.
+Öt fő menüpontot láthatunk a képernyő közepén. Ezek között a fel és le gombokkal
+manőverezhetünk (fehér az aktuális szöveg színe, a többi sötétebb) és itt is az Enterrel kell
+választanunk. Vegyük sorra a lehetőségeket!
+32
+19. ábra: A menü – immáron magyarul
+1. „Az Ubuntu kipróbálása a számítógép módosítása nélkül”. Ezt fogjuk majd választani. Ez
+lesz a live-CD mód. Megjegyzem, hogy telepíteni a live-CD módból is könnyedén lehet. De
+most még ne nyomjunk rajta Entert.
+2. „Ubuntu telepítése”. Ha nem akarjuk kipróbálni a live-CD módot, hanem biztosan telepíteni
+akarjuk rendszerünket a gépben lévő merevlemezre, akkor válasszuk ezt.
+3. „Lemez hibaellenőrzése”. Sok bosszúságtól kíméljük meg magunkat, ha ezt választjuk ki
+először. A már korábban említett hibaellenőrzési technikát használva a rendszer leellenőrzi a
+telepítő CD-t, valóban az van-e rajta, aminek lennie kell. Az adatok módosulhattak ugyanis
+letöltéskor, másoláskor (ez ellen véd a fájl MD5SUM-jának ellenőrzése), vagy a CD
+kiírásakor. Szánjuk rá azt a pár percet!
+4. „Memóriateszt”. Akkor használjuk, ha baj van. Mondjuk kipróbáltuk, feltelepítettük,
+használatba vettük az Ubuntut és titokzatos dolgok történnek. Fagyások, leállások. Mindez
+utalhat a memória hibájára, még akkor is, ha Windows alatt ilyet nem tapasztaltunk.
+Ilyenkor bootoljunk be a telepítőlemezről, válasszuk ki a memóriatesztet, majd hagyjuk ott
+jó pár órára, hadd dolgozzon. Ha fél nap, egy nap után sem jelez hibát, a fizikai memória
+meghibásodását legalább kizárhatjuk. Ha hibát jelez az ellenőrzés, a hibás modult cserélni
+kell. Ha több memóriamodul van a gépben, további tesztekkel dönthetjük el, melyikkel is
+33
+20. ábra: Kipróbáljuk vagy telepítjük?
+van gond (egy modult hagyjuk a gépben egyszerre).
+5. „Rendszerindítás az első merevlemezről”. Ha ez a menüpont fehér amikor Entert nyomtunk,
+a gép úgy fog bebootolni, mintha nem is lett volna benne a telepítő CD. Akkor hasznos ez,
+ha nem állt szándékunkban használni a CD-t, viszont az épp most beindított gép benne
+találta.
+Ha bootolás kezdetén nem nyúlunk a billentyűzethez, néhány másodperc múlva a CD-ről való
+betöltődés elindult volna. Ha ez történik, ekkor az alábbi képernyőképet láthatjuk (20. ábra). Itt – a
+nyelv kiválasztása mellett – az előző menü első két pontjából választhatunk.
+Így vagy úgy, válasszuk ki „Az Ubuntu kipróbálása a számítógép módosítása nélkül” menüpontot,
+nyomjunk rajta Entert (a grafikus verzióban használhatjuk az egeret is). Elkezdődik a rendszer
+betöltődése a memóriába. A Live rendszer működése – nem meglepő módon – lassabb, mint egy
+feltelepített rendszeré. Fél gigabájt memória alatt használata nem ajánlott, negyed gigabájt (256
+megabájt) memóriával pedig lehet, hogy már nem is fog működni. Egy mai átlagos gépben ennek a
+memóriamennyiségnek többszöröse található. Ha nagyon elavult, régi gépünk van, az Ubuntu
+valószínűleg rossz választás. Bár lehet kísérletezni, vannak kevesebb erőforrást igénylő Ubuntu
+változatok (pl. Crunchbang Linux) és „még kevesebbet evő” más Linuxok (pl. Debian, Slackware,
+Zenwalk, Slax, Puppy Linux) is, viszont ezek kezelése, de leginkább telepítése, konfigurálása
+sokszor nehézséget okozhat még az elég lelkes kezdőknek is. És nem is témánk ezen rendszerek
+tárgyalása.
+34
+A Live CD bootolási folyamata egy átlagos gépen két-három perc (a feltelepített rendszer esetén ez
+egy perc sem szokott lenni), melynek végén egy barátságos asztali környezetet láthatunk.
+Feltehetőleg minden rendben lesz, lesz kép (megfelelő felbontásban), hang, működni fog az egér és
+a billentyűzet, így „körül is nézhetünk”. Vegyük sorra, mit is látunk a képernyőn. Sok
+hasonlatosság, de néhány különbség is lesz, ha a Windowst tekintjük összehasonlítási alapnak.
+Mellesleg most már láthatjuk, mit értettünk az alatt, hogy „hiányos nyelvi támogatás”, hiszen jó pár
+menüpont angol maradt. Emiatt nem kell aggódni, ahogy erről már volt szó, a tényleges telepítés
+után ezek a hiányosságok megszűnnek.
+Az első dolog, ami szemet szúrhat, hogy két tálcát láthatunk, egyet lent és egyet fent. A rendszeren
+lévő programok kényelmes indítását támogató menü (a windowsos „Start menü” itteni megfelelője)
+a felső tálcán van, de ott mindjárt három menüt is találunk. A legérdekesebb számunkra az
+„Applications” (Alkalmazások) menüpont. Ebben a menüben néhány felhasználói program indító
+ikonját találjuk, kategóriánként csoportosítva. Próbáljunk ki néhányat! A „Places” (Helyek) menün
+35
+22. ábra: Az Ubuntu Súgója - telepítés után, magyarul
+keresztül különböző nevezetes könyvtárakba juthatunk el. „System” (Rendszer) menüből a rendszer
+beállításához, adminisztrációjához szükséges programokat indíthatjuk el. Ennek Live módban sok
+értelme nincs, egyébként sem valószínű, hogy kezdőként sokat fogunk itt matatni. Az esetek
+zömében a telepítés után felálló rendszer komoly módosítások nélkül, rögtön használható. Ha
+valami nem stimmelne, akkor se Live üzemmódban próbáljuk javítani, hiszen a változtatások
+ilyenkor nem őrződnek meg, mivel a rendszer nem a merevlemezről, hanem a memóriában
+működik. Ugyanezt fogjuk látni a képernyőn telepítés után, akkor kezdjünk most a Rendszer menü
+használatához, ha feltétlenül szükséges.
+A felső tálcán találunk még két ikont; a Firefox böngésző és a Súgó ikonját. A tálcán lévő ikonok itt
+is egy, az asztalon lévők két (bal) egérkattintásra reagálnak az elvárt módon. Példánkban a tőlük
+jobbra lévő „fel-le” nyilak mutatják, hogy a vezetékes kapcsolat (automatikusan) létrejött, a
+böngészővel ezt ellenőrizhetjük is. A Súgót hálózat nélkül is kipróbálhatjuk. Nézzünk is körül itt,
+főleg kezdőknek szóló alapos tájékoztatást kaptunk, nem csak elméleti, hanem technikai
+kérdésekben is. Mivel Live módban ezen leírások jó része még angol, érdemes inkább telepítés után
+visszanézni.
+A felső tálca jobb oldalán a hálózati kapcsolat ikonjától jobbra található a hangerőszabályzó. Az
+asztalon lévő „Examples” (példák) könyvtárban (és az abban lévő további könyvtárakban) számos
+mintafájlt találhatunk különféle nyílt formátumokban. A fájlok ikonjaiból következtethetünk azok
+típusára. Ha a hangrendszerünk rendben van, és ha valamelyik zene típusú fájl ikonjára rávisszük
+egérkurzorunkat, már el is kezdődik a lejátszás.
+A hangerőszabályzótól jobbra egy borítékot látunk, itt a levelezést és a csevegő szolgáltatókat
+állíthatjuk be. Tőle jobbra egy kis naptárt látunk, lakóhelyünket megadva ezt is testre szabhatjuk, de
+Live módban még ezt sem érdemes megtennünk. Ugyanez igaz a tőle jobbra lévő (szintén
+csevegéssel kapcsolatos) menüre is. A jobb felső sarokra kattintva kapjuk a menüt, melyből
+leállíthatjuk, esetleg újraindíthatjuk rendszerünket.
+A lenti tálca kevésbé zsúfolt, itt jelenleg meg az elindított programok egy-egy kis gombként. Jobb
+sarkában található a „Kuka”, bal sarkában az asztalmegjelenítő, ami elrejti az asztalon lévő
+alkalmazásokat. Mindkét funkció ismerős lehet a Windowsból.
+Idegen lehet viszont egy, a grafikus felületű Linuxokon régóta használt, nagyon hasznos funkció. Ez
+pedig a több asztal kezelése. A Kuka mellett található (alapértelmezés szerint) négy kis téglalap
+(először a bal oldali az aktív, vagyis az aktuális) négy független asztalt jelképez. Próbáljuk ki:
+indítsunk el egy programot, váltsunk egy másik asztalra (egy másik, nem aktív téglalapra kattintva).
+Egy üres asztalra jutunk. Itt is elindíthatunk programokat. Tetszés szerint váltogathatjuk az aktív
+asztalokat, az egérrel, vagy az Alt+Ctrl és jobb, esetleg bal kurzorvezérlők együttes lenyomásával.
+És ha valami problémát észlelünk telepítéskor? Általában a hibaelhárítás nem tartozik a kezdők
+tevékenységi körébe, de azért pár gondolatot elmondanék. Persze a Live üzemmódban működő
+rendszert nem szoktuk elkezdeni javítgatni, de ha valami így nem működik, akkor feltelepítve se
+nagyon fog, ha egyáltalán fel tudjuk rakni a rendszert ilyen körülmények között.
+Az alapvető hardverelemek támogatottságával csak akkor szokott baj lenni (akkor sem mindig), ha
+az adott eszköz nagyon új vagy speciális. Ha például nincs kép (fekete a képernyő, esetleg már az
+indulási folyamatot sem láttuk) indítsuk újra a gépet és próbálkozhatunk a „Csökkentett grafikus
+mód” használatával (az F4 nyomására jön elő a menü, amiből kiválaszthatjuk).
+36
+Normál (ps2-es) billentyűzet és egér minden bizonnyal rögtön használható lesz, bár nálam az USB-s
+billentyűzetekkel vagy egerekkel sem volt gond soha. Egyes különleges gombok billentyűzeteken,
+egereken nem biztos, hogy alapból működni fognak. Ám szerencsére internetes kereséssel,
+fórumozással ezek az apró hiányosságok a leggyakrabban pótolhatóak.
+Ha ethernet kábelen jön az internet (például a kábel-szolgáltató internet modemének vagy az ADSL
+modemnek a számítógéphez csatlakozó része is ilyen /RJ45/), sok bajunk nem lesz vele.
+Feltehetőleg menni fog minden beavatkozás nélkül. A wifi kártyák meghajtó programjaival lehetnek
+gondok. Ha nem megy, keressünk rá a neten a típusára és a „Linux” szóra. Persze már a
+hardverelemek típusának pontos meghatározása is többet feltételez a legalapvetőbb informatikai
+ismereteknél. Végső esetben szinte mindegyik wifi kártyát be tudjuk üzemelni az ndiswrapper
+programmal az eszköz windowsos driverét használva. (Ha majd megtanultunk programot telepíteni,
+a tárolókban található ndisgtk programot felrakva egyszerűen használható grafikus felületet kapunk
+az ndiswrapperhez.)
+Általában elmondható: teljesen valószínűtlen, hogy egy hardver eszközt mi használunk először
+Linuxszal. Az is valószínűtlen, hogy ha valami gond lenne, ne találnánk az Interneten róla valami
+bejegyzést, ami legtöbbször a beüzemeléséhez is tartalmazza az elégséges információkat. Persze az
+angol nyelv alap/középfokú ismerete előnyt jelent. De bátran használhatjuk a magyar Ubuntu
+közösség fórumát is, mely az ubuntu.hu címen érhető el.
+37
+Feladatok
+1. Végezzen MD5SUM ellenőrzést a letöltött ISO fájlon! Gyakorolja az ellenőrzést más,
+ismert ellenőrző-összegű fájlon!
+2. Az Ubuntu telepítő CD segítségével végezzen memóriatesztet gépén!
+3. Keressen az Interneten magyar nyelvű, Ubuntu témájú blogokat!
+4. Ismerje meg a http://www.ubuntu.hu honlapot, fedezze fel részeit, a Fórumot, a Blogokat!
+5. Fedezze fel a több asztal funkció használatát, állítsa át az asztalok számát!
+6. Keressen Ubuntu változatokat, melyeket gyengébb hardverű gépekre szántak! Mi a
+különbség köztük és egy eredeti Ubuntu között?
+38
+7. Most már tényleg hozzákezdünk a 10.04-es Ubuntu
+telepítéséhez
+Ideális (és leggyakoribb) esetben a telepítés rendkívül egyszerű. Elöljáróban annyit mondanék róla,
+hogy egyetlen helyen lehet elrontani, az a „hova” kérdése. Ha nem egy üres merevlemezre
+telepítjük, hanem olyan helyre, ahol adataink vannak, legyen az bármilyen személyes
+(dokumentumaink, filmjeink, zenéink, stb.) vagy éppen egy Windows rendszer, akkor azokat a
+telepítés felülírhatja, tehát amik ott voltak, elveszhetnek. Ebben semmi meglepő nincs, bármilyen új
+rendszer telepítése esetén ez a helyzet. Járjunk el tehát körültekintően, készítsünk biztonsági
+mentést fontos fájljainkról.
+Aki telepített már rendszert, akár Windowst, az tisztában van az ehhez szükséges elégséges tudással,
+aki meg nem, egy Linuxot sem valószínű, hogy egyedül fog felrakni. Feltehetőleg megteszi valaki
+helyette; rendszergazda, családtag, szomszéd Pistike.
+Láthattuk hogy több, különböző úton is eljuthattunk a tényleges telepítésig. Kezdhettük rögtön a
+CD indulása után a telepítéssel, vagy kipróbálhattuk először a Live funkciót, majd ott kattinthattunk
+39
+az Asztalon lévő „Ubuntu 10.04 LTS telepítése” ikonra. Mindegy hogy jutottunk el idáig,
+telepítéskor ugyanazt utat fogjuk bejárni.
+A telepítést hét (esetleg nyolc) részre oszlik, ahogy az menet közben is látszik. Az első lépés a
+telepítés és a telepítés után felálló rendszer alapértelmezett nyelvének kiválasztása, amennyiben ez
+idáig nem kerítettünk volna rá sort.
+A második lépésben az időzónát állíthatjuk be. Ha Magyarországon tartózkodunk, nem nagyon
+indokolja semmi, hogy változtassunk a magyar nyelvi beállítás után automatikusan felajánlott
+időzónánkon. Ha más időzónában élünk, természetesen azt is könnyedén beállíthatjuk.
+Nagy valószínűség szerint a harmadik lépésben sem kell változtatnunk a rendszer által felajánlotton.
+Itt az automatikusan felismert billentyűzetkiosztáson változtathatunk, ha szükséges. Azért hasznos
+lehet, ha az arra szolgáló szövegmezőben kipróbáljuk legalább az ékezetes betűk megjelenését,
+megfelel-e az elvárásainknak.
+A következőekben jön az egyetlen rész, ahol nagyot lehet hibázni, ez a particionálás. Ha
+bizonytalanok vagyunk, itt mindenképpen kérjük gyakorlottabb segítségét. Az alapok nem Linux
+specifikusak, bár semmiképpen nem tartoznak a számítógép mindennapi használatához szükséges
+ismeretek közé.
+40
+8. Folytatjuk a telepítést, de előbb megismerkedünk a
+partíciókkal, fájlrendszerekkel, illetve a linuxos
+fájlstruktúrával
+A 4. lépés a lemezhely előkészítéséről szól. A legkönnyebb dolgunk akkor van, ha egy üres, vagy
+teljesen felhasználható merevlemezre telepítjük az Ubuntut. Ekkor a 25. ábrán látható helyzet áll
+elő, ekkor kiválasztjuk a „Törlés és a teljes merevlemez felhasználása” lehetőséget és megyünk is a
+következő lépésre a Tovább gomb megnyomásával. Ez egyszerű. A legtöbb esetben azonban ettől
+bonyolultabb a helyzet.
+Gyakran már van egy másik rendszer is a lemezen (általában valamilyen Windows). Ilyenkor a
+lemezen lévő üres helyből csípünk le a Linux telepítéséhez. Ilyenkor célszerű körülnézni a használt
+rendszerünkön, kicsit rendet csinálni, törölni (a Kukából is), amire nincs már szükségünk.
+Semmiképpen ne hagyjuk ki a windowsos rendszer töredezettségmentesítését, még ha sokáig tart is!
+Ezzel egybefüggővé tesszük a használt részeket, de az üres helyeket is. Így ez előnyére válik a régi,
+de a telepítendő rendszerünknek is; az olvasófejnek kisebb utat kell majd megtenni a merevlemez
+használata közben, ez gyorsítani fogja a lemezműveleteket. Ha járatosak vagyunk a
+particionálásban, már Windows alól is kialakíthatunk egy üres partíciót a Linux részére. Valójában
+ez nem szükséges, az Ubuntu telepítője menet közben is képes csökkenteni a használt partíciók
+méretét, helyet csinálva a telepítendő rendszernek.
+41
+25. ábra: 4. lépés: Telepítés üres merevlemezre
+De hogyan is képzelhetjük el a partíciókat? A merevlemezt használhatjuk úgy is, hogy nincs több
+részre (partíciókra) osztva, hanem egy, osztatlan partícióval üzemel. Legtöbbször azonban több
+részre osztjuk. Ilyenkor a részeket úgy tudják kezelni az operációs rendszerek, mintha azok külön
+merevlemezek lennének; például a fájlok nem lóghatnak át az egyik partícióról a másikra. A
+Windows külön betűjeleket ad a partícióknak, például: C, D, E, stb. Ahhoz, hogy egy partíciót
+akármire is használhassunk, meg kell formázni, vagyis annak valamilyen fájlrendszert kell
+tartalmaznia. A fájlrendszer gondoskodik arról, hogy az operációs rendszer milyen elv szerint tárolja
+és rendezze a fájlokat a partíción. A Windowsok ma az NTFS fájlrendszert használják, Régebben a
+FAT volt az elterjedt DOS-Windows alatt. A FAT-os fájlrendszerbe szervezett fájloknak például még
+nem volt „tulajdonosa”, vagyis nem lehetett a fájlokat egyes felhasználók elől írásvédelemmel
+ellátni, hogy csak egy példát mondjuk a hátrányukra. Valójában a FAT fájlrendszer még nem halt ki,
+egy fejlesztett változata, a VFAT egyszerűsége miatt minden mobil adattároló kvázi-szabvány
+fájlrendszere (pl. pendrive-ok, fényképezőgépek vagy mobiltelefonok memóriakártyái stb.). Minden
+partíciónak pontosan egy fájlrendszer típusa van.
+A Linux rendszerek saját fájlrendszereket használnak. Ma az Ubuntuk alapértelmezett fájlrendszere
+az Ext4, ami egy modern, naplózó fájlrendszer. A naplózó fájlrendszer egy olyan fájlrendszer, amely
+naplózza a változásokat egy fájlba, mielőtt beírná azokat a valódi fájlrendszerbe. Ez az eljárás
+probléma esetén (például áramszünet miatti szabálytalan leállás) segít a fájlok helyes állapotba való
+visszaállításában.
+Még egy, speciális fájlrendszerrel meg kell ismerkednünk, ez a swap. A swap szó magyarul cserét,
+42
+26. ábra: 5. lépés: Particionálás saját kezűleg
+ez esetben csereterületet jelent. A Windowsok is használnak ilyet, csak nem külön partícióra rakják,
+hanem egy, a partíción található fájlba. Az a szerepe, hogy a rendszer a gyors de viszonylag kicsi
+fizikai memóriát mindig optimálisan használja ki. Ennek érdekében a nem használt programok
+memória tartalmát kiírja a diszk cserepartíciójára, így annak helyét a memóriában más, épp futó
+programok vehetik át. Mikor újra használni akarunk egy programot, akkor azt a rendszer
+automatikusan visszatölti a fizikai memóriába. Manapság, a fizikai memória relatív olcsósága miatt
+egy átlagos konfiguráció esetén a swap-nek csak akkor van jelentősége, ha rendkívüli
+memóriaigényű feladatokra használjuk a gépünket. A swap speciális partícióra, a swap partícióra
+kerül. Minden más partíció adatpartíció.
+Valódi, elsődleges partícióból legfeljebb négy lehet egy merevlemezen. Ha többre van szükségünk,
+használhatunk kiterjesztett partíciót. A kiterjesztett partíció egy olyan elsődleges partíció, amely
+nem fájlrendszert, hanem logikai partíciókat tartalmaz. Ily módon válik lehetővé négynél több
+partíció használata.
+Ha tehát van már (legalább) egy rendszer a merevlemezünkön, vagy csak nem akarjuk az Ubuntu
+automatizmusára bízni a particionálást, a telepítési folyamat 4. lépésében válasszuk a „Partíciók
+saját kezű megadása (haladóknak)” lehetőséget. Ekkor egy plusz lépést iktatunk be a telepítési
+folyamatban, nem hét, hanem nyolc lesz innentől az összes lépések száma.
+Itt néhány szót kell váltani a linuxos fájlstruktúra alapjairól. A számítástechnikában a fájlrendszerek
+felépítése fa struktúrájú. Tehát vagy egy ún. gyökérkönyvtár, amibe fájlokat és könyvtárakat
+rakhatunk. Aztán az így keletkezett könyvtárakba ismét fájlok és könyvtárak kerülhetnek, és így
+tovább. A Linux és Windows fájlstruktúrájában az az egyetlen jelentős különbség, hogy míg
+Windowson minden egyes meghajtónak (A, B, C, D, E, stb.) külön komplett fastruktúrája van, a
+Unixoknak és leszármazottaiknak, így a Linuxnak is egyetlen fastruktúrája van. A különböző
+meghajtók egy fastruktúrába csatolhatók le és fel. A csatolás azt jelenti, hogy az újonnan rendszerbe
+integrált partíció tartalma a fájlrendszer egy könyvtárában elérhetővé válik. A különböző típusú
+adatokat tartalmazó partíciókat általában tradicionális helyekre csatolják. Például ha berakunk egy
+CD-t egy Ubuntus gépbe, annak a tartalmát a /media/cdrom könyvtárban fogjuk megtalálni. Ha a
+rendszerünk egy formázott, fájlokat tartalmazó CD behelyezését észleli, azt automatikusan csatolja
+az adott helyre. (Mivel a Linuxok maximálisan testre szabhatók, természetesen módosíthatjuk úgy
+rendszerünket, hogy az ne csatolja automatikusan a behelyezett CD-t, pendrive-ot, esetleg
+megváltoztathatjuk a csatolás helyét is.)
+Szintén régi Unixos szokás, hogy a rendszer a számítógép hardverelemeire is úgy hivatkozik,
+mintha azok is a fastruktúra részei lennének. Gyakorlatilag „álfájlokat” kezel, melyek az adott
+43
+27. ábra: Inkább készítsünk swap partíciót...
+hardvernek megfelelő bejegyzések. Ezek az „álfájlok” a /dev könyvtárban (a „dev” a device
+(eszköz) szó rövidítése) találhatóak. Például egy mai modern Linuxon a /dev/sda, a /dev/sdb, a
+/dev/sdc és a /dev/sdd jelöli a meghajtókat. Ha léteznek partíciók a lemezen, azoknak is lesz
+bejegyzésük a /dev könyvtárban. A /dev/sdb2 például a második meghajtó második partíciójára utal.
+(Valójában eredetileg az „sd” SCSI Disk-et jelentett, az IDE meghatók eseten a jelölés hda, hdb, stb.
+volt.)
+Ha mindehhez hozzárakjuk még azt az információt, hogy a felhasználók saját könyvtárai a /home
+könyvtárba kerülnek (vagyis a partíció csatolási pontját a /home-ra állítjuk), már mindent érteni
+fogunk a 26. ábrából, ami egy egyedi particionálási tervet mutat. A /home könyvtár külön partícióra
+rakása nem feltétlenül szükséges, sőt a swap partíció elhagyása sem főbenjáró bűn, bár ez utóbbitól
+azért a rendszerünk stabilitása érdekében tartózkodjunk. Erre figyelmeztet a 27. ábrán látható üzenet
+is, ha mégis megpróbálnánk swap partíció létrehozása nélkül továbblépni a telepítési eljárás során.
+A külön home partíció létrehozása mellett szólhat, hogy így a rendszert könnyedén cserélhetjük
+személyes fájljaink háborítása nélkül. Megjegyezzük, hogy kiszolgálókon ennél sokkal több
+partíciót szoktak kialakítani, így elszeparálva a rendszer különböző részeit egymástól.
+Mekkora helyet hagyjunk különböző partícióinknak? A legfontosabb a rendszerpartíció (a
+gyökérkönyvtár jelölése a /) mérete. Ubuntu esetén az ajánlott minimum 4 GB szokott lenni, de ez
+tényleg nagyon szűkös. Egy jól belakott rendszer mérete sok telepített program esetén akár 7 GB
+fölé is kúszhat. Ezért én legalább 8 GB-ot javaslok, persze csak ha a /home könyvtár külön partíción
+van. Ellenkező esetben nem szükséges számolgatni, ekkor a swap-en kívül egyetlen partíciót fog
+használni Linuxunk.
+Láttuk, hogy ajánlatos swap partíciót készíteni. Régen a swap méretét a fizikai memória méretének
+kétszeresére kalibrálták. A mai rendszereken nem indokolt a fizikai memóriánál sokkal több swap.
+Az is csak akkor, ha szeretnénk a rendszerünkkel a hibernálást használni. (Hibernáláskor a memória
+tartalma a swap-be mentődik le.)
+Ha van tehát 100 GB helyünk, amit a Linuxra szánunk (ez manapság nem is sok) egy olyan gépen,
+amiben 2 GB memória van, akkor adjuk 2 GB-ot a swap-nek, 8 GB-ot a rendszerpartíciónak, 90-et
+a home partíciónak.
+Ha ezzel sikeresen kialakítottuk a merevlemez kívánt felosztását – ügyelve közben, hogy megtartani
+kívánt partícióinkat nehogy felülírjuk – tovább is léphetünk. A változások ilyenkor még nem
+hajtódnak végre, ha meggondoljuk magunkat, még nem késő.
+Ha a merevlemezt korábban már teljesen belakta egy rendszer, mindenképpen át kell méretezni
+44
+28. ábra: Utolsó figyelmeztetés partíció átméretezése előtt
+legalább egy partíciót. Egy korábbi rendszer jelenlétét érzékelni fogja a telepítő, a 4. lépésben meg
+fog jelenni egy „Telepítés egymás mellé és az indítandó kiválasztása rendszerindításkor” választási
+lehetőség is. Ez mindenképpen jó opció lehet, de ha erre az automatikus megoldásra sem akarjuk
+magunkat rábízni, újra a „Partíciók saját kezű megadása (haladóknak)” irányt kell választanunk.
+Akár így, akár úgy, átméretezés előtt figyelmeztetést kapunk, lásd a 28. ábrát. Ez az az első lépés,
+ahol egy rossz döntéssel visszavonhatatlan károkat okozhatunk. Járjunk el igen körültekintően! Ha
+nem vagyunk biztosak magunkban, kérjünk segítséget! Az átalakítások előtt mindenképpen
+készítsünk mentést hasznos adatainkról!
+45
+9. Megismerkedünk egy különleges felhasználóval, és
+befejezzük a telepítést
+Ha sikerrel kialakítottuk az új rendszer helyét, lépjünk tovább. A következő lépésben néhány
+adatunkat kell megadnunk. Adjuk meg nevünket – itt gyakorlatilag bármilyen karaktereket
+használhatunk, ékezeteseket is – és a felhasználói nevünket. A felhasználói név kötöttebb, a
+rendszer nem enged, de nem is ajánlatos akármilyen karakter használata. Nem kezdődhet számmal,
+nem tartalmazhat nagybetűt, ékezetes betűt, szóközt, egyéb különleges karaktert.
+Ez a felhasználó, melynek az adatait megadtuk, jogosult lesz rendszergazdai teendők ellátására, de
+nem automatikusan. Vagyis nem lesz rendszergazda, de joga lesz azzá válni, ha szükséges. A
+telepítés után további felhasználókat is felvehetünk a rendszerbe, ezek különféle jogkörökkel
+bírhatnak; lehetnek egyszerű felhasználók, de őket is feljogosíthatjuk rendszergazdai jogokkal. A
+jelszónak gyakorlatilag bármilyen nem nulla hosszúságú karaktersorozatot elfogad a rendszer,
+46
+legfeljebb nem ajánlja. Nagyon ajánlott legalább a rendszergazdai jogokkal rendelkező
+felhasználóknak erősebb jelszót választani. Ezt a legegyszerűbben két össze nem illő szó és néhány
+szám, írásjel egymás után fűzésével érhetjük el úgy, hogy meg is tudjuk jegyezni.
+A rendszerünknek is nevet kell adnunk, a felhasználónévhez hasonló megkötésekkel, bár ez
+kezdődhet számmal és tartalmazhat nagybetűket is. Itt dönthetjük el azt is, hogy a rendszer
+47
+31. ábra: Elindult a tényleges telepítés
+30. ábra: Ha több merevlemez van a gépben...
+megengedje-e az automatikus bejelentkezést a most megadott felhasználónak. Ennek akkor lehet
+értelme, ha egyedül használjuk a gépet, és más személy nem fér hozzá fizikailag a számítógéphez
+(például egy kollégiumi szobában nem javasolt).
+A telepítési adatok beállításának végére értünk. Egy rövid áttekintést láthatunk az eddig
+beállítottakról, illetve a „Haladó...” gomb megnyomása után beállíthatjuk azt is, hogy az a kis
+program (a GRUB), ami több rendszer használata esetén az indulásakor lehetőséget ad a betöltendő
+rendszer kiválasztására, melyik merevlemez speciális részére (Master Boot Record-jába, rövidítve
+MBR) vagy melyik partícióra kerüljön (lásd 30. ábra). Ennek akkor a legnagyobb a jelentősége, ha
+több merevlemezünk van a gépben. Hálózati proxy beállítására igen ritkán, például céges tűzfal
+mögötti telepítés során van szükség, ha erre nincs szükségünk, a kitöltetlen részt hagyjuk nyugodtan
+üresen.
+Ha most a „Telepítés” gombra kattintunk, a telepítés tényleges része fog elkezdődni. A korábban
+beállítottaknak megfelelően létrejönnek a megfelelő méretű és típusú partíciók, a telepítendő fájlok
+rámásolódnak a diszkre.
+A telepítés közben tájékoztatást kaphatunk a rendszer működéséről, néhány felhasználói programról
+(lásd 31. ábra). Az ablak alján láthatjuk, hol tart a telepítési folyamat. Ha beüzemelt hálózati
+kapcsolattal telepítünk, a telepítés vége felé a hiányzó nyelvi fájlok is letöltődnek. Legvégül a
+hardver konfigurálásával befejeződik a telepítés.
+Ha minden készen van, újra kell indítanunk a gépet. Ez után vehetjük birtokunkba a feltelepített
+rendszert.
+48
+32. ábra: Ennyi volt a telepítés
+Feladatok
+1. Lépjen be a saját könyvtárból nyíló Minták könyvtárba és nézze meg az ott található
+különböző formátumú fájlokat, próbálja ki a médiafájlok lejátszását (egyszerűen csak
+kattintson rájuk kétszer)!
+2. (Haladóknak!) Szereljen be a gépébe egy nem használt diszket (lehet akár csak 10 GB-os is)
+és próbálkozzon a particionálással, telepítéssel. Szerencsés, ha a valódi adatokat tartalmazó
+merevlemezt a teszt idejére kiköti, így biztosan nem fog kárt tenni benne. Ha mégis benn
+hagyja, akkor készítsen róla mentést! Jobb, mintha az értékes adatainkat tartalmazó
+adattárolót törölnénk véletlenül.
+• Futtasson le egy átlagos telepítést!
+• Telepítse úgy az Ubuntut, hogy legalább három nevezetes könyvtár (pl. /usr) külön
+partícióra kerüljön!
+• Formázza a partíciókat eddig még nem használt típusúakra! Próbálja meg a rendszert
+FAT, aztán NTFS, és egyéb elérhető formájú partíciókra telepíteni! Tapasztal-e
+különbséget a telepítés, esetleg néhány perc használat során?
+3. Töltse le az Ubuntu telepítő DVD-s változatát! Ellenőrizze az MD5SUM összeget, majd
+telepítse fel a rendszert! Mi a különbség a CD-s és a DVD-s változat között?
+4. Telepítse az Ubuntut swap partíció nélkül! Tapasztal-e valami rendellenességet nagy
+memóriahasználat esetén (pl. óriás méretű kép – legalább 4000x4000-es – letöltése az
+internetről és szerkesztése)?
+49
+10. Sorra vesszük, hogy milyen teendőink vannak
+közvetlenül telepítés után. Megismerkedünk a
+csomagkezelés alapjaival. Új felhasználót hozunk létre
+Tehát újraindítottuk a gépet, eltávolítottuk a telepítő CD-t, ha kell, gondoskodtunk róla, hogy a
+rendszer a merevlemezről töltődjön be. Ha több merevlemez van a gépben, azt is be kell állítanunk
+a BIOS-ban, hogy arról a merevlemezről bootoljunk, melyre a rendszerbetöltő program települt.
+A legutóbbi Ubuntu kiadásoknál nagy gondot fordítottak arra, hogy a rendszer indulási és leállási
+folyamatát jelentősen felgyorsítsák. Így ma egy átlagos gépen a boot folyamatnak egy percen belül
+végbe kell mennie. Saját gépemen – automatikus bejelentkezés esetén – 55 másodpercet mértem, de
+ebből 20 másodperc a BIOS betöltődése volt, vagyis az Ubuntu 35 másodperc alatt teljesen
+betöltődött. Tehát nem csak egy részleges rendszer indult el, hanem ekkorra minden hardvereszköz
+és szoftver rendelkezésre állt. A Windows rendszereken ugyanis azt a pszichológiai trükköt
+alkalmazzák, hogy ha a grafikus felület már betöltődött, a felhasználó azt hiszi, hogy a betöltési
+folyamatnak vége. Valójában számos hardverelem akkor még nem használható, tehát a rendszer
+betöltődése meg nem fejeződött be, a háttérben folytatódik.
+50
+Az Ubuntu bootideje versenyképes a többi ma használt rendszerével. A leállítás is gyors, 5
+másodperc körüli mindössze.
+Ha újonnan telepített rendszerünk betöltődött, első dolgunk legyen a rendszer frissítése. Ez a
+frissítés gyakorlatilag a rendszer megjelenése (például ez az Ubuntu 10.04 LTS esetén 2010 április
+29.) óta kiadott – leginkább biztonsági okból kiadott – szoftverfrissítéseket tartalmazza. Bár ezen
+frissítések végrehajtása nem kíván mély ismereteket, mindössze pár kattintást, hogy jobban
+megismerjük rendszerünk felépítését, ismerkedjünk meg a csomagokkal és a csomagkezeléssel.
+Ahogy már említettük, a Linux valójában csak a rendszermag, míg amikor egy Linux rendszerre
+gondolunk, nem csak ez jelenik meg előttünk, hanem egy teljes, használható rendszer. Az Ubuntu
+feltelepítése után nem egy csupasz rendszert kapunk. Nem úgy, mint egy Windows rendszer
+telepítése után. Ha körülnézünk az „Alkalmazások” menüben, láthatjuk, hogy irodai
+programcsomagtól kezdve, a képszerkesztőn, játékokon át a hangrögzítőig sok remek program áll
+rendelkezésünkre.
+Szinte minden Linux disztribúció – így az Ubuntu is – a programokat csomagokba szervezi. A
+felhasználói programok legtöbbször úgynevezett bináris csomagokban találhatóak. Egy ilyen
+csomag egy tömörített fájl, amiben benne van a program minden része; a futtatható (bináris)
+állomány, a különböző konfigurációs fájlok, dokumentáció, stb. De a csomag nem csak ezeket a
+fájlokat tartalmazza, hanem egyéb információkat is, például, hogy hova települjenek (másolódjanak
+be) az egyes fájlok, valamint szükséges-e egyéb szoftver a program futásához. Ha igen, a
+csomagkezelő a csomag telepítésekor azokat – az úgynevezett függőségeket – is ellenőrzi, és ha
+szükséges, telepíti. Ehhez azonban léteznie kell egy adatbázisnak is, amely számon tartja, hogy
+mely csomagok vannak már telepítve, egyáltalán milyen csomagok vannak. Ez az adatbázis a
+rendszer telepítésekor felkerül a gépre és azonnal használhatóvá is válik. Persze az összes
+használható csomag természetesen helyhiány miatt nem fér el a telepítő CD-n. Minden
+disztribúciónak létezik egy hatalmas tárolója (repository, röviden repo), valamint általában ennek
+sok másolata – úgynevezett tükre, mirrorja – szerte a világban. Innen töltődnek le az alaptelepítés
+után igényelt csomagok és azok frissítései is. A mai modern Linux rendszerek feltételezik az
+internetes kapcsolat jelenlétét. Internetkapcsolat híján esetleg meggondolandó CD helyett DVD-t
+használni telepítőmédiaként.
+51
+Az Ubuntu (és a legtöbb Linux változat), valamint a Windows rendszerek között a legnagyobb
+eltérés a programok telepítésében és eltávolításában van. A Windows legtöbb alkalmazása saját
+telepítési és eltávolítási eljárást használ (még ha erre van is bizonyos szabvány, ezt sajnos sokan
+nem tartják be). Van olyan program, amely figyel önmaga frissítésére (például a népszerű szabad
+szoftver böngésző, a Firefox), de sajnos van olyan, amelyik nem. A nem Microsoft által készített
+telepített alkalmazások frissítése tehát nem az operációs rendszer szintjén történik. Ezért nincs
+egységes koncepció frissítésükre, így az akár már néhány program mellett is nehézkessé válhat.
+Ezzel ellentétben a Linuxok, így az Ubuntun használható programok frissen tartása egyszerű feladat
+52
+36. ábra: Új felhasználó nevének és felhasználói nevének megadása
+35. ábra: Adminisztrációhoz meg kell adni a jelszavunkat.
+Ez csak akkor működik, ha jogosultak vagyunk
+rendszergazdai teendők ellátására
+és a felhasználók kényelme érdekében teljesen automatizált.
+A telepítés utáni első indításkor (már néhány nappal a megjelenés után is) biztosan lesz frissítendő
+csomag, amire a csomagkezelő már néhány perc után figyelmeztetni fog minket. A frissítést csak
+rendszergazdai teendők ellátására felhatalmazott felhasználó végezheti el. A telepítéskor megadott
+felhasználó ilyen. Jelenleg egyetlen felhasználó létezik a rendszerben.
+További felhasználókat a „Rendszer” → „Adminisztráció” → „Felhasználók és csoportok”
+menüpontjában vehetünk fel. Kattintsunk a „Hozzáadás” gombra. Rendszergazdai szintű
+tevékenységhez azonban – így ehhez is – hitelesítésre van szükség. Ez azt jelenti, hogy ha ilyen
+tevékenység elvégzéséhez érkeztünk, a rendszer kérni fogja a saját jelszavunkat, lásd a 35. ábrát.
+Ha megadtuk – és jogosultak is vagyunk rendszergazdai teendők ellátására, ami első
+felhasználóként garantáltan így lesz –, megnyílik az új felhasználó létrehozására szolgáló első
+ablak.
+Ha kitöltöttük, a következő ablakban a jelszót állíthatjuk be, illetve megadhatjuk, hogy akarjuk-e,
+hogy a rendszer ne kérjen jelszót ezen felhasználó bejelentkezésekor. Ez az ablak szolgál a
+későbbiekben a felhasználó jelszavának megváltoztatására is.
+Ez után néhány egyéb adatot is megadhatunk, illetve megváltoztathatunk – bár ez nem kötelező.
+Ugyanezen ablak „Felhasználói jogosultságok” fülén adhatjuk meg, hogy akarunk-e a
+felhasználónak lehetőséget adni a rendszer adminisztrációjára. Az átlagos, napi szintű
+felhasználáshoz ez nem szükséges, sőt, fölösleges biztonsági kockázatot jelent.
+53
+Létrehoztuk hát a kívánt felhasználókat. Akik megfelelő joggal rendelkeznek, adminisztrálhatják a
+rendszert. Valójában nem rendszergazdák; csak azzá válhatnak jelszavuk megadásával, ha
+szükséges. Felhasználókat törölhetünk, létrehozhatunk. Egy dologra kell csak figyelnünk; mindig
+kell lenni legalább egy olyan felhasználónak, akinek joga van rendszergazdai teendők ellátására.
+54
+39. ábra: Jogosultságok beállítása
+38. ábra: Felhasználóváltás,
+leállítás, stb.
+Kijelentkezni, felhasználót váltani a jobb felső sarokban lévő ikonra kattintva megjelenő menüből
+lehet. Nagyon hasznos funkció a „Vendég-munkamenet”. Ahogyan az a nevéből is kitalálható,
+akkor érdemes használni, ha valaki csak kölcsönkéri a gépünket, nem akarjuk, hogy teljes jogú
+felhasználója lehessen. Ez a „Vendég-munkamenet” egy korlátozott jogkörű, ideiglenes fiók,
+melynek adatai nem őrződnek meg kilépés után.
+Végezzük el a rendszer frissítését! Adminisztrátori jogkörrel rendelkező felhasználóként belépve
+vagy automatikus értesítést kapunk a frissítés szükségességéről, vagy nem várjuk ezt meg, magunk
+lépünk a tettek mezejére. Kattintsunk a „Rendszer” → „Adminisztráció” → „Frissítéskezelő”
+menüpontra. Könnyen lehet, hogy már most látunk frissítendő programokat, de kattintsunk először
+az „Ellenőrzés” gombra. Ekkor a rendszer kérni fogja a jelszavunkat. Ha megjelentek a telepítendő
+frissítések, kattintsunk a „Telepítés” gombra.
+Telepítéskor letöltődnek a csomagok egy tárolóból és automatikusan lecserélik a régieket. Bár
+kezdőknek nem ajánlott, részletesen szabályozhatjuk, mely frissítések töltődjenek le és konkrétan
+55
+40. ábra: Most van mit frissíteni
+mely tárolókból. Mindezt a „Rendszer” → „Adminisztráció” → „Szoftverforrások” menüpontban
+állíthatjuk, azonban az egyszeri felhasználónak az alapértelmezett beállítások is megfelelőek
+lehetnek. Megfigyelhetjük, hogy még rendszer-adminisztrációs tevékenység, esetleg
+programtelepítés után is csak ritkán kell újraindítani a linuxos gépet. Általában csak akkor, ha a
+kernel megváltozik. Programfrissítés esetén ez azt jelenti, hogy csak akkor, ha a kernel frissült.
+Míg Windows telepítése után elővesszük CD-inket, DVD-inket, illetve vadászgatunk az Interneten
+telepítendő szoftverekért, Ubuntun elegendő (néhány kivételtől eltekintve, melyekről szó lesz a
+későbbiekben) a csomagkezelőt igénybe vennünk. A legegyszerűbben az Ubuntu szoftverközpontját
+használhatjuk. Kattintsunk az „Alkalmazások” → „Ubuntu szoftverközpont” menüpontra. Itt
+kategóriákba gyűjtve tallózhatunk több tízezer program körött. A programok telepítése – leírást,
+képernyőképet is láthatunk a szoftverekről – mindössze egy kattintás, akárcsak a telepített
+programok eltávolítása.
+Valójában számos egyéb módszer létezik egy Ubuntu frissítésére, programtelepítésre, eltávolítására.
+Szintén kényelmes, grafikus felületű, változatos keresési funkciókkal ellátott csomagkezelő felület a
+Synaptic. („Rendszer” → „Adminisztráció” → „Synaptic csomagkezelő”). Mi itt most csak a
+legegyszerűbbet ismertettük, azt is csak vázlatosan.
+Illik tudni azonban, hogy a Linuxok igazi erejét a parancssorból – grafikus felület nélkül –, esetleg
+távolról intézett teljes körű rendszer-adminisztráció lehetősége adja.
+56
+41. ábra: A szoftverközpont egyszerűen használható programtelepítő és eltávolító
+Feladatok
+1. Próbálja ki a Vendég munkamenetet!
+2. Vegyen fel egy új felhasználót, akinek megengedi rendszere adminisztrációját!
+3. Szüntesse meg az eredeti, adminisztrációs joggal rendelkező felhasználó adminisztratív
+jogait!
+4. Állítsa át az alapértelmezett hátteret, témát!
+5. Keressen háttereket, témákat, ikonkészleteket az http://ubuntu-art.org és a
+http://gnome-look.org/ címeken. Telepítse fel néhányukat!
+6. Keressen érdekes szoftvereket a Szoftverközpontban, és telepítse fel azokat!
+7. Próbálja ki a Synaptic csomagkezelőt!
+57
+11. Zárt forráskódú meghajtók és egyéb programok
+telepítése
+A linuxos rendszerek, így az Ubuntu felhasználói is leginkább nyílt forráskódú programokat
+használnak. Előfordul azonban, hogy nem, vagy csak kényelmetlenségek árán tudnánk nélkülözni
+bizonyos zárt forráskódú programokat.
+Ezen programok egyik típusa a meghajtók (driverek). Ezek a programok felelősök a hardverelemek
+és az operációs rendszer kapcsolatáért. Bár Linux alá a legtöbb meghajtó nyílt forráskódú (és része
+a rendszermagnak), előfordul, hogy zárt forráskódú meghajtóprogram érhető el bizonyos
+hardverelemekhez. Ilyenek például az NVIDIA videokártyák, melyekhez léteznek ugyan nyílt
+forráskódú driverek, azonban a jobb teljesítmény érdekében sokan a gyártó által biztosított zárt
+meghajtóprogramot használjuk. Mivel jogi okok miatt a telepítőlemez nem tartalmazhatja az
+NVIDIA hivatalos gyári driverét, le kell azt töltenünk a gyártó honlapjáról. Illetve le kellene, ha az
+Ubuntu készítői nem találtak volna erre kényelmesebb megoldást.
+Ugyanis ha rendszerünk észleli, hogy olyan hardvereszközünk van, melyhez zárt forráskódú
+meghajtót tud telepíteni, a felső tálcán egy kis ikon és egy üzenetbuborék fogja ezt jelezni (lásd a
+42. ábrát). Az „Eszközmeghajtók” ablakot megnyithatjuk a kis ikonra kattintva, de a „Rendszer” →
+„Adminisztráció” → „Eszközmeghajtók” a menüből is. A Telepítés elvégzése után érdemes ezeket a
+meghajtókat a rendszerre beüzemelni. Ha több verzió is elérhető valamely eszköz meghajtóiból,
+válasszuk az ajánlottat, esetleg a legújabbat.
+Szinte biztosan előfordul majd, hogy olyan, zárt technológiát használó médiafájlt akarunk lejátszani
+(MP3, AVI, MPEG), amely lejátszásához szükséges dekódoló modul jogi okok miatt nem
+kerülhetett rá a telepítő CD-re. Ez sem komoly gond, probléma nélkül telepíthetjük, és a magyar
+jogrend szerint nyugodtan használhatjuk is őket. Az Ubuntuban nagyon ügyesen kezelik a helyzetet,
+ha szükségünk lenne valamilyen zárt technológiára, a rendszer ezt felismeri és felajánlja a
+szükséges csomagok telepítését.
+58
+59
+43. ábra: Zárt eszközmeghajtók beüzemelése
+Természetesen minden médiafájl típus lejátszása előtt csak egyszer kapunk ilyen üzenetet, miután a
+szükéges bővítmény telepítését végrehajtjuk, többé nem lesz ilyen. Lehetőségünk van az összes
+ilyen típusú kiegészítés egyszerre történő telepítésére is. Ehhez telepítsük az „Ubuntu korlátozott
+extrák” elnevezésű csomagot. Ha a szoftverközpontban rákeresünk a „korlátozott” szóra, meg is
+találjuk.
+Kicsit körülményesnek tűnhet, hogy így kell utólag telepíteni olyan, ma már természetesnek tűnő
+dolgokat, mint egy médialejátszó MP3 támogatása. Erre az USA-beli törvények szigorúsága miatt
+van szükség. Ha valaki nem akar még ennyit sem vesződni a telepítés kiegészítésével, ajánlhatom
+esetleg a Linux Mint disztribúciót (http://www.linuxmint.com/), esetleg a Kiwi Linuxot
+(http://www.kiwilinux.org/kiwi/hu/). Mindkettő Ubuntu származék (angolul „flavor” az ilyen
+Ubuntu alapú rendszerek gyűjtőneve), hasznos kiegészítésekkel, az utóbbi még előtelepített teljes
+magyar nyelvi támogatást is tartalmaz. Ezek és ehhez hasonló Ubuntu leszármazott disztribúciók (a
+dizájnon kívül) jellemzően nem tartalmaznak semmi olyat, amit egy alap Ubuntura ne tudnánk
+magunk is telepíteni. Hasznosak lehetnek azonban türelmetleneknek, illetve olyanoknak, akik még
+minimális energiát sem akarnak a telepítés finomhangolásába ölni. Esetleges hátrányuk lehet a
+mögöttük lévő kisebb fejlesztőbázis. Ezek a partizán-projektek könnyebben kifulladhatnak,
+elhalhatnak. Természetesen jó is kisülhet az ilyen kezdeményezésekből, hisz ne feledjük, hogy az
+Ubuntu is hasonló módon jött létre a Debian nyomdokain.
+60
+45. ábra: Érdemes telepíteni a „korlátozott extrákat”
+12. Megnézzük, hogyan telepíthetünk, futtathatunk még
+programokat Linuxon
+Az átlagfelhasználó az összes fontosabb szoftverkategóriában (ez alól talán csak a videoszerkesztés
+a kivétel) garantáltan meg fogja találni a célnak megfelelő, használható programot. A legtöbb
+esetben nem ugyanazt, amit Windows alatt használt, de hasonló funkciójút és tudásút biztosan.
+Ha egy programról azt mondjuk, hogy elérhető, vagy natívan fut Linuxon, akkor az általában azt
+jelenti, hogy a forráskódját le lehetett fordítani Linuxon, lehetett belőle futtatható, úgynevezett
+bináris programot készíteni. Zárt forráskódú program esetén ezt természetesen csak a tulajdonos
+munkatársai tehetik meg. Sok zárt kódú programnak nincs linuxos változata. Ennek legtöbbször az
+az oka, hogy olyan eszközökkel, olyan módszerekkel készítették őket, melyek erősen kötődnek
+(általában) a Windows operációs rendszerhez. Az is lehet, hogy egyszerűen csak nem látja úgy a
+jogtulajdonos, hogy megérné időt, energiát, tehát pénzt fektetni a linuxos változat elkészítésébe.
+Nem is beszélve arról, hogy rengetegféle Linux változat van, és az egyes disztribúciók különböző
+kiadásai is lényeges eltéréseket mutathatnak, tehát a kiadott „linuxos változat” sem működhet
+61
+automatikusan minden Linux rendszeren. Hasonló problémák merülhetnek fel a zárt
+eszközmeghajtókkal kapcsolatban is.
+Nyílt forráskódú programokkal általában kevesebb ilyen jellegű probléma merül fel, itt nem
+függünk a kód tulajdonosától, bárki megpróbálhat linuxos binárist fordítani rendszeréhez. Ez
+általában haladóknak való feladat, de ha sikerül előállítani a natív kódot, az eredményt legtöbb
+esetben bárki használhatja.
+Ha egyáltalán nincs linuxos változat az adott programból, először érdemes hasonló funkciójú
+szoftverek után nézni az Ubuntu tárolóiban, használva például az Ubuntu szoftverközpontot.
+Nagyon gyakran találunk majd használható alternatívát. Kezdő linuxos felhasználók sokszor esnek
+abba a hibába, hogy megszokott windowsos programjaik pontos mását keresik Linuxon. Ez a
+legtöbb esetben csak frusztrációt okozhat. Azt kell megértenünk, hogy ez egy más rendszer, más
+programokkal – és a mai Linuxokon ez akármennyire is nem szembeötlő első ránézésre – más
+filozófiával.
+Ha mindenképpen ragaszkodunk valamely windowsos programhoz, és semmilyen használható
+pótlékot sem találtunk a natív linuxos programok között, még mindig lehet esélyünk. A segítség
+62
+47. ábra: A Wine beállítása
+neve: Wine. Ez egy olyan program, melyet a célból hoztak létre, hogy Linuxon tudjunk futtatni
+Windows alá írt programokat. Gondoljunk bele, ha ez a megoldás tökéletes lenne, a legtöbb
+embernek, cégnek egyáltalán nem lenne szüksége Windowsra, így annak licencének megvásárlására
+sem.
+De a helyzet nem ennyire fényes. A Windows minden változata zárt forráskódú, és egy operációs
+rendszer nagyon nagy bonyolultságú szoftver. A zártság miatt pedig a Wine fejlesztők sokszor csak
+találgathatnak, mit és hogyan kellene megoldaniuk. A feladat nehézsége ellenére a Wine sok esetben
+meglepően jól teljesít, gyakran nem is tudunk különbséget tenni, hogy most eredeti Windows alatt,
+vagy Wine alatt fut a program.
+Nem hallgathatjuk el azonban a problémákat sem. A programok gyakran kisebb funkcionalitásbeli
+gondokkal küzdenek Wine alatt, de az is lehet, hogy egyáltalán nem indulnak el. Ekkor sem
+reménytelen azonban a helyzet (például eredeti windowsos dll-ek használata sokat segíthet), de ez
+már a buherálás szürke (az érintettek szerint arany) zónájába tartozik. Ettől azonban a legtöbb
+felhasználó – érthetően – ódzkodik, ők csak használni szeretnék a gépüket, nem szerelgetni. Akik
+mégis vállalják a nehézségeket, a témában sok információt gyűjthetnek különböző fórumokon.
+A Wine a szokott módon telepíthető a szoftverközponton keresztül. Telepítés után indítóikonját az
+Alkalmazások menüben találjuk. A Wine néhány fontosabb tulajdonságának beállítására is
+lehetőségünk van. A beállítóközpontot szintén a menüből indíthatjuk el. Ha a futtatni kívánt
+program több Windows verzión is telepíthető, a Wine konfigurációjában érdemes a legegyszerűbb,
+legrégebbi változatot választani (lásd a 47. ábrát).
+Maga a windowsos program futtatása egyszerűen úgy történhet, hogy kétszer rákattintunk annak
+ikonjára, úgy ahogy Windowson is tennénk. Előfordulhat, hogy nem indul el a program, hanem a
+48. ábrán látható – sajnos angol nyelvű – üzenetet kapjuk, ami azt jelenti, hogy a programnak
+engedélyeznünk kell a futtathatóságot. Ez egyszerűen úgy történik, hogy a program ikonjára az egér
+jobb gombjával kattintunk, a felbukkanó ablakban rákattintunk a „Tulajdonságok” menüpontra,
+majd a „Jogosultságok” fülön, belekattintva pipát rakunk a „Fájl végrehajtásának engedélyezése
+programként” szöveg melletti kis négyzetbe (lásd a 49. ábrát).
+Ha ezután újra próbálkozunk a program futtatásával, már valószínűleg elindul a programunk. De
+biztosat előre nemigen lehet tudni. Általában elmondhatjuk, hogy azon speciális programok, melyek
+futtatására felkészítették a Wine-t, jól működnek, a többi program esetén azonban szerencsére is
+szükségünk lehet. Hogy melyik nevezetesebb program esetén mit várhatunk, arról a Wine honlapján
+(http://www.winehq.org) tájékozódhatunk. Több fontos projekt épül a Wine kódbázisára.
+63
+48. ábra: Ilyenkor a programnak engedélyeznünk kell a futtathatóságot
+Kiemelném a két legfontosabbat, melyek egyébként nem ingyenes szoftverek. Az egyikük a
+Transgaming terméke, a Cedega (http://www.cedega.com), amely windowsos játékok linuxos
+futtatására specializálódott, míg a Codeweavers (http://www.codeweavers.com) Crossover Linux
+nevű programjával elsősorban az irodai programok (MS Office, Adobe Photoshop, Lotus Notes,
+stb.) futását biztosítja Linux rendszereken. Nem biztos, hogy minden esetben lényegesen többet
+tudnak, mint az ingyenes Wine, legfeljebb megkímélnek minket a fórumok turkálásától és a
+„barkácsolástól”.
+Ha sehogy nem jártunk sikerrel, lehetőségünk van még valamilyen virtuális gép használatára.
+Szükségmegoldás lehet ez akkor, ha két (vagy több) operációs rendszert akarunk használni
+egyszerre, lényegileg egy időben, egy gépen. Ekkor egy virtuális gépre (ami a valódi gépen futó
+szoftver) kell feltelepíteni a vendég rendszert, amely nem is fogja észrevenni, hogy nem közvetlenül
+a hardverrel érintkezik. Így telepíthetünk Windows alá Linuxot vagy fordítva, esetleg könnyedén,
+particionálás nélkül kipróbálhatunk más, egzotikus rendszereket is. Jó tudni azonban, hogy a
+virtuális gépek lefoglalják a rendszer erőforrásait, így gyengébb gépeken nem, vagy csak nagyon
+lassan futnak. Gondoljunk arra, hogy ha egy Ubuntu alatt akarjuk a Windows 7-et és mondjuk az új
+Ubuntu kísérleti (például béta) változatát egyszerre futtatni, akkor ezen három rendszer együttes
+memóriahasználata több gigabájt lehet, így ennyi fizikai memóriát a (nem virtuális) gépünknek
+tartalmaznia kell.
+Több ilyen virtuális gép szoftver is elérhető. Talán a legismertebb és legelterjedtebb a régóta piaci
+64
+49. ábra: Engedélyezzük a program futtatását
+résztvevő VMware termékcsalád.
+A VMware Player (http://downloads.vmware.com/d/info/desktop_downloads/vmware_player/3_0)
+egy zárt forráskódú, de ingyenes szoftver, amellyel virtuális gépet készíthetünk és használhatunk.
+De használhatjuk az Ubuntu tárolóiban is megtalálható Oracle terméket, a Virtualbox-ot is. Ez két
+változatban érhető el. A tárolóban található nyílt forráskódú, de letölthetjük a kissé nagyobb tudású
+zárt, de még mindig ingyenes változatot (http://www.virtualbox.org/wiki/Downloads).
+Nem akarunk ekkora kitérőt tenni, így részletesebben nem tárgyaljuk a virtuális gépek beüzemelését
+és használatát, de nem túl bonyolult dologról van szó. Hasznos eszközök, használatuk elterjedőben
+van, bár nem elsősorban az otthoni felhasználók körében.
+65
+50. ábra: Virtualbox: Windows XP bootol Ubuntu alatt
+Feladatok
+1. Telepítse és konfigurálja a Wine programot. Próbálja ki néhány egyszerű windowsos
+program futtatását a Wine segítségével!
+2. Telepítse a VMware Player windowsos és linuxos változatait is! Keressen az Interneten
+szabadon letölthető Vmware virtuális gépet és próbálja ki!
+(A http://www.vmware.com/appliances/ címen – kategóriákba szedve – hatalmas kínálatot
+talál.)
+3. Telepítse a Virtualbox windowsos és linuxos változatait is! Telepítse az Ubuntu aktuális
+változatát a windowsos Virtualbox alól! Telepítse Virtualboxban az Ubuntu fejlesztői
+változatát!
+4. Telepítse és próbálja ki a Crossover Linux szabadon letölthető verzióját!
+5. (Haladóknak!) Telepítse az Ubuntut pendrive-ról!
+66
+13. Saját mappánk és az Ubuntu könyvtárszerkezete
+Valójában a könyvtárszerkezet témája nem igazán Ubuntu-specifikus, hiszen a legtöbb Linux
+rendszeré is ilyen, vagy nagyon hasonló. A főbb könyvtárak helye, elnevezése a Unixos hőskortól
+kezdve adott. A DOS-Windows rendszerek könyvtárszerkezetéhez képest azonban nagy a
+különbség, így hogy eligazodjunk benne, jó ha legalább az alapokat áttekintjük.
+Először induljunk ki a mi kis világunkból, ott nézzünk körül! Ezután rendszerszinten is szemlélődni
+kezdünk.
+Minden felhasználónak van egy saját mappája, amibe alapértelmezés szerint csak neki van írásjoga.
+Ebbe másolhat, menthet, ebben hozhat létre fájlokat, könyvtárakat. Az Ubuntu fejlesztői
+előkészítettek számunkra néhány könyvtárat ezen belül, ezek nevei magukért beszélnek:
+Dokumentumok, Zenék, Képek, Videók. Természetesen nem kötelező ezeket a sugallt célra
+használni, de miért is ne tennénk.
+67
+Az Asztal nevű könyvtár ténylegesen az asztalunk tartalmát tárolja; az asztalra rakott fájlok itt
+találhatóak a könyvtárstruktúrában és az ebbe a mappába rakott fájlok meg is jelennek az asztalon.
+A Saját mappánkba mentődnek a felhasználói programok egyéni konfigurációs fájljai, ezek
+általában a program első futtatásakor jönnek létre, és személyes beállításainkat tartalmazzák. A
+konfigurációs állományok jellemzően rejtett fájlok, sokszor rejtett könyvtárakban vannak, melyek
+alapértelmezés szerint nem látszanak a fájlböngésző alatt, csak akkor, ha erre utasítjuk a rendszert.
+Ha például az 51. ábrán a Saját mappára kattintunk, a Nautilus nevű fájlkezelőt indítjuk el, aminek
+működése teljesen hasonló a Windows rendszereken megismertéhez.
+Ha belenézünk a Minták könyvtárba, különféle fájlokat láthatunk, melyek meg is nyithatunk. Így
+látni fogjuk, milyen típusú programokat milyen alapértelmezett szoftverek kezelnek. Figyeljük meg,
+hogy néhány fájlnak az ikonja a fájl előnézete. Ilyenek például a képfájlok (JPG, GIF, PNG, SVG),
+a szállítható dokumentumok (PDF). Sőt, ha az egérkurzort egy hangfájl fölé visszük, akkor elkezdi
+lejátszani azt. Ilyen fájl lehet például az Ogg, SPX, Oga és ha lejátszó modulja (angolul codec) már
+fel van telepítve, az MP3. Videó fájlok esetén – szintén az esetlegesen szükséges bővítmények
+feltelepítése után – a fájl ikonja egy, a videóból származó képkocka lesz.
+A Letöltések mappa használata nem csak ajánlott, hanem ha ténylegesen letöltünk egy fájlt az
+Internetről, például a Firefox böngészőt használva, az alapértelmezés szerint ide fog kerülni, itt kell
+majd keresnünk.
+A Nautilus egy nagy tudású, hasznos fájlkezelő. Természetesen ismeri a Húzd és Dobd (Drag and
+Drop) adatmozgató műveletet, valamint jó tudni, hogy az F3 funkcióbillentyű lenyomására
+kétpanelessé alakul. Az alapértelmezett ikonnézet helyett használhatunk Tömör nézetet, de
+Listanézetet is. A Nautiluson jobb egérgomb lenyomására menüt kapunk, melynek segítségével –
+egyéb műveletek mellett – mappát és fájlt is létrehozhatunk.
+68
+52. ábra: A Nautilus fájlkezelő a Saját mappa kezdeti tartalmát mutatja
+A Nautilus a kezdők igényeit maradéktalanul kielégíti. Sokan több funkcióra vágynak, Windowson
+is szeretik a rendkívül hatékonyan használható klasszikus kétpaneles fájlkezelőket, például a Total
+Commandert. Windowsról éppen átállás alatt lévő haladó számítógépes felhasználók gyakran
+futtatják Linuxon is a Total Commandert a Wine segítségével – általában probléma nélkül – de
+személy szerint azt gondolom, hogy erre nincs szükség. Léteznek Linuxon is natív eszközök a
+fájlkezelésre, bár való igaz, a Total Commander pontos mását nem találjuk meg.
+Ha mindenképpen grafikus felületű valódi kétpaneles fájlkezelőt szeretnénk Linuxon, próbáljuk ki a
+GNOME Commandert. A Canonical hivatalos tárolójából könnyedén telepíthetjük például a
+szoftverközpont segítségével. Az ilyen típusú fájlkezelők hatékonyságát növeli, ha használjuk a
+funkcióbillentyűket. Ezek kiosztása az ős eredeti, a Norton Commander óta azonos: F5 másol, F6
+áthelyez, és így tovább.
+Vállalkozóbb kedvűek használhatják – a tárolókból való telepítés után – a Midnight Commandert is.
+Ez egy egyszerű, karakteres felületű eszköz, talán ez hasonlít legjobban az ősére, a Norton
+Commanderre. Előnye, hogy grafikus felület nélküli gépen is használható, bár grafikus terminálban
+is elfut. Inkább a középhaladók használják, az „igazi” linuxosok inkább parancssorból kezelik a
+fájlokat, nem használnak még karakteres felületű kétpaneles fájlkezelőt sem.
+Ha már megismerkedtünk egy-két fájlkezelővel, körül is nézhetünk a fájlstruktúrában,
+kimerészkedhetünk saját könyvtárunkból. Egyre feljebb lépkedve, hamarosan eljutunk a gyökér
+(root) könyvtárba, melynek jele: „/”. ABC sorrendben nézzük végig a gyökér könyvtárból nyíló
+könyvtárakat, az úgynevezett főkönyvtárakat.
+• /bin
+(vagyis a /bin könyvtár, ahol a „/” a neve előtt arra utal, hogy a gyökérkönyvtárból nyílik) Itt
+találhatóak a rendszer működéséhez szükséges bináris fájlok. A legtöbb bináris valójában
+nem itt található; a felhasználó programok binárisai a /usr/bin könyvtárban vannak.
+69
+53. ábra: Használatban a GNOME Commander
+• /boot
+Ez a rendszerbetöltést szolgáló fájlok helye, itt található a rendszermag is.
+• /cdrom
+Eredetileg ez volt a behelyezett CD lemez tartalmának a helye. Ez úgy értendő, hogy a
+DOS-Windows rendszerekkel ellentétben itt nincs A, B, C, D, E és egyéb meghajtó, itt
+egyetlen fa struktúra van, melyben megvan a helye az egyes meghajtóknak. Jelenleg ezt a
+könyvtárt az Ubuntu nem használja, a behelyezett adat CD, vagy DVD automatikusan
+felcsatolódik a fájlrendszerbe, méghozzá a /media könyvtárba, létrehozva egy alkönyvtárat
+az adathordozó nevével.
+• /dev
+(az angol „device” (eszköz) szóból) A Linux minden hardverelemére, mint a fastruktúra
+részére hivatkozik. Ezek a speciális „álfájlok” találhatóak itt. Telepítéskor a haladó
+particionálást választva már találkozhattunk ezzel a jelenséggel, amikor is az egyes
+merevlemezek a /dev/sda, /dev/sdb (és így tovább d-ig) névre hallgattak, az ezeken belüli
+partíciókat pedig számok jelölték, például: /dev/sda2.
+• /etc
+(a név a latin „et cetera”, vagyis az „és a többi” kifejezésből származik) A globális
+konfigurációs fájlok helye. (A Windowszal ellentétben a Linuxok nem használnak
+„registry”-t.) Ezek a fájlok általában egyszerű szövegfájlok, gyakran rengeteg
+megjegyzéssel ellátva.
+• /home
+(angol szó, jelentése „otthon”) Itt találhatóak a felhasználók saját mappái. Például a
+gipszjakab felhasználói névhez a /home/gipszjakab könyvtár tartozik. Ebben a könyvtárban
+a felhasználónak korlátlan jogai vannak, míg ezen kívül általában csak olvasási (megnézheti
+egy fájl tartalmát) és futtatási, vagy még azok sem.
+• /lib
+Itt a rendszer-közeli library (könyvtár) fájlok egy része található. Ezek szerepe megegyezik
+a Windows rendszereken használt dll fájlokéval. A felhasználói programok közös
+könyvtárfájljai inkább a /usr/lib könyvtárban vannak. Itt, a /lib könyvtárban találhatóak még
+a kernelmodulok is. Ezek a rendszer azon részei, – pongyolán fogalmazva – melyek nem
+tartoznak automatikusan a rendszermaghoz, csak szükség esetén betölthetők.
+• /lost+found
+(angol, jelentése „elveszett+megtalált”) Ha ext4 (vagy ext3) típusú fájlrendszert használunk
+– és Ubuntun ez az alapértelmezett – minden ilyen típusú partíció gyökerében lesz egy ilyen
+könyvtár. Rendszerkönyvtár, felhasználóknak alapértelmezés szerint olvasási joguk sincs
+hozzá. Arra szolgál, hogy a rendszer fájlrendszer sérülés esetén ide állítja helyre a sérült
+állományokat. Szerencsére erre valószínűleg soha nem lesz szükségünk.
+• /media
+Volt már róla szó, az eltávolítható média, vagyis az adat CD-k, DVD-k, pendrive-ok,
+fényképezőgépek, MP3 lejátszók, telefonok (és a floppy-k is, ha még van ilyen gépünkben)
+csatolódnak ide automatikusan.
+70
+• /mnt
+(az angol mount (tartó) szóból) Ideiglenesen csatolandó fájlrendszerek csatolási helye.
+Manapság ritkán használatos.
+• /opt
+Idegen forrásból származó (tehát nem a rendszer fejlesztői által készített csomagból)
+felhasználói programok opcionális telepítési helye. Ritkán használják.
+• /proc
+A /dev könyvtárhoz hasonlóan itt sem valódi fájlok találhatóak. A rendszer futó folyamatai
+itt (processzei) testesülnek meg fájlként, továbbá a rendszer működéséről, aktuális
+állapotáról kaphatunk információkat az itteni fájlok böngészésével. A különféle
+diagnosztikai szoftverek is innen szedik az adataikat. Ezen a speciális fájlrendszeren
+keresztül lehet a kernel működésének sok paraméterét befolyásolni.
+• /root
+A rendszergazda saját könyvtára. Mivel az Ubuntu rendszereken nincs valódi rendszergazda,
+ezért itt ez a könyvtár nem használatos.
+• /sbin
+A /bin-hez hasonló tartalmú könyvtár, annál rendszer-közelibb (az „s” a „system” (rendszer)
+angol szó rövidítéséből jött) binárisokkal.
+• /selinux
+(„Security Enhanced Linux” (megnövelt biztonságú Linux) angol kifejezés rövidítése) A
+SELinux egy biztonsági kiegészítő amely rendkívül nagy biztonságot tesz elérhetővé, de
+beállítása igen komoly szakértelmet igényel. Alapértelmezett Ubuntun a SELinux védelmi
+rendszer nincs bekapcsolva, a könyvtár használaton kívüli, üres.
+• /srv
+Egyes kiszolgáló (angolul „server”) programok által használt könyvtár. Alapértelmezett
+Ubuntun szerverprogramok nem futnak, a könyvtár használaton kívüli, üres.
+• /sys
+A /proc-hoz hasonló funkciójú és tartalmú könyvtár.
+• /tmp
+A rendszer működéshez szükséges ideiglenes fájlok helye. Mivel a felhasználói programok
+is ide helyezik el átmeneti állományaikat, azon ritka helyek egyike, ahova az egyszerű
+felhasználóknak is írásjoguk van. A jogosultságokról a következő fejezetben olvashatunk.
+• /usr
+A felhasználói (a „user” (felhasználó) szóból) programok könyvtára. Ez a legnagyobb helyet
+foglaló rendszerkönyvtár. Ha feltelepítünk egy felhasználói programot, ide – általában a
+/usr/bin könyvtárba – kerülnek a binárisai, az egyéb részei pedig a /usr/lib és a /usr/share
+könyvtárba.
+• /var
+Itt találhatóak az egyes rendszerszolgáltatások naplófájljai, programok változó (angolul
+71
+„variable”) adatfájljai.
+Ezzel áttekintettük az Ubuntu könyvtárstruktúráját. Bár a legtöbb könyvtárban az egyszerű
+felhasználónak nincs sok keresnivalója, a rendszer tudtunkon kívül használja azokat is, fájljaikat is.
+72
+14. Jogosultságok kezelése
+A jogosultságok bemutatása, a jogosultságkezelés ismertetése megkerülhetetlen téma. Már többször
+érintettük is, itt az ideje megbeszélni – legalább felhasználó szinten. Az itt igen kivonatosan
+ismertetésre kerülő jogosultságkezelést a Linux rendszerek teljes egészében a Unixból vették át.
+Megemlítjük, hogy létezik Linuxra ennél kifinomultabb jogosultságkezelési rendszer is – ilyen
+például az ún. ACL (Access Control List – hozzáférés vezérlési lista), ami egy kiegészítése a normál
+unixos-linuxos védelmi lehetőségeknek – , de átlagos, otthoni rendszereken ezt ritkán használják.
+Jogosultságkezelő rendszere minden modern operációs rendszernek –, így a nem túl régi
+Windowsoknak (NT, XP, Vista, 7) – is van. Mindez összefügg azonban a fájlrendszerrel is, hiszen
+például FAT fájlrendszer esetén akkor sem lehet jogosultságokat kezelni, ha a rendszer egyébként
+támogatná azt. De mit is jelent a jogosultságkezelés? Például azt, hogy egy fájlnak meg lehet adni,
+hogy melyik felhasználó, mit tehet vele; ki írhatja (módosíthatja), törölheti, egyáltalán ki nézheti
+meg a tartalmát, könyvtár esetén ki léphet bele.
+Tudnunk kell továbbá, hogy Linuxon a felhasználókat csoportokba szervezik. Például ha meg
+akarjuk engedni, hogy egy felhasználó adminisztrációs tevékenységet folytathasson, be kell rakni az
+„admin” csoportba. Egy felhasználó több csoportnak is tagja lehet, Ubuntun minden létrehozott
+73
+felhasználóhoz automatikusan létrejön egy vele azonos nevű csoport is, melynek – eredetileg – az
+adott felhasználó az egyetlen tagja.
+Linuxon a fájlok és könyvtárak jogosultságának három szintje van. Létezik egy tulajdonosuk,
+tartoznak egy csoporthoz, valamint megadhatjuk, hogy a csoporton kívüli felhasználók mit tehetnek
+velük. Valójában minden felhasználó (általában) több csoporthoz is tartozik. Minden egyes fájlnak
+és könyvtárnak meg lehet adni, hogy a három szint szereplői – tulajdonos, a csoport tulajdonoson
+kívüli tagjai és mindenki más – külön-külön olvashatja-e, írhatja-e (ez jelenti a módosíthatóságot és
+törölhetőséget is), illetve futtathatja-e. Könyvtár esetén ez utóbbi a könyvtárba belépés jogát jelenti.
+A felhasználó szintjén ezen jogosultságok állítását – természetesen csak ha jogunk van hozzá – a
+Nautilus fájlkezelővel is megtehetjük. Erre láttunk példát a 49. ábrán, amikor is egy fájl futtatási
+jogát megadtuk. Alapértelmezés szerint a saját könyvtárunkban lévő fájlok és az egész saját
+könyvtárunk jogosultsága a következő: mi (a tulajdonos) olvashatjuk és írhatjuk, mindenki más
+csak olvashatja, a könyvtárakba beléphet (a könyvtárakban lévő fájlokat elérheti, vagyis olvashatja),
+lásd az 54. ábrát. Viszont egyik más felhasználó sem módosíthatja, törölheti egyetlen fájlunkat,
+könyvtárunkat sem. Ha nem akarjuk, hogy bárki beléphessen a saját könyvtárunkba, elegendő azt az
+egy könyvtárat megfosztani ettől a jogtól, vagyis a „többiek” résznél a „Mappa elérésé”-t állítsuk
+„Nincs”-re „Fájlok elérése” helyett.
+A linuxos rendszernek korlátlan ura viszont a rendszergazda. Ahogy erről már volt szó, ilyen
+kitüntetett felhasználó Ubuntun nincs, csak valamely arra jogosult felhasználó ideiglenesen
+megkapja a rendszer adminisztrálásának jogát. Ezzel nagyon vigyázni kell, mert admin joggal bárki
+bármit megtehet. Ez azt jelenti, hogy bármilyen fájlt, könyvtárt módosíthat, törölhet, jogosultságait
+megváltoztathatja, bármilyen könyvtárba, fájlba belenézhet. Grafikus felületen úgy válhatunk a
+legegyszerűbben a fájlkezelő korlátlan uraivá, ha megnyomjuk az Alt+F2 billentyűkombinációt,
+majd a felbukkanó ablakba beírjuk a „gksu nautilus” parancsot, majd rákattintunk a „Futtatás”
+gombra. A „gksu” bekéri a jelszavunkat az adminisztrációs feladatok végrehajtásához, és ha benne
+vagyunk az admin csoportban, elindul a fájlkezelő rendszergazdai jogokkal. Legyünk nagyon
+óvatosak, könnyen végzetes problémákat okozhatunk rendszerfájlok törlésével, amik a rendszer
+használhatatlanságához vezethetnek. Ilyenkor gyakran csak az egész rendszer újratelepítése
+segíthet.
+Az egyszeri felhasználónak azonban semmilyen írásjoga nincs a fájlrendszer egyéb részén (néhány
+speciális részt leszámítva). Ez azt jelenti, hogy egy felhasználó (vagy egy annak nevében elindított
+program) nem tud kárt okozni a rendszernek, legfeljebb magának (például véletlenül letöröl fájlokat
+a saját könyvtárában).
+74
+55. ábra: Alkalmazás futtatás: Alt+F2
+A csoportok ügyes használatával mi magunk is kifinomultabbá tehetjük egy többfelhasználós
+rendszer működtetésének jogosultsági szintjeit, hiszen csoportok létrejönnek a rendszer
+telepítésekor, de (adminisztrátori jogkörrel) mi is létrehozhatunk ilyeneket. Például, ha korlátozni
+akarjuk a felhasználókat valamilyen hardverelem – például CD-DVD író – használatában,
+létrehozunk egy csoportot, mondjuk „iro” néven, belerakjuk azokat a felhasználókat, akiknek meg
+akarjuk engedni ezt a tevékenységet. Ezután megadjuk a CD-DVD író programnak, hogy ez legyen
+a csoportja, valamint csak a csoport tagjainak engedélyezzük a szoftver futtatását.
+Megjegyezzük, hogy a jogosultságok helyzete a valóságban kissé bonyolultabb. A linuxos
+rendszerek nem csak fájlt és könyvtárat különböztetnek meg, hanem más speciális
+„képződményeket” is – mint például a különféle fájlrendszer-elemekre mutató speciális fájlokat –,
+melyeknek szintén lehet szabályozni a jogosultságait. Továbbá léteznek a tárgyaltakon kívül egyéb,
+speciális jogok is. Ezeket azonban egyszerű felhasználóként jobbára szükségtelen ismerni,
+kiszolgálókat üzemeltető rendszergazdák számára viszont kötelező tananyagot képeznek.
+A témához tartozik még a jogosultságok parancssoros megjelenítése. Ezt az ls parancs
+ismertetésénél, a 20. fejezetben tárgyaljuk.
+75
+Feladatok
+Az alábbi feladatok végrehajtására használjon a Nautilust, majd (ha sikerül telepíteni) a GNOME
+Commadert vagy a Midnight Commandert!
+1. Hozzon létre a saját könyvárában egy „teszt” nevű könyvtárat!
+2. Állítsa be, hogy Önön kívül más felhasználó ne léphessen be a könyvtárba!
+3. Hozzon létre a „teszt” könyvtárban egy üres fájlt „szöveg” néven!
+4. Írjon a fájlba néhány soros szöveget!
+5. Töltsön az Internetről fájlokat a „teszt ”könyvtárba (a böngésző beállításainál szabályozható,
+hogy a letöltés megkezdése előtt rákérdezzen, hogy hová mentse azokat)!
+6. Tömörítsük be a letöltött fájlokat (használja a jobb egérgombos menüt a Nautilus használata
+közben)!
+76
+15. Látványos asztali effektek – Compiz
+A most következő részben – túlzás nélkül állíthatjuk – rendkívül látványos világ fog elénk tárulni. A
+kulcsszó: Compiz. Ez egy 3D gyorsítást igénylő program, melynek számos modulja – úgynevezett
+pluginja – van. Valójában a Compiz alap szinten már a telepítés után elérhető, amennyiben a
+videokártya 3D támogatással rendelkezik és az engedélyezve is van. Ez a leggyakrabban használt
+Intel videokártyák esetén telepítés után elérhető, de például NVidia kártya esetén az optimális
+működéshez zárt meghajtó telepítését feltételezi.
+Ha az asztalon a jobb egérgombra kattintunk, majd kiválasztjuk az „Asztal hátterének
+megváltoztatása” menüpontot, számos vizuális testreszabást segítő eszközt találunk. Ezek
+önmagukban is érdekesek, érdemes elidőzni velük egy kicsit, de most csak a „Vizuális effektusok”
+füllel foglalkozunk.
+77
+A menüpontok önmagukért beszélnek. Próbáljuk ki a beállítási lehetőségeket. Csak így
+bizonyosodhatunk meg róla, hogy a gépünk elbírja-e a plusz terhelést – egy mai átlagos gépen nem
+lehet probléma –, és hogy érdekel-e minket egyáltalán ez az „optikai tuning”.
+Már itt is találkozhatunk látványos funkciókkal (áthelyezés közben hullámzó ablakok), de a teljes
+paletta eléréséhez telepítsük az „Asztali effektek speciális beállításai (ccsm)” (CompizConfig) és a
+„compiz-fusion-plugins-extra” csomagokat. Telepítés után indítsuk el a „CompizConfig
+beállításkezelő”-t a „Rendszer” → „Beállítások” menüből.
+Itt kategóriák szerint csoportosítva számtalan plugin áll rendelkezésünkre. Kísérletezzünk bátran,
+nézzük meg, melyik felel meg az ízlésünknek. Bár sokuk csupán látványelem, találunk igen hasznos
+funkciójú segédeszközt is köztük. A legismertebb, leglátványosabb elem, a Compiz-kocka, amit
+több változatban is kipróbálhatunk. Ekkor az asztalok egy kocka négy oldallapjára kerülnek. A
+lapok között a Ctrl+Alt+ a jobb vagy bal kurzorvezérlőkkel, esetleg a Ctrl+Alt+ a bal egérgombot
+lenyomva és az egeret mozgatva manőverezhetünk.
+Ha az asztalunk jobb alsó sarkában lévő Munkaterület-váltón a jobb egérgombbal kattintunk, a
+felbukkanó menün pedig a ballal a „Beállítások”-ra, az így elérhetővé váló ablakban átállíthatjuk a
+Munkaterületek számát. Ha a Compiz-kocka aktiválva van, az oldallapok számának változásával a
+keletkezett test (szabályos sokszög alapú egyenes gúla) is változni fog. Extrém esetben, amikor a
+munkaterületek száma kettő, a „kocka” egy lap lesz, amit persze ugyan úgy forgathatunk, mint a
+testeket.
+Két hasznos plugint említenék még meg, mindkettő használható a Vizuális effektusok Normál
+beállításával. Az egyik az Expo, amely a megnyitott ablakokat lekicsinyíti és egymás mellé rendezi,
+ez a „Windows” billentyű és a „w” lenyomására kapcsol be/ki. A másik a Zoom, ami a „Windows”
+billentyű és az egérgörgő együttes használatával felnagyítja a képernyőt, amin aztán az egeret
+mozgatva lavírozhatunk.
+78
+A Compiz bemutatása általában igen hatásos. Sokan ezért kezdtek el Linuxot használni, mert bár a
+mai operációs rendszereken már sok hasonló vizuális effekt elérhető, a Compizzal felszerelt Linux
+azért még mindig a leglátványosabb rendszerek közé tartozik.
+Sokan kételkednek abban, hogy a Linux megérett-e egyáltalán a desktop (nem szerver) használatra.
+Erről lehet vitatkozni, de egy jól bekonfigurált Compizos Ubuntu látványa és használata azért
+elgondolkodtató lehet a kétkedők számára.
+79
+58. ábra: Forog a Compiz-kocka (térhatású ablakok engedélyezve)
+16. Még néhány szó Linux „felhasználói élményéről”
+Egy rendszer használhatósága több dologtól függ. A legfontosabb, hogy egyáltalán működjön,
+legyen annyira stabil, hogy érdemes legyen használni.
+A linuxos rendszerek stabilitására nem igazán volt panasz korábban sem. A 90-es évek közepén,
+amikor még a Linux „kiskorú” volt, már stabilabbnak, kiforrottabbnak tűnt, mit számos akkori
+kereskedelmi operációs rendszer. De ne felejtsük el, az a Linux akkoriban szinte kizárólag
+kiszolgáló operációs rendszer volt, felhasználók asztali gépére csak a legelszántabbak telepítették.
+A stabilitás élményét ronthatják a változó minőségű felhasználói programok is. A disztribúció
+összeállítói természetesen mindent megtesznek, hogy olyan alapértelmezett alkalmazásokat
+válasszanak, melyek jó minőségű, rendszeresen karbantartott programok. Hibák természetesen így
+is előfordulhatnak, sajnos a tárolókban lévő szoftverek ezrei között akadnak kezdetleges, félkész
+programok is.
+Ettől nem független az sem, hogy – ahogy arról már korábban volt szó – mostanában gyakran éri
+bírálat az Ubuntut – lényegileg tehát a döntéshozóit, leginkább Mark Shuttleworth-öt – az
+erőltetetten rövid, fél éves kiadási ciklus miatt. Többek véleménye szerint meg kellene nyújtani
+annak hosszát, így több idő lenne tesztelésre, a hibák javítására. A másik véglet a Debian
+disztribúció, ott gyakran évekig nem adnak ki új, stabilnak mondott változatot. Ennek viszont az a
+hátránya, hogy a ritkán megjelenő disztribúció aktuális stabil változatában lévő szoftverei az évek
+alatt nagyon elavulnak.
+Mindenesetre a Linux felülete, kezelhetősége sokat javult az évek alatt, ahogy azt az előző
+80
+fejezetben is láthattuk. Az Ausztrál ZDNet egy KDE4-es grafikus felülettel, effektekkel ellátott
+Linuxot mutogatott az utca emberének a Windows 7 béta megjelenésének idején, mint a Microsoft
+új termékeként. A megszólaltatottak rajongtak az új „Windows”-ért, sokkal használhatóbbnak,
+szebbnek találták, mint a Vistát és elődjeit (59. ábra). A műsor teljes idevágó része megtekinthető a
+következő címen: http://www.youtube.com/watch?v=CPIgEFIv5MI.
+Másik sarkalatos pont a meghajtók kérdése. Egy hardverelem csak akkor tud működni, ha a
+rendszer támogatja, vagyis létezik hozzá meghajtóprogram (driver) az adott operációs rendszeren.
+Viszont a helyzet nem fekete-fehér, hiszen egy-egy hardverelem lehet egy driver által részlegesen
+támogatott is, esetlegesen az alapfunkciók működnek, extrákat azonban nem biztos, hogy támogat a
+driver, így ez esetben az eszköz nem használható ki teljes mértékben az adott rendszer alatt.
+Az évek alatt a helyzet sokat javult. Ma egy átlagos géphez ülve nem kell reszketnünk, hogy be
+tudunk-e bootolni egy Ubuntu telepítőlemezről és használatba tudjuk-e venni az alapfunkciókat.
+Nem volt ez mindig így. A 90-es években egy – nyilván kisarkított – vélemény szerint az a rendszer,
+aminek telepítéséhez nem kellett hexa számológépet használni (a tizenhatos számrendszerbeli
+számoláshoz) már felhasználóbarátnak számított. Jómagam a Linuxszal való mélyebb ismerkedést
+2000-ben, a Debian Potato verziójának telepítésével kezdtem. Akkorra már kipróbáltam a Red Hat
+és Mandrake disztribúciókat, de az első igazán kalandos telepítés élménye a Debianhoz fűződik.
+Először egy DOS-os bootlemezről particionáltam a fips programmal, majd indítottam a CD-ről való
+telepítést. Az alaprendszerrel nem is volt semmi baj, de grafikus felület elindításához és használható
+állapotba hozásához – nekem, kezdőként – több napig tartó „reszelésre”, konfigurációs fájlok
+állítgatására volt szükség.
+A mai helyzet ettől lényegesen jobb. Bár a driverek többségét sajnos továbbra sem a hardvergyártók
+készítik, a Linux fejlettsége lehetővé tette az Ubuntu és hozzá hasonlóan kezdőknek (is) szánt
+rendszerek működtetését. Telepítés közben már téma volt a driverek kérdése, de most tekintsük át
+részletesen a problémásabb hardverelem-csoportokat a linuxos meghajtóprogramok szemszögéből.
+Általános javaslat, hogy vásárlás előtt nem árt először körülnézni az Interneten, konkrétan ha
+kinéztünk egy hardvert, keressünk rá a típusára és a Linux, esetleg Ubuntu szóra. Néhány perc
+böngészéssel képbe jöhetünk Linuxon való használhatóságával kapcsolatban. A legtöbb esetben a
+csatlakoztatott hardverelemet rögtön használatba is vehetjük. Ha valami gond van, ne keseredjünk
+el, még mindig komoly esélyünk van annak helyes működtetésére. Szinte kizárt, hogy csak mi
+akartuk beüzemelni az eszközt Linux alatt. Biztos, hogy találunk valami leírást a problémáról az
+Interneten. Ritkán előfordul, hogy csak annyit: nem ismert megoldás a problémára. Általában
+azonban találunk használható telepítési útmutatókat, esetleg fejlesztés alatt álló drivereket, amik
+használhatóak, csak esetleg még nem kerültek bele az alaptelepített rendszerbe.
+81
+Feladatok
+1. Telepítsen Compizos effekteket gépére! Keressen gyakorlati haszonnal is járókat
+közöttük!
+2. Próbáljon az alábbi képen láthatóhoz hasonló beállítást létrehozni:
+3. Telepítse fel a KDE környezet! Lépjen be alá, majd alakítson ki otthonos, kézreálló
+rendszert! Próbálja ki a KDE saját programjait! Ismerkedjen a KDE
+beállítóközpontjával!
+4. Telepítsen fel egy Fluxbox ablakkezelőt! Lépjen be alá, majd konfigurálja a menüt saját
+céljaira! Próbálja ki a Fluxbox mellé ajánlott kis erőforrás igényű programokat!
+82
+17. Meghajtóprogramok
+Ezzel a fejezettel senkit nem akarok elriasztani, hisz például ma már egy véletlenszerűen
+kiválasztott laptop minden fontos funkciója nagy valószínűséggel működni fog Ubuntu alatt minden
+különösebb buherálás nélkül. Nem árt azért tudni, milyen problémákba futhatunk bele bizonyos
+hardverelemekkel.
+Általánosságban elmondható, hogy a nagyon új típusú eszközök támogatására lehet, hogy még várni
+kell.
+• Hangkártyák
+Bár a legtöbb hangkártya működik Linuxon – legalábbis az alapfunkciói – az 5.1-es funkció
+beüzemelésével és a drágább kártyák professzionális lehetőségeinek kihasználásaival
+azonban gondok lehetnek.
+• Lapolvasók (scannerek)
+A kép vegyes, sokuk támogatott, de akadnak fehér foltok. A támogatottak között is akadnak
+olyanok, melyek esetén a windowsos driver szebb képet hoz ki a szerkezetből, mint a
+linuxos, főleg ha a driver írójának nem állt rendelkezésére megfelelő dokumentáció.
+Linuxon a scannerek támogatását a Sane projekt fogja össze. A fejlesztések állásáról, a
+83
+61. ábra: Driver keresés az OpenPrinting adatbázisában
+támogatottság mértékéről tájékozódhatunk a http://www.sane-project.org/ oldalon. A
+lapolvasó használatához az alapértelmezett és az alaprendszerrel fel is telepített Simple Scan
+programot ajánljuk, de összetettebb feladatok megoldására telepíthetjük a XSane
+képbeolvasó programot is.
+• Nyomtatók
+A nyomtatók esetén jobb a helyzet, nagy részük megfelelő mértékben támogatott. Talán nem
+túlságosan szubjektív tapasztalat, de a legnagyobb hiányosságokat a Canon nyomtatók
+támogatottságában láttam. Viszont a támogatott nyomtatók esetében is előfordulhat, hogy
+bár az Ubuntu alatt minden további telepítés, vagy beállítás nélkül használatba vehetjük az
+eszközt, esetleg néhány extra funkciót – például a kétoldalas nyomtatás (már amennyiben az
+eszköz hardveresen képes rá) – az alapértelmezett driver nem ismer. Ilyenkor érdemes
+ellátogatni a http://www.openprinting.org/ honlapra és kikeresni az adott eszközt. Hatalmas
+adatbázisában jó eséllyel megtaláljuk nyomtatónkat és az ott talált PPD fájlt telepíthetjük
+rendszerünkre. A nyomtató beállításaihoz kattintsunk a „Rendszer” → „Adminisztráció” →
+„Nyomtatás” menüpontra. Tapasztalatok szerint az új, multifunkcionális nyomtatók
+támogatottságával akadhatnak gondok, az aktuális driverek esetleg csak részleges
+használhatóságot biztosítanak.
+• Videokártyák
+Vannak eszközök – például ilyen az egér, a billentyűzet – , amikhez nem igazán nehéz
+eszközmeghajtót írni. A videokártya nem ilyen. Ez az eszköz annyira bonyolult, valamint
+jellemző módon a gyártók olyan mértékben titkolóznak a hardverelem tényleges
+működésével kapcsolatban, hogy jelen pillanatban úgy tűnik, hogy igazán jó minőségű
+videokártya drivert csak a gyártó tud készíteni a főbb típusokhoz. Linuxhoz hosszú évek óta
+elsősorban a GeForce NVIDIA kártyákat ajánljuk. Zárt forrású drivereik rendszeresen
+frissülnek Linuxra, de az alap, nyílt forrású 2D-s driver is jól használható, ha nincs
+szükségünk a 3D-s gyorsításra. Bár a kártyák legújabb fejlesztési eredményei gyakran csak
+Windows alatt használhatók ki, ha valakinek fontos a 3D gyorsítás Linuxon, még mindig az
+NVIDIA a jó választás. A piac másik fő szereplője, az ATI Radeon kártya linuxos
+támogatottsága már jóval hektikusabb. Ha szerencsénk van minden rendben lesz, de
+könnyen előfordulhat, hogy nem tudunk 3D-s támogatást kihozni egy driverrel sem Linux
+alatt az arra egyébként hardveresen alkalmas kártyából. Beszélnünk kell még az Intel
+videokártyájáról. Ez hardveresen lényegesen kisebb teljesítményű, mint a játékok futtatására
+kihegyezett többi kártya, de nyílt forráskódú meghajtóprogramja általában megbízhatóan
+működik Linux alatt is, 3D gyorsítással egyetemben. Bár ez a kártya inkább irodai gépekbe,
+laptopokba, netbookokba kerül, és nem igazán nagy teljesítményű, de nem túlzottan nagy
+erőforrás igényű 3D-s programok – például Compiz – futtatására alkalmas.
+• Webkamera
+A webkamerák minősége rendkívül széles skálán mozoghat, a belépő szintű olcsóságoktól a
+neves márkák Carl Zeiss optikát tartalmazó csodáiig. Szerencsére egy linuxos driverrel néha
+egész webkamera családokat meg lehet hajtani (ekkor a támogatás kernel-szintű), de
+akadnak nem támogatott termékek. A webkamerákhoz adott speciális – és általában nem túl
+fontos – szoftverek legfeljebb Wine segítségével bírhatók működésre Linux alatt. Jó hír
+azonban, hogy a webkamerákat használó nagy népszerűségnek örvendő fontosabb
+szoftverek (Skype, Gmail video chat) jól használhatóak Linux alatt.
+84
+• Hálózati eszközök
+Le kell szögezni, hogy a nem Wifi hálózati eszközök tökéletesen működnek Ubuntun,
+sokszor Linuxra jön ki először referencia driver. Speciális kártyák (10G és társai) is
+működnek a legtöbb esetben, mivel a Linux szerver területen igen fontos szereplő a piacon.
+A hálózati forgalmat kiszolgáló eszközök közül a problémásak a Wifi hálózati kártyák
+lehetnek. Gyakran csak zárt driverük van, esetleg van nyílt driver, de az nem tud kezelni
+minden titkosítási módot. Rosszabb esetben egyáltalán nincs driver Linuxra a kérdéses
+eszközhöz, de szerencsére ekkor is van megoldás. Ahogy azt már korábban említettük, a
+hardverelemek közt egyedülálló módon létezik egy projekt – az ndiswrapper – , mely
+segítségével a kiadott windowsos drivert üzembe helyezhetjük Linux alatt. E célból
+telepítsük az ndisgtk programot, ami az ndiswrapper program grafikus felülete. A
+függőségek miatt ezzel települni fog minden más program is. Indítás: Egy futtassuk
+(Alt+F2) az „gksu ndisgtk” parancsot.
+• Egerek, billentyűzetek, prezentációs eszközök, botkormányok, kormányok
+Linuxos támogatottságuk kifejezetten jó, de előfordulhat, hogy speciális, sok extra gombos
+egerek, különleges billentyűzetek nem minden funkciója fog minden további „buherálás”
+nélkül működni.
+Számtalan más típusú hardver eszköz létezik. Ezekkel vagy nem szokott probléma lenni Linuxon
+(tehát támogatásuk kielégítő) – mint például a memória, monitor, billentyűzet –, vagy kisebb
+jelentőségű csoportról van szó, melyek tárgyalása meghaladja jegyzetünk kereteit. Ilyen például a
+rajzolótáblák családja, melyek jól támogatottak Linuxon, de gyakran nem működnek csatolás után
+azonnal („out of the box”), a friss meghajtóprogramot kézzel kell telepíteni – ahogy az pár perces
+Internetes keresés után kiderül –, ami nem várható el egy kezdőtől, de egy gyakorlottabb
+felhasználó számára nem nagy feladat. Néhány, jellemzően új típusú eszköz linuxos támogatottsága
+– például az ujjlenyomat olvasóé – esetleg gyenge, beüzemelése küzdelmes (vagy akár
+reménytelen) is lehet.
+85
+62. ábra: Windowsos wifi driver beüzemelése Linuxon
+18. Fontosabb felhasználói programok
+• Internetes kommunikáció
+Ahogy arról már korább is volt szó, számos jelentős és kevésbé fontos böngésző érhető el Linuxra.
+A Firefox, a Chrome, az Opera mind könnyedén telepíthető és használható. Szükség esetén az
+Internet Explorer – legalábbis a régebbi változatai – is futásra bírható Wine segítségével. E célból
+nem kell magunknak kísérletezni a Wine finomhangolásával, megtették ezt helyettünk az IEs4Linux
+projekt fejlesztői: http://www.tatanka.com.br/ies4linux/page/Main_Page
+Ha telepítés után elkezdjük használni például a Firefox böngészőt, mikor valamelyik oldalon olyan
+elemet talál, melynek megjelenítéséhez további bővítményekre van szüksége, jelzi azt. Ilyen például
+a böngészőkbe települő Flash plugin. Alapból nincs ilyen telepítve, ezért Flash-t használó oldalon
+azt az üzenetet kapjunk, hogy: „Az oldal teljes tartalmának megtekintéséhez további bővítmények
+szükségesek”. Kattintsunk a szövegtől jobbra lévő „Hiányzó bővítmények telepítése...” gombra. Ez
+után a 63. ábrán látható ablakhoz jutunk. A plugin zárt forráskódú, amennyiben legalábbis a
+legnagyobb tudású változatot, az Adobe szoftverét választjuk.
+Ha engedélyezzünk a „partner” tárolók használatát, a Skype (és az Adobe Reader) program linuxos
+változata is egyszerűen, a korábban megismert csomag-telepítési eljárással telepíthető lesz a
+rendszerünkre. Ezt legegyszerűbben a „Rendszer” → „Adminisztráció” → „Szoftverforrások”
+menüpontban tehetjük meg. A megjelenő ablakban – miután beírtuk jelszavunkat az adminisztrátori
+tevékenységhez – kattintsunk az „Egyéb szoftver” fülre, majd pipáljuk ki az ott található kis
+86
+négyzeteket, de legalább a felsőbe. Bezárás után kis ablak figyelmeztet az elérhető szoftverekkel
+kapcsolatos információk frissítésének szükségességére.
+Népszerűek még a csevegő és különböző közösségi szolgáltatások. Számos szoftver létezik ezek
+támogatására Linuxon. Például az Empathy integrálva van az Ubuntu rendszerébe (lásd a 65. ábrát).
+Számos csevegőfiókot használatba vehetünk, ha regisztrált felhasználói vagyunk. Kattintsunk hát a
+„Csevegőfiókok...” menüpontra, ahogy az a 65. ábrán látszik. Ezután válasszuk ki az „Igen,
+87
+megadom a fiókom adatait”, majd lépjünk tovább. A következő ablakban már láthatjuk is a
+csevegőfiókok választékát (lásd a 66. ábrát).
+Érdemes megemlíteni még egy különálló – a tárolókból telepíthető – szoftvert, az aMSN-t, mely
+egy MSN kliens.
+• Multimédia, grafika
+Alapértelmezetten települ az F-Spot fotókezelő, egy Simple Scan nevű szkenner (lapolvasó)
+kiszolgáló szoftver, a Totem média (zene és film) lejátszó és a Rhythmbox zenelejátszó. A
+tárolókból igény esetén telepíthetünk más, hasonló célú, esetleg nagyobb tudású szoftvert is; az
+88
+66. ábra: Választható csevegőfiókok
+XSane lapolvasóprogramot, a VLC, esetleg SMplayer videolejátszókat és a Gimp nagy tudású
+képmanipuláló szoftvert. Ha van TV Tuner kártyánk, kiváló választás lehet a TVtime televíziónéző
+program. Az OpenOffice.org (az Ubuntu 11.04-es verziójától LibreOffice) tartalmaz egy egyszerű
+rajzolóprogramot, de ha komolyabb igényeink vannak, akkor használhatjuk az Inkscape nevű, igen
+komoly vektorgrafikus szerkesztőt.
+• Irodai szoftverek
+A legjelentősebb irodai szoftver az OpenOffice.org, amely minden szükséges és szokásos Officeelemet
+tartalmaz. Ezt a jegyzetet is az OpenOffice.org Writer (szövegszerkesztő) részével készítem,
+majd ha kész lesz – a program beépített eljárását használva – PDF formátumúvá konvertálom. A
+képernyőképeket az alapértelmezett programot használva hozom létre („Alkalmazások” →
+„Kellékek” → „Képernyőkép készítése”), majd a szintén alapértelmezett képnézegető program (ha
+kettőt kattintunk a kép ikonjára, az indul el) szerkesztési funkcióját kiválasztva vágtam. Az
+OpenOffice.org több más modult is tartalmaz, másik két leggyakrabban használt része a Calc
+(táblázatkezelő) és az Impress (prezentációkészítő és kezelő).
+A „Kellékek” között találjuk a szokásos Számológépet, az alapértelmezett és igen egyszerűen
+használható CD/DVD készítőt, de – bár használata ritkán indokolt – a Windows rendszereken oly
+jól ismert Nero is elkészült Linuxra. Igen hasznos és látványos eszköz az ugyancsak itt található
+Lemezhasználat ellenőrző.
+Számos PDF olvasó létezik Linuxra, igen gyors és jól használható az alapértelmezett Evince, de –
+ahogy arról már volt szó – az Adobe Readernek is van linuxos változata.
+89
+67. ábra: A Lemezhasználat-elemző gyűrűdiagramja plasztikus eszköz
+19. A parancssori felület alapjai
+Ahogy arról már az említés szintjén esett szó, a Linux rendszereknek – a mai Windowsokkal
+ellentétben – nem feltétlenül része a grafikus felület. Régebben nem volt olyan nehéz erről beszélni,
+hiszen a DOS – a Windows elődje – még élénken élt a köztudatban, a felhasználók tudták, hogy sok
+mindenre lehetett használni a gépet azzal az egyszerű rendszerrel is. Ezt a ma átlagos
+felhasználónak nehéz elképzelni, nekik az ablakok látványa és az egérhasználat már alapélmény,
+enélkül tehetetlennek érzik magukat. Egy kis szelete maradt csak meg a desktop felhasználásnak
+DOS-on (vagy annak kinéző felületen): egyes adatbázis-kezelői felületetek, nyilvántartóprogramok,
+könyvelő és ügyviteli programok kezelőfelülete. Ugyanis kizárólag a billentyűzetet használva
+gyorsabb az adatbevitel, mintha ki-ki kellene nyúlni az egérért, és így talán a kezelői felület is
+jobban áttekinthető.
+A lényeg tehát, hogy ma felhasználóinak többsége el sem tudja képzelni a gépét ablakok és egér
+nélkül. Ez nem baj, az átlag felhasználónak nincs is szüksége másra. A Linux forgalmazók,
+disztribúciókészítők is igazodtak ehhez a – nem is mostanában bekövetkezett – szemléletváltáshoz.
+A legtöbb Linux kiadásnak már a telepítése is grafikus környezetben zajlik, és a telepítés végeztével
+valamely könnyen kezelhető – gyakran Windowshoz hasonlító – felhasználói felületet –
+leggyakrabban a két legelterjedtebb környezet egyikét, a GNOME-ot vagy KDE-t – kapjuk.
+Említettük azt is, hogy a Linux a végletekig testreszabható. Ennek következtében léteznek
+gyengébb gépekre szánt, modern, de minimális erőforrást igénylő változatok, mint például a Puppy
+Linux, Damn Small Linux és a Tiny Core Linux. Ezek desktopra szánt – böngészővel, zene- és
+filmlejátszási lehetőségekkel ellátott, de – egyszerű rendszerek, amik minimális (kb. 10-80 MB)
+méretűek, így gyorsak, kevés memóriával és tárhellyel is megelégszenek. Természetesen ennek a
+„spórolásnak” ára van; kevés programot tartalmaznak, és testreszabásuk már nem lesz olyan
+egyszerű, mint egy kényelmes, felhasználóbarát disztribúcióé.
+De a testreszabhatóság azt is jelenti, hogy léteznek alapértelmezett grafikus felület nélküli Linuxok
+is. Számos disztribúció – általában a szerverre szántak – eleve ilyen. Az Ubuntunak is van grafikus
+felület nélküli, szerverre szánt változata. Aztán vannak egészen minimális méretű Linuxok is; már
+90
+egyetlen floppy-n létezhet működő Linux rendszer. Ilyen minimális – 1-2 floppy méretű – Linuxból
+rengeteg van (van köztük olyan műremek is, amelyiknek grafikus felülete is van), speciális célokra,
+vagy sokszor csak érdekességképpen.
+De nem csak szerveren lehet hasznos, ha nem kizárólag grafikus felületű beállítószoftverekkel
+tudjuk adminisztrálni a rendszerünket. Bár az Ubuntut úgy készítik, hogy gyakorlatilag bármilyen
+átlagos felhasználó által igényelt beállítást megtehessünk grafikus felületen, szükségünk lehet másra
+is. Ugyanis nagyon sok desktop felhasználó maga adminisztrálja a rendszerét. A rendszeradminisztráció
+sokszor Windows rendszeren is komoly gyakorlatot és tudást kíván, és ez Linuxon
+talán még fokozottabban igaz.
+Feltelepítettük hát rendszerünket, használatba vettük, beállítottunk ezt-azt, különösebb nehézség
+nélkül. De lehetnek problémák. Például valamely hardvereszközünk nem működik azonnal a
+telepítés után. Utánanézünk az Interneten és tegyük fel, hogy találunk is valami leírást a
+beüzemeléshez. Nosza fogjunk hozzá. Ebben az esetben szinte kizárt, hogy megússzuk
+kattintgatással, általában használnunk kell a parancssort is.
+A parancssorhoz többféle módon hozzáférhetünk. Egy bebootolt, átlagos grafikus felülettel ellátott
+Ubuntu esetén a klasszikus, tényleg grafikus felület nélküli parancssorhoz az Alt+Ctrl lenyomása
+után az F1, F2,...,F6 billentyűk egyikét lenyomva juthatunk. Gyakorlatilag hat darab karakteres
+terminál lapul a háttérben, használatra várva. Az Alt+Ctrl+F1 lenyomására a 68. ábra látványához
+hasonló tárul elénk. Legalábbis a képernyő bal felső sarkában, máshol csak feketeség lesz. A felső
+sorban a rendszer verziója (Ubuntu 10.04.1. LTS), a gép neve (ez most „mikkamakka”) és a „tty”
+után a terminál sorszáma (F1-re az elsőt, F2-re a másodikat stb. kapjuk) látható. A második sorba, a
+kettőspont után be kell írnunk a felhasználónevünket, majd Entert kell nyomnunk, ezután a
+jelszavunkat adjuk meg és újra Enter. Ekkor jutunk be a rendszerbe. Egy kurzor fog villogni, egy
+parancsértelmező (shell), konkrétan a bash nevű program várja a parancsainkat. A terminálba
+lépéskor először mindig a saját könyvtárunkban találjuk magunkat. A grafikus rendszerre (ha fut)
+bármikor visszajuthatunk az Alt+F7 (egyes rendszereken Alt+F8) lenyomására.
+91
+69. ábra: A GNOME grafikus terminálja
+A desktop rendszerek felhasználói (szerencsére) ritkán kerülnek abba a helyzetbe, hogy a terminál
+eme nem túl barátságos klasszikus változatát kényszerüljenek használni. Ha működőképes a
+grafikus felületünk, használhatunk grafikus terminált is, ami azért nyújt néhány kényelmi
+szolgáltatást.
+Grafikus terminált minden grafikus felület, környezet biztosít. Ezek a terminálok egy ugyan olyan
+ablakban indulnak majd el, mint a grafikus programok. Mi a GNOME Terminált (lásd a 69. ábrát)
+fogjuk használni, ez az Ubuntu alapértelmezettje. Kényelmesebb használni mint a karakteres
+terminált, mert a grafikus felületen szokásos ablakok közötti „kivágás+beillesztés” funkció itt is
+használható. Linuxon egyébként a „kivágás” már az egérrel való kijelöléskor megtörténik, a kijelölt
+szöveg vágólapra kerül. A beillesztés az egér középső gombjának lenyomására, vagy a „Shift” és az
+„Insert” billentyűk együttes lenyomására megy végbe. Ha ilyen nincs, nyomjuk meg az egérgörgőt,
+ha ilyen sincs, jó ha tudjuk, hogy a középső gomb lenyomását a bal és jobb gombok együttes
+lenyomása emulálja. A grafikus terminálok testreszabhatók, sokszor „feldíszíthetők” (átlátszó
+háttereket, színeket lehet beállítani), de alapvetően mégiscsak a parancsok futtatására használhatók.
+Parancsok futtatására már láttunk példát korábban (lásd az 55. ábrát), de komolyabb, összetettebb
+műveletekhez kényelmesebb eleve terminált használni. A GNOME Terminált az „Alkalmazások” →
+„Kellékek” → „Terminál” menüpontra kattintva indíthatjuk el.
+A grafikus terminálra nem kell bejelentkeznünk, ezt ugyanis eleve csak akkor indíthatjuk el, ha
+korábban bejelentkeztünk már – a grafikus felületre. Ott fog villogni a kurzor a prompt
+(alapértelmezetten a $ jel) után. Előtte a felhasználónevet, @ után a gép nevét látjuk. Ha
+rendszergazdák lennénk – akár csak Ubuntus értelemben, ideiglenesen is – , a $ jel helyett a # jelet
+látnánk.
+Most már „csak” tudnunk kellene, mit írjunk a parancssorba. A parancssor értelmes használatához
+gyakran nem kellenek komoly ismeretek. Például ha valamely grafikus felületű szoftver
+rendellenesen működik, gyakran jó hibakeresési módszer, ha nem menüből, ikonjára kattintva
+indítjuk, hanem grafikus terminálból, a program nevét beírva, majd Entert ütve. Ekkor hibaüzenet
+jelenhet meg a terminálban, ami esetleges hibás, vagy hiányzó komponensekre utalhat. Néha csak
+telepítenünk kell a hiányzó szoftvert vagy dinamikus könyvtárat tartalmazó csomagot. Ha nem ilyen
+egyszerű a helyzet, a kapott üzenet alapján több esélyünk van a hiba okát megtalálni az interneten,
+vagy hasznosabb hibajelentést küldhetünk a szoftver készítőinek. Az is előfordulhat, hogy a
+programot terminálból indítva segítséget, tájékoztatást kapunk a szoftverről, esetleges indítási
+paramétereiről.
+Egy program parancssorból való futtatásánál nagyon fontos tudni, hogy binárisa nevének beírásával
+(plusz Enter-nyomás) csak akkor futtathatjuk a programot, ha benne van az elérési útban. Ez azt
+jelenti, hogy a parancsértelmező a kiadott parancsot néhány jól meghatározott könyvtárban keresi,
+és ha ott nem találja, nem tudja futtatni akkor sem, ha maga a program például éppen abban a
+könyvtárban van, ahonnan kiadtuk a parancsot. Alapértelmezés szerint az Ubuntu
+parancsértelmezője az alábbi könyvtárakban keres:
+/usr/local/sbin
+/usr/local/bin
+/usr/games
+/usr/sbin
+/usr/bin
+/sbin
+92
+/bin.
+Nem meglepő, hogy tipikusan azokban a könyvtárakban, ahová a szabványosan elkészített
+csomagok a programok binárisait elhelyezik. Ha egy programot az aktuális könyvtárból szeretnénk
+futtatni, a neve elé a „./” (pont és per, köztük ne legyen szóköz) karaktereket kell rakni.
+Összetettebb problémák kezeléséhez persze nem árt ismerni néhány alapvető parancssoros
+alkalmazást. A következő fejezetben ezek bemutatására vállalkozunk.
+93
+20. A gyakrabban használt parancssoros programok
+Maga a cím is szubjektív, hiszen főképp saját tapasztalatokon alapul. Ráadásul hatalmas halmazból
+kellett választani a következőekben, ennek belátására elég belenéznünk a /bin, /sbin könyvtárakba.
+És ez még csak a jéghegy csúcsa, a legtöbb bináris a /urs/bin és a /urs/sbin könyvtárakban van, bár
+ezek többségéről nem tárgyunk most, hiszen ezek főleg grafikus felületű programok részei.
+A legrégebbi, az ősi Unixból örökölt parancsok rövidek (régi terminálokon a gépelés is lassú volt),
+általában angol szavak és/vagy rövidítéseik. Ha valakinek ismerősek a DOS parancsok, jó pár
+hasonlót találhat (hasonló funkciókkal) hiszen a DOS – egyes vélemények szerint – egy erősen
+lebutított Unix-szerűségnek készült. Fontos különbség még, hogy a DOS-Windows rendszereken az
+egymás alatt lévő könyvtárakat „\” választja el, míg a Unixban és klónjaiban – így a Linuxban is – a
+„/”. Valójában a Microsoft változtatta meg ezt a Unixos tradíciót a DOS kiadásával. Figyeljük, meg
+hogy az URL-ekben (az Internetes címekben) az ősi Unixos változatot, a „jobbra dőlő per” jelet
+találjuk.
+Szinte minden parancs rengeteg paraméterrel, úgynevezett kapcsolóval futtatható. Ezekből
+legfeljebb egyet-kettőt említünk meg, az összesről leírást találunk azonban a program kézikönyv
+lapjain (manuáljában). A fontosabb parancsok manuáljainak általában létezik magyar fordítása. A
+magyar verziók eléréséhez fel kell telepítenünk a „manpages-hu” (magyar nyelvű man-oldalak)
+csomagot. Sajnos nem minden manuál van magyarra fordítva, de sok alapvető igen. Mondjuk
+például a „man manja” még vár a magyar fordítóra, ki tudja, akár Ön is lehet az, kedves olvasó. Ne
+feledjük, a szabad szoftverek és a Linuxok tájékán legnagyobb számban önkéntesek dolgoznak.
+A parancsok használatánál gyakran előfordul, hogy paraméterként meg akarunk adni fájl, vagy
+könyvtárneveket, nemegyszer elérési úttal. Ez Linux alatt nagyon gyorsan mehet, feltéve, ha
+használjuk a „Tab” billentyűt. A „Tab” lenyomására működésbe lép a bash alapértelmezett kényelmi
+funkciója, hogy kiegészíti a fájl vagy könyvtárneveket, de a(z elérési útban lévő) parancsok neveit
+is, amennyiben a kiegészítés egyértelmű. Ha nem az, addig egészíti ki, amíg egyértelmű. Ezután, ha
+még egyszer megnyomjuk a „Tab”-ot, kiírja a szóba jöhető lehetőségeket. Ilyenkor a szöveg újabb
+karakterét beütve tovább folytathatjuk a kiegészítést, a „Tab” használatát. Ennek a funkciónak az
+ismételt használatával – kis gyakorlással – ördögien felgyorsíthatjuk a a parancsértelmezőben
+végzett munkát.
+Tekintsük hát a fontosabb segédprogramokat:
+• man
+A man parancs kiírja az utána (szóköz után) írt parancs manuálját, amennyiben az létezik.
+Például a „man man” kiírja, mit kell tudnunk a man parancsról. A néha igen hosszú
+leírásokban a kurzorvezérlő billentyűkkel (le, fel) (grafikus felületen az egérgörgővel is)
+vagy az Enterrel (le) és a Page Up, Page Down (PgUp, PgDn) gombokkal navigálhatunk.
+Kereshetünk a leírásban: a „/”-rel előre, a „?”lel visszafelé. Az ablak alján megjelenő
+kettőspont után írjuk be a megtalálni kívánt karaktersorozatot, majd a keresés elindításához
+üssünk Entert. A megtalált szöveget inverzben láthatjuk. A man lapkezelőjéből (ami
+alapértelmezettként a „less” program, lásd később) a „q” billentyű lenyomásával tudunk
+94
+kilépni.
+• sudo
+Egyébként is fontos program, de az Ubuntus parancssorban szinte nélkülözhetetlen. A
+„sudo” után írt parancs rendszergazdai jogosultsággal hajtódik végre. Ehhez be fogja kérni a
+jelszavunkat, de a művelet természetesen ez csak akkor lehet sikeres, ha benne vagyunk a
+rendszergazdák csoportjában. Használjuk még az „i” vagy „s” kapcsolókkal, ekkor nem
+írunk parancsot utána. Mindkét esetben egy rendszergazdai jogosultsággal ellátott terminált
+kapunk, ahol az „exit” (kilépés) parancs kiadásáig (vagy grafikus terminál esetén az ablak
+bezárásáig) korlátlan jogokkal rendelkezünk. Ekkor „root” (rendszergazda) jelenik meg a
+felhasználó nevénél és a „$” jelet „#” váltja a promtban, a kurzor előtt. Az „s” kapcsoló
+használata esetén megmarad a terminál eredeti felhasználó beállítása (például a „cd” parancs
+(lásd később) az eredeti felhasználó saját könyvtárába visz), míg az „i” esetén nem. A
+„sudo” parancs a karakteres párja a korábban ismertetett, grafikus felületen használt „gksu”
+programnak.
+• apt-get
+A Debian alapú rendszerek (így az Ubuntu is) legfontosabb programja ez a rendkívül nagy
+tudású csomag-adminisztrációs eszköz. Az „apt” az „Advanced Package Tool”, vagyis
+körülbelül „haladó, profi csomagkezelő eszköz”. Kizárólag rendszergazdaként használható.
+Gyakoribb felhasználási módjai a következőek:
+• apt-get update
+Frissíti a csomag adatbázist.
+• apt-get upgrade
+Végrehajtja a rendszer frissítését. Előtte mindig adjuk ki az „apt-get update”
+parancsot! Hasznos opciója a „-u”, használata esetén a rendszer először megmutatja,
+hogy mit fog frissíteni.
+• apt-get install csomagnevek
+Ezzel telepíthetünk (installálhatunk) csomagokat. A csomagnévhez ne tartozzon a
+„.deb” kiterjesztés. Például az „apt-get install amsn” telepíti az aMSN nevű MSN
+(Windows Live) Messenger-klónt, függőségeivel együtt. Több csomag telepítése
+esetén a neveket csak szóköz válassza el.
+• apt-get remove csomagnevek
+Eltávolítja a megadott csomagot. Például az „apt-get remove amsn” eltávolítja
+(uninstallálja) az aMSN-t.
+• apt-get purge csomagnevek
+Eltávolítja a megadott csomagot és annak konfigurációs állományait is.
+95
+• apt-get autoremove
+Eltávolítja a korábban (függőségek miatt) települt, de már egyetlen program által
+sem használt csomagokat.
+• apt-get clean
+apt-get autoclean
+Eltávolítják a korábban már feltelepített programok csomagfájljait. Kezdő
+felhasználóknak szinte soha nincs ezekre szüksége, így nyugodtan kiadhatjuk a fenti
+parancsokat; sok száz megabájt helyet szabadíthatunk így fel a /var könyvtár alatt.
+• apt-get moo
+Ez csak egy apró vicc, „sudo” nélkül is kipróbálhatjuk.
+• apt-cache
+Ez is az „apt” csomag része, a csomag-adatbázisban való keresésre szolgál. Rendszergazdai
+jogosultság nélkül is használható.
+• apt-cache search kifejezés
+A csomag leírásában keresi a megadott kifejezést. Például „apt-cache search video
+editor”
+• apt-cache showpkg csomagnevek
+Részletes leírást ad a megadott nevű csomagokról. Például „apt-cache showpkg mc”
+Nézzük a fájl- és könyvtárkezelő parancsokat, és ami szükséges használatukhoz:
+• cd
+A change directory, avagy a könyvtárváltás parancsa. Önmagában, paraméter nélkül kiadva
+az aktuális felhasználó a saját könyvtárába lép vele. A „cd /usr/bin” után a „/usr/bin”
+könyvtárban találjuk magunkat. A „cd usr/bin” relatív utat jelöl (mivel nem „/” jellel
+kezdődik), vagyis akkor jutunk vele a „/usr/bin” könyvtárba, ha éppen a gyökér könyvtárban
+állunk, de ha a „/home” könyvtár az aktuális könyvtár a parancsértelmezőben, a „cd usr/bin”
+kiadása után a „/home/usr/bin”-be jutunk, már amennyiben létezik olyan könyvtár. Hasznos
+karakter a „~”, a saját könyvtárunkat jelenti. Például a „cd ~/teszt” és a „cd; cd teszt” hatása
+(ha létezik a könyvtár) azonos. Utóbbi esetben először beléptük a saját könyvtárunkba, majd
+az ott található „teszt” könyvtárba (több parancsot pontosvesszővel elválasztva egy sorba is
+írhatunk, ekkor egymás után hajtódnak végre). Gyakran használjuk még a „cd ..”-ot, ez egy
+szinttel feljebb lép a fastruktúrában.
+• ls
+Számtalan kapcsolója van. Gyakori használat esetén erősen ajánlott a man lapok
+96
+tanulmányozása. Például az „ls -lha ~/teszt” hatását láthatjuk egy valós környezetben a 70.
+ábrán. Az eredmény a megnevezett könyvtár hosszú (long, innen az „l” kapcsoló), részletes
+tartalma, megjelenítve a ponttal kezdődő nevű rejtett fájlokat, könyvtárakat is (ehhez kell az
+„a” kapcsoló). A „h” (human readable, vagyis emberek számára jól olvasható) kapcsoló
+testhezálló mértékegységre váltja a fájlok méreteit; e nélkül mindegyik bájtokban
+szerepelne.
+Az első oszlopban a fájl (ekkor az első karakter a „-”) vagy könyvtár (ez esetben az első
+karakter a „d”, mint directory, vagyis könyvtár) jogosultságai szerepelnek. A fájl vagy
+könyvtár meghatározása után kilenc karakter következik. Az első három a tulajdonosra, a
+második három a csoportra, a harmadik az összes többi felhasználóra vonatkozik. Ha egy
+jog megvan, betű jelzi, ha nincs, ki van húzva. Az „r” a readable, vagyis olvasható, a „w” a
+writeable, vagyis írható, míg az „x” az executable, a végrehajtható rövidítése. Könyvtárak
+esetén az „r” listázási, a „w” fájl létrehozási és az „x” a belépési jogot jelenti. A további
+oszlopokban a fájl tulajdonosát, csoportját, méretét, létrehozásának idejét, végül nevét
+láthatjuk.
+• mkdir, rmdir
+Könyvtár létrehozása (make directory), illetve (kizárólag üres) könyvtár törlése, eltávolítása
+(remove directory). Példa: az „mkdir teszt” parancs létrehozza a teszt nevű könyvtárat az
+aktuális könyvtárban, amennyiben még nincs ott ilyen nevű fájl vagy könyvtár, és persze ha
+van az adott könyvtárra írásjogunk.
+• du
+Megmutatja a könyvtárban található fájlok méretét. Gyakran használjuk az „s” (összegzés)
+és a korábban már említett „h” kapcsolóval. Például a „du -sh /home” a home könytár
+méretét (helyfoglalását) mutatja.
+• ssh
+97
+70. ábra: Egy könyvtár tartalmának bőbeszédű listázása
+Távoli gépre történő biztonságos (titkosított) belépés kliense. Használatához a célgépen ssh
+szervernek kell üzemelni. Példa használatára: „ssh userid@192.168.1.100”. Itt a „userid”
+felhasználói névvel próbálunk meg belépni az adott IP című gépre. A kapcsolatot az „exit”
+paranccsal szakíthatjuk meg. Az „ssh” hasonló célú program, mint a ma már nem javasolt
+„telnet”, de annál biztonságosabb, hiszen titkosított kapcsolaton kommunikál.
+• cp, mv, scp
+Fájlok másolása (copy), áthelyezése (move), illetve biztonságos másolása gépek között
+(secure copy). Az alapszituáció egyszerű (egy fájl másolása, vagy áthelyezése az egyik
+helyről a másikra), de minden máshoz ajánlatos a manuál gondos tanulmányozása. Például a
+„cp ~/kép.png ~/teszt/” bemásolja a „kép.png” nevű fájlt a saját könyvtáram gyökeréből a
+„teszt” nevű könyvtárba. A „cp” alapból nem másol könyvtárat, csak a „-r” (rekurzív)
+kapcsoló használatával. Kezdőknek karakteres felületen is inkább a Midnight Commandert
+ajánljuk. Az „scp” használatához a célgépen ssh szervernek kell üzemelni. Az „scp”
+használatának szintaktikája letöltésre: „scp userid@szerver:fájl helyi_célkönyvtár” és
+feltöltésre: „scp helyi_fájl userid@szerver:célkönyvtár”, ahol a „userid” a felhasználó
+azonosítója, a „szerver” a szerver IP címe, vagy ha ismert, a neve, a „fájl” és „helyi_fájl” a
+másolandó, illetve másolt fájl neve, a célkönyvtár pedig értelemszerű.
+• wget
+Letölt egy fájlt az Internetről, http vagy ftp protokollt használva.
+• touch
+Eredeti funkciója, hogy megváltoztatja a fájl utolsó elérésének és/vagy utolsó
+módosításának idejét, de kapcsolók nélkül ezt a parancsot használhatjuk új (üres) fájl
+létrehozására is. Példa: a „touch új_fájl” létrehozza az „új_fájl” nevű fájlt.
+• file
+Roppant hasznos parancs: a „file fájlnév” megadja a „fájlnév” nevű program típusát és
+gyakran más egyéb információkat is. Mint azt észrevehettük, Linux alatt sok esetben nincs a
+fájloknak kiterjesztése (hisz például a futtathatóságuk sem a kiterjesztésén műlik, hanem a
+futtatási jogosultság meglétén), másrészt a rendszer és a „file” parancs nem a kiterjesztésből,
+hanem a fájl tényleges tartalmából szerzi az információkat.
+• cat
+Elsődleges feladata fájlok összefűzése (konkatenációja) és a kapott eredmény megjelenítése,
+98
+alapértelmezett módon a képernyőn. Ha az eredményt fájlba akarjuk írni, a kimenet
+átirányítására a „>” jelet kell használnunk. Példa: három fájlt („text1”, „text2”, „text3”)
+összefűzünk egy negyedikbe („text”) a „cat text1 text2 text3 > text” paranccsal. Használható
+még egy kicsi fájl tartalmának megjelenítésére. Például a „cat text” kiírja a „text” nevű fájl
+tartalmát. Nagyobb méretű fájl esetén nem jó használni, mert nem tördeli lapokra annak
+tartalmát, az összes sor egy pillanat alatt „elfut” a terminálon.
+• less
+Úgy jeleníti meg a fájl tartalmát, hogy lapokra tördeli, kényelmesen olvashatóvá teszi. Több
+kényelmi funkcióval rendelkezik, például keresés, navigáció a fájlon belül előre-hátra. Nagy
+fájlok esetén is gyors a megjelenítése.
+• grep
+Kiírja a bemeneti fájl egy megadott mintát tartalmazó sorát. Összetett, bonyolult
+felhasználású parancs, egyszerű használatára egy egyszerű példa a következő: „grep minta
+text”. Ez kiírja a képernyőre a „text” nevű fájl azon sorait, amelyek tartalmazzák a „minta”
+karaktersorozatot. Parancsok kimenetelében is kereshetünk, például „dmesg | grep minta”.
+Magyarázat: a „|” jel, az úgynevezett csővezeték (pipe) átirányítja a „dmesg” parancs
+kimenetét a „grep minta” bemenetére.
+• which, whereis
+A „which” megmutatja az utána írt parancs teljes elérési útját, míg a „whereis” még a hozzá
+tartozó forrásfájlok és manuálok helyét is.
+• chown, chgrp
+Fájl vagy könyvtár tulajdonosának vagy csoportjának megváltoztatása (change owner,
+change group). A chown lehetővé teszi a két tulajdonság egyszerre történő változtatását.
+Például így érem el, hogy a saját könyvtáramban minden fájl garantáltan az én
+tulajdonomban legyen: „sudo chown blahota:blahota -R /home/blahota/”. A „sudo”
+szükséges, hiszen egyszerű felhasználóként nincs jogom más tulajdonában lévő fájlok
+jogosultságait állítgatni. A „blahota:blahota” a beállítandó felhasználónév:csoport párt jelzi,
+míg a „R” kapcsoló a rekurzióra utal; így a parancs a könyvtár minden elemére vonatkozik.
+Minden rekurzív paranccsal óvatosan kell bánni. Igen kellemetlen meglepetést okozhat
+például a következő: „sudo chown -R blahota:blahota .*”. Erről azt hinnénk, hogy az
+aktuális könyvtár minden „.” kezdetű fájlján és könyvtárán fogja végrehajtani a tulajdonos
+és csoport beállítását. Mivel azonban minden könyvtár tartalmaz egy speciális
+könyvtárnevet, a „..”-ot, így a szülőkönyvtár teljes tartalmát is módosítjuk, ami igen kínos
+problémát okozhat.
+• chmod
+Fájl vagy könyvtár jogosultságának megváltoztatása (change mode). Többféle módon
+alkalmazhatjuk, talán legegyszerűbb a az alábbi példákban bemutatott módszer. A szokásos
+jelöléseket (r,w,x) használva jogot „+” jellel adunk hozzá, „-” jellel veszünk el. Szükségünk
+lehet még a u,g,o (user=felhasználó, group=csoport, others=többiek) rövidítésekre is. Ha
+nincs hozzá jogunk, a „sudo”-t használnunk kell. Példák:
+99
+• A „chmod +r szöveg.txt” paranccsal olvasási jogot adtunk mindenkinek a
+„szöveg.txt” fájlhoz.
+• A „chmod -x progi” mindenkitől elveszi a „progi” nevű program futtatásának
+lehetőségét.
+• A „chmod u+w,go-w szöveg.txt” utasítás a felhasználónak írásjogot ad a „szöveg.txt”
+fájlhoz, míg a csoport tagjaitól és mindenki mástól elveszi azt.
+Folyamatok (processzek) kezelése:
+• ps
+Önmagában nem túl informatív, de például az „A” kapcsolóval használva megmutatja az
+összes, a számítógépen futó programot: „ps -A”, vagyis hogy milyen programok futnak a
+gépen.
+• top
+Folyamatosan, újra és újra frissülve mutatja a futó programokat és azok processzor és
+memóriafelhasználását. Hasznos olyankor, ha szeretnénk látni, hogy melyik folyamat terheli
+legjobban a rendszert.
+• kill, killall
+Kilövi (megöli) a processzt. A „kill” után a megölni szándékozott folyamat azonosítóját
+100
+72. ábra: A „top” parancs kimenete
+(PID-jét) kell írnunk, amit a „ps -A” vagy „top” parancsokkal deríthetünk ki, míg a „killall”
+után a program (a futó bináris) nevét kell írnunk. Hasonlóan, szintén a „ps -A” vagy „top”
+parancsok alkalmazásával juthatunk hozzá a kívánt nevekhez. De amíg a PID egyértelmű,
+egy program több példányban is futhat és a „killall” mindet leállítja. A kilövés nem mindig
+sikerül. Előfordulhat, hogy nincs jogosultságunk hozzá, máskor – mivel ez a parancs
+„megkéri” a programot, hogy lépjen ki – a program valamilyen okból nem képes kilépni
+(például annyira hibás állapotba került). Ez utóbbi esetben feltétel nélküli leállítást
+kérhetünk a rendszertől a „-9” kapcsoló használatával. Ilyenkor a programnak nincs
+lehetősége elmenteni a módosított állományokat, így ez utóbbi akár adatvesztést is okozhat
+(például egy szövegszerkesztő esetén), ezért csak végszükség esetén szabad használni.
+• nohup
+(no hangup, vagyis nincs kapcsolatmegszakítás) Ha bejelentkezünk egy távoli gépre és ott
+elindítunk egy folyamatot, az megszakad amikor kilépünk a gépről, például saját gépünk
+leállításakor. Ezt lehet megakadályozni ennek a trükkös parancsnak a használatával. Például
+jelentkezzünk be egy távoli gépre ssh-val és adjuk ki a „nohup wget http://cim.hu/fajl &”
+parancsot (a végén nyomjunk Entert). Ekkor elkezdődik a letöltés, ami folytatódik akkor is,
+ha megszakítjuk a kapcsolatunkat a távoli géppel. Az „&” jel a sor végén arra kell, hogy
+Enter-nyomásra visszakapjuk a promtot, e nélkül nem működik a dolog.
+Kernel modulok kezelése, egyéb rendszer-információs parancsok:
+A kernel modulok a kernelhez tartozó azon részek, amelyek nem a kernel állományában
+101
+73. ábra: Egy pendrive hibátlan felcsatolásának folyamata a „dmesg” kimenetében
+vannak, hanem szükség esetén, dinamikusan töltődnek be. Ilyen lehet egy speciális eszköz
+kezelőmodulja, amelyet nem mindig csatlakoztatunk a számítógéphez, vagy egy olyan
+speciális kernel funkció, amelyet nem mindenki használ (pl. csomagszűrő tűzfal funkció).
+Ezek – általában – a /lib/modules/kernel_verzio/ könyvtárban találhatók. Általában akkor
+kerülhetünk velük kapcsolatba, ha valamely hardverelemet nem kezel rendszerünk
+automatikusan kielégítően és valamilyen interneten talált leírás alapján drivert akarunk
+hozzá telepíteni.
+• lsmod, rmmod, modprobe, insmod
+Az „lsmod” parancs kilistázza a memóriába betöltött modulokat, az „rmmod” eltávolítja, a
+„modprobe” és az „insmod” betölti az utána írt modulnévhez tartozó modult. A „modprobe”
+nagyobb tudású, mint az „insmod”, ami nem foglalkozik a függőségekkel.
+• dmesg
+A kernel üzenetek modulokra vonatkozó részeinek böngészéséhez használhatjuk a „dmesg”
+parancsot. Gyakorlattal (és angoltudással) hibakereséshez kiváló; probléma esetén láthatjuk,
+hol, miért állt le a hardver rendszerbe illesztésének folyamata. Ezek az információk
+ugyanakkor a rendszer naplóállományaiba is bekerülnek, ha esetleg később meg szeretnénk
+őket nézni.
+• lsusb, lspci, lshw
+Az „lsusb” a rendszerben aktuálisan működő USB-s, az „lspci” a PCI-os eszközöket listázza
+ki, azonosítójukkal együtt. Ezek azonosítóak fontosak lehetnek, ha kevésbé ismert, vagy
+felismerhetetlen típusú eszközt szeretnénk beazonosítani. Ilyenkor ezekre az azonosítókra
+keressünk rá az interneten. A hardvergyártók gyakran csak a csomagolást és a típusszámot
+cserélik ki az eszközökön, azok belseje nem változik sokat, így ugyanazzal a driverrel egész
+halom hardvert meg tudunk hajtani. Komplett jelentést kaphatunk hardvereinkről az „lshw”
+programmal. Bár egyszerű felhasználóként is sok információt ad, teljes tudását csak
+rendszergazdaként futtatva mutatja.
+• free
+102
+74. ábra: Az „lsusb” kimenete nevekkel és azonosítókkal
+Kiírja a rendszer összes és szabad memóriáját.
+• df
+A df parancs a szabad lemezterületekről informál, de egyúttal megtudhatjuk, hogy az egyes
+partíciók milyen néven vannak becsatolva a rendszerbe. Esetleg eleve ajánlatos a
+korábbiakban már használt „h” kapcsolóval használni.
+Szövegkonvertáló programok:
+• iconv
+Magyar szövegeket leggyakrabban Unicode (unikód, konkrétan utf-8, ez az Ubuntu
+alapértelmezettje) vagy Latin 2 (iso-8859-2) kódolással tárolják a szövegfájlokban,
+fájlnevekben. Az iconv programot a karakterkészletek közti konverzióra használjuk. Például
+az „iconv -f UTF-8 -t ISO-8859-2 < bemenet.txt > kimenet.txt” a bemenet.txt szövegfájlt
+átkonvertálja utf-8-ról Latin 2-esre és az így kapott fájlt menti kimenet.txt néven.
+• dos2unix, unix2dos
+A DOS-Windows és a Unix-Linux típusú rendszerek eltérő módon használják a szövegfájlok
+sorvégkezelését. A sorok végét a DOS-Windows kocsivissza-soremelés karaktersorozattal
+jelöli, míg a Unix-Linux rendszerek csak kocsivissza karaktert használnak. Ez néha zavaró
+lehet. Ezzel a két programmal az oda-vissza konverziót tehetjük automatikussá.
+És végül:
+• halt, reboot
+A „halt” leállítja, a „reboot” újraindítja a rendszert. Mindkettő végrehajtásához
+rendszergazdai jogosultság szükséges.
+103
+Feladatok
+Az alábbi feladatok végrehajtásához ne használjon Nautilust vagy Commander típusú programokat!
+1. Lépjen be a saját könyvtárába!
+2. Jelenítse meg a könyvtár tartalmát!
+3. Hozzon létre egy új alkönyvtárat, a neve legyen „gyakorlás”!
+4. Hozzon létre ebben két újabb könyvtárat, „gy1”-et és „gy2”-t!
+5. Nevezze át a „gy1” könyvtárat „gy”-re!
+6. Törölje a „gy2” könyvtárat!
+7. Hozzon létre egy „szöveg” nevű fájlt a „gy” könyvtárban!
+8. Adjon mindenkinek írási jogot a fájlhoz!
+9. Írjon szöveget a fájlba!
+10. Jelenítse meg tartalmát a képernyőn!
+104
+21. Az Ubuntu 10.10-ban beköszöntő változásokról
+A 10.04 LTS után megjelent első új Ubuntu változat – a Maverick Meerkat fantázianevű 10.10 –
+ahogy az lenni szokott, a friss csomagokon kívül számos kisebb-nagyobb változást is tartalmaz.
+Bár eddig sem panaszkodhattunk, tovább folytatódott az indulási folyamat felgyorsítása.
+Mindamellett szebb is lett, hiszen a betöltő immáron támogatja a grafikus mód beállítását, ami
+segített a ténylegesen villogásmentes rendszerindulás megvalósításában.
+Az új kiadás már telepítés közben is képes letölteni a frissítéseket, valamint azokat a csomagokat,
+amelyek a licenc vagy a szabadalmi korlátozások miatt nem lehetnek a CD-n (például az MP3
+támogatása, az Adobe Flash, vagy a szükség esetén jó szolgálatot tevő zárt forráskódú wifi
+meghajtó). A telepítés lépéseinek sorrendje is változott kissé, így – a folyamatot részben
+párhuzamosítva – még gyorsabbá vált a telepítés, mint korábban.
+Számos változást tapasztalhatunk a telepítőben és a Szoftverközpontban is, ezzel könnyebb lett a
+rendszer kezelése.
+Látványos újdonság a Sound Indicator, vagyis a zenelejátszó vezérlésére is képes hangerőszabályzó.
+A továbbiakban így egy helyen szabályozhatjuk a hangerőt, valamint kezelhetjük a zenelejátszást. A
+Sound Indicator a Canonical Ayatana nevű projektjének része, ahonnan később további fejlesztések
+várhatóak.
+105
+22. Az Ubuntu 11.04 újdonságai
+A 11.04-es – Natty Narwhal – változat legfontosabb újdonsága egyértelműen a Unity felület
+bevezetése. A Unity a Compiz ablakkezelőt használja, így azokon a gépeken, amelyeken nem
+működik a grafikus gyorsítás, automatikusan a klasszikus GNOME munkaasztal indul el. A Unity
+alapértelmezetté tétele megosztotta a régi felhasználókat, bevezetése bátor húzásnak tűnik, személy
+szerint jelen pillanatban – 2011 áprilisában – nem tudom, fogom-e szeretni, használom-e majd
+hosszútávon.
+Más fontos változások is történtek. Ilyen például a továbbfejlesztett telepítő, valamint az, hogy a
+Rhythmbox alapértelmezett zenelejátszót a Banshee váltotta.
+A felhasználók visszajelzéseire is kíváncsiak a fejlesztők. A Szoftverközpontban most már
+pontozhatjuk, akár szövegesen is értékelhetjük az alkalmazásokat. Telepítéskor felajánlja a program
+ikonjának elhelyezését az indítópanelon.
+Az OpenOffice.org irodai programcsomagot az azonos kódbázisú a LibreOffice váltotta. Ez alapból
+még nem támogatja a globális menüt, azonban ez a „lo-menubar” csomag telepítésével orvosolható.
+106
+Tudásellenőrző tesztek
+Minden kérdésre több jó válasz is elképzelhető!
+Első teszt
+1. Mi az FSF?
+a. Egy alapítvány
+b. Egy licenc
+c. Egy mozgalom
+d. A fentiek közül egyik sem
+2. Mikor kezdődött a Linux fejlesztése?
+a. 1984
+b. 1991
+c. 1994
+d. 1999
+3. Melyik a jelenlegi legfrissebb stabil kernel? (Figyelem! Az adatok elévülnek!)
+a. 2.6.37
+b. 2.6.38-rc1
+c. 10.04
+d. 10.10
+4. Az alábbiak közül melyik Linux disztribúció?
+a. openSUSE
+b. Fedora
+c. Slackware
+d. FreeBSD
+5. Az alábbiak közül melyik ablakkezelő?
+a. OpenOffice.org
+b. Openbox
+c. Gimp
+d. GDM
+6. Mit történik, ha kiadjuk a cd parancsot?
+a. Belépünk a saját könyvtárunkba
+b. Hacsak valamilyen program nem használja, a gép kiadja a CD-ROM-ot
+c. Az aktuális könyvtár tartalmát CD-re írjuk
+d. Leellenőrzi az aktuális könyvtár töredezettség-mentességét
+7. A swap területet a Linux általában
+a. külön partíción tárolja
+b. külön meghajtón tárolja
+107
+c. külön fájlban tárolja
+d. nem használ
+8. Mit jelent, ha egy állomány Linux alatt az alábbi jogosultságokkal rendelkezik:-rw-r--r--?
+a. csak a tulajdonos futtathatja
+b. csak a tulajdonos módosíthatja
+c. mindenki olvashatja
+d. mindenki írhatja
+9. Milyen eszközre hivatkozhat a /dev/sdb1 ?
+a. videokártyára
+b. tv-kártyára
+c. merevlemez partíciójára
+d. pendrive partíciójára
+10. Mely könyvtárak találhatóak egy szabványos Unix/Linux rendszerben a / alatt?
+a. root
+b. log
+c. bin
+d. home
+11. Karikázza be az alábbi programok közül a zárt forráskódúak betűjelét!
+a. OpenOffice.org
+b. Drupal
+c. Firefox
+d. Skype
+e. Apache
+f. Adobe Reader
+g. Quake III
+h. GIMP
+i. Blender
+j. Internet Explorer
+108
+Megoldások:
+1. a
+2. b
+3. a
+4. a, b, c
+5. b
+6. a
+7. a
+8. c
+9. c, d
+10. a, c, d
+11. d, f, j
+109
+Második teszt
+1. Mikor indult a GNU project?
+a. 1969
+b. 1973
+c. 1984
+d. 1991
+2. A /home könyvtárban találhatóak
+a. a felhasználók állományai
+b. a rendszergazda könyvtárai
+c. rendszerszintű konfigurációs fájlok
+d. a kernelmodulok
+3. Szabad szoftvereken fejlesztett szoftveremet
+a. csak ingyen adhatom oda másnak
+b. ingyen kell adnom, de kivételes esetben ez alól felmentést adhat az FSF
+c. ingyen kell adnom, de ha kérem, ez alól felmentést ad (Magyarországon) az FSF.hu
+d. kérhetek érte pénzt
+4. Az alábbiak közül melyik momentum bizonyult a legfontosabbnak a Linux fejlesztésekor?
+a. A fejlesztők szerették a pizzát
+b. A munka koordinálója nem amerikai állampolgár volt
+c. A fejlesztésbe bárki bekapcsolódhatott
+d. Grafikus felület nélkül indult a fejlesztés
+5. A Linux tulajdonképpen
+a. csak a rendszermag
+b. a rendszermag és néhány fontosabb program, grafikus telepítés nélkül
+c. a szervergép és legalább egy kliensgép együttese
+d. egy komplett disztribúció
+6. A Linux megkülönbözteti-e a kis és nagybetűket a parancsok nevében?
+a. nem, soha
+b. csak ha nem rendszergazdaként léptünk be
+c. csak ha rendszergazdaként léptünk be
+d. igen, mindig
+7. Mit történik, ha kiadjuk a free parancsot?
+a. felszabadítjuk a fölöslegesen használt memóriaterületeket
+b. hacsak valamilyen program nem használja, kiürítjük a csereterületet
+c. információt kapunk a memóriafelhasználásról
+d. csökkentjük az aktuális könyvtár töredezettségét
+8. Mit jelent, ha egy állomány Linux alatt az alábbi jogosultságokkal rendelkezik:-rw-rw-rwx?
+a. csak a tulajdonos futtathatja
+b. csak a tulajdonos módosíthatja
+110
+c. mindenki olvashatja
+d. mindenki írhatja
+9. Melyik program alkalmas Linux alatt elsődlegesen a fájlkezelésre?
+a. nc
+b. mc
+c. kc
+d. wc
+10. Mi a GPL?
+a. Alapítvány a szabad szoftverekért
+b. Általános közreadási feltételek dokumentuma
+c. A Linux alapértelmezett grafikus felülete
+d. A fentiek közül egyik sem
+11. Karikázza be az alábbi programok közül a nyílt forráskódúak betűjelét!
+a. MS Office
+b. Opera
+c. Virtualbox OSE
+d. Nero
+e. Total Commander
+f. Adobe Flash Player
+g. Joomla
+h. Adobe Photoshop
+i. VLC media player
+j. MySQL
+111
+Megoldások:
+1. c
+2. a
+3. d
+4. c
+5. a
+6. d
+7. c
+8. c, d
+9. b
+10. b
+11. c, g, i, j
+112
+Egyéb feladatok
+Írja le az alábbi folyamat parancsait!
+A.
+I. Saját könyvtárában hozzon létre egy mappa1 és egy mappa2 nevű könyvtárat!
+II. Lépjen be a mappa2 könyvtárba!
+III. Másolja át a mappa2 könyvtárat a mappa1 könyvtárba!
+IV. Nevezze át a mappa1 könyvtárat mappa3-ra!
+V. Törölje a mappa2 könyvtárat!
+B.
+I. Saját könyvtárában hozzon létre egy mappa1 és egy mappa2 nevű könyvtárt!
+II. Lépjen be a mappa1 könyvtárba!
+III. Hozzon benne létre egy szoveg.txt nevű fájlt!
+IV. Másolja át a fájlt a mappa2 könyvtárba!
+V. Törölje a mappa1 könyvtárat!
+Fogalmazza meg néhány mondatban, hogy mit jelentenek az alábbi fogalmak!
+a. shell
+b. LTS
+c. csomag
+d. repository
+e. disztribúció
+f. Live rendszer
+113
+Felhasznált és ajánlott irodalom
+1. Henczi Béla - Molnár Hajnalka: Tanuljunk Linuxot!, Zalaegerszegi Helikon Nyomda, 2000
+2. Sikos László: Bevezetés a Linux használatába, BBS-INFO Kft., Budapest, 2005
+3. Torma László: Az Ubuntu világa, Ad Librum, Budapest, 2008
+4. Pere László: Linux felhasználói ismeretek I. kötet, Kiskapu kiadó, Budapest, 2002
+5. Pere László: Linux felhasználói ismeretek II. kötet, Kiskapu kiadó, Budapest, 2002
+6. Marcel Gagné: Válts Linuxra!, Kiskapu kiadó, Budapest, 2004
+7. Nicholas Petreley, Jono Bacon: Linux az asztali gépen, Kiskapu kiadó, Budapest, 2006
+8. Eric S. Raymond: A katedrális és a bazár, Kiskapu kiadó, Budapest, 2004
+9. Lawrence Lessig: Szabad kultúra, Kiskapu kiadó, Budapest, 2005
+114
+Tartalomjegyzék
+1. Miről, kiknek szól ez a jegyzet?.......................................................................................................3
+2. Megtudhatjuk, mi is az operációs rendszer, és elkezdünk ismerkedni a Linuxszal.........................5
+3. A Linux előnyeiről lesz szó, de megismerjük a szabad szoftver és a Linux történetét, valamint egy
+kicsit eltöprengünk az informatikai biztonságról is..............................................................................8
+Feladatok............................................................................................................................................18
+4. A Linux használatának hátrányairól, az átállás buktatóiról hallhatunk. Menet közben
+megtudhatunk némi alapvető információt a Ubuntu Linuxról...........................................................19
+Feladatok............................................................................................................................................25
+5. Megismerjük az Ubuntu változatait, támogatási rendszerét és előkészületeket teszünk a
+telepítésre............................................................................................................................................26
+Feladatok............................................................................................................................................29
+6. Végre tényleg kipróbáljuk az Ubuntut, egyelőre telepítés nélkül. Megismerjük a telepítő CD
+használatát..........................................................................................................................................30
+Feladatok............................................................................................................................................38
+7. Most már tényleg hozzákezdünk a 10.04-es Ubuntu telepítéséhez................................................39
+8. Folytatjuk a telepítést, de előbb megismerkedünk a partíciókkal, fájlrendszerekkel, illetve a
+linuxos fájlstruktúrával.......................................................................................................................41
+9. Megismerkedünk egy különleges felhasználóval, és befejezzük a telepítést.................................46
+Feladatok ...........................................................................................................................................49
+10. Sorra vesszük, hogy milyen teendőink vannak közvetlenül telepítés után. Megismerkedünk a
+csomagkezelés alapjaival. Új felhasználót hozunk létre....................................................................50
+Feladatok............................................................................................................................................57
+11. Zárt forráskódú meghajtók és egyéb programok telepítése..........................................................58
+12. Megnézzük, hogyan telepíthetünk, futtathatunk még programokat Linuxon...............................61
+Feladatok............................................................................................................................................66
+13. Saját mappánk és az Ubuntu könyvtárszerkezete.........................................................................67
+14. Jogosultságok kezelése.................................................................................................................73
+Feladatok............................................................................................................................................76
+15. Látványos asztali effektek – Compiz............................................................................................77
+16. Még néhány szó Linux „felhasználói élményéről”......................................................................80
+Feladatok............................................................................................................................................82
+17. Meghajtóprogramok.....................................................................................................................83
+18. Fontosabb felhasználói programok...............................................................................................86
+19. A parancssori felület alapjai..........................................................................................................90
+20. A gyakrabban használt parancssoros programok..........................................................................94
+Feladatok..........................................................................................................................................104
+21. Az Ubuntu 10.10-ban beköszöntő változásokról........................................................................105
+22. Az Ubuntu 11.04 újdonságai......................................................................................................106
+Tudásellenőrző tesztek......................................................................................................................107
+Egyéb feladatok................................................................................................................................113
+Felhasznált és ajánlott irodalom.......................................................................................................114
+115

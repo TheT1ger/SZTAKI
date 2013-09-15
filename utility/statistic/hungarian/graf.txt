@@ -1,0 +1,2522 @@
+﻿
+FÜGGELÉK: Számítástechnikai rövidítés-szótár
+INFORMATIKAI SEGÉDKÖNYV
+Kiegészítő fejezetek a középiskolai
+Informatika és számítástechnika alapjai
+tantárgy oktatásához.
+Beregszász, 2004
+A Segédkönyv megjelenését a
+Magyar Köztársaság Oktatási Minisztériuma
+támogatta
+Kiadja a Kárpátaljai Magyar Pedagógusszövetség
+Tankönyv- és Taneszköztanácsa
+A kiadásért felel: Orosz Ildikó
+Felelős szerkesztő: Gönczy Sándor
+Borítóterv: Gönczy Sándor
+Szaklektor: Pallay Dezső
+© Balogh Sándor, 2004
+Kereskedelmi forgalomba nem kerül
+ANNOTÁCIÓ
+A középiskolai informatikai tananyag két mellőzött fejezetének oktatásához és tanulásához
+nyújthat segítséget az első két fejezet.
+A LOGIKAI ELEMEK ÉS KAPCSOLÁSOK c. fejezet alapfokon ismerteti a
+számítástechnikai, valamint algoritmizálási (programozási) szempontból fontosabb logikai
+műveleteket, továbbá konkrét példán mutatja be a matematikai logika és a gépi számolás
+kapcsolatát.
+A GRÁFELMÉLETI ALAPFOGALMAK c. fejezet azoknak szól, akik először
+ismerkednek a matematikának – informatikának ezen egyre terebélyesedő ágával. A fejezet
+egyszerű példákon, kevés matematikával, halmazelméleti jelölések mellőzésével, vezeti be az
+olvasót a gráfok világába. A programozási nyelvek valamelyikében legalább alapfokon járatos
+érdeklődő számára világossá válik, miként lehet nyelvi adatstruktúrák segítségével (mátrix –
+tömb) leírni a gráfokat. Ez sok gyakorlati feladat gépi megoldását teszi lehetővé. Az elméleti
+ismertetést szemléltető példák és önálló megoldásra váró feladatok kísérik.
+Az informatikai (számítástechnikai) szakirodalom olvasása közben az olvasó számtalan
+esetben találkozik olyan, általában, angol szavakból képzett rövidítésekkel, melyek érthetetlen
+titokzatosságukkal épp a lényeg megértését akadályozzák. A RÖVIDÍTÉS-SZÓTÁR c. rész
+ábécé sorrendben ezekből tartalmaz majdnem háromszázat eredeti jelentésük feltüntetésével és
+rövid magyarázattal.
+A segédkönyv hasznos lehet az informatikát oktató középiskolai tanárok és diákok számára.
+СП „ПоліПрінт”, м. Ужгород, вул. Тургенева, 2.
+Зам. . Тираж
+5
+TARTALOM
+TUELŐSZÓUT ................................................................................................... 7
+TULOGIKAI ELEMEK ÉS KAPCSOLÁSOKUT ................................................... 11
+TU1. A MATEMATIKAI LOGIKA FOGALMAUT .......................................................... 11
+TU2. ÍTÉLETEK, LOGIKAI ÉRTÉKEK, ÖSSZETETT ÍTÉLETEKUT.................................. 12
+TU3. LOGIKAI MŰVELETEKUT ............................................................................. 13
+TU4. NEGÁCIÓ, KONJUNKCIÓ, DISZJUNKCIÓUT .................................................... 13
+TU5. IMPLIKÁCIÓUT .......................................................................................... 15
+TU6. EKVIVALENCIAUT...................................................................................... 16
+TUFELADATOK:UT .................................................................................... 17
+TU7. MATEMATIKAI LOGIKA ÉS A KETTES SZÁMRENDSZERUT................................. 17
+TU8. LOGIKAI MŰVELETEK ÁRAMKÖREIUT ........................................................... 21
+TU9. SZÁMOLÓ ÁRAMKÖRÖK ÖSSZEÁLLÍTÁSAUT.................................................. 23
+TU10. LOGIKAI HÁLÓZATOKUT ........................................................................... 24
+TUGRÁFELMÉLETI ALAPFOGALMAKUT ......................................................... 27
+TU1. BEVEZETÉSUT.......................................................................................... 27
+TU2. NÉHÁNY GRÁFELMÉLETI JELÖLÉSUT ........................................................... 29
+TU3. SZOMSZÉDSÁGI (CSÚCS-) MÁTRIX, ÉLMÁTRIX, SÚLYMÁTRIXUT ...................... 30
+TUGYAKORLÓ FELADATOKUT ................................................................ 33
+TU4. A FOKOK ÉS AZ ÉLEK SZÁMA KÖZÖTTI ÖSSZEFÜGGÉSUT ............................... 33
+TUGYAKORLÓ FELADATOKUT ................................................................ 34
+TU5. EGYSZERŰ GRÁFOKUT .............................................................................. 34
+TUGYAKORLÓ FELADATOKUT ................................................................ 35
+TU6. ÚT, VONAL, SÉTA, KÖRUT .......................................................................... 36
+TU7. ÖSSZEFÜGGŐ GRÁFOKUT ......................................................................... 41
+TUGYAKORLÓ FELADATUT ..................................................................... 43
+6
+TU8. FÁK, ERDŐKUT ......................................................................................... 43
+TUGYAKORLÓ FELADATOKUT ................................................................ 45
+TUKIEGÉSZÍTŐ OLVASMÁNY.UT .......................................................................... 47
+TURÖVIDÍTÉSEKUT ..................................................................................... 50
+TUFELHASZNÁLT IRODALOMUT ..................................................................... 66
+7
+ELŐSZÓ
+A didaktikailag hagyományos műveltségi területek között iskoláinkban
+1985-ben jelent meg az Informatika és számítástechnika kötelező
+tantárgyként. Diákszemmel nézve, sőt a tanárok szemszögéből is, az eltelt
+időszak egy egész korszakot jelent. Mára sokan elmondhatják, hogy
+általános és középiskolai tanulmányaik időszaka az informatikai-képzés
+korszakára esett. Iskolatörténeti, valamint módszertani szempontból
+ugyanakkor ez még csak a vajúdás ideje. Nincs általánosan elfogadott,
+valamennyi iskolában egyaránt végrehajtható tanterv, nincs egységes
+tankönyv, melyre még egy olyan tantárgy oktatásához is szükség van, mely
+maga is az információ-szerzést, információ-tárolást és -feldolgozást hivatott
+szolgálni. A rendszernek ugyanis vannak eszközei, technikai háttere,
+optimális alkalmazási módszertana. Szükség van arra, hogy az iskola
+maximálisan közreműködjön e technikai eszközök használatának
+elsajátításában és e módszerek megismertetésében.
+Az oly sokat emlegetett nemzedéki konfrontáció korunkban újabb
+adalékkal bővült. A diák szomorúan veszi tudomásul, hogy szűkebb családi
+környezete, megszámlálható kivételtől eltekintve, legtöbbször értetlenül áll
+a számítógéppel, annak alkalmazásával kapcsolatos kérdései előtt
+Ennélfogva még nagyobb felelősség hárul az iskolára a számítástechnikai
+és informatikai ismeretek elsajátításának vonatkozásában.
+E segédkönyvben tárgyalt témák kiválasztásában, melyek jellegüknél
+fogva legalább annyira matematikaiak, mint informatikaiak, döntő szerepet
+játszott, hogy sem a középiskolai matematika tankönyveink, sem pedig az
+eddig ukrán nyelven megjelent kísérleti informatikai tankönyveink nem
+tárgyalják e témákat. A füzetet eredetileg vázlatnak szántam saját magam
+és fakultatívan informatikát tanuló diákjaim számára. Az Informatika
+technikai hátterét biztosító számítógépek, azok periférikus egységei, és a
+rendszer másik jelentős erőforrása – a szoftverek, az egyik leggyorsabban
+változó terület, mely gyakorlati ismeretanyagában néhány év alatt elavul. E
+gyorsan változó rész mellett az elméleti háttér sokkal lassabban változik, s
+talán pár éven belül a választott témák is bekerülnek az iskolai
+tankönyvekbe.
+8
+Informatika és
+számítástechnika
+Alapismeretek
+Alkalmazások Programozás
+Számítógép-használat
+Eszközök jellemzői
+Szövegszerkesztés
+Táblázatkezelés
+Adatbázis-kezelés
+Multimédia
+Operációs
+rendszerek
+Eszközkezelés
+Működési elvük
+Algoritmizálás
+Matematikai
+modellezés
+Hálózatok Kódolás
+Internet
+A tanár számára igen nehéz az alapfeladat: egyrészt meg kell tanítania
+precízen a véleménye szerint állandónak ítélt ismereteket, másrészt, amin
+keresztül és segítségével megtanítja, azok állandóságát meg kell
+kérdõjeleznie, és szerepüket csak alkalomszerűnek kell beállítania.
+Az utóbbi években hirtelen szabadon hozzáférhetõvé vált óriási
+mennyiségű adat értelmezését segítõ technikákat mindenféleképpen el kell
+sajátíttatni a tanulókkal. Napjainkra már az alapműveltség részének
+tekinthetõ a számítógép kezelni tudása. Új lehetőséget jelent a
+számítógépes hálózatok hozzáférése, de az ezzel együtt jelentkezõ új
+problémák kiküszöbölését is meg kell oldani. Lényegében, az idetartozó
+ismereteket foglalja össze és oktatja a számítástechnika. A következő
+szerkezeti diagram az oktatandó fő területeket mutatja:
+Mindezen területek elfogadható szintű elsajátításához a rendelkezésre
+álló óraszámnál jóval több időre van szükség. Ezért merem ajánlani az
+egyes témakörök fakultációban történő oktatását (különös tekintettel a
+programozás témakörre).
+9
+A jelzett oktatási területek tartalmaznak olyan időtálló
+ismeretanyagokat, melyek tanulóink számára ez ideig nem voltak
+elérhetőek. Könnyen hozzáférhető, iskolai szintű tankönyv hiányában, a
+nem szakirányú képesítéssel rendelkező kollégák számára is problémát
+jelenthet bizonyos részletkérdések oktatása.
+A könyvesboltok polcait nézegetve az a benyomásunk, hogy az utóbbi
+időben egyre több, szép kivitelű, vaskos könyv jelenik meg, melyek a
+„felhasználó” és a számítógép közötti kommunikációt hivatottak segíteni.
+Operációs rendszerek és hozzájuk idomított applikációk (alkalmazási
+programok), programozási nyelvek és adatbázis-kezelő programok véget
+nem érő leírásai ezek. E könyvek a felnőtt alkalmazók számára íródtak, és
+mivel mindenféle akadémiai jelleget nélkülöznek, iskolai felhasználásra
+nem igazán alkalmasak. Tény, hogy a tapasztalt oktató számára ez nem
+jelent leküzdhetetlen problémát. Élet- és szakmai tapasztalata alapján
+képes kiszűrni a rendelkezésre álló szakirodalomból a szükséges
+ismeretanyagot, és megfelelő formában a tanítványai elé tárni azokat. Csak
+éppen nincs mit a tanítványai kezébe adni nyomtatott formában, hogy
+otthon hagyományos módon, az elvontabb gondolkodást igénylő részeket
+memorizálhassák, netán önálló feladat-megoldások formájában
+begyakorolhassák.
+Különösen érzékenyen érinti a tanárt és egyes ambiciózus tanítványait
+a felvetett probléma, ha a cél, az egyre intenzívebb felkészülést igénylő
+járási vagy területi informatikai versenyeken (olimpiákon) való részvétel. A
+felkínált feladatok sikeres megoldásának képessége megkívánja, hogy a
+tanuló jártasságot szerezzen a kötelező tananyag keretein túl olyan
+témakörökben, mint a matematikai logika és a gráfelmélet, legalább
+alapfogalmi szinten. A programozási témakörben (algoritmizálás,
+matematikai modellezés) mindenképpen találkozik a tanuló logikai
+szerkezetekkel, a gráfelmélet alapfogalmainak ismerete pedig egyszerűsíti
+sok gyakorlati feladat megoldását.
+E két témában kíván segítséget nyújtani alapszinten tanárnak és
+diáknak egyaránt a következő két rövid fejezet. Az Informatika közismerten
+interdiszciplináris tudomány, felhasználja a matematika, logika, kibernetika,
+rendszerelmélet, automatizálás, szemantika, szemiotika és még sok más
+tudomány eredményeit
+10
+A LOGIKAI ELEMEK ÉS KAPCSOLÁSOK c. fejezetben az
+alapfogalmak, alapműveletek ismertetése után igyekeztem rámutatni a
+matematikai logika és a számítógép működési elvének kapcsolatára,
+legalábbis ami a számításokat illeti. Ez felhasználható az Alapismeretek
+tárgykör Működési elvük részében. Reményeim szerint diákok és kollégák
+egyaránt találnak itt néhány megjegyezésre érdemes gondolatot.
+A GRÁFELMÉLETI ALAPFOGALMAK c. fejezet azoknak szól, akik
+először ismerkednek a matematikának – informatikának ezen egyre
+terebélyesedő ágával. A gráfelmélet eredményeit széles körben
+alkalmazzák a fizika, kémia, mérnöki tudományok, közgazdaságtan, de a
+pszichológia, nyelvészet és egyéb tudomány területein is. A téma ismerete
+elengedhetetlen a járási és megyei informatikai vetélkedők résztvevői
+számára.
+A függelékként csatolt RÖVIDÍTÉS-SZÓTÁR a szakirodalomban
+gyakorta felbukkanó rövidítések (abbreviatúrák) eredeti jelentését és –
+szükség szerint – rövid magyarázatát tartalmazza, kivonatosan, a teljesség
+igénye nélkül.
+11
+LOGIKAI ELEMEK ÉS KAPCSOLÁSOK
+1. A matematikai logika fogalma
+Mindenekelőtt ismerkedjünk meg a logika szó jelentésével. A görög
+eredetű szó egy igen régi, már az ókorban is fejlett tudományág
+elnevezése, a gondolkodás, a helyes következtetések tudománya.
+Arisztotelész (i.e. 384-322) logikáról írt műve alapvető fontosságú volt,
+évszázadokon át tökéletes alkotásnak tartották. S talán épp ezért a logika
+módszerei gyakorlatilag hosszú időn keresztül alig változtak. A XVII.
+században G. W. Leibniz (1646-1716) gondolt modernizálásukra, de
+gondolatának általános megfogalmazásánál alig jutott tovább.
+A matematika fejlődése a helyes logikai következtetések alaposabb
+vizsgálatát kívánta. Ez a XIX. század folyamán a matematikai logika
+kialakulásához vezetett. George Boole (ejtsd: dzsorzs búl, 1815-1864)
+angol matematikus fogalmazta meg először a logikai törvényeket a
+matematika nyelvén. A számunkra ismerős algebrától eltérően nem
+számokat, hanem ítéleteket (igaz vagy hamis állításokat – lásd a
+továbbiakban) jelölt betűkkel, és bebizonyította, hogy az algebrai
+egyenletekre hasonlító logikai egyenletekkel összetett ítéletek igaz vagy
+téves voltára lehet következtetni. Arra törekedett, hogy lehetővé váljon a
+logikai következtetések teljesen mechanikus levezetése. Boole halálának
+évszámából nyilvánvaló, hogy vizsgálatait nem elektronikus számítógépek
+áramköreire végezte. Mindazonáltal a két logikai érték (igaz – hamis),
+valamint a bináris (kettes) számrendszer két számjegye (1 – 0) közötti
+mennyiségi azonosság szinte önmagát kínálja a számítások logikai
+műveletekkel történő végzésére. A számítógépek szempontjából az sem
+elhanyagolható tény, hogy a gépi adatábrázolás nagyon egyszerűen
+megvalósítható kétállapotú elektromos elemek sorozatával.
+A matematikai logika tételeit elektromos problémák megoldásához
+először C. Shannon alkalmazta jelfogós (relés) kapcsolóáramkörök
+számításánál, és azóta is egyik legfontosabb matematikai eszköze a
+digitális (ang. digit – számjegy) berendezések tervezésének (lásd 8. pont).
+Bár a matematikai logika egyes fogalmai Arisztotelészig vezethetők
+vissza, módszerében, fogalmaiban (műveletek, azonosságok, logikai
+függvények), jelöléseiben azonban már matematikai.
+12
+2. Ítéletek, logikai értékek, összetett ítéletek
+A logikában a kijelentő mondatok alapvető fontosságúak,
+alapfogalmak. Azokat a kijelentő mondatokat, melyekről egyértelműen
+megállapíthatjuk, illetve feltételezhetjük, hogy vagy igazak, vagy hamisak,
+ítéletnek nevezzük. Az elemi algebra a "Mennyivel egyenlő?" kérdésre
+keresi a választ, a Boole-algebra feladata viszont annak az eldöntése, hogy
+"Igaz-e az A-val vagy B-vel jelölt ilyen vagy olyan állítás?"
+Néhány példa ítéletekre:
+A 2 páros szám. .............................. (A)
+Ma kedd van. .................................. (B)
+Ez a négyszög téglalap. .................. (C)
+A 2 prímszám. ................................. (D)
+A téglalap átlói egyenlők. ................ (E)
+A zsebemben van 10 hrivnya. ........ (F)
+Megveszem az Ady-kötetet. ........... (G)
+Most esik az eső. ............................ (H)
+A felsorolt 8 kijelentő mondat mind ítélet. Ezek közül némelyek igazak,
+némelyek hamisak.
+A következőkben azt, hogy egy ítélet igaz vagy hamis, az ítélet logikai
+értékének nevezzük. Egy ítélet tagadásával vagy több ítélet valamilyen
+nyelvtani összekapcsolásával (esetleg kismérvű nyelvi átfogalmazásával)
+új ítéleteket képezhetünk.
+Néhány példa ítéletek összekapcsolásával új ítéletek (összetett
+ítéletek) megfogalmazására:
+a) Ez a négyszög nem téglalap: ......................................................Nem (C)
+b) Ma kedd van, és most esik az eső: ............................................(B) és (H)
+c) A 2 páros szám vagy prímszám: ............................................(A) vagy (D)
+d) Ha ez a négyszög téglalap, akkor átlói egyenlők: ........... Ha (C) akkor (E)
+e) Az Ady kötetet akkor és csak akkor veszem meg,
+ha a zsebemben van 10 hrivnya: .............(G) akkor és csak akkor, ha (F)
+A felírt új ítéletek logikai értéke függ az összekapcsolás módjától, és
+azoknak az ítéleteknek a logikai értékétől, amelyek segítségével azokat
+megfogalmaztuk. Új ítéleteknek ily módon való képzését logikai
+műveleteknek nevezzük.
+A matematikai logikának azt a részét, mely a logikai műveletekkel
+foglalkozik, ítéletkalkulusnak nevezzük.
+13
+3. Logikai műveletek
+Táblázatban röviden összefoglaljuk a számunkra fontos öt logikai
+művelet elnevezését, jelét, a jelölés olvasását:
+a) Negáció, jele ¬ ; példa: ¬P, olvasása: nem P; (ang. (not(P));
+b) konjunkció, jele: ∧ vagy *; példa: P*Q, olvasása: P és Q; (ang. P and Q);
+c) diszjunkció, jele: ∨ vagy +; példa: P+Q, olvasása: P vagy Q; (P or Q);
+d) implikáció, jele: ⇒; példa: P⇒Q, olvasása: ha P, akkor Q;
+e) ekvivalencia, jele: ⇔ ; példa: P⇔Q, olvasása: P akkor és csak akkor, ha
+Q.
+MEGJEGYZÉS:
+A konjunkciót logikai szorzásnak, a diszjunkciót logikai összeadásnak is szokták
+nevezni. A továbbiakban a konjukciót '*' -gal, a diszjunkciót '+' -al fogjuk jelölni!
+A negáció egy ítéletből, a többi két ítéletből képeznek új ítéletet.
+Összetett ítéletek képezhetők még több ítéletből. Attól függően, hogy egy,
+két, három ítéletből képezünk egy új ítéletet, egy-, két-, háromváltozós
+műveletről beszélünk.
+A műveletek további tárgyalása során sokszor elvonatkoztatunk a
+kijelentő mondatok nyelvi tartalmától, azaz csupán a logikai értékükkel
+törődünk. Ilyenkor logikai változókról beszélünk, melyek két lehetséges
+értéket vehetnek fel: i-t (igaz) és h-t (hamis). A logikai műveleteknek a
+későbbiekben tárgyalt gépi számolásra történő alkalmazhatóságának
+egyszerűbb megértése érdekében a továbbiakban logikai értékként inkább
+az 1 és 0 bináris jegyeket fogjuk használni.
+4. Negáció, konjunkció, diszjunkció
+A logikai műveletek eredményét általában úgynevezett értéktáblázattal
+adják meg. A negáció egyváltozós művelet.
+A negációt bemutató értéktáblázat:
+A ¬A
+i h
+h i
+A ¬A
+1 0
+0 1
+vagy
+14
+A B A*B
+1
+1
+0
+0
+1
+0
+1
+0
+1
+0
+0
+0
+A konjunkció értéktáblázata:
+A diszjunkció értéktáblázata:
+Egy művelet eredményével ismét végezhetünk műveleteket. Logikai
+változókat, műveletjeleket - szükség esetén zárójeleket is – tartalmazó
+jelsorozatokat az ítéletkalkulus formuláinak nevezzük. A logikai változók
+betűjelei tetszőlegesek. A következőkben néhány formula logikai értékét
+határozzuk meg. Ennek legegyszerűbb módja értéktáblázat készítése a
+formulában szereplő változók minden lehetséges értéke esetére.
+Nézzük a következő példákat:
+a) ¬(¬P); c) P+(Q*R);
+b) ¬P+Q; d) (P+Q)*(P+R).
+a) A ¬(¬P) formula értéktáblázata: b) A ¬P+Q formula értéktáblázata:
+A B A+B
+1
+1
+0
+0
+1
+0
+1
+0
+1
+1
+1
+0
+P ¬P ¬(¬P)
+1
+0
+0
+1
+1
+0
+P ¬P Q ¬P+Q
+1
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+1
+0
+1
+1
+15
+c) A P+(Q*R) – és – d) (P+Q)*(P+R) kifejezések értéktáblázata:
+Meglepő eredményhez jutottunk: a c) és d) példa két formulája
+ugyanazt az eredménytáblázatot adta. Így a két formula azonos: P+(Q*R) ≡
+(P+Q)*(P+R).
+Az ilyen formulákat (vagy a megfelelő összetett ítéleteket)
+egyenértékűeknek mondjuk.
+5. Implikáció
+Az implikáció P⇒Q jelét több módon is olvashatjuk, például: ha P,
+akkor Q, vagy P implikálja Q-t, vagy P elegendő feltétele Q-nak, vagy Pnek
+szükséges feltétele Q. Az implikáció „ha és akkor” kötőszava feltűnően
+két részre bontja az ítéletet. P-t az implikáció előtagjának, Q-t utótagjának
+nevezzük. Az előtag igaz logikai értékénél az implikáció logikai értékét az
+utótag igaz vagy hamis logikai értéke határozza meg. Az azonban
+kérdéses lehet, hogy mi lesz az implikáció logikai értéke, ha az előtag
+logikai értéke hamis.
+Megállapodtak abban, hogy hamis előtag esetén - az utótag logikai
+értékétől függetlenül - az implikáció igaz.
+Az implikáció értéktáblázata:
+P Q R Q*R P+(Q*R) P+Q P+R (P+Q)*(P+R)
+1
+1
+1
+1
+0
+0
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+1
+0
+1
+0
+1
+0
+1
+0
+1
+0
+0
+0
+1
+0
+0
+0
+1
+1
+1
+1
+1
+0
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+1
+1
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+0
+0
+0
+P Q P⇒Q
+1
+1
+0
+0
+1
+0
+1
+0
+1
+0
+1
+1
+16
+Amint az előző pont b) példájának értéktáblázata és az implikáció
+értéktáblázata összehasonlításából látszik P⇒Q ≡ ¬P+Q. Ez azt jelenti,
+hogy az implikáció negációval és diszjunkcióval kifejezhető.
+6. Ekvivalencia
+Ekvivalenciának azt a logikai műveletet nevezzük, melynél két ítéletet,
+például P-t és Q-t, úgy kapcsolunk össze, hogy fennáll a P⇒Q és Q⇒P
+implikáció is. Jelölése, mint már tudjuk: P⇔Q.
+Az ekvivalenciát kétirányú implikációnak is tekinthetjük, így a P⇔Q
+ekvivalenciát olvashatjuk így is: P szükséges és elegendő feltétele Q-nak
+vagy Q szükséges és elegendő feltétele P-nek.
+A P⇔Q ekvivalencia logikai értékét akkor és csak akkor tekintjük
+igaznak, ha P is és Q is igaz vagy P is és Q is hamis.
+Az ekvivalencia értéktáblázata:
+A definíció alapján az ekvivalenciának az implikációval és a
+konjunkcióval való kapcsolatát is felírhatjuk:
+P⇔Q ≡ (P⇒Q)*(Q⇒P).
+A logikai műveletek között szoros kapcsolatok vannak. Mint láttuk, az
+ekvivalencia kifejezhető implikációval és konjunkcióval, az implikáció
+viszont felírható negációval és diszjunkcióval.
+Értéktáblázatok segítségével könnyen igazolhatók az alábbi nevezetes
+azonosságok (egyenértékű formulák), melyeket felismerőjükről Augustus
+de Morgan (1806-1871) angol matematikusról de Morgan azonosságoknak
+neveznek:
+a) ¬(P*Q) ≡ ¬P+¬Q; b) ¬(P+Q) ≡ ¬P*¬Q
+Az összetett ítéletek fontos csoportját alkotják az azonosan-igaz és az
+azonosan-hamis ítéletek. Ezen összetett ítéletek logikai értékei függetlenek
+a bennük szereplő egyszerű ítéletek logikai értékeitől. Azonosan-igaz
+ítéletek például: A+¬A, A⇒A, A*B⇔B*A stb. Azonosan-hamis ítéletek:
+A*¬A, A*¬B*(A⇒ B) stb.
+A B A⇔B
+1
+1
+0
+0
+1
+0
+1
+0
+1
+0
+0
+1
+17
+KIEGÉSZITÉS. A diszjunkció megismerése során láttuk, hogy a művelet
+eredménye akkor is igaz, ha mindkét logikai változó értéke egyidejűleg
+igaz. Ha a műveleti szabályt úgy módosítjuk, hogy ebben az esetben a
+művelet eredménye hamis legyen, egy eddig nem ismertetett kétváltozós
+művelethez jutunk. Ennek neve 'kizáró vagy', általános szakkifejezéssel:
+antivalencia (XOR). Jele egy kis körben egy '+' jel: ⊕ (vagy XOR). Az
+antivalencia a konjunkció, diszjunkció és negáció segítségével is
+egyszerűen kifejezhető:
+P⊕Q ≡ (¬P*Q)+(P*¬Q).
+Az ekvivalencia az antivalencia negációja: P⇔Q≡¬(P⊕Q).
+Az antivalencia értéktáblázata:
+TFELADATOK:
+1. Készítsétek el az alábbi formulák értéktáblázatát:
+a) ¬(P*Q); c) P*¬(¬P+Q);
+b) (P+¬Q)*P; d) ¬[(P+Q)*(¬P+¬Q)].
+2. Igazoljátok a de Morgan azonosságokat!
+7. Matematikai logika és a kettes számrendszer
+A hamis és igaz logikai értékek 0 és 1 számjegyekkel való jelölésének
+bevezetése nem csupán kényelmi szempontokat szolgál, hanem
+megteremti a közvetlen kapcsolatot a logikai értékek és a kettes
+számrendszer számjegyei között. E kapcsolat elégséges lesz az
+alapműveletek (összeadás, kivonás, szorzás és osztás) logikai
+műveletekkel való modellezéséhez (más szóval a számolást logikai
+műveletekkel végezhetjük el). A 0 és 1 szimbólumokat szükség szerint
+értelmezhetjük akár logikai értékként, akár számjegyként.
+Vizsgáljuk meg az összeadás és a logikai műveletek kapcsolatát.
+A B A⊕B
+1
+1
+0
+0
+1
+0
+1
+0
+0
+1
+1
+0
+18
+Nézzük meg az összeadó táblázatot!
+Jelöljük a két összeadandó egyjegyű bináris
+számot A-val és B-vel, valamint jelöljük az
+összeget C'C -vel, amiből a C' az átvitel, és C
+az összeg egyes helyértéke. A számtani
+összeadás tehát:
+A + B = C'C
+alakú lesz. Ebből a C'-t egyszerűen előállíthatjuk, ha az A és B számokra
+alkalmazzuk a logikai szorzás műveletét:
+C'=A*B ..........................................................................(1)
+A C értékét a „kizáró vagy” művelettel lehet előállítani:
+C = (¬A*B)+(A*¬B), azaz C = AT⊕BT ..............................(2)
+Egyjegyű bináris számokat tehát összeadhatunk logikai műveletek
+segítségével. Többjegyű bináris számok összeadásánál az itt megismert
+műveleteket kell a legalacsonyabb helyértékkel kezdve sorozatosan
+alkalmazni, úgy ahogy azt kézi számolásnál tesszük. Az egyetlen gondot
+az okozza, hogy többjegyű számok összeadása közben - az egyes
+helyértéktől eltekintve - valahányszor az előző helyértéktől átvitel van,
+három számot kell összeadni. Ezt az (1) és (2) formulák kétszeri
+alkalmazásával érjük el. Előbb a két összeadandót adjuk össze, majd
+összegükhöz hozzáadjuk az előző helyértéken keletkezett átvitelt. Itt akár
+az első, akár a második lépésben keletkezhet átvitel (mindkettőben
+egyszerre nem). Ezeket „vagy” művelettel összekapcsolva megkapjuk a
+teljes összeadás átvitelét a következő, magasabb helyértékre.
+Jelölje A(i) és B(i) két bináris szám (A és B) egymásnak megfelelő
+valamely helyértékét, C'(i-1) pedig az előző helyértéktől származó átvitelt.
+Jelölje C(i1) és C(i2) a két félösszeadás során keletkezett átvitelt, S(i) az
+A(i) és B(i) számok összeadásakor az átvitel nélküli összeget, C(i) a teljes
+összeadás átvitel nélküli összegét, és végül C'(i) az összeadás végén
+keletkező átvitelt, akkor az összeadás logikai műveletekkel:
+A(i)*B(i) = C(i1) és
+A(i) ⊕ B(i) = S(i), vagy másképpen [¬A(i)*B(i)]+[A(i)*¬B(i)] = S(i);
+majd ezek alkalmazásával :
+S(i)*C'(i-1) = C(i2) és
+S(i) ⊕ C'(i-1) = C(i), azaz [¬S(i)*C'(i-1)]+[S(i)*¬C'(i-1)] = C(i),
+s végül :
+C(i1)+C(i2) = UC'(i)U.
+A + B = C'C
+0 + 0 =
+0 + 1 =
+1 + 0 =
+1 + 1 =
+00
+01
+01
+10
+Összeadó táblázat
+Bináris számokra
+19
+TPÉLDA: Legyen C'(i-1) = 0 ;
+A(i) = 1 ; B(i) = 1.
+C(i1)= A(i) * B(i) = 1*1 =1;
+S(i) = A(i) ⊕ B(i) = 1⊕1 =0;
+C(i2)= S(i) * C'(i-1) = 0*0 =0;
+TC(i) = S(i) ⊕ C'(i-1) = 0⊕0 =0;
+C'(i)= C(i1)+ C(i2) = 1+0 =1;
+(ahol: * = and, + = or, ⊕ = xor ) .
+Az összeadás logikai
+modelljének jelentősége abban van, hogy a logikai műveletek
+végrehajtására néhány dióda, esetleg tranzisztor felhasználásával
+elektronikus áramköröket építhetünk, amelyek nagy sebességgel végzik el
+az összeadási műveleteket.
+Felvetődik a kérdés, hogy ezek az áramkörök, vagy ami ugyanazt
+jelenti az összeadásra felírt logikai összefüggések alkalmasak-e
+kivonásra? Fogadjuk el külön bizonyítás nélkül, hogy közvetlenül nem.
+Valójában mégis ezeket a formulákat (számítógépben áramköröket)
+használjuk kivonásra, ehhez azonban újfajta kivonási módszert kell
+megismernünk. A módszer lényege, hogy a kivonandót átalakítjuk
+(lényegében kódoljuk) olyan számmá, amit a kisebbítendőhöz
+HOZZÁADVA kapjuk meg a kivonás eredményét. Ezt az átalakítást
+komplementálásnak és a keletkezett számot az eredeti szám
+komplemensének (magyarul kiegészítő számának) nevezzük.
+A komplementálás a kettes számrendszerben egyszerű feladat, mind
+papíron, mind áramkörrel egyszerűen elvégezhető, így a meglévő
+összeadó áramkörök mellett nem szükséges bonyolult kivonó áramkörök
+beépítése.
+A komplemens kódra épített számolásban tehát nem létezik kivonás,
+mint művelet, csupán összeadás. Ez a lehetőség burkoltan benne van az
+algebrai szabályokban, a műveleti jelet használhatjuk előjelként, és viszont.
+Például: a – b = a + (-b).
+A komplementálást először 1-nél kisebb szám (tört) esetére vizsgáljuk
+meg. Valamely „a” bináris törtszám komplemensét „aBk B”-val jelölve, azt a
+következőképpen definiáljuk:
+Az átalakítást kétféle módon is elvégezhetjük:
+i i-1
+1 0 1 1 0 =A
++ 1 1 0 0 =B
+0 1 0
+C’(i)=1 C(i) C’(i-1)
+, ha >0 (" " pozitív szám)
+k 10( ) ( ), ha 0 (" " negatív szám)
+a a a
+a
+B absa a a
+⎡
+= ⎢ − < ⎣
+20
+a) a negatív szám minden egyes 0-ját 1-esre és minden 1-esét 0-ra
+változtatjuk, majd az így kapott számhoz hozzáadunk 1-et;
+b) a legkisebb helyértéktől indulva megkeressük az első 1-es
+számjegyet, ezzel bezárólag a számjegyeket változatlanul hagyjuk, de ettől
+balra minden 0-t 1-re és minden 1-et 0-ra változtatunk.
+PÉLDÁK: - 0,1010 komplemense 1,0110;
+- 0,0101 komplemense 1,1011.
+Nem nehéz ráismerni, milyen logikai művelettel végezhető el a
+komplementálás. Az a) módszer első lépése nem más, mint a logikai
+értékként kezelt számjegyek egyenkénti negációja, amit az 1 hozzáadása
+követ; a b) módszer esetében pedig csupán arról kell gondoskodnunk,
+hogy a számjegyek cseréjét végző áramkör mindaddig ne működjön, míg a
+legalacsonyabb helyértéktől elindulva az első 1-ig el nem jutott.
+A komplemensekkel végzett műveletek előjelhelyesen adják az
+eredményt. Ha az eredmény pozitív, az egészrész egyes helyértéke 0,
+eggyel magasabb helyértéken kapunk 1-et, azt túlcsordulásnak nevezzük,
+és el kell hagynunk, ha pedig negatív, az egészrész 1 lesz. A negatív
+eredményt visszakomplemen-tálhatjuk a megismert a) és b) eljárások
+bármelyikével, mert a komplementálás olyan művelet, amelyet kétszer
+alkalmazva az eredeti számot kapjuk vissza.
+A komplementálás törtszámokra alkalmazott elve könnyen
+kiterjeszthető egész, vagy vegyes számokra is: egyszerűen törtté alakítjuk
+azokat. Az összeadás végrehajtásának megkezdése előtt kiválasztjuk azt a
+számot, amelynek egész része a legnagyobb, majd a bináris vesszőt
+annyira mozdítjuk el balra, hogy ebből bináris tört legyen. Ugyanannyival
+kell elmozdítani az összes többi szám bináris vesszőjét is. Elvégezzük az
+összeadást, majd az eredményben az eredeti helyére helyezzük vissza a
+bináris vesszőt, így visszaállítjuk a helyes nagyságrendet.
+PÉLDÁK:
+1) Végezzük el az 101,01 - 11,10 kivonást!
+A bináris vesszőt áthelyezzük: 0,10101 és 0,01110.
+A kivonandó komplemense: 1,10010.
+A művelet most már összeadás: 0,10101 + 1,10010 = 10,00111.
+A túlcsordulást (1) elhagyva, az előjeljegy 0, azaz a szám pozitív, és a
+bináris vesszőt eredeti helyére írva kapjuk, hogy 1,11. (Valóban, tízes
+számrendszerben 5,25 - 3,5 = 1,75 ).
+2) Végezzük el a kivonást: 11110 - 110101 ( Decimálisan: 30-53=-23).
+21
+Ami a többi aritmetikai műveleteket (szorzás és osztás) illeti könnyen
+belátható, hogy a szorzás nem más, mint a részletszorzatok megfelelő
+helyérték-eltolással való leírása és összeadása, azaz a szorzás is
+elvégezhető az összeadással. Az osztást kell még megvizsgálnunk. Ezt
+viszont sorozatos kivonással tudjuk helyettesíteni, csupán meg kell
+számlálnunk, hogy a kivonást hányszor tudtuk végrehajtani. Ez egyben azt
+is jelenti, hogy minden számolási művelet az összeadásra vezethető
+vissza.
+8. Logikai műveletek áramkörei
+George Boole "A gondolkodás törvényeinek vizsgálata" című könyve a
+XIX. sz. század közepe táján jelent meg, algebrájának gyakorlati
+alkalmazására azonban csak 1938-ban került sor. Az 1916-ban született
+amerikai mérnök és matematikus Claude Shannon (ejtsd: klód senon)
+ismerte fel még egyetemista korában, hogy a matematikai logika kiválóan
+alkalmazható a jelfogós- (relés-) és kapcsolóáramkörök elemzése során.
+Az IGAZ (1-es) logikai értékként a "Van jel" (pl. feszültség, áram stb.), a
+HAMIS (0) logikai értékként a "Nincs jel" állapotot fogadta el.
+Azokat az áramköröket, amelyeknek a bemenetei és kimenetei között
+logikai függvénykapcsolat áll fenn, logikai áramköröknek nevezzük. Ezek
+az áramkörök az információ legegyszerűbb átalakítói.
+11110 0,011110 0,011110
+U-110101U U-0,110101U Komp.+U1,001011U Vissza a vessző
+?????? A bináris vessző
+átvitele
+Negatív 1,101001 Komp. -0,010111=>-10111=-23(D)
+1. ábra 2. ábra
+22
+A három logikai alapművelet (diszjunkció, konjunkció és negáció)
+áramköri megvalósítása a legszemléletesebben reléket tartalmazó
+áramkörökkel mutatható be (lásd az 1., 2. és 3. ábrákat):
+Az elektronikus számítógépek logikai áramköreit félvezető diódák,
+tranzisztorok, az utóbbi 30 évben integrált áramkörök segítségével
+valósítják meg.
+Az "OR" és "AND" műveleteket megvalósító áramköröket kapuáramköröknek
+vagy röviden csak kapuknak
+szokás nevezni, mert a gépek működése
+közben gyakran a működéshez szükséges
+jelek, illetve a műveletekben résztvevő
+számok gépen belüli mozgását
+szabályozzák, mintegy kapu módjára
+nyílnak vagy záródnak ezek útjában.
+A negációt megvalósító áramkört
+idegen szóval inverternek hívják.
+A számítógépek részegységeinek
+tervezésénél nem kell feltétlenül az
+alapvető áramköri elemekkel kezdeni a
+logikai sémát, helyettük a logikai
+áramkörök egységes jelöléseinek felhasználásával kapuáramkörökből és
+inverterekből állítják össze az egységet, majd ezt bontják le
+"alkatrészekre". A logikai áramkörök jelölései a 4. ábrán láthatók:
+A tagadás ritkán fordul elő önálló műveletként, minden más logikai
+művelettől függetlenül, ezért jelölését, úgy alakították ki, hogy a kétváltozós
+logikai műveletek jeleire is illeszthető legyen. A megfelelő bemenethez
+3. ábra
+4. ábra
+23
+vagy kimenethez rajzolt kis kör jelzi, hogy az adott változót változatlan vagy
+tagadott formájában visszük be az áramkörbe, illetve a kimeneten
+megjelent eredményt változatlanul vagy tagadva visszük tovább.
+9. Számoló áramkörök összeállítása
+Korábban felírtuk logikai műveletekkel a bináris összeadást (7. pont).
+Most ezt a logikai műveletsort kell áramkörré alakítanunk, hogy az
+összeadás áramkörét megismerhessük. Első lépésben a félösszeadót,
+illetve a félösszeadás műveletsorát írtuk fel: A(i)*B(i) = C(i1) és A(i)⊕B(i) =
+¬A(i)*B(i)+A(i)*¬B(i) = S(i).
+Az 5. ábra a megismert áramköri jelölésekkel a félösszeadót ábrázolja.
+A teljes összeadásról elmondtuk, hogy elvégezhető két lépésben fél
+összeadók segítségével, ilyenkor azonban az első lépésben keletkező
+átvitelt és az előző helyértéktől érkező átvitelt valamilyen késleltető vagy
+tároló áramkörrel meg kell őriznünk a második összeadási lépés idejére. A
+6. ábra a kétlépéses összeadás elvét ábrázolja (a "HS" jelű tömbök a
+félösszeadót jelképezik, "S" az összeg, "P" az átvitel).
+5. ábra
+24
+A félvezetős (tranzisztoros, integrált áramkörös) logikai áramkörök
+működéséhez (ellentétben a relés modellel) a logikai változókat hordozó
+jelek rövid időtartamú feszültségimpulzusok. Mivel a számítógépben
+elengedhetetlen, hogy az információt hordozó feszültségszintek hosszabb
+ideig rendelkezésre álljanak, ú.n. tároló áramkörökre is szükség van. A
+tároló áramkörök a bemenetükre rövid időtartamú impulzus formájában
+érkező információt elraktározzák, és lehetővé teszik további felhasználását.
+10. Logikai hálózatok
+A megismert logikai áramkörökből: a negálást végző inverterből,
+kapukból és a tárolókból, tetszőleges bonyolultságú rendszerek, ú.n. logikai
+hálózatok állíthatók össze. Ilyen értelemben véve egyetlen logikai
+hálózatnak tekinthető egy digitális számítógép is. A számítógép
+működésének könnyebb megértése szempontjából célszerű a
+számítógépet nem egyetlen bonyolult hálózatnak, hanem több, egyszerűbb
+részhálózatból felépített rendszernek tekinteni. Ezek közül a részhálózatok
+közül vizsgáljuk meg röviden azokat, melyek az alapvető ismeretek
+elsajátításához szükségesek.
+Kódátalakítók. A számítógép-technikában gyakran előforduló
+jelenség, hogy két összekapcsolandó részegység kódja különböző, így a
+két berendezés közvetlenül nem kapcsolható össze. Az összekapcsolás
+csak úgy végezhető el, ha az egyik egység kódszavait átalakítjuk a másik
+megfelelő kódszavaivá. Az átalakítást egy meglehetősen bonyolult, sok
+inverterből és kapuáramkörből álló, logikai hálózat végzi. Ez a kódátalakító.
+Dekóderek. Egy számítógép központi egységéhez 8 –15 darab I/O
+egység (periféria) kapcsolódik. Ha a gépen futó program bevitelt vagy
+kihozatalt kíván, szükséges, hogy a kívánt perifériát ki lehessen jelölni.
+6. ábra
+25
+Ennek szokásos módja, hogy a perifériákhoz egy-egy bináris számot, ú.n.
+perifériacímet rendelnek. A központi feldolgozó egység kiküldi az összes
+perifériához az aktuális perifériacímet, és az, amelyik saját címét „érzékeli”,
+a központi egységhez kapcsolódik. Ezt az „érzékelést” oldja meg egy
+viszonylag egyszerű felépítésű logikai hálózat a dekóder.
+Aritmetikai-logikai hálózat. A számítógép aritmetikai-logikai
+egységében folyik az aritmetikai (összeadás, kivonás, szorzás, osztás) és
+a logikai (AND, OR stb.) műveletek elvégzése az adatok között. A
+műveletek gépi megvalósítására két lehetséges megoldás kínálkozott:
+minden műveletre külön áramkört készíteni, vagy egyetlen, természetesen
+bonyolultabb, áramkörrel végeztetni valamennyi műveletet. A logikai
+áramkörök tervezői ez utóbbi megoldást választották. Ennek a hálózatnak
+a neve: aritmetikai-logikai hálózat (ALH). Hogy a bemeneti adatokon
+elvégezhető műveletek közül az ALH melyiket végezze el, azt a
+műveletvezérlő kód dönti el. E kódot a számítógép központi
+vezérlőegysége állítja elő az utasítás műveleti kódrésze alapján
+(dekódolja).
+Regiszterek. A tárolókat csak speciális esetben használják önállóan,
+„egyesével”, belőlük általában tárolócsoportokat szerveznek. A
+tárolócsoport egy adott hosszúságú bináris információ tárolására alkalmas.
+Ez a regiszter. A regiszterek hosszúsága (a benne levő tárolók száma) a
+számítógép típusától függ. Ez lehet 8, 16, 32 vagy 64. Egy tároló egy
+bináris jegy tárolását végzi. A regiszterek speciális típusa a
+léptetőregiszter. Ez a bináris információt egy bittel eltolva tárolja. Ennek
+szerepe az osztás és a szorzás műveletek végrehajtásakor van.
+Tárak. Nagy mennyiségű információ tárolására nagyszámú
+regiszterből álló regisztercsoport szolgál. Az ilyen regisztercsoport neve:
+tár. A tárat alkotó regiszterek neve: rekesz. A rekeszek azonosítására azok
+sorszáma az ún. tárcím szolgál. A mai számítógép-technikai gyakorlatban
+általában a 16 és 32 bites rekeszeket alkalmazzák. Aszerint, hogy a tárba
+hányszor lehet új információt beírni, kétféle tártípus létezik: az írhatóolvasható
+(RAM) és a csak olvasható tár (ROM).
+Órajelgenerátor. A számítógépet alkotó egységek, alegységek és
+áramkörök működésének meghatározott módon szinkronban kell lenniük. A
+szinkronizmus úgy biztosítható, ha minden egység és áramkör csak egy
+központi vezérlőjel (vezérlőimpulzus) hatására működhet. Ezeket az
+impulzusokat órajeleknek, az őket előállító áramköröket órajelgenerátornak
+nevezzük.
+26
+Számlálók. Gyakran előforduló feladat, hogy bizonyos folyamatok,
+állapotok sorozatában (például a számítógép utasítás-végrehajtási
+sorozata, adatbevitel vagy kihozatal) a lejátszódó jelenségek számát meg
+kell állapítani, figyelni kell. A jelenségek létrejöttét mindig órajel váltja ki; a
+jelenségek számlálására legegyszerűbb tehát az azokat kiváltó órajeleket
+megszámlálni. Erre a célra szolgálnak a számláló áramkörök, röviden
+számlálók.
+27
+GRÁFELMÉLETI ALAPFOGALMAK
+1. Bevezetés
+Matematika-történeti források szerint az első gráfelméleti munka a
+Szentpétervári Tudományos Akadémia közleményeiben jelent meg 1736-
+ban, mikor is Leonhard Euler (1707-1783) svájci matematikus, aki ekkor az
+akadémia meghívására Oroszországban dolgozott, megoldotta a
+königsbergi-hidak problémáját. Königsberg a Balti-tenger Gdanski öble
+közelében a Pregolja
+(Pregel) folyó két partján
+és a folyó két szigetén
+terült el. A folyó A és B
+szigeteit hidak kötötték
+össze egymással és a
+partokkal is (C, D, 1.ábra).
+Felvetődött a kérdés, hogy
+valaki a lakásából
+elindulva tehet-e olyan
+sétát, hogy minden hídon pontosan egyszer menjen át és a séta végén
+hazaérjen. Euler lényegében teljes általánosságban oldotta meg a
+feladatot. A feladatban, ugyanis, mindössze a hidakon való áthaladás,
+valamint a kiindulópontba való visszatérés a lényeg. Ezért Euler egy olyan
+ábrát készített, melyben a városrészeknek
+pontok, a hidaknak a pontokat összekötő
+vonalak (nem feltétlenül egyenesek)
+felelnek meg (2. ábra).
+Az ilyen pontokból és vonalakból álló
+alakzatokat gráfoknak nevezzük. A pontok
+a gráf csúcsai vagy szögpontjai, a vonalak
+a gráf éleiP
+1
+P.
+A kérdés tehát így fogalmazható meg:
+Valamely csúcsból kiindulva bejárhatjuk-e
+a gráf éleit úgy, hogy minden élen
+pontosan egyszer haladjunk át, és végül a
+kiindulási pontba érjünk vissza?
+TP
+1
+PT A gráfelméleti fogalmaknak a halmazelmélet nyelvén megfogalmazható általánosabb és
+pontosabb definíciója helyett mindvégig maradunk ezen egyszerű meghatározás mellett.
+2. ábra
+D
+C
+1. ábra
+28
+Található-e valamilyen kritérium (ismérv – megkülönböztető
+tulajdonság), mely alapján egyértelműen eldönthető a kérdésre adandó
+válasz?
+Ha valaki a kérdéses útvonalon halad, és eljut valamely csúcsba,
+akkor onnan, a feltevés szerint más útvonalon, ki is kell lépnie (utolsó
+lépésként belép a kezdőpontba). Így minden pontba (a kezdőpontba is) a
+sétálónak ugyanannyiszor kell belépni, mint kilépni. A feladat
+megoldhatóságához tehát szükséges, hogy minden pontban páros számú
+él találkozzon. Ez a königsbergi hidak problémája esetében nem teljesül,
+ezért a feladat nem oldható meg.
+A feladat megoldásában lényeges volt az egy csúcsban találkozó élek
+száma. Ezt a számot a továbbiakban a csúcs fokának fogjuk nevezni.
+Sokáig úgy látszott, hogy az ilyenfajta feladatok nem különösebben
+jelentősek. A XIX. század végétől azonban felismerték a gráfok elméleti
+vizsgálatának fontosságát tekintettel az eredmények sikeres alkalmazására
+számos gyakorlati feladat megoldásában. Itt érdemes megjegyezni, hogy
+az első igazán tudományos színvonalú gráfelméleti könyvet Kőnig Dénes
+(1884-1944) magyar matematikus írta 1936-ban. (Matematikatörténeti
+ABC)
+Lássunk egy másik feladatot!
+Igazoljuk, hogy egy hattagú társaságnak mindig van legalább három
+olyan tagja, akik kölcsönösen ismerik egymást, vagy (nem kizáró „vagy”)
+legalább három olyan, akik kölcsönösen nem ismerik egymást.
+Szemléltessük a problémát gráffal!
+Feleltessünk meg minden embernek egy-egy pontot. Két pontot
+kössünk össze éllel, ha a két ember ismeri egymást! A sok lehetséges
+esetből kettőt mutat be a 3. ábra.
+A jelképesen meghúzott szaggatott vonalak ugyanúgy, mint az egyes
+pontokat összekötő élek hiánya azt jelentik, hogy azok az emberek nem
+ismerik egymást. Amennyiben három ember kölcsönösen ismerik egymást,
+úgy találunk a gráfban háromszöget (ettől még lehet a társaságnak három
+olyan tagja is, akik kölcsönösen nem ismerik egymást). Ha nincs
+háromszög, nincs három olyan ember, akik kölcsönösen ismernék egymást
+(ekkor biztosan van legalább három, akik nem ismerik egymást).
+Térjünk rá a bizonyításra!
+Vegyük a gráf egy pontját, például az 1-et. Az 1-hez a további öt
+pontból
+29
+1) vagy található három olyan pont, melyhez 1-ből vezet él (pl. 2,3,6,
+az a) ábrán);
+2) vagy van három olyan pont, mely 1-gyel nincs éllel összekötve (pl.
+2,5,6 a b) ábrán).
+Az 1) esetben, ha a három pont között van kettő, melyek éllel össze
+vannak kötve (pl. 2,6 – folytonos vonal, vagy lehetne összekötve 3,6 vagy
+2,3), akkor megvan a háromszög, tehát a megfelelő emberek kölcsönösen
+ismerik egymást. Ha a három pont között (2,3,6) nincs kettő, melyek éllel
+össze vannak kötve, akkor e pontoknak megfelelő emberek nem ismerik
+egymást (2,3,6 – szaggatott vonal).
+A 2) esetben ugyanígy okoskodunk. Ha a három pont között van kettő
+(pl. 2,6 - szaggatott vonal, vagy lehetne 5,6 vagy 2,5), melyek nincsenek
+éllel összekötve, akkor 1 és e két pont olyan embereknek felelnek meg,
+akik nem ismerik egymást (1,2,6 – szaggatott vonal). Amennyiben nincs a
+három pont között kettő olyan, hogy ne lennének összekötve, így össze
+vannak kötve (2,5,6 – vastag vonal), tehát ezek kölcsönösen ismerik
+egymást.
+2. Néhány gráfelméleti jelölés
+A következőkben néhány alapvető gráfelméleti fogalmat és jelölést
+foglalunk össze, melyekkel részben már az előző példákban is
+találkoztunk.
+A G gráf pontjai halmazának szokásos jelölése: V(G) (az angol vertex
+= csúcs szóból). Magukat a pontokat általában v, u, …, illetve az ABC más
+kis- vagy nagy betűivel, vagy akár egyszerűen számokkal jelöljük. A G gráf
+élei halmazának szokásos jelölése: E(G) (az angol edge = él szóból.
+Például a 4. ábrán:
+3. ábra
+30
+V(G) = {vB1B; vB2B; vB3B; vB4B; vB5B };
+E(G)= {( vB1B,vB3 B); ( vB3B,vB4 B); ( vB3B,vB5 B); ( vB4B,vB5 B)}.
+Egy élt két végpontja megadásával
+jelölünk. Amennyiben a gráf irányítatlan, úgy
+a végpontok neveinek sorrendje lényegtelen.
+Az ún. irányított gráfok (5. ábra) esetében
+szerepe van az élek sorrendjének, ám itt
+azokat csak érintőleg tárgyaljuk. Az éleket
+rajzolhatjuk egyenes szakasznak, törött
+vonalnak, vagy görbe vonalnak is.
+Előfordulhat olyan él is, melynek mindkét
+végpontja ugyanaz a pont. Az ilyen élt
+huroknak (vagy hurokélnek) nevezzük.
+Például a 6. ábrán a vB1B pontban.
+Két csúcs között több élt is húzhatunk,
+ezt többszörös élnek nevezzük. Ilyenek a 7.
+ábrán a vB3B -t és a vB4B -t összekötő élek.
+Figyeljünk arra, hogy gráfok ábrázolásánál
+két él az ábrán metszheti egymást, de ez a
+metszéspont a gráfnak nem csúcsa.
+3. Szomszédsági (csúcs-) mátrix, élmátrix, súlymátrix
+A G gráfhoz hozzá tudunk rendelni egy őt leíró mátrixot. A mátrixról
+tudni kell, hogy az általában egy m*n számú aBijB valós számot tartalmazó
+téglalap elrendezésű táblázat. Itt i=1,2,…,m a mátrix sorainak száma,
+j=1,2,…,n a mátrix oszlopainak száma. Ha a mátrixnak m sora és n
+vB2
+vB3
+vB4
+vB1
+5. ábra
+VB1
+VB2
+VB3
+VB4
+VB5
+4. ábraB
+6. ábraB
+VB1
+VB2
+VB3
+V(G)={vB1B ;vB2B ;vB3B}
+E(G)={(vB1B;vB1B) ;(vB1B;vB2B);(vB1B;vB3B)}
+VB4
+VB3
+VB1
+VB2
+7. ábraB
+31
+oszlopa van, m*n típusú mátrixnak nevezzük. A mátrixban levő aBijB számok
+a mátrix elemei. Az aBijB elem az i-edik sor j-edik oszlopának eleme. Ha m=n
+a mátrixot négyzetesnek mondjuk.
+Nézzük meg a következő három
+csúcspontú gráfot (8. ábra). A gráfot ismerjük,
+ha meg tudjuk mondani, hogy melyik pont
+melyik ponttal van éllel összekötve és
+hányszoros éllel.
+Készítsünk egy táblázatot! Írjuk be
+mindegyik mezőbe az azt meghatározó (nézd a
+sor- és oszlopcímet) csúcsokat összekötő élek
+számát. Jelen esetben:
+A példában szereplő gráf szomszédsági (csúcs-) mátrixának nevezzük
+az itt látható mátrixot. E mátrix ismeretében meg tudjuk rajzolni a gráfot.
+Általában egy n szögpontú gráf szomszédsági mátrixa az A=(aBijB ) n*nes
+mátrix, melyben aBijB a vBiB és vBjB csúcsokat összekötő élek száma, i, j = 1; 2;
+…; n. Így az A elemei nem negatív egész számok. A főátlóban levő elemek
+összege a gráfban levő hurkok számát adja. Világos az is, hogy az
+irányítatlan gráf szomszédsági mátrixa szimmetrikus a főátlóra
+vonatkoztatva, vagyis aBijB = aBjiB , míg az irányított gráf mátrixa nem
+szimmetrikus.
+⎟ ⎟ ⎟ ⎟ ⎟
+⎠
+⎞
+⎜ ⎜ ⎜ ⎜ ⎜
+⎝
+⎛
+m m mn
+n
+n
+a a a
+a a a
+a a a
+􀀢
+􀀣 􀀣 􀀣
+􀀢
+􀀢
+1 2
+21 22 2
+11 12 1
+⎟ ⎟ ⎟
+⎠
+⎞
+⎜ ⎜ ⎜
+⎝
+⎛
+2 0 0
+1 1 0
+0 1 2
+VB1
+VB2
+VB3
+8. ábraB
+32
+VB1
+VB2
+VB4
+9. ábraB
+VB3
+Így például, az 5. ábrán látható irányított gráf mátrixa:
+Legyen most adott egy A mátrix. Adjunk
+meg egy gráfot, melynek ő a szomszédsági
+mátrixa!
+A gráf 4 szögpontú, lásd a 9. ábrát.
+Ha egy gráf pontjait más sorrendben indexezzük, akkor a
+szomszédsági mátrixban bizonyos sorok és oszlopok felcserélődnek, míg a
+gráf ugyanaz marad.
+Megjegyzés: A mátrix adatszerkezeti szempontból a programozási
+nyelvekben jól ismert kétdimenziós tömb.
+A gráfok megadásának másik módja az élmátrix, mely a gráfok éleit
+tárolja, például egy G[1..E] egydimenziós tömbben, ahol E az élek száma.
+Matematikai szempontból ez sorvektor, vagyis olyan mátrix, melynek csak
+egy sora van. A G elemei számpárok, pl. G[k]=(vBi B,vBjB ), vagyis a k – adik él a
+vBi B és vBjB csúcsokat köti össze. Itt nehezebb megállapítani két pont
+összekötöttségét, viszont könnyebb, pl. az összes élt felsorolni. Az élekhez
+lehet számot is rendelni ez a súlyozott gráf, mátrixa a súlymátrix. Ilyen, pl.
+egy csatornarendszer, ahol megadjuk az egyes csatornák áteresztő
+képességét, vagy egy úthálózat, ahol az élhez rendelt szám a
+csomópontok közötti táv.
+Példaként ábrázoljuk egy városrész úthálózatát gráffal, melyben a
+szögpontok a buszmegállókat, az élek mellé írt számok pedig a megállók
+közötti távolságokat, vagy a haladási időket mutatják megfelelően
+választott egységekben. A gráfot és súlymátrixát a 10. ábra mutatja. A
+nem létező élek „súlyát” ∞-nek vesszük.
+0 0 0 1
+1 0 1 1
+1 0 0 1
+1 0 1 0
+⎛ ⎞
+⎜ ⎟
+⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+0 1 0 0
+1 2 2 0
+0 2 0 3
+0 0 3 0
+A
+⎛ ⎞
+⎜ ⎟
+= ⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+33
+GYAKORLÓ FELADATOK
+1. Írjuk fel a 11. ábrán ábrázolt gráf szomszédsági mátrixát!
+2. Az adott mátrixhoz adjunk meg egy gráfot!
+4. A fokok és az élek száma közötti összefüggés
+A gráf egy csúcsában (pontjában) találkozó élek számát, mint azt már
+említettük, a csúcs fokának nevezzük. Ez egy nem negatív egész szám,
+mely részesetben lehet 0 is. Az utóbbi esetben a pont izolált pont, nincs
+összekötve egyetlen más ponttal sem. A hurokél kettőnek számít!
+A gráfelmélet alapfogalmaival először ismerkedők előtt gyakran
+felmerül a kérdés, van-e összefüggés a gráf fokszáma és éleinek száma
+között? A válasz nagyon egyszerűen eldönthető. Mivel minden él két
+ponthoz - vagy hurok esetében ugyanazon ponthoz kétszer - csatlakozik,
+így a fokok összege az élek számának kétszerese.
+Lássunk egy idevágó egyszerű példát!
+0 100 110
+100 0 150 180
+110 150 0 200
+180 0 80
+200 80 0 120
+120 0
+⎛ ∞ ∞ ∞ ⎞
+⎜ ∞ ∞ ⎟ ⎜ ⎟
+⎜ ∞ ∞ ⎟
+⎜ ⎟
+⎜ ∞ ∞ ∞ ⎟
+⎜ ∞ ∞ ⎟
+⎜⎜ ⎟⎟ ⎝ ∞ ∞ ∞ ∞ ⎠
+100
+180
+80
+110 200 120
+1 150
+2
+3
+4
+5
+6
+10. ábra
+0 1 1 0
+1 0 2 1
+1 2 0 0
+0 1 0 0
+⎛ ⎞
+⎜ ⎟
+⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+11. ábra
+VB3
+VB1
+VB2 VB4
+VB5
+34
+A röplabdabajnokságban szereplő csapatok néhány mérkőzést már
+lejátszottak. Ábrázoljuk a jelenséget gráffal: a csapatoknak feleltessünk
+meg pontokat, és két pontot kössünk össze éllel, ha a megfelelő két csapat
+már mérkőzött egymással. Ekkor egy csapat annyi mérkőzést játszott,
+amennyi a neki megfelelő pont foka. Ha mindegyik csapatról tudjuk, hogy
+hány mérkőzést vívott, vagyis ismerjük a nekik megfelelő pontok
+fokszámát, akkor meg tudjuk mondani, hogy eddig összesen hány
+mérkőzés volt, más szóval, hány éle van a gráfnak? Mivel minden
+mérkőzésen két csapat vesz részt, a mérkőzések száma az egyes
+csapatok mérkőzésszáma összegének fele.
+A gráf fokainak összege tehát páros szám, amiből következik, hogy a
+páratlanfokú pontok száma páros.
+A példára vonatkozó további egyszerű következtetés, hogy a
+bajnokság során bármikor páros számú olyan csapat van, melyek páratlan
+számú mérkőzést játszottak.
+GYAKORLÓ FELADATOK
+1. Egy társaságban néhányan kezet fogtak egymással. Mutassuk meg,
+hogy azoknak a száma, akik páratlan számú emberrel fogtak kezet, páros!
+2. Rajzoljunk olyan négypontú gráfokat, melyekben minden pont
+másodfokú!
+3. Van-e olyan négypontú gráf, melynek egy első és egy harmadfokú
+pontja van? (A többi pont más fokszámú.)
+4. Van-e olyan többszörös éleket nem tartalmazó G gráf, melyben
+minden pont foka különböző?
+5. Rajzoljunk négypontú harmadfokú pontot tartalmazó gráfokat!
+6. Mutassuk meg, hogy a G gráf szomszédsági mátrixának bármely
+sorában levő elemek összege a megfelelő pont fokszáma!
+5. Egyszerű gráfok
+Az általános gráfban két pont többszörösen is össze lehet kötve, illetve
+a hurokél (egy pontból saját magába vezető él) is megengedett. A
+továbbiakban csak olyan gráfokról lesz szó, melyekben nincs sem
+többszörös él, sem hurok. Az ilyen gráfokat egyszerű gráfoknak nevezzük.
+Az egyszerű gráfok szomszédsági mátrixában csupa 0 és 1 áll, és a
+főátló minden eleme 0.
+35
+A bevezetés második példájában a hattagú társaság tagjait pontokkal
+jelöltük, az ismerősöket pedig éllel kötöttük össze. Így egy egyszerű gráfot
+kaptunk. A feladat bizonyításának könnyebb megértése érdekében a 3.
+ábrán egyes „nem ismerősök”-et szaggatott vonallal kötöttünk össze. Így
+valójában azt kellett bizonyítanunk, hogy egy hatpontú gráfban feltétlenül
+lesz legalább egy folytonos háromszög vagy legalább egy „szaggatott”
+háromszög.
+Természetes így az az ötlet, hogy egy adott gráfhoz rendeljünk egy
+másik gráfot úgy, hogy a pontok halmaza mindkét gráfban ugyanaz, de a
+második gráfban két pontot akkor és csak akkor kötünk össze, ha az első
+gráfban a két pont nem volt összekötve.
+Ezt az új gráfot az eredeti G gráf komplementer gráfjának nevezzük
+ésG -sal jelöljük.
+Ezután az előbbi példa megfogalmazható így is: Adott egy
+hatszögpontú G gráf. Mutassuk meg, vagy G, vagy G tartalmaz
+háromszöget.
+Vizsgáljuk most meg egy egyszerű gráf pontjainak fokszámát! Csak az
+az eset érdekes, ha a gráfnak legalább két pontja van. Ha a gráf n-pontú,
+akkor mindegyik pont fokszáma 0; 1; 2; …;n-1 lehet. Ha egy pont fokszáma
+0, akkor az a pont nincs más ponttal összekötve, ha pedig egy pont
+fokszáma n-1, akkor ez a pont minden más ponttal össze van kötve. Ezért
+nem fordulhat elő, a gráfban 0-fokú és (n-1)-fokú pont is legyen. A kettő
+közül legfeljebb egyik lehet. Így azt kapjuk, hogy mivel n pontunk van, de a
+fokszámra csak n-1 különböző eset lehetséges, ezért legalább egy
+fokszámnak legalább kétszer kell előfordulnia. Összefoglalva:
+Ha egy gráfnak van legalább két pontja, akkor van két azonos fokú
+pontja.
+GYAKORLÓ FELADATOK
+1. Rajzoljunk hat szögpontú G gráfokat, és rajzoljuk meg mindegyik G
+komplementerét is! Keressünk háromszöget G-ben, illetve G -ben.
+2. Vizsgáljuk meg, hogy egy G gráf szomszédsági mátrixa milyen
+viszonyban van a komplementer gráf szomszédsági mátrixával.
+36
+6. Út, vonal, séta, kör
+Ismerkedjünk meg további gráfelméleti alapfogalmakkal. Jelöljük most
+a szemléltető gráf csúcspontjait a latin ábécé nagybetűivel (12. ábra).
+Ábrázolja ez a gráf egy városrész úthálózatát.
+A gráfelméletben útnak
+nevezzük az éleknek olyan
+egymáshoz csatlakozó sorozatát,
+mely egyetlen szögponton sem
+halad át egynél többször. Ez
+természetesen azt is jelenti, hogy
+minden élen legfeljebb egyszer
+haladunk át. Például ABDEGH út,
+de az ABDEFDEGIH nem út.
+Vonalnak nevezzük a gráf
+éleinek olyan egymáshoz csatlakozó
+sorozatát, melyben minden él különböző, ám egyes pontokon
+többször is áthaladhatunk. Például AB, BD, DE, EF, FD, DC vonal, de nem
+út. Vonalról van szó, ha egy részgráfot a ceruza felemelése nélkül, minden
+élt csak egyszer érintve meg tudunk rajzolni.
+Még általánosabb fogalom a séta. Sétának nevezzük gráfban az AB,
+BD,... egymáshoz csatlakozó élek sorozatát, ahol az élek és pontok nem
+feltétlenül különbözők. Ha két pont között van séta, akkor biztos, hogy út is
+van.
+Az AB, BD, DC, CA élsorozat a kiindulási pontba visszatérő vonal,
+melyben minden él és pont, a kezdő és végponttól eltekintve, egyszer
+szerepel. Az ilyen élsorozatot körnek nevezzük. Ha egyik pontból a
+másikba két út is vezet, akkor a gráfban biztosan van kör.
+Konkrét feladatokban legtöbbször utakat keresünk, mert azok száma
+véges, és általában rövid úton szeretnénk egyik pontból a másikba jutni.
+Legyen A a gráf szomszédsági mátrixa, akkor a K(k) = AP
+k
+P , azaz az A
+mátrix k-tadik hatványaként kapott mátrix K(k)BijB (ij indexű) eleme, a gráf i
+pontjából a j pontjába vezető k hosszúságú séták számát adja. Itt a séta
+hosszán az i ponttól a j csúcspontig történő haladás közben bejárt élek
+számát kell érteni. Valóban, maga a szomszédsági mátrix is ezt mutatja:
+mely szögpontból melyik szögpontba lehet egyetlen élen haladva eljutni.
+Nyilvánvalóan abba a szögpontba, amelyikkel közvetlenül össze van kötve
+éllel. Nehezebb átlátni a mátrix önmagával való többszöri beszorzása
+eredményeként kapott mátrix elemeinek értelmét. A mátrixok szorzása
+12. ábra
+37
+megértésének egyszerűsítése céljából
+lássunk egy könnyen érthető
+példát, s az általánosítás érdekében
+tekintsünk el a mátrixok négyzetes
+voltától.
+Példa. Legyen K, L, M három
+ország, melyek egyes városai között
+vonat-összeköttetés van. Legyenek K
+országban KB1B, KB2B, KB3B, KB4B; L országban
+LB1B, LB2B, LB3B és M országban MB1B és MB2B
+városok. Az egyes városok között
+közlekedő vonatok számát írjuk rá a
+városokat jelző pontokat összekötő
+szakaszokra megfelelően. (13. ábra).
+Bár az ábra is eléggé áttekinthető,
+mátrixok segítségével is ábrázolhatjuk
+az utazási lehetőségeket. Lássuk először a K-ból L-be közlekedő vonatokat
+(ha KBiB és LBjB között nem közlekedik vonat, akkor 0-t írunk a megfelelő
+helyre). Ábrázoljuk táblázattal és A-val jelölve mátrixként:
+A mátrix i-edik sorának j-edik eleme azt mutatja, KBiB-ből hány vonat
+megy LBjB-be.
+Tekintsük most az L-ből M-be menő vonatokat. A megfelelő mátrixot
+jelöljük most B-vel:
+Ebben a mátrixban az i-edik sor j-edik eleme azt mutatja, hogy LBiB
+városból hány vonat megy MBjB városba.
+13. ábra
+2
+1
+2
+1
+3
+1
+2
+3
+2
+2
+3
+1
+2
+3
+2
+KB1B
+KB2B
+KB3B
+TKTB4B
+LB1B
+TLTB2B
+TLTB3B
+MB1B
+MB2B
+LB1B LB2B LB3B
+KB1B 2 1 0
+KB2B 1 0 2
+KB3B 2 3 1
+KB4B 0 3 2
+2 1 0
+1 0 2
+2 3 1
+0 3 2
+A
+⎛ ⎞
+⎜ ⎟
+= ⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+M1 M2
+L1 2 3
+L2 1 2
+L2 3 2
+2 3
+1 2
+3 2
+B
+⎛ ⎞
+=⎜ ⎟ ⎜ ⎟
+⎜ ⎟
+⎝ ⎠
+38
+Ábránk szerint K országból M országba csak valamelyik L-beli városon
+át juthatunk el. Most azt kérdezzük, hogy hány különböző módon juthatunk
+el KB1B-ből MB1B-be.
+Tekintsünk az ábrára, ebből a választ le tudjuk olvasni. Ha KB1B-ből LB1B-
+be megyünk, az kétféleképpen lehetséges, innen ugyancsak kétféleképpen
+utazhatunk MB1B-be. Ez tehát 2⋅2 lehetőség.
+KB1B-ből LB2B-be egy vonatjárat van, LB2B-ből MB1B-be ugyancsak egy. Így ezen
+az úton csak 1⋅1 módon juthatunk MB1B-be.
+KB1B-ből nem vezet vonat LB3B-ba, így KB1B-ből LB3B-an át MB1B-be jutni 0
+lehetőség. (Írhatnánk 0⋅3-at is, mert LB3B-ból három lehetőség van MB1B-be
+jutni.)
+Összesen tehát 2⋅2+1⋅1+0⋅3 = 5 különböző lehetőségünk van arra,
+hogy KB1B-ből MB1B-be utazzunk.
+A feladatot általánosabban megfogalmazva:
+határozzuk meg az itt látható táblázat
+elemeit, ahol cBijB az a szám, amely azt mutatja,
+hogy KBiB-ből hány különböző módon juthatunk el
+MBjB-be.
+Tudjuk, hogy cB11B=5. Határozzuk meg
+például a cB22B-t!
+Írjuk egymás mellé az A, B és a C mátrixokat!
+Már ismerjük a cB11B meghatározásának módját:
+cB11B = 2⋅2 + 1⋅1 + 0⋅3 = 5= aB11B ⋅bB11B+aB12B ⋅bB21B+aB13B ⋅bB31B,
+és a feladat alapján hasonló módon számítjuk ki a cB22B-t:
+cB22B = 1⋅3 + 0⋅2 + 2⋅2 = 7, vagyis
+cB22B = aB21B ⋅bB12B+aB22B ⋅bB22B+aB23B ⋅bB32B.
+Ha az A és B mátrixokat figyelmesen megnézzük, azt vesszük észre,
+cB11B-et úgy kapjuk, hogy az A mátrix első sorának elemeit a B mátrix első
+oszlopának megfelelő elemeivel megszorozzuk, és a kapott három
+kéttényezős szorzatot összeadjuk. Ugyanezt látjuk a cB22B esetén is.
+MB1B MB2B
+KB1B cB11B cB12B
+KB2B cB21B cB22B
+KB3B cB31B cB32B
+KB4B cB41B cB42B
+2 1 0
+1 0 2
+2 3 1
+0 3 2
+A
+⎛ ⎞
+⎜ ⎟
+= ⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+2 3
+1 2
+3 2
+B
+⎛ ⎞
+= ⎜ ⎟ ⎜ ⎟
+⎜ ⎟
+⎝ ⎠
+11 12
+21 22
+31 32
+41 42
+c c
+c c
+C
+c c
+c c
+⎛ ⎞
+⎜ ⎟
+= ⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+39
+Két mátrixból íly módon előállított új mátrixot az előbbiek szorzatának
+nevezzük. Mellőzve a mátrixok szorzatának más tartalmi vonatkozásait
+(más értelmezését) definiáljuk két mátrix szorzatát:
+Az A m*n típusú és a B n*p típusú mátrix A⋅B szorzatán azt a C m*p
+típusú mátrixot értjük, melyben
+cBijB = aBi1B ⋅ bB1jB + aBi2B ⋅ bB2jB + …+ aBinB ⋅bBnjB
+i = 1, 2, …m; j = 1, 2, …, p.
+Mint látjuk, a szorzás definíciója nem bármely két mátrixra vonatkozik,
+hanem csak olyanokra, ahol az első tényezőnek annyi oszlopa van, ahány
+sora a másodiknak. A példában szereplő A és B mátrixok szorzata az itt
+látható mátrix:
+A mátrixok szorzásának fontos tulajdonsága, hogy nem kommutatív,
+vagyis A⋅B ≠B⋅A, ugyanakkor asszociatív, tehát (A⋅B)⋅C= A⋅(B⋅C). A
+gráfokat leíró szomszédsági mátrixok hatványozása szempontjából ez
+fontos.
+Könnyen belátható, hogy a UnégyzetesU (mert azok!) szomszédsági
+mátrixok hatványozása önmagával történő többszöri beszorzással
+egyszerűen megoldható.
+Legyen adva egy négypontos egyszerű gráf, melynek szomszédsági
+mátrixa A. Jelöljük csúcspontjait rendre arab számokkal. Így ezek
+azonosíthatók a gráf mátrixának sor- és oszlopszámaival (14. ábra).
+Számoljuk ki a K(2)=AP
+2
+P és a K(3)=AP
+3
+P mátrixokat:
+T14.T ábra
+0 1 1 0
+1 0 1 1
+1 1 0 1
+0 1 1 0
+A
+⎛ ⎞
+⎜ ⎟
+= ⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+1
+2
+3
+4
+5 8
+8 7
+10 14
+9 10
+C
+⎛ ⎞
+⎜ ⎟
+= ⎜ ⎟
+⎜ ⎟
+⎜⎜ ⎟⎟
+⎝ ⎠
+40
+Ezen mátrixok elemei a sor és oszlopszámoknak megfelelő
+szögpontok között való közlekedés közben két, illetve három élen történő
+áthaladások számát adják. A kapott mátrixok ugyan úgy, mint az
+irányítatlan gráfok szomszédsági (csúcs-) mátrixai, szimmetrikusak a
+főátlóra vonatkoztatva. Egyszerű próbálkozással könnyű észrevenni, itt
+nem a bejárható utak számát, hanem a séták számát kaptuk meg.
+Amennyiben az i-tedik pontból a j-tedikbe vezető k=1,2,..n-1 (egy n
+szögpontú gráfban nem lehet hosszabb) lépéses utak számát szeretnénk
+tudni, rögzíteni kell a séta közben érintett pontokat, s csak azokat tartani
+meg, melyekben minden érintett szögpont csak egyszer fordul elő.
+Informatikai vetélkedők feladatai között gyakran találkozunk olyan
+feladatokkal, melyek a legrövidebb utak meghatározását tűzik ki célul
+bizonyos csomópontok között. Ábrázoljuk a csomópontokat és az őket
+összekötő utakat súlyozott gráffal, ahol az élekhez számok vannak
+rendelve. A konkrét feladattól függően a gráf lehet irányítatlan vagy akár
+irányított. Többféle algoritmus létezik a probléma megoldására (Warshall
+algoritmus, Dijkstra algoritmus, stb.). Példaként ismerkedjünk meg a
+Warshall algoritmussal.
+Legyen adott egy egyszerű öt szögpontú súlyozott gráf (15. ábra).
+Szomszédsági mátrixát jelöljük A-val. Számítógépes megoldás esetén a ∞
+jelek helyére írjunk megfelelően nagy számokat (pl. 1e+10). A végtelenek
+az él nélküli pontpárokat jelölik.
+2 3
+2 1 1 2 2 5 5 2
+1 3 2 1 5 4 5 5
+(2) ; (3)
+1 2 3 1 5 5 4 5
+2 1 1 2 2 5 5 2
+K A K A
+⎛ ⎞ ⎛ ⎞
+⎜ ⎟ ⎜ ⎟
+= = ⎜ ⎟ = = ⎜ ⎟
+⎜ ⎟ ⎜ ⎟
+⎜⎜ ⎟⎟ ⎜⎜ ⎟⎟
+⎝ ⎠ ⎝ ⎠
+1
+2
+3
+5 4
+6
+2
+3
+4
+1
+7
+0 3 6
+3 0 2 7 1
+6 2 0
+7 0 4
+1 4 0
+A
+⎛ ∞ ∞⎞
+⎜ ⎟
+⎜ ⎟
+= ⎜ ∞ ∞⎟
+⎜ ⎟
+⎜∞ ∞ ⎟
+⎜∞ ∞ ⎟ ⎝ ⎠
+15. ábra
+41
+Vezessünk be egy új mátrix műveletet:
+A[k]BijB = min{A[k-1]BijB, A[k-1]BikB + A[k-1]BkjB}, …….(*)
+ahol a A[k] a mátrixok sorozata k=1..n-ig számítandó, ahol n az A mátrix
+mérete (n*n) , és A[0] = A. Vagyis a súlymátrixból kiindulva (k=0) rendre
+előállítjuk az A[1], A[2], …, A[n] mátrixokat a (*)-al jelölt képlet szerint: az új
+– magasabb sorszámú mátrix – (ij) indexű elem értékéül az előző mátrix
+(ij)-edik eleme, valamint az (ik) és (kj) indexű elemek összegének
+összevetése után a kisebbiket vesszük.
+Az A[n]-re kapott eredmény-mátrix a legrövidebb utakat adja!
+Esetünkben n=5. A súlymátrix alapján az ötödik menetben k=5-re a
+következő mátrixot kapjuk:
+Ez a keresett útmátrix. A harmadik sor negyedik oszlopának eleme
+a[5]B34B=7 például azt jelenti, hogy a gráf 3-as szögpontjából a 4-esbe vezető
+legrövidebb út hossza 7 egységnyi (3-2-5-4 pontokon át).
+7. Összefüggő gráfok
+Egy gráfot összefüggőnek mondunk, ha bármely pontjából bármely
+másik pontjába eljuthatunk úton (elég azt megállapítani, hogy egy
+tetszőlegesen kiválasztott
+pontjából az összes többihez vane
+út). Az eddig vizsgált gráfok
+mind összefüggőek voltak, míg a
+16. ábrán a gráf nem összefüggő.
+Ha egy gráf nem összefüggő,
+akkor van olyan pontja, melyből
+nem vezet út minden másik
+pontba. Azt látjuk, hogy a gráf
+16. ábra darabokra esik szét. A gráf egy
+0 3 5 8 4
+3 0 2 5 1
+[5] 5 2 0 7 3
+8 5 7 0 4
+4 1 3 4 0
+A
+⎛ ⎞
+⎜ ⎟
+⎜ ⎟
+= ⎜ ⎟
+⎜ ⎟
+⎜ ⎟
+⎜ ⎟
+⎝ ⎠
+42
+darabja az összes olyan pontok (és az őket összekötő élek) halmaza,
+melyek kölcsönösen elérhetők úton. Ezt a gráf egy összefüggő
+komponensének nevezzük.
+A gráfelméletben általában elegendő az összefüggő gráfokat vizsgálni,
+hiszen a komponensek külön-külön tanulmányozhatók.
+Vizsgáljuk meg az összefüggő gráffal kapcsolatban a következő
+problémát!
+Ha egy gráf A pontjából eljuthatunk úton a B pontba és a B-ből is
+eljuthatunk úton a C-be, vajon eljuthatunk-e A-ból a C-be ugyancsak úton?
+Nézzük a 17. ábrát!
+Ha elmegyünk A-ból a B-be és B-ből a C-be, akkor ugyan eljutunk Aból
+C-be, de nem biztos, hogy úton.
+A-ból B-be a következő úton megyünk: AD, DE, EF, FB.
+B-ből C-be menjünk a következő úton: BF, FE, EC.
+Az AD, DE, EF, FB, BF, FE, EC nem út, hanem séta. Ugyanakkor van
+megoldás a problémára: ha A-ból B-be és B-ből C-be vezet út, akkor vezet
+út A-ból C-be is. Valóban az A-ból B-be vezető úton menjünk el addig, míg
+az először metszi a B-ből C-be vezető utat (ez esetleg maga az A pont is
+lehet). E ponttól a B-ből C-be vezető úton haladjunk C-ig. Így jutunk el Cbe,
+és sem él, sem út nem ismétlődhetett.
+Hasonlóan látható be, hogy ha A és C között vezet séta, akkor vezet
+út is.
+Tegyük fel, hogy A és B között vezet séta. Ha nincs a sétának olyan
+pontja, melybe kétszer érkezünk, akkor ez a séta - út. Ha van olyan pont,
+melybe kétszer (többször) érkezünk, akkor a két odaérkezés közötti sétát
+elhagyva rövidítettük a sétát. Ezt mindaddig megtehetjük, míg van olyan
+csúcs, melybe kétszer érkezünk. Így véges sok rövidítés után olyan
+17. ábra
+43
+sétához jutunk, melyben már nincs olyan pont, melybe kétszer jutunk, így
+utat kapunk.
+GYAKORLÓ FELADAT
+Adott egy összefüggő gráf, melyben van egy kör. Mutassuk meg, hogy
+ennek a körnek bármely élét elhagyva, a gráf összefüggő marad!
+8. Fák, erdők
+Jelképezzék egy gráf pontjai valamely város középületeit, élei pedig az
+azokat összekötő utakat. Természetes követelmény, hogy ez a gráf
+összefüggő legyen, azaz minden pontból minden másik pontba úton el
+lehessen jutni. A városban takarékos emberek laknak, ezért a lehető
+legkevesebb utcát építették meg, azaz a legkevesebb éllel rendelkező
+olyan gráfot, mely még összefüggő.
+Ebben a gráfban nem lehet kör (lásd az előző paragrafus feladatát).
+Így az úthálózat egy összefüggő körmentes gráf.
+Az összefüggő, körmentes egyszerű gráfokat fának nevezzük. Fa
+látható a 18.a) ábrán; kétcsúcsú fa a 18.b) ábrán; háromcsúcsú a 18.c)
+ábrán.
+Az olyan nem összefüggő gráfot, melynek összefüggő komponensei
+fák, erdőnek nevezzük.
+Érdemes felsorolnunk a fák néhány jellegzetes tulajdonságát.
+Fában két pont között pontosan egy út létezik. Létezik, mert a gráf
+összefüggő, és pontosan egy, mert ha kettő lenne, kör is lenne.
+18. ábra
+44
+Ha fához hozzáteszünk egy élt, már nem lehet fa. Az (i j) él
+hozzávételével ugyanis kört kapnánk, hiszen eddig is volt a két csúcs
+között út, és most lett még egy, tehát kör keletkezett.
+Fából egy élt elhagyva már nem lehet fa. Ha ugyanis fa lenne, akkor
+abba az iménti élt visszatéve megint csak fát kapnánk (az eredetit), ami az
+elõzõ bekezdés szerint nem lehet.
+Úgy is fogalmazhatnánk, hogy adott számú szögpontú fa a lehetõ
+legkevesebb élt tartalmazza, ami szükséges az összefüggőséghez.
+A 18. ábrán látható fák mindegyikében van elsőfokú pont. Vajon
+minden esetben így van ez? Válasszuk a fa egy tetszőleges pontját,
+nevezzük A-nak (ez lehet elsőfokú vagy akármilyen más), és induljunk el
+valamely irányba (a ponthoz illeszkedő valamely élen – legalább egy ilyen
+él van, merthogy a gráf összefüggő). Mivel nincs kör, így soha nem
+térhetünk vissza olyan pontba, ahol egyszer már jártunk ezért a gráf
+végessége miatt az útnak egyszer vége lesz. Nem tudunk tovább menni,
+azaz ez a pont elsőfokú. Legyen ez a B pont. Most ebből a B elsőfokú
+pontból indulva, ugyanilyen módon, ismét lesz vége a körmentes gráfnak,
+kapunk egy újabb elsőfokú pontot, amely lehet az A (ha elsőfokú volt), vagy
+valamely más, például a C. Ebből következik:
+Egynél többpontú fában van legalább két elsőfokú pont.
+Lássuk most az alapkérdést. Meg tudjuk-e mondani, hogy egy n-pontú
+fának, hány éle van?
+A 18. ábrán látható esetekben:
+a 8-pontúnak 7 éle van;
+a 2-pontúnak 1 éle van;
+a 3-pontúnak 2 éle van.
+Igazoljuk, hogy általában: n-pontú fának n-1 éle van.
+19. ábra
+45
+Ez könnyen bizonyítható teljes indukcióval.
+n=1-re igaz az állítás – az 1-pontú fának 0 éle van. Tegyük fel, hogy igaz kpontú
+fára, és igazoljuk, hogy akkor igaz k+1-pontúra is. Növeljük a k-pontú
+fát egy ággal. Mivel a fa körmentes, összefüggő, egyszerű gráf, így a fa
+bármely választott pontjából csak egy új, eddig nem létező pontba
+húzhatunk egy élt. Eggyel nőtt a fa pontjainak száma, és eggyel nőtt az
+élek száma is, így az állítás igaz.
+A fák alkalmasak arra, hogy számrendszereket szemléltessenek
+Különösen nagy szerepük van az úgynevezett bináris fáknak, melyek
+a kettes számrendszert szemléltetik. Itt egy pont egy kérdést jelent, melyre
+igaz vagy hamis a válasz, és e szerint megyünk tovább a bal vagy a jobb
+oldali élen (19. ábra).
+Példaként ábrázoljuk bináris fával azt az algoritmust, mely három
+szám közül kiválasztja a középsőt! Itt a kérdés a fa csúcspontja mellett
+feltüntetett számpárok viszonyának igaz vagy hamis volta (20. ábra). A fa
+valamely téglalappal jelzett elsőfokú pontja tartalmazza a választ (a konkrét
+számadatoktól függően).
+GYAKORLÓ FELADATOK
+1. Rajzoljunk olyan 5 csúcspontú gráfokat, melyeknek 2 harmadfokú
+és 3 negyedfokú pontja van. Hány éle van a rajzolt gráfoknak?
+Sorszámozzátok meg a csúcsaikat, és adjátok meg csúcs-(szomszédsági-)
+valamint élmátrixaikat!
+2. Hány olyan 5 csúcspontú gráf van, ahol a csúcsok fokai rendre:
+1,2,2,3,3?
+20. ábra
+46
+3. Egy sakkversenyen bármely játékos játszik bármely másik
+játékossal. Bizonyítsuk be, hogy a verseny bármely szakaszában van két
+olyan versenyző, akik addig azonos számú játszmát játszottak!
+4. Bizonyítsuk be, hogy ha a G összefüggő gráf csúcsainak száma
+n>=2 és éleinek száma n-nél kevesebb, akkor van elsőfokú csúcsa is!
+5. Bizonyítsuk be, hogy ha n számú telefonközpont közül bármely
+kettő között létesíthető összeköttetés, akkor van legalább n-1 számú
+közvetlen összeköttetés is!
+6. Egy sakkbajnokságra n csapat nevezett be, s eddig n+2 mérkőzést
+játszottak le. Mutassuk meg, hogy van közöttük legalább egy csapat, mely
+legalább 3 mérkőzést már lejátszott.
+7. Igazoljuk, hogy a G összefüggő egyszerű gráf akkor és csak akkor
+marad összefüggő egy élének törlése után, ha van a G-nek olyan köre,
+mely tartalmazza ezt az élt.
+8. 1-től N-ig (N<100) sorszámozott metróállomást K<100-nál számú
+alagút köt össze. A metróállomások telefonvonalakkal való összeköttetése
+céljából ki kell jelölni a telefonközpont helyét, ahonnan, majd kábeleket
+fektetnek valamennyi állomásig. Határozzuk meg a központ helyét, ha azt
+akarjuk, hogy a legtávolabbi állomásig húzódó kábel hossza a lehető
+legrövidebb legyen.
+Adatok: N,K, valamint S[i,j] az [i] és [j] állomásokat összekötő alagút
+hossza.
+9. Adott a város valamennyi autóbusz-járatának menetrendje.
+Lehetőség van közlekedni átszállással is. Határozzuk meg: az A megállótól
+a B buszmegállóig tartó utazás időtartamát úgy, hogy ez az idő minimális
+legyen.
+47
+Kiegészítő olvasmány
+A fejezet 5. pontjában megismerkedtünk a Warshall algoritmussal,
+mely lehetővé teszi a legrövidebb távolság meghatározását adott gráf
+szögpontjai között. A feladat fontosságára való tekintettel tekintsük át most
+röviden a klasszikusnak számító Ford algoritmust (bizonyítás nélkül,
+példával illusztrálva). Ennek lényege a következő egyszerű tény:
+amennyiben ismert két szögpont között vezető legrövidebb út, úgy ezen út
+bármely két pontja között vezető út, mint az előbbi út része, szintén a
+legrövidebb lesz.
+A Ford algoritmus segítségével
+meghatározható a gráf egy
+tetszőlegesen választott pontjából az
+összes többi szögpontba vezető
+legrövidebb út hossza.
+Nézzük lépésről lépésre a
+végrehajtást:
+1. lépés. Sorszámozzuk az n
+szögpontú gráf szögpontjait rendre:
+1, 2, 3,…,n. 1-el jelöljük azt a pontot,
+amelyiktől a többi pontba vezető legrövidebb utakat kívánjuk meghatározni.
+Hozzuk létre a gráf súlymátrixát. Mintapéldánkban ábrázoljuk most azt
+táblázattal (a. tábla). Ha két pont között nincs összeköttetés, a megfelelő
+cellát hagyjuk üresen. Vegyük észre, hogy az adott táblázattal ábrázolt
+mátrix szimmetrikus a főátlóra vonatkoztatva, vagyis a gráf irányítatlan.
+10 13
+10 11
+13 17 10
+17 16 12
+10 11 15
+16 11 15 10
+11 12 15
+15 10
+a. tábla
+1
+2
+7
+4
+3 5
+8
+6
+10
+13
+10
+11
+11
+12 15
+10
+17
+16
+15
+21. ábra
+48
+2. lépés. A táblázat első sora elé, és első oszlopa fölé is, írjunk 0-t.
+Most nézzük végig balról jobbra a bejelölt sort, és amint számot tartalmazó
+cellát találunk, adjuk ezt a számot a sorjelző számhoz, és írjuk az összeget
+azon oszlop fölé, melynek cellájában a számot találtuk. Ezután tükrözzük
+az oszlopok fölé írt számokat a tábla főátlójára vonatkoztatva. Ekkor újabb
+sorok kapnak jelzőszámot. Valamennyi újonnan jelzőszámmal bejelölt
+sorral hajtsuk végre a 0 jelzésű sorral az imént végzett műveletet. Tartsuk
+be a következő szabályt: amelyik oszlop fölött már van szám, azt ne
+változtassuk. Minden alkalommal, amikor új oszlopjelző számot írtunk be,
+tükrözzük azt a főátlóra vonatkoztatva. A műveletsor akkor ér véget, ha
+már minden sor jelzőszámot kapott.
+A mintapélda-táblázatnak ezt az állapotát a b. tábla mutatja.
+3. lépés. Eredeti sorszámuk (1, 2, 3, …) növekvő sorrendjében nézzük
+végig a táblázat sorait balról jobbra, s amint a sor valamely cellájában
+számot találunk, adjuk azt hozzá a sorjelző számhoz, és hasonlítsuk össze
+a kapott összeget a cella oszlopa fölött található jelzőszámmal.
+Amennyiben az összeg kisebb, mint az oszlopjelző szám, úgy az
+oszlopjelző számot lecseréljük az összegre. Ha az összeg nem kisebb az
+oszlopjelző számnál, úgy csere nem történik.
+Valamennyi sorral végezve, az új oszlopjelző számokat tükrözzük a
+tábla főátlójára vonatkoztatva. A lépés műveleteit mindaddig ismételjük,
+amíg a sorok végignézésekor már nem változnak az oszlopjelző számok. A
+c. táblán már feltüntettük (a tábla bal szélén és felső sorában) a kapott új
+sorjelző és oszlopjelző számokat.
+0 10 13 30 23 46 21 38
+0 10 13
+10 10 11
+13 13 17 10
+30 17 16 12
+23 10 11 15
+46 16 11 15 10
+21 11 12 15
+38 15 10
+b. tábla
+49
+4. lépés. Az új oszlopjelzők alapján megkaphatjuk az 1-es pont és a
+többi pont között vezető legrövidebb utat. Válasszunk egy tetszőleges k
+sorszámú szögpontot. 1) Az 1-esből a k-adik pontba vezető legrövidebb út
+hossza a k-adik oszlop új oszlopjelző száma. 2) Az utolsóelőtti (k-adik)
+pontot ezen az úton a következőképpen találjuk meg: a k-adik oszlopban
+megkeressük azt a számot, mely a sorjelző számával összeadva az új
+oszlopjelző számot adja. Legyen ez a szám az l-edik sorszámú sorban.
+Akkor az 1-es pontból a k-adikba pontba vezető úton az utolsóelőtti pont az
+l-edik. Az l-edik előtti pontot úgy kapjuk, hogy az l-ediket tekintjük
+utolsónak. A mintapéldában legyen k=6. Akkor az 1-esből a 6. pontba
+vezető legrövidebb út hossza 34. Az utolsóelőtti pont pedig l=5 (mivel
+23+11=34, a 11-es pedig az 5. sorban van).
+0 10 13 30 23 34 21 38
+0 10 13 30 23 46 21 38
+0 0 10 13
+10 10 10 11
+13 13 13 17 10
+30 30 17 16 12
+23 23 10 11 15
+34 46 16 11 15 10
+21 21 11 12 15
+38 38 15 10
+c. tábla
+50
+FÜGGELÉK
+RÖVIDÍTÉSEK
+Rövidítés MA G Y A R Á Z A T
+4GL Negyedik generációs programozási nyelv
+A/D Analog/Digital
+AAC Advanced Audio Coding: MPEG-4 szabványon alapuló audió
+tömörítő eljárás
+ActiveX A Microsoft interaktív technológiáinak gyűjteménye, olyan
+utasításkészlet, amely objektumok használatát vezérli
+ADSI
+Active Directory Services Interface: Microsoft Windows
+hálózati rendszerben hierarchikus címtárszolgáltatás csatolója
+az NDS, LDAP (lásd ott) felé
+ADSL
+Asymmetric Digital Subscriber Line: Nagysebességű digitális
+adatátviteli technológia hagyományos vagy ISDN
+telefonvonalon, 384-1500 kbit/s letöltési és 64-384 kbit/s
+feltöltési sebességgel
+AGP
+Accelerated Graphics Port: A legújabb szabványos
+csatlakozófelület az alaplapra helyezhető kártyák számára.
+Általában grafikai kártyákat helyeznek el benne. Sebessége
+0.512 - 1.1 GB/s.
+Algol Algorithmic Language - A 60-as években elterjedt algoritmikus
+nyelv
+ALU
+Aritmetic Logic Unit: Aritmetikai logikai egység. A számítógép
+központi egységének része, amely aritmetikai és logikaiműveleteket
+és velük kapcsolatos más műveleteket hajt
+végre. Rendszerint fixpontos bináris összeadóból,
+komplementálóból, léptető regiszterből és logikai műveleteket
+végző részből áll
+ANSI
+American National Standards Institute: Mai elnevezése az
+1918-ban ASA (American Standard Association), majd USASI
+(United States of America Standard Institute) néven alapított
+szabványügyi szervezetnek. Alapvető feladata az USA ipari
+szabványainak kidolgozása. Az USA képviselője az ISO-ban
+API
+Application Programming Interface: Alkalmazói program
+interfész. Szabványos programkörnyezet, melyet az operációs
+rendszer is használ. Biztosítja az alkalmazások számára is az
+egységes állomány- és perifériakezelést
+51
+APU
+Aritmetic Processing Unit: Az alaplapon található
+segédprocesszor (koprocesszor v. társprocesszor), amely a
+lebegőpontos műveletek gyors elvégzésére képes
+ARPANet Az Internet elődje. 1969-ben indult a Defense Department's
+Advanced Research Projects Agency anyagi támogatásával
+ASCII
+American Standard Code for Information Interchange:
+Amerika szabványos kód információcserére. Összesen 128
+különféle karaktert (betűket, számokat, különleges és vezérlő
+karaktereket) ábrázol, egyenként 7 bit + 1 paritásbit
+használatával. A mikroszámítógépekben a paritásbit
+alkalmazása helyett további 128 karaktert szoktak definiálni
+ASPI Advanced SCSI Programming Interface: továbbfejlesztett
+SCSI programozási interfész
+AT Advanced Technology - Fejlett technológia
+ATX Alaplap specifikáció, az energiaellátás és felépítés
+szabványosítására
+AVI
+Audio Video Interleave: Ebben az állományformátumban
+tárolja a "Video for Windows" a videoklipjeit. A név onnan
+származik, hogy a kép és hangadatokat ezekben az
+állományokban összesorolva tárolják. A képet és a hangot kis
+adagokban váltakozva rögzitik a tárolóeszközön
+Basic
+Beginner All-purpose Symbolic Instruction Code: Kezdők
+általános célú szimbólikus utasításkódja. Mintegy 30
+változatot megért programozási nyelv
+Baud
+(Olv. bod) Egység, amely az adatátvitel sebességét méri. Egy
+baud egy bit átvitelét jelenti másodpercenként (Lásd még:
+bps). Ugyancsak a moduláció sebességének mértékegysége,
+értéke egy jelszintváltás másodpercenként
+BBS
+Bulletin Board System: Hirdetőtábla rendszer. Központ az
+üzenetek elektronikus tárolására. Modem segítségével érhető
+el.Ugyancsak egy kommunikációs szoftver, mely segítségével
+olvashatunk ill. írhatunk információt a partner számítógépén
+BCC
+Blind Carbon Copy (vakmásolat): Ha úgy akaruk elküldeni
+valakinek egy levél másolatát (e-mail - Internet), hogy az
+eredeti címzett erről ne tudjon, akkor a BCC: sorba kell a
+címet beírni. Ez a sor a címzettnél nem jelenik meg, tehát ő
+nem tudja, ki kapott még másolatot a levélből
+BCD Binary Coded Decimal: Binárisan kódolt decimális ábrázolás
+BIOS Basic Input Output System: Alapvető rendszerprogram a
+perifériák kezelésére
+52
+bit Binary Digit: Kettes számrendszer számjegye: 0 vagy 1
+BMP BitMaP: A Windows pixelgrafikus (bittérképes) tárolási
+módszere
+BNC Koaxiális kábel csatlakozó
+bps
+Bit per second: Az egy másodperc alatt továbbított bitek
+számát adja. Az adatátvitel sebességének mértékegysége
+CAD Computer Aided Design: Számítógéppel támogatott tervezés
+CAM Computer Aided Manufacturing: Számítógéppel támogatott
+gyártás
+CCITT
+Comité Consultatif Internationale de Télégraphique et
+Téléphonique: Nemzetközi Távíró és Távbeszélő Bizottság
+nevének rövidítése. A bizottság a Nemzetközi Távközlési Unió
+(ITU) szerve, amely az ENSZ egyik szakosított szervezete. A
+CCITT a telefon és adatforgalmazó rendszereket az egész
+világra kiterjedően koordinálja. Műszaki ajánlásai gyakran
+nemzetközileg is elfogadott szabvánnyá válnak. Új neve ITU-T
+CD-R CD-Recordable: Egyszer írható CD kompaktlemez, 80 v. 120
+mm, 210 vagy 540/650/700/800 MB
+CD-ROM Optikai, csak olvasható digitális kompaktlemez és meghajtó
+szabványa. 80 v. 120 mm-es CD olvasására alkalmas
+CD-RW CD-Rewritable: Újra írható Compact Disc (kompaktlemez)
+CFG Configuration. A konfigurációs fájlok szokásos kiterjesztése
+CGM Computer Graphics Metafile: Vektorgrafikus adatformátum
+CIS
+Contact Image Sensor: Lapolvasó érzékelőjének típusa.
+Egyetlen lapkát használ, egyszerű optikával és világító
+diódákkal
+CISC Complex Instruction Set Computer: Komplex utasításkészletű
+processzor (Lásd RISC)
+CMOS
+Complementary Metal Oxide Semiconductor: 1) Félvezető
+gyártási technológia. 2) A számítógép speciális tárolóegysége,
+amely információkat tárol a gép konfigurációjáról
+CMYK Cián, bíborvörös, sárga és fekete alapszínek, melyből a
+nyomtatók a színes képeket összeállítják
+CNR
+Communication and Networking Riser: Csatlakozóaljzat (slot)
+modem, hálózati kártya részére a számítógép alaplapján
+COBOL
+Common Business Orientated Language: Elsősorban
+gazdasági, ügyviteli feladatok megoldására alkalmas
+programnyelv. Ma már kevésbé használják
+CP/M
+Control Program / Monitor: Elavult operációs rendszer az Intel
+8080 és 8085, valamint a Zilog Z80 processzorokkal működő
+számítógépekhez
+53
+CP852 Code Page Latin II: Kelet-európai kódtáblázat (lap), mely
+tartalmazza a magyar ékezetes karaktereket is (MSZ)
+cpi Characters per inch - Karakter/coll. A nyomtatási sűrűség
+mértéke
+cps Characters per second: Az adatátviteli sebesség
+mértékegysége
+CPU
+Central Processing Unit: Központi (vezérlő egység)
+processzor. A számítógép azon egysége, amely az
+utasítások értelmezését és végrehajtását vezérlő áramköröket
+tartalmazza
+CRC Cyclic Redundancy Check: Hibaellenőrző eljárás
+DBF Data Base File: Adatbázisok adatfájljainak szokásos
+kiterjesztése
+DD Double Density - Dupla sűrűség. Hajlékony mágneslemezek
+minőségjelzője
+DDR Double Data Rate: Kétszeres adatsebességű SDRAM
+DHTML
+Dynamic Hypertext Markup Language: a HTML kiterjesztése
+olyan új elemekkel, melyek a weboldalak tartalmának
+mozgalmasabbá tételét szolgálják (pl. mozgó feliratok,
+animációk), így nincs szükség a lassabb Java vagy ActiveX
+programokra
+DIMM Dual Inline Memory Module: kétoldalú memória modul
+(egység)
+DIP Dual In-line Package: IC tokozási mód ill. ilyen felépítésű
+kapcsolósor
+DLL Dynamic Link Library: Program futása közben behívható
+modul
+DMA
+Direct Memory Access: Speciális adatátviteli eljárás, amely
+lehetővé teszi adatok közvetlen cseréjét az operatív memória
+és a periféria között anélkül, hogy a központi vezérlőegység
+beavatkozását igénybe venné. (UDMA - Ultra DMA)
+DNS Domen Name System: Az Interneten az IP-címeket és a
+domain-neveket összerendelő rendszer
+DPI Dots Per Inch: Pont/coll felbontás tűs nyomtatók esetében
+Draft Vázlat minőségű nyomtatás (Piszkozat)
+Drag&
+Drop Húzz és engedj el: Kijelölés és mozgatás egérrel
+Drag&
+Plot Húzz és rajzolj, egérrel grafika becsúsztatása
+54
+DRAM
+Dinamic Random Access Memory: (Dinamikus RAM) Olyan
+olcsó memória melynek elérési ideje hosszabb a RAM-énál és
+állandó frissítést igényel (dinamikus). Bitenként egy
+tranzisztort és egy kondenzátort tartalmaz. A kondenzátort 15
+ms-onként újra kell tölteni
+DRW A Micrografx, a Charisma, a Designer vagy a Windows Draw
+programok vektorgrafikus adatformátuma
+DS Double Sided: (Dupla Oldalas) hajlékony mágneslemez
+jellemző
+DTP DeskTop Publishing: Kiadványszerkesztés
+DVD
+Digital Versatile Disc: Új CD szabvány, több információs
+réteggel is ellátható, típustól és kapacitástól függően mindkét
+oldaláról olvasható adathordozó. 4,7/9,4/17- GB adat
+tárolására képes
+EAN kód European Article Number Code: Árucikkek azonosítására
+használt, 8 v. 13 jegyű vonalkód szabványa
+EBCDIC
+kód
+Főleg nagyszámítógépes rendszerekben használt 8 bites
+kódkészlet, betűk, írásjelek és vezérlőkarakterek kódolására
+EDO Extended Data Out: Memória típus
+EDODRAM
+Extended Data Output DRAM: 35 ns-os RAM, nem kell
+frissíteni, vezérlését az Intel Triton chip támogatja
+EIDE Enhanced IDE: Továbbfejlesztett IDE Winchester kontroller
+szabvány
+e-mail Elektronikus posta
+EMM Expanded Memory Manager: Kibővített memóriakezelő
+EMS Expanded Memory Specification: Kibővített memória (max. 32
+MB)
+ENIAC
+Electrial Numerical Integrator and Computer: J. W. Mauchly/J.
+P. Eckert (tanácsadó: Neumann János) által 1946-ban
+üzembehelyezett első elektrónikus számítógép
+EOF End Of File: Fájl vége
+EPROM Erasable Programmable Read Only Memory: Törölhető és
+programozható ROM
+ESC Escape: Menekülés, vagy Epson Standard Code for printers -
+Nyomtató operációs rendszer
+EXE Execute: Jelentése - végrehajt
+55
+FAQ
+(GYIK) Frequently Asked Questions: GYakran Ismételt Kérdések
+FAT
+File Allocation Table: Állományok elhelyezési táblázata.
+Mágneslemez foglaltsági térképe a szabad, foglalt és hibás
+clusterek jelölésére, mely a lemezen a 0. oldal 0. sávja 2.
+szektorától kezdve helyezkedik el, általában két példányban
+FD Floppy Disk: Hajlékony mágneslemez
+FDD Floppy Disk Drive: Hajlékony lemezmeghajtó
+FF Form Feed: Lapdobás
+FLOPS Floating-point Operations Per Second: Lebegőpontos
+művelet/másodperc
+Floptical
+21 MB kapacitású magneto-optikai cserélhető tároló lemez,
+melynek meghajtója kezeli a 1.44 MB-os mágneslemezeket is,
+vezérlője SCSI
+FMP
+Fast Page Mode: elsősorban a régebbi 486-os gépekben
+használt RAM. Ezt a DRAM (Dinamic Random Access
+Memory) és az EDO (Extended Data Out), majd a SDRAM
+(Syncronized DRAM) memóriák követték
+FPU Floating Point Unit: Lebegőpontos processzor
+FSB Front Side Bus: A CPU-t az operatív tárral összekötő
+adatvezeték
+FTP File Transfer Protocol: Egy program az állományok átvitelére
+a Hálózaton
+Gateway Átjáró: Berendezés, amely két különböző protokollt használó
+hálózat között továbbítja az információt
+GB Gigabyte. Kapacitás-egység. Értéke 2^30 bájt, kb. egy milliárd
+bájt
+GDI Grafics Device Interface: Windows nyomtatónyelve, közvetlen
+a képernyő információit nyomtatja
+GIF Graphic Interchange Format (A CompuServe cég pixelgrafikus
+adatformátuma.)
+GNU UNIX kompatibilis, ingyenes operációs rendszer
+kifejlesztésére létrejött amerikai alapítvány
+GPS Global Positioning System: Műholdas hely-(koordináta)
+meghatározás
+56
+GPT
+Globálisan egyedi azonosítók partíciós táblája. Itanium alapú
+számítógépeken az EFI (Extensible Firmware Interface)
+csatoló által használt lemezparticionálási séma. Előnye a fő
+rendszertöltő rekordon (Master Boot Record, MBR) alapuló
+particionálással szemben az, hogy lehetővé teszi lemezenként
+akár 128 partíció létrehozását; támogatja továbbá az akár 18
+exabájtos (azaz 18 trillió bájtos) kötetméretet, elsődleges és
+tartalék partíciós tábla használatát a redundancia biztosítása
+érdekében, valamint az egyedi lemez- és partícióazonosítókat
+(GUID)
+GSM
+Global System for Mobil communication: Mobil Távközlés
+Általános Rendszere. Jelenleg kiépítés alatt álló egységes
+Európai digitális rádiótelefon rendszer a 900 MHz-es
+frekvenciasávban. A rendszer beszédszolgáltatásokon kívül a
+tervek szerint fakszimile és mobil számítógépes
+kommunikációt is biztosítani fog. A plusz szolgáltatásokon
+kívül az előfizetők részére nagy előny a hagyományos analóg
+készülékekkel szemben, hogy a rendszerhez csatlakoztatott
+telefon és adatterminálok Európa egész területén
+használhatók lesznek
+GUI Graphical User Interface: Grafikus felhasználói (kezelő) felület
+hang up Jelentése - visszatesz. Amikor egy modem "leteszi a kagylót"
+HD High Density: - Magas sűrűség. Hajlékonylemez
+minőségjelzője
+HDD Hard Disk Drive: Merevlemez meghajtó
+HLP Help: Segítség. Súgó fájlok kiterjesztése
+HMA High Memory Area: Felső memória terület 1024-1088 K között
+HTML
+Hypertext Markup Language: A Web oldalak készítéséhez
+használatos kódolási rendszer, amivel hipertext kapcsolatok,
+beillesztett képek stb. definiálhatók. Az Internet WWW-jének
+szabványos hypertext leíró nyelve
+HTTP
+Hypertext Transport (Transfer) Protocol: A World-Wide Web
+szolgáltatók egymáshoz és a felhasználókhoz való
+kapcsolásához használt rendszer, kommunikációs szabvány,
+hypertext dokumentumok gyors és hatékony megjelenítésére
+tervezték
+hyperlink
+Egy olyan megoldás, amivel két Internet információforrás
+összekapcsolható úgy, hogy a felhasználó csak rámutat egy
+szóra vagy képre, és ezzel aktivizálja az utalást
+57
+Hz Hertz: a frekvencia mértékegysége: egy rezgés (impulzus)
+másodpercenként
+I/O Input / Output: Bemenet / Kimenet
+IBM International Business Machines: Nemzetközi üzleti célú
+gépek
+IC Integrated Circuit: Integrált áramkör
+ICO Icon - ikon- (piktogram) állományok kiterjesztése
+IDE
+Integrated Disk Environment v. Integrated Drive Electronics:
+Winchester kontroller szabványa, a Conner Peripherials cég
+fejlesztése, ahol a vezérlő áramkörök nagyobb része a
+meghajtón van
+IMAP Internet Message Access Protocol: lehetővé teszi a kiszolgáló
+levelezőszerverén tárolt üzenetek elérését
+IMG Image: Kép. GEM program pixelgrafikus adatformátuma
+IP Internet Protocol
+IPX Internetwork Packet eXchange: Novell NetWare hálózati
+protokoll
+IRC Internet Relay Chat: Irásos csevegés, hasonló a talk-hoz, ám
+többen társaloghatnak egyidőben
+IRQ Interrupt Request: Megszakítás-kérés
+ISA
+Industry Standard Architecture: A CPU és a perifériák
+összekötésére szolgáló adatsín (busz) szabványa, 16 bit/8
+MHz, 6 MB/sec
+ISDN
+Integrated Services Digital Network: Olyan, mint a
+hagyományos telefonvonalas összeköttetés, de más
+(drágább) modemet használ és sokkal gyorsabb
+ISO International Standard Organization: Nemzetközi
+Szabványügyi Szervezet
+Itanium 64 bites memóriacímzésű Intel mikroprocesszor
+JAVA
+A SUN Microsystem által kifejlesztett objektumorientált,
+hardver- és szoftverfüggetlen programozási nyelv, interaktív
+Internet-kezelő
+Java-
+Script
+A JavaScript (hívják Mocha és Netscape Scripting Language
+néven is) olyan programozási nyelv, amelynek segítségével a
+HTML-oldalt programozhatjuk. Átmenet az egyszerű HTMLoldalak
+és a Java között
+JPEG
+Joint Photographic Experts Group: Tömörítő eljárás álló videó
+képek tárolására. 8x8 képpontos blokkokra bontja a képet és
+a blokkok 64 pixelének jellemzőit a bal felső sarokban levő
+képponthoz való viszonyuk alapján írja le. 20:1 tömörítési
+arány érhető el
+58
+Jumper Átkötő kapcsoló (sor)
+KB Kilobyte = 1024 Byte
+Kbit Kilobit = 1024 bit
+Kernel
+Mag. Az operációs rendszer legalsó szintje, központi része.
+Meghatározza, hogy mikor melyik programrész fusson, vezérli
+a perifériákat, biztosítja a fájlrendszert
+LAN Local Area Network: Helyi hálózat. Általában egy épületen
+vagy telephelyen belüli számítógép hálózat
+LCD Liquid Cristal Display: Folyadék-kristályos kijelző (képernyő)
+LDAP
+Lightweight Directory Access Protocol: Különböző
+platformokon megvalósított címtárak, adattárak szabványos
+közös kezelője
+LED Light Emitting Diode - Világítódióda (Fénydióda)
+LF Line Feed: Soremelés
+LIM Lotus - Intel - Microsoft
+log on/
+log in
+Bejelentkezés egy szolgáltató gépre vagy egy nyilvános
+hálózati ellátó rendszerébe
+LQ Letter Quality: Levél minőségű nyomtatás
+LSI Large Scale Integration: magas integráltsági fokú áramkör
+MAC Macintosh
+MAN
+Metropolitan Area Network: Nagyvárosi telekommunikációs
+hálózat, mely kb. 50 km átmérőjű kör lefedésére alkalmas.
+Használják mind adat, mind beszéd, video stb. átvitelére
+MB Magabyte = 2^20 Byte (1 048 576 Byte)
+MBR
+Master Boot Record: A merevlemez első szektora. Itt található
+a rendszerindító
+program és a partíció (lemezfelosztás) információja
+MCI
+Media Control Interface: A Windows által használt
+közegvezérlő multimédiás perifériák és állományok
+kezelésére
+MD Make Directory: Új könyvtár (mappa) létrehozása
+MDA Monochrom Display Adapter
+MEM Memory
+MGA Multimedia Graphics Architecture: 64 bites videó gyorsító
+kártya
+59
+MHz Megahertz
+MIDI
+Musical Instruments Digital Interface: Szabványos zenei
+szintetizátor leírónyelv és adatátviteli protokoll, amely
+egységes adatcserét tesz lehetővé a számítógép és az
+elektronikus zenei eszközök között
+MIME
+Multipurpose Internet Mail Extensions: Olyan szoftver,
+amelynek segítségével Internetes levelekhez nem szöveges
+fájlokat lehet csatolni
+MIPS Million Instruction Per Second: Másodpercenként végrehajtott
+millió utasítások száma
+Modem
+Modulátor - Demodulátor: Számítógépeket a soros porton
+telefonvonal segítségével összekötő vagy a számítógépbe
+bővítőkártyaként beszerelt berendezés
+MPC Multimedia Personal Computer
+MPEG
+Motion (Moving) Pictures Experts Group: Tömörítő eljárás
+mozgó (30 képkocka/sec) videó képek tárolására, minimum
+50:1 a tömörítési arány
+Multimйdia
+Olyan konfiguráció, amely tartalmaz CD-ROM-ot, sztereó
+hangkártyát hangszórókkal, MIDI interfészt, mikrofon
+bemenetet és nagyfelbontású színes VGA vagy SVGA kártyát
+Multiprocessing
+Egy számítógépben több processzor alkalmazása,
+párhuzamos, szimultán - egyidejű - programfuttatás
+megvalósítása
+Multitasking
+Több feladat párhuzamos végrehajtása ugyanazon a
+számítógépen
+NDS
+Novell Directory Service: A számítógépes hálózat
+komponenseinek adatait hierarchikus adatbázisban
+(címtárban) tároló rendszer
+Network Hálózat. Két vagy több számítógépet összekötő
+kommunikációs rendszer
+NLQ Near Letter Quality: Közel levél minőségű nyomtatás
+Notebook Könyvméretű hordozható számítógép
+NTFS Windows NT, Windows XP állományrendszere
+OCR Optical Character Recognition: Optikai karakter-felismerés
+offline Amikor a számítógép nincs hozzákapcsolódva a Hálózathoz,
+ill. egy szolgáltató géphez sem, akkor offline állapotban van
+60
+OLE Object Linking and Embedding: Különböző programokból
+származó adatrészletek összekapcsolása és kezelése
+On-line
+Közvetlen vonali kapcsolat. Az az állapot, amikor a
+számítógép hozzá van kapcsolódva egy hálózati
+szolgáltatóhoz, faliújság rendszerhez vagy nyilvános hálózati
+ellátóhoz
+OOP Object Oriented Programming: Objektum orientált
+programnyelv
+OpenGL A Silicon Graphics programozási környezete két- és
+háromdimenziós alkalmazások fejlesztéséhez
+OS Operating System: Operációs rendszer
+OS/2 IBM PC grafikus kezelőfelületű, multitaszkos, 32 bites
+operációs rendszer
+Overlay Többszörös memória felhasználás
+Palmtop Palm = tenyér. Tenyérnyi számítógép
+Paritásbit
+Valamely bitvektorhoz rendelt redundáns - vagyis új
+információt nem tartammazó - bit, amely a bitvektor
+átvitelénél a vevőoldalon hibajelzést tesz lehetővé. Értéke 0
+vagy 1, amely attól függ, hogy a bitvektor összege páros vagy
+páratlan
+PAS Pascal fájlok kiterjesztése
+PC Personal Computer: Személyi számítógép
+PC/AT Personal Computer / Advanced Technology
+PC/XT Personal Computer / eXtended Technology
+PCI
+Peripheral Component Interconnect: Az Intel által kifejlesztett
+processzorfüggetlen adatsín (busz), mely magasabb
+frekvencián dolgozik, mint elődje (ISA). A CPU és a perifériák
+összekötésére szolgál: 64 bit/33 MHz, 120 MB/s
+PCMCIA
+Personal Computer Memory Card International Association:
+Szabványos memóriakártya bővítő és egyéb periféria
+csatlakozó (68 pólus). Típusai: I (3.3 mm), II (5 mm) és III (10
+mm vastag)
+PCX ZSoft Paintbrush pixelgrafikus adatformátuma
+PIF
+Program Information File: Információs fájl egy adott
+programhoz, amely a nem Windows-os alkalmazás, Windows
+alatti futási környezetét írja le
+Pixel Picture Element: Képpont
+61
+Plug &
+Play
+Csatlakoztasd és (játssz) használd: Automatikus
+hardverfelismerés és -konfigurálás
+plug-in
+Ez az angol kifejezés a böngészőbe beépülő
+segédprogramokat takar, amelyek segítségével speciális
+tartalmakat működtethetünk a böngészőnkkel. Például audio
+vagy video fájlokat játszhatunk le egy külön erre alkalmas
+szoftver elindítása és a böngésző bezárása nélkül. Ezek a
+tartalmak MIME (Multipurpose Internet Mail Extensions) típusú
+fájlok, melyek közös jellemzője, hogy nem szöveges
+formátumúak. A képektől (például .gif) az audio fájlokon
+(például .wav) keresztül a videoinzertekig (például .avi)
+sokféle MIME fájl létezik, közös jellemzőjük, hogy
+alkalmazhatóak az internetböngészőn, "applikálva"
+PNG
+Portable Network Graphics: grafikai formátum, amelyet
+kifejezetten hálózati használatra fejlesztettek ki, figyelembe
+véve annak minden specialitását, ám ma még egyetlen nagy
+böngésző sem támogatja
+POP3
+server
+Post Office Protocol: Incoming - Bejövő levél szerver / a
+postahivatal funkcióját ellátó szerver neve, az a cím, ami az email
+címben a @ után szerepel
+POST Power-On Self Test - Önteszt a bekapcsolás után
+Post-
+Script
+Vektororientált lapleíró programozási nyelv lézernyomtatók
+vezérléséhez (Adobe cég). A nagyítás és kicsinyítés nem jár
+torzítással
+PPP
+Point to Point Protocol: Az Internet eléréséhez általánosan
+használt szabványos protokoll a soros porton keresztül
+történő kommunikációhoz. Meghatározza az adatcsomagok
+átvitelének módját a modemet használva
+PROLOG
+Programming in Logic: Logikai programnyelv, amelyet
+elsősorban a mesterséges intelligencia-kutatásokhoz
+használnak
+PS/2 Personal System/2. Az IBM 1987-ben az IBM PC/AT
+leváltására tervezett gépcsalád
+QWERTY Angolszász billentyűkiosztás
+QWERTZ Európai billentyűkiosztás
+RAM
+Random Acces Memory: Közvetlen hozzáférésű memória
+(írható-olvasható), csak feszültség alatt tartja meg az
+információt
+RDRAM Rambus DRAM: A RambusInc. Cég által kifejlesztett gyorselérésű
+dinamikus memória. A memóriamodul neve RIMM
+62
+Real-Time Valós idejű feldolgozás
+REM Remark: Kommentár
+RGB Red-Green-Blue = Vörös-Zöld-Kék. A három alapszín
+átvitelével és szuperpoziciójával előállított színes kép
+RISC Reduced Instruction Set Computer: Csökkentett
+utasításkészletű processzor típus
+ROM Read Only Memory: Csak olvasható memória, feszültség
+nélkül is tárol
+Router
+Útkiválasztó: Berendezés, amely két vagy több azonos
+protokollt használó, térben elkülönülő lokális hálózat között a
+megfelelő helyre továbbítja az információt
+RS-232 Interfész-szabvány a soros illesztés mechanikai, elektromos,
+funkcionális és eljárási paramétereire
+RTF Rich Text Format: gazdag szövegformátum
+SAA Systems Application Architecture: Szabványos felhasználói
+felület (IBM)
+Scanner Papírról szöveget illetve grafikát a számítógépbe beolvasó
+eszköz
+SCSI
+Small Computer System Interface: Multitaszkos periféria I/O
+vezérlő szabványa, amely winchesterek, CD-ROM-meghajtók,
+floppy-disk-meghajtók és más tárolóeszközök
+csatlakoztatására szolgál. Az SCSI csatlakozó-kártya
+egyszerre max. 7 (vagy 15) eszközzel képes fenntartani a
+kapcsolatot. Adatátviteli sebessége 1,5 MB/s. A Fast SCSI
+sebessége 10 MB/s
+SD Single Density: Egyszeres sűrűség. Elavult floppy
+minőségjelző
+SDRAM
+Syncronized DRAM: Gyors memória-modul tipusneve.
+Ugyanazon a frekvencián dolgozik, mint a processzor
+vezérlősine
+server
+Olyan számítógép, mely információkat vagy teljes
+állományokat tud automatikusan elküldeni megfelelően
+szövegezett e-mail-kérésekre válaszul
+Shareware
+Szabadon terjeszthető program, mely sok esetben csak
+demo, vagy csökkentett teljesítményű változat, gyakran csak
+megadott ideig működik és általában az adathordozó árát és a
+regisztrációs díjat kell megfizetni. - A Hálózaton szabadon
+hozzáférhető szoftver, ám ha használni akarjuk, akkor illik
+küldeni egy megszabott összeget arra a névre és címre, ami a
+szoftverrel együtt terjesztett file-ban megtalálható
+63
+SIMM Single In-line Memory Module: Egyoldalú-érintkezős memória
+chip
+SIPP Single Inline Plugging Package: Memóriatokozási szabvány,
+nem kompatibilis a SIMM-el
+SLIP
+Serial Line Internet Protocol. Egy olyan szabvány, amivel a
+telefonvonalon át kapcsolódó otthoni számítógépek is Internet
+gépekké tehetők. A számítógépek TCP/IP-is kommunikációját
+biztosítja modem felhasználásával
+SMTP Simple Mail Transport Protocol – Az Interneten elektronikus
+levelek küldésére használt szabványos protokoll
+SMTP
+server Outgoing - Kimenő levél szerver
+Spooler Háttérnyomtatást lehetővé tevő program
+SQL
+Structured Query Language: strukturált lekérdezőnyelv.
+Használható a relációs adatbázisok, mint például az Access
+adatbázisok lekérdezésére, frissítésére és karbantartására
+SRAM
+Gyorselérésű memória. Az SRAM mikroséma statikus RAM.
+Nem igényel frissítést, adatelérési ideje 25 ns. Bitenként négyhat
+tranzisztort tartalmaz. Előállítása drágább, mint a DRAM
+memória előállítása. Ebből készítik a külső és a processzorok
+belsejében lévő gyorsítótárat
+SVGA SzuperVGA grafikus kártya szabvány 640x480-tól 1024x768
+pixel-ig, 16 illetve 256 színtől, a video RAM méretétől függően
+Sysop System operator: Rendszerfelügyelő (kezelő)
+Tab Tabulator
+Talk A talk program segítségével az Interneten keresztül két
+felhasználó "beszélgetést" folytathat egymással
+TCP/IP
+Transmission Control Protocol / Internet Protocol: Az a
+speciális szabvány, illetve rendszer, amely az Internet magját
+alkotó hálózatokon az információk átvitelét előirja/végzi. (UNIX
+környezet hálózatkezelő protokollja.)
+Telnet Ezzel a programmal lehet az Interneten más
+számítógépekhez hozzákapcsolódni
+TGA A True Vision Targa cég pixelgrafikus adatformátuma
+TI Texas Instruments
+TIFF Aldus cég (Tagged Image File Format) pixelgrafikus
+adatformátuma
+64
+TIGA Texas Instruments Graphics Architecture
+TMP Temporary - Ideiglenes
+TOC Table Of Contents: Tartalomjegyzék
+Token
+Ring
+IBM által kifejlesztett vezérjeles protokollú, gyűrű topológiájú
+hálózat
+TPI Track Per Inch: Sáv/coll adatrögzítési sűrűség
+Trackball Hanyattegér. A tetején lévő golyó forgatásával lehet a
+képernyőn látható mutatót mozgatni
+True Type
+Fontok skálázására és nyomtatására szolgáló technológia,
+melyben a karakterek ugyanolyan formában jelennek meg a
+nyomtatón, mint a képernyőn
+TSR Terminate but Stay Resident: Memóriarezidens program
+ULS User Location Service: Keresőszolgáltatás az Interneten
+UMB Upper Memory Block: Felső memória terület, 640-1024,
+általában 768 és 960 KB között
+UNIX
+Időosztásos, multitasking (többfeladatos), multiprocesszoros,
+többfelhasználós, osztott adatállományokat használó, nyílt
+operációs rendszer
+UPS Uninterruptable Power Supply: Szünetmentes áramforrás
+URL
+Uniform (Universal) Resource Locator: Egységes Forrás
+Azonosító. A World-Wide Web rendszernél használt címzés a
+hálózati információforrásokhoz
+USB Universal Serial Bus
+VESA
+Video Electronics Standards Association: A CPU és a
+perifériák összekötésére szolgáló adatút (sín, busz)
+szabványa, 32-64 bit/40-50 MHz, 132-> MB/sec. (Ugyanaz a
+cég neve is)
+VGA
+Video Graphics Array: Grafikus kártya szabvány 320x200
+vagy 640x480 pixel, illetve 256 vagy 16 szín a videó RAM
+méretétől függően
+VRML
+Virtual Reality Markup Language: Virtuális Valóság. Ez a
+technika dolgok, tárgyak valósághű megjelenítését teszi
+lehetővé. A Virtuális Valóság segítségével akár egy távoli
+múzeumban akár az emberi testben sétát tehetünk, a weboldalon
+keresztül
+VxD Virtuális eszközmeghajtó
+65
+WAN
+Wide Area Network: Széles területre kiterjedő hálózat.
+Általában egy vagy több országot, országrészt lefedő
+számítógép hálózat
+WAP
+Wireless Application Protocol: "drótnélküli alkalmazási
+protokoll". A mobiltelefonnal foglalkozó cégek által kidolgozott
+szabvány, amely a WWW-hez hasonló egységes
+dokumentumelérést biztosít mobiltelefonról
+WINS Windows Internet Naming Service
+WKS Worksheet - Munkatábla
+WMF Windows metafájl vektorgrafikus adatformátum
+WMI Windows Management Instrumentation szolgáltatás
+WORM Write Once Read Many: Egyszer írható, tetszőlegesen
+olvasható optikai tároló
+WPG Word Perfect pixel-, vagy vektorgrafikus adatformátuma
+WRI Write szövegformátum
+WWW World-Wide Web vagy csak Web vagy WWW (világméretű
+háló)
+WYSIWYG What You See Is What You Get: Amit látsz azt kapsz (pl.
+nyomtatón)
+X modem Állandó (128 bájt) méretű blokkal dolgozó adatátviteli protokoll
+XGA
+eXtended Graphics Array: Grafikus kártya szabvány,
+640x480-tól 1280x1024 pixel-ig, illetve16.7 milliótól 256 színig
+a video RAM méretétől függően
+XML XML = eXtensible Markup Language: a weben adatok
+leírására és továbbítására használt szabványos nyelv
+XMM eXtended Memory Manager: Kiterjesztett memóriakezelő
+XMS eXtended Memory Specification: Kiterjesztett memória, az
+1088 K felett
+XT eXtended Technology: Bővített technológia
+Z modem Változó blokkmérettel dolgozó adatátviteli protokoll
+66

@@ -1,0 +1,196 @@
+﻿Bevezetés
+Az információs és kommunikációs eszközök (a továbbiakban IKT-eszközök) és
+technológiák mára az élet szinte minden területén meghatározó jelentőséggel bírnak,
+és alapvetően befolyásolják a lakosság körülményeit, valamint az üzleti szféra lehetőségeit,
+versenyképességét. Alkalmazásuk nem pusztán az informatikai eszközök
+felhasználását, hanem a fejlett hálózati szolgáltatások nyújtotta lehetőségek kihasználását
+is jelenti, ezért tanulmányozásuk különösen időszerű.
+Európa a globális versenyben elért pozíciójának javítása érdekében nagy
+hangsúlyt helyez az információs szektor fejlesztésére. 2000-ben az EU vezetői azt
+tűzték ki célul, hogy 2010-re az unió a világ legfejlettebb tudásalapú társadalmává és
+gazdaságává váljék. Ennek elérésére dolgozták ki az eEurope-programot, melyben
+meghatározták a célok eléréséhez szükséges irányelveket. Úgy ítélték meg, hogy a
+célok megvalósulásában az információs és kommunikációs technológiának kulcsszerepe
+van.
+Az információs társadalom iránt nemcsak az európai döntéshozók, hanem a
+hazai felhasználók is fokozott érdeklődést mutatnak. Fontos ismerni a lakosság viszonyulását
+az informatikai eszközökhöz, hiszen ezek alapján lehet annak érdekében
+következtetéseket levonni, döntéseket hozni, hogy a társadalom mind jobban ki
+tudja használni az információs eszközök által nyújtott lehetőségeket, előnyöket. Az
+üzleti szektor által használt IKT-technológiák tanulmányozása szintén fontos, hiszen
+a számítógépes hálózatok mind szélesebb körben való elérhetősége, az internet és
+az általa elérhető szolgáltatások elterjedésének növelése feltétele a gazdaság növekedésének,
+a versenyképesség fenntartásának.
+Az IKT-eszközök lakossági felhasználásáról a 2005. évi mikrocenzust követően
+– európai uniós kötelezettség alapján – évi rendszerességű felvétel nyújt információkat.
+Az adatgyűjtés az eszközhasználatot a lakosság életkora, iskolai végzettsége,
+gazdasági aktivitása, illetve a foglalkozás jellege alapján vizsgálja. A vállalkozások
+IKT-eszköz használatát megfigyelő adatgyűjtés 2001-ben kezdődött, és azóta
+a tapasztalatok és az uniós elvárások nyomán számos átalakításon esett át. A vizsgálat
+kiemelt figyelmet fordít az üzleti szektor számítógép- és internethasználatára,
+valamint az általuk üzemeltetett honlapok elterjedtségére. Az adatfelvétel a – közigazgatás
+intézményei nélküli – tíz főnél többet foglalkoztató gazdasági szervezetekről
+nyújt információkat, melyek túlnyomó többsége vállalkozás.
+A kiadvány célja, hogy mind társadalmi, mind üzleti oldalról bemutassa az IKTeszközök
+magyarországi elterjedtségét, illetve rávilágítson az eszközhasználatban
+megfigyelhető regionális különbségekre. A lakossági felhasználás mutatóinak nemzetközi
+összehasonlításával külön fejezet foglalkozik.
+Az infokommunikációs eszközök elterjedtségének regionális különbségei
+- 3 -
+Összefoglaló
+A szolgáltatók, a háztartások és a gazdasági szervezetek regionális adatai
+egyaránt azt mutatják, hogy az IKT-eszközök hazai terjedése területi vonatkozásban
+differenciáltan valósul meg melyben számos, egymással összefüggő gazdasági, társadalmi,
+demográfiai tényező játszik szerepet.
+A szolgáltatók adatai alapján – melyek a háztartások és a gazdasági szervezetek
+adatait egyaránt tartalmazzák – az ezer lakosra számított internet-előfizetések
+száma 2008 végén térségenként 123 (Észak-Alföld) és 241 (Közép-Magyarország)
+között szóródott. Az átlagosnál magasabb ellátottság Közép-Magyarország mellett
+Közép-Dunántúlt jellemezte, ahol az utóbbi három évben a legdinamikusabb volt a
+változás.
+Az előfizetések kapcsolattípus szerinti struktúrája szintén jelentős regionális eltéréseket
+mutat. Az összességében leggyakoribb xDSL-hálózat részaránya Közép-
+Magyarországon, valamint a Dunántúl régióiban a legszámottevőbb. A szintén népszerű
+kábeltelevízió-hálózaton keresztüli internetkapcsolat Dél-Alföldön belül a legjelentősebb.
+A vezeték nélküli hálózat Észak-Alföldön és Észak-Magyarországon képviseli
+a legnagyobb súlyt, ugyanakkor igen alacsony arányú a központi régióban.
+Az egyre csökkenő vezetékes telefonos szolgáltatások területén 2008-ban az
+ezer lakosra jutó fővonalak átlagosnál magasabb mutatói Közép-Magyarországot és
+Nyugat-Dunántúlt, illetve a legalacsonyabb értékek az Alföld régióit jellemezték. Országosan
+ezer lakosra 311 vezetékes fővonal jutott, és e mutató régiók szerint 238–
+409 között szóródott.
+A folyamatosan fejlődő hazai kábeltelevízió-hálózat régiós ellátottsági mutatói
+ugyancsak nagymértékben szóródnak, és Észak-Alföld lemaradását jelzik.
+Az IKT- eszközök hazai terjedését a háztartások körében jelentős területi különbségek
+jellemzik. Ugyanakkor Közép-Magyarország e tekintetben legtöbb területen
+(asztali, hordozható, kézi számítógépek, internet-hozzáférések) kimutatható ellátottsági
+fölénye 2008-ban valamelyest mérséklődött.
+A háztartásokban használt internetkapcsolat-típusok egyértelműen a szélessávú
+elérések térhódítását mutatják. Ezen belül a DSL-vonalak kiépítése Közép-
+Magyarországon és a három dunántúli régióban a jellemzőbb, a két alföldi régióban
+és Észak-Magyarországon ugyanakkor a DSL-en kívüli, szélessávúnak minősülő
+kapcsolattípusok az elterjedtebbek. A csökkenő jelentőségű keskenysávú technológia
+aránya már csak Dél-Dunántúlon magas, feltételezhetően az aprófalvas településszerkezet
+miatt.
+A háztartások körében tapasztalható digitális területi megosztottságot – mely
+Közép-Magyarország kedvezőbb helyzetét mutatja – leginkább az eszközhasználat
+elterjedtsége, vagyis a számítógépet, internetet használó lakosság arányának regionális
+különbségei tükrözik, az egyéni használat jellemzői (a használat helye, gyakorisága,
+tanfolyamokon való részvétel) ugyanakkor kevésbé régióspecifikusak.
+www.ksh.hu
+- 4 -
+Európai uniós összehasonlításban vizsgálva a háztartások IKT-ellátottsága és
+az egyéni használat szintje a hazai régiókat tekintve még többségében elmarad az
+EU-27 átlagától, egyedül Közép-Magyarország mutatóinak nagy része éri el azt.
+A fejlett tudásalapú társadalomban és gazdaságban az IKT-technológiák mind
+szélesebb körben való elérhetősége feltétele a gazdaság növekedésének és a versenyképesség
+fenntartásának. Ezért az üzleti szféra esetében ezen eszközök használatának
+tanulmányozása mind inkább előtérbe kerül.
+Az IKT-eszközök, -technológiák közül a személyi számítógépek és munkaállomások,
+valamint a mobiltelefonok elterjedtsége a legnagyobb: 2008-ban Magyarországon
+a vállalkozások egyaránt 90%-a használta ezeket az eszközöket. Az alapvető
+IKT-eszközök (PC, mobiltelefon és internet) használati mutatói régiónként alig
+különböznek. Kisebb területi eltérések azonban jelzik a térségek társadalmi és gazdasági
+helyzetét. A honlappal rendelkezés és az egyéb hálózatok (vezetékes és vezeték
+nélküli lokális hálózat, nagytávolságú hálózat, intranet, extranet) alkalmazásában
+azonban lényeges különbségek vannak a térségek között: Közép-Magyarország
+előnye a honlappal rendelkezés esetében nagyobb, illetve a fejlettebb középdunántúli
+és nyugat-dunántúli régiók mutatói is kedvezőbbek, míg szembetűnő a déldunántúli
+és a dél-alföldi régiók lemaradása.
+A személyi számítógépek, mobiltelefonok és a vezetékes lokális hálózat hazai
+alkalmazása a szervezeteknél az utóbbi években alig változott, az internet, a vezeték
+nélküli lokális hálózat és a nagytávolságú hálózat használata viszont egyre gyakoribbá
+vált a vállalkozások körében. Az internetezés és az elektronikus levelezés elterjedtsége
+különösen az Alföldön emelkedett, a vezeték nélküli lokális és a nagytávolságú
+hálózatok, valamint az extranet alkalmazásának aránya pedig a központi régióban
+nőtt az átlagosnál is nagyobb mértékben.
+Az IKT-eszközök ágazati elterjedtsége összefügg az egyes tevékenységek jellegével,
+illetve az arra jellemző szervezeti struktúra sajátosságaival. Legnagyobb
+arányban a pénzügyi közvetítés; villamosenergia-, gáz-, gőz-, vízellátás; egészségügy
+gazdasági ágak szervezetei használják azokat. Ezen túl az egyes gazdasági
+ágak terén kisebb-nagyobb régiós sajátosságok figyelhetők meg.
+Az IKT-eszközök használatának vállalkozásméret szerinti vizsgálatából megállapítható,
+hogy az elterjedtség a nagyobb létszámú szervezeteknél magas fokú és a
+vállalkozások méretének csökkenésével egyre kisebb. E téren nem számottevőek a
+regionális különbségek.
+Az internetkapcsolat típusát tekintve a szervezetek közel fele xDSL-vonalas
+hozzáféréssel rendelkezett, amely minden régióban a fő csatlakozási típust jelentette
+2008-ban. Részaránya Közép-Magyarországon a legkisebb (47%). Ugyanakkor a
+központi régióban a bérelt vonal (12%) és a mobilkapcsolat (13%) szerepe nagyobb,
+mint a többi régióban.
+Az internet-hozzáféréssel rendelkező vállalkozások döntő része elektronikus
+levelezésre (95%), információkérésre (89–90%), valamint banki és pénzügyi szolgáltatások
+igénybevételére (80%) használta a kapcsolatot, mérsékelt területi különbségek
+mellett.
+Az infokommunikációs eszközök elterjedtségének regionális különbségei
+- 5 -
+A vállalkozások saját honlapján a potenciális szolgáltatások közül a termék- és
+szolgáltatásinformációk nyújtása (a honlappal rendelkező szervezetek 87%-a) és a
+vállalati információkhoz való hozzáférés (80%) a leggyakoribb. A központi régió vállalkozásainak
+honlapjai mindegyik szolgáltatás nyújtásában országos átlag felett, a
+többi régióban pedig átlag alatt, illetve annak közelében teljesítettek. Az is megfigyelhető,
+hogy Közép-Magyarországtól a vidék nem a két fő szolgáltatás, hanem a
+kevésbé elterjedt szolgáltatások gyakoriságában maradt el.
+2007 végén a gazdasági szervezetek 886 ezer számítógéppel rendelkeztek,
+melynek 65%-át a központi régió szervezetei használták.
+A számítógép-állomány összetételének területi különbségeit tekintve az asztali
+számítógépek hányada a központi régió kivételével átlag felett alakult (különösen a
+Dél-Dunántúlon és az Észak-Alföldön, ahol meghaladta a 80%-ot). Ezzel szemben a
+hordozható számítógépek részesedése Közép-Magyarországon volt a legnagyobb
+(18%-os). E régióban a szervezetek nagyobb arányban használtak szervereket, az
+ország többi területén viszont a szerverként működő számítógépek alkalmazása volt
+gyakoribb.
+www.ksh.hu
+- 6 -
+1. Internet-, vezetékestelefon- és kábeltelevízió-hálózat
+Az internet-, a vezetékestelefon- és a kábeltelevízió-hálózat kiépítettségének,
+jellemzőinek regionális különbségeit a szolgáltatóktól származó, területi bontású adatok
+alapján vizsgáljuk. Mindhárom adatkör információi együttesen tartalmazzák a
+háztartások és a gazdasági szervezetek előfizetéseit.
+1.1. Internethálózat
+Az internet elterjedése évről évre szélesebb körű. A fejlődés a korszerűbb
+technológiák térhódítása mellett a szolgáltatók közötti élesedő versenynek és az ebből
+következő csökkenő csatlakozási díjaknak is köszönhető. A változásokat jól mutatja,
+hogy Magyarországon az internet-előfizetések száma 2000 és 2008 között
+megtízszereződött, és 2008 végére meghaladta a 2,3 milliót.
+A területi egységhez nem köthető – az összes előfizetés negyedét kitevő – mobilinternet
+figyelembevételétől eltekintve 2008 végén az internet-előfizetések 40%-a
+Közép-Magyarországon koncentrálódott, és a többi régió az internetelérések
+8–11%-ával rendelkezett. Az ellátottságban tehát számottevő regionális különbségek
+alakultak ki.
+Az ezer lakosra számított internet-előfizetések száma 2008 végén a régiók átlagában
+173 volt. A mutató értéke Közép-Magyarországon volt a legmagasabb (241)
+és Észak-Alföldön a legkisebb (123). A többi régióban pedig 140–179 előfizető jutott
+ezer lakosra. Más aspektusból tekintve ez azt is jelenti, hogy az átlagosnál magasabb
+ellátottság Közép-Magyarország mellett Közép-Dunántúlt jellemezte, ahol az
+utóbbi három évben a legdinamikusabb változás történt.
+1. ábra
+Ezer lakosra jutó internet-előfizetés
+0
+50
+100
+150
+200
+250
+Közép-
+Magy arország
+Közép-
+Dunántúl
+Ny ugat-
+Dunántúl
+Dél-Alföld Dél-Dunántúl Észak-
+Magy arország
+Észak-Alföld
+Előfizetés
+2006 2008
+Az internet-hozzáférési szolgáltatások között jelentős átrendeződés zajlik. Egyre
+többen használják ki valamely szélessávú xDSL-típusú, vezeték nélküli vagy a
+Az infokommunikációs eszközök elterjedtségének regionális különbségei
+- 7 -
+kábeltelevízió-hálózaton keresztüli csatlakozás nyújtotta lehetőségeket, ugyanakkor
+a kapcsolt vonalon történő, azaz a modemes és az ISDN-vonalas elérések tekintetében
+mérséklődés mutatkozik.
+2008-ban a területre bontható előfizetések 46%-a a nagyobb sávszélességet
+biztosító xDSL-hálózatra vonatkozott. A kábeltelevízió-hálózatot igénybe vevő előfizetők
+41%-ot, a vezeték nélkül csatlakozóké 6%-ot tett ki, míg a kapcsolt vonalon
+történő csatlakozás mindössze 1%-ot képviselt.

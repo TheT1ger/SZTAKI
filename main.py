@@ -8,7 +8,26 @@ Created on 2013.06.28.
 
 
 import re
+import argparse
+import os
 
+#Initializing argparser
+parser = argparse.ArgumentParser()
+parser.add_argument("-i",metavar="INPUT", required=True, help="The input text file", type=str)
+parser.add_argument("-o",metavar="OUTPUT", required=True, help="The output text file", type=str)
+parser.add_argument("-l",metavar="LANGUAGE", required=True, help="Language of the text file",type = str)
+args = parser.parse_args()
+
+# Parameter checking
+if not os.path.exists(args.i):
+    print("ERROR: The given input file does not exist.")
+    sys.exit(1)
+else: # Everything seems to be all right
+    #Storing the parameters in variables
+    outputPath= args.o
+    inputPath = args.i
+    
+    
 WordLength=8
 
 # Entry class: a dekódolandó szöveg egy szavát ábrázolja
@@ -470,8 +489,7 @@ def updateAlphabet(coded,real):
 # Szótár 
 dbfile = open('D:\\GitHub\\SZTAKI\\ExpandedDic2.txt','r')
 # Dekódolandó szöveg
-inp='D:\\GitHub\\SZTAKI\\example7.txt'
-inputfile = open(inp,'r')
+inputfile = open(inputPath,'r')
 
 # Szótár 
 db = {}
@@ -610,10 +628,10 @@ print_frequency()
 print()
 print_alphabetic()
 print()
-print(alphabet["i"])
 
 outputstr = str("")
-inputfile = open(inp,'r')
+inputfile = open(inputPath,'r')
+outputfile = open(outputPath,'w')
 
 for line in inputfile:
     for l in line:
@@ -623,7 +641,7 @@ for line in inputfile:
             outputstr = outputstr + l
        
      
-print(outputstr)
+outputfile.write(outputstr)
         
 # while len(text) > 0:
 #     temp = text[0]

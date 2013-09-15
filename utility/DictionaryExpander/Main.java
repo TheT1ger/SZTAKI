@@ -1,12 +1,12 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 
 public class Main {
@@ -14,13 +14,13 @@ public class Main {
 	public static final int MIN_WORD_LENGTH = 2;
 	public static void main(String[] args) {
 		//Input dic
-		String origDicPath = "..\\..\\ExpandedDic.txt";
+		String origDicPath = "..\\..\\HunDic.txt";
 		//Input text
-		String text = "..\\..\\utility\\statistic\\english\\results - Copy\\dorian gray.txt";
+		String text = "..\\..\\utility\\statistic\\hungarian\\linux.txt";
 		//String text = "..\\..\\red hat.txt";
 		
 		//Output dic
-		String newDicPath = "..\\..\\ExpandedDic2.txt";
+		String newDicPath = "..\\..\\HunDic2.txt";
 		
 		try {		
 			String currentLine = null;
@@ -38,7 +38,7 @@ public class Main {
 			br.close();
 			
 			//Beolvassuk a szoveget
-			br = new BufferedReader(new FileReader(text));
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(text),"UTF8"));
 			while ((currentLine = br.readLine()) != null) {
 				
 				//Szavakra bontas
@@ -46,8 +46,10 @@ public class Main {
 					while (index < currentLine.length()
 						   && !Character.isLetter(currentLine.charAt(index))
 						   && currentLine.charAt(index) != ' ') {
-								currentLine = currentLine.replace(
-								Character.toString(currentLine.charAt(index)), " ");
+						currentLine = currentLine.replace(
+						Character.toString(currentLine.charAt(index)), " ");
+						currentLine = currentLine.replace("ô€€¢".charAt(0), ' ');
+
 					}
 				}
 				//Megvannak a szavak
@@ -115,19 +117,19 @@ public class Main {
 	    int sign = 1;
 	    int used = 0;
 	    int i;
-	    // Elõállít egy ugyanolyan hosszú listát, csupa kérdõjellel
+	    // ElÅ‘Ã¡llÃ­t egy ugyanolyan hosszÃº listÃ¡t, csupa kÃ©rdÅ‘jellel
 	    for (i = 0; i < inputWord.length(); i++){
 	        tempPattern.add("?");
 	    }
 	        
-	    // Ha az input adott karaktere megismétlõdik, akkor számmal jelzi minden elõfordulásnál
+	    // Ha az input adott karaktere megismÃ©tlÅ‘dik, akkor szÃ¡mmal jelzi minden elÅ‘fordulÃ¡snÃ¡l
 	    for (i = 0; i < inputWord.length(); i++){
 	        if (tempPattern.get(i) == "?"){
 	            //for j in range(i+1,len(word)):
 	        	for (int j = i + 1; j < inputWord.length(); j++){
 	                if (inputWord.charAt(i) == inputWord.charAt(j)){
 	                    if (used==0){
-	                        // String indexelés
+	                        // String indexelÃ©s
 	                    	tempPattern.add(i, Integer.toString(sign));
 	                    	tempPattern.remove(i+1);
 	                    	
@@ -145,7 +147,7 @@ public class Main {
 	            }
 	        }
 	    }
-	    // Listából string
+	    // ListÃ¡bÃ³l string
 	    String ret = "";
 	    for(String s : tempPattern){
 	    	ret += s;
