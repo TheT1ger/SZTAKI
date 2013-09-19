@@ -417,7 +417,7 @@ def getFrequentLetters():
 
 # Adott kód-betű options listájából, eltávolítja azt, ami a wlist (szólista) szavainak adott index-ű betűi között nem szerepel
 def removeLetters(letter,wlist,index):
-#     if letter == 'q' :
+#     if letter == 'B' :
 #         print('-------')
 #         print(a_info[letter]["options"])
     isRemoved=False
@@ -446,7 +446,7 @@ def removeLetters(letter,wlist,index):
                 else:
                     updateAlphabet(letter, a_info[letter]["options"][0].lower())
        
-#     if letter == 'q' :
+#     if letter == 'B' :
 #         print(a_info[letter]["options"])
 #         lastw.p()
 #         print('-------')
@@ -471,11 +471,23 @@ def reduceOptions(entity):
 
         while i>=0:
             for j in range(0,entity.length):
-                if entity.coded[j] in a_info and entity.options[i][j] not in a_info[entity.coded[j]]["options"] and entity.options[i][j].upper() not in a_info[entity.coded[j]]["options"]:
+                if entity.coded[j] == 'B':
+                    print(entity.options[i][j])
+                    print(entity.options[i])
+                    print(a_info["B"]["options"])
+                    print(a_info["ő"]["options"])
+                    entity.p()
+                    input()
+                if entity.coded[j] in a_info and len(a_info[entity.coded[j]]["options"]) > 0 and entity.options[i][j] not in a_info[entity.coded[j]]["options"] and entity.options[i][j].upper() not in a_info[entity.coded[j]]["options"]:
                     entity.options.remove(entity.options[i])
                     isRemoved = True
                     break
             i=i-1
+        
+        if entity.coded[j] == 'B':
+            print(a_info["B"]["options"])
+            entity.p()
+            input()
 #     print(entity.options)
 #     print('#################')
     return isRemoved
@@ -513,10 +525,10 @@ def deselect(ilist):
 # Ha egy betű options listája 1 hosszú lett, akkor azt beírja az ABC-be (rekurzió!)
 # Szűkíti a szavak options listáját            
 def updateAlphabet(coded,real):
-#     print(coded)
-#     print(real)  
-#     if coded == 'q' :
-#         input() 
+    print(coded)
+    print(real)  
+    if coded == 'B' :
+        input() 
     alphabet[coded]=real
     ### TODO
 #     for e in text:
@@ -703,6 +715,7 @@ for j in range(1,WordLength):
         deselect(textwords[i])
         for e in textwords[i]:
             e.p()
+        input()
 
         
 # print print print, ne sípoljál, printelj
