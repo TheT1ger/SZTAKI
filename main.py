@@ -11,23 +11,30 @@ import re
 import argparse
 import os
 import codecs
+import sys
 
 ## Initializing argparser
-# parser = argparse.ArgumentParser()
-# parser.add_argument("-i",metavar="INPUT", required=True, help="The input text file", type=str)
-# parser.add_argument("-o",metavar="OUTPUT", required=True, help="The output text file", type=str)
-# parser.add_argument("-l",metavar="LANGUAGE", required=True, help="Language of the text file",type = str)
-# args = parser.parse_args()
-# 
-##  Parameter checking
-# if not os.path.exists(args.i):
-#     print("ERROR: The given input file does not exist.")
-#     sys.exit(1)
-# else: # Everything seems to be all right
+parser = argparse.ArgumentParser()
+parser.add_argument("-i",metavar="INPUT", required=True, help="The input text file", type=str)
+parser.add_argument("-o",metavar="OUTPUT", required=True, help="The output text file", type=str)
+parser.add_argument("-a",metavar="ALPHABET", required=True, help="The list of the letters in the language", type=str)
+parser.add_argument("-l",metavar="LANGUAGE", required=True, help="Language of the text file",type = str)
+args = parser.parse_args()
+ 
+#  Parameter checking
+if not os.path.exists(args.i):
+    print("ERROR: The given input file does not exist.")
+    sys.exit(1)
+elif not os.path.exists(args.a):
+    print("ERROR: The given alphabet does not exist.")
+    sys.exit(1)
+else: # Everything seems to be all right
 #     Storing the parameters in variables
-#     outputPath= args.o
-#     inputPath = args.i
-#     
+    outputPath= args.o
+    inputPath = args.i
+    alphabetPath = args.a
+    lang = args.l
+     
     
 WordLength=8
 
@@ -184,157 +191,36 @@ def get(pattern):
  
 # Feltölt egy hashmap-et a szótárnak (itt helyettesítődik be a megfejtett karakter)       
 def fill_alphabet():
-    alphabet.update({"a":"?"})
-    alphabet.update({"b":"?"})
-    alphabet.update({"c":"?"})
-    alphabet.update({"d":"?"})
-    alphabet.update({"e":"?"})
-    alphabet.update({"f":"?"})
-    alphabet.update({"g":"?"})
-    alphabet.update({"h":"?"})
-    alphabet.update({"i":"?"})
-    alphabet.update({"j":"?"})
-    alphabet.update({"k":"?"})
-    alphabet.update({"l":"?"})
-    alphabet.update({"m":"?"})
-    alphabet.update({"n":"?"})
-    alphabet.update({"o":"?"})
-    alphabet.update({"p":"?"})
-    alphabet.update({"q":"?"})
-    alphabet.update({"r":"?"})
-    alphabet.update({"s":"?"})
-    alphabet.update({"t":"?"})
-    alphabet.update({"u":"?"})
-    alphabet.update({"v":"?"})
-    alphabet.update({"w":"?"})
-    alphabet.update({"x":"?"})
-    alphabet.update({"y":"?"})
-    alphabet.update({"z":"?"})
-    alphabet.update({"A":"?"})
-    alphabet.update({"B":"?"})
-    alphabet.update({"C":"?"})
-    alphabet.update({"D":"?"})
-    alphabet.update({"E":"?"})
-    alphabet.update({"F":"?"})
-    alphabet.update({"G":"?"})
-    alphabet.update({"H":"?"})
-    alphabet.update({"I":"?"})
-    alphabet.update({"J":"?"})
-    alphabet.update({"K":"?"})
-    alphabet.update({"L":"?"})
-    alphabet.update({"M":"?"})
-    alphabet.update({"N":"?"})
-    alphabet.update({"O":"?"})
-    alphabet.update({"P":"?"})
-    alphabet.update({"Q":"?"})
-    alphabet.update({"R":"?"})
-    alphabet.update({"S":"?"})
-    alphabet.update({"T":"?"})
-    alphabet.update({"U":"?"})
-    alphabet.update({"V":"?"})
-    alphabet.update({"W":"?"})
-    alphabet.update({"X":"?"})
-    alphabet.update({"Y":"?"})
-    alphabet.update({"Z":"?"})
+   
+    inputfile = codecs.open(alphabetPath,'r',"UTF-8")
     
-    alphabet.update({"á":"?"})
-    alphabet.update({"é":"?"})
-    alphabet.update({"í":"?"})
-    alphabet.update({"ó":"?"})
-    alphabet.update({"ö":"?"})
-    alphabet.update({"ő":"?"})
-    alphabet.update({"ú":"?"})
-    alphabet.update({"ü":"?"})
-    alphabet.update({"ű":"?"})
-    alphabet.update({"Á":"?"})
-    alphabet.update({"É":"?"})
-    alphabet.update({"Í":"?"})
-    alphabet.update({"Ó":"?"})
-    alphabet.update({"Ö":"?"})
-    alphabet.update({"Ő":"?"})
-    alphabet.update({"Ú":"?"})
-    alphabet.update({"Ü":"?"})
-    alphabet.update({"Ű":"?"})
+    for line in inputfile:
+        letter = line.strip()
+        if letter.isalpha():
+            alphabet.update({letter:"?"})
+    
+    inputfile.close()
 
 
-abc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-hunabc = ['á','é','í','ó','ö','ő','ú','ü','ű','Á','É','Í','Ó','Ö','Ő','Ú','Ü','Ű']
 
 # Feltölt egy hashmap-et a szótárnak (betű gyakorisággal, és lehetséges betűkkel)
 def fill_alphabetic_info():
-    abc.extend(hunabc)
-    a_info.update({"a":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"b":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"c":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"d":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"e":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"f":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"g":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"h":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"i":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"j":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"k":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"l":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"m":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"n":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"o":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"p":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"q":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"r":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"s":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"t":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"u":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"v":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"w":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"x":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"y":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"z":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"A":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"B":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"C":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"D":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"E":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"F":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"G":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"H":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"I":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"J":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"K":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"L":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"M":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"N":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"O":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"P":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Q":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"R":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"S":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"T":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"U":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"V":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"W":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"X":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Y":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Z":{"frequency":0,"options":abc.copy(),"first": False}})
+
+    inputfile = codecs.open(alphabetPath,'r',"UTF-8")
+
+    abc = []
     
-    a_info.update({"á":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"é":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"í":{"frequency":0,"options":abc.copy(),"first": False}})    
-    a_info.update({"ó":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"ö":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"ő":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"ú":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"ü":{"frequency":0,"options":abc.copy(),"first": False}})    
-    a_info.update({"ű":{"frequency":0,"options":abc.copy(),"first": False}})
+    for line in inputfile:
+        letter = line.strip()
+        if letter.isalpha():
+            abc.append(letter)
     
-    a_info.update({"Á":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"É":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Í":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Ó":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Ö":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Ő":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Ú":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Ü":{"frequency":0,"options":abc.copy(),"first": False}})
-    a_info.update({"Ű":{"frequency":0,"options":abc.copy(),"first": False}})
+    for letter in abc:
+        if letter.isalpha():
+            a_info.update({letter:{"frequency":0,"options":abc.copy(),"first": False}})
+            
+    inputfile.close()
+    
     
 # Kiírja az ABC-t, és hogy melyik betű mit kódol (KÓDOLT: JELÖLT)
 def print_alphabetic():
@@ -471,23 +357,13 @@ def reduceOptions(entity):
 
         while i>=0:
             for j in range(0,entity.length):
-                if entity.coded[j] == 'B':
-                    print(entity.options[i][j])
-                    print(entity.options[i])
-                    print(a_info["B"]["options"])
-                    print(a_info["ő"]["options"])
-                    entity.p()
-                    input()
+
                 if entity.coded[j] in a_info and len(a_info[entity.coded[j]]["options"]) > 0 and entity.options[i][j] not in a_info[entity.coded[j]]["options"] and entity.options[i][j].upper() not in a_info[entity.coded[j]]["options"]:
                     entity.options.remove(entity.options[i])
                     isRemoved = True
                     break
             i=i-1
-        
-        if entity.coded[j] == 'B':
-            print(a_info["B"]["options"])
-            entity.p()
-            input()
+
 #     print(entity.options)
 #     print('#################')
     return isRemoved
@@ -525,10 +401,7 @@ def deselect(ilist):
 # Ha egy betű options listája 1 hosszú lett, akkor azt beírja az ABC-be (rekurzió!)
 # Szűkíti a szavak options listáját            
 def updateAlphabet(coded,real):
-    print(coded)
-    print(real)  
-    if coded == 'B' :
-        input() 
+ 
     alphabet[coded]=real
     ### TODO
 #     for e in text:
@@ -573,10 +446,15 @@ def updateAlphabet(coded,real):
 ##############################################################################################
 ###################################    Script     ############################################
 ##############################################################################################     
-# Szótár 
-dbfile = codecs.open('D:\\GitHub\\SZTAKI\\HunDic.txt','r',"UTF-8")
+# Szótár
+if lang == "hun": 
+    dbfile = codecs.open('D:\\GitHub\\SZTAKI\\HunDic.txt','r',"UTF-8")
+elif lang == "eng":
+    dbfile = codecs.open('D:\\GitHub\\SZTAKI\\EngDic.txt','r',"UTF-8")
+    
+
 # Dekódolandó szöveg
-inputPath = 'd:\\GitHub\\SZTAKI\\example9.txt' 
+#inputPath = 'd:\\GitHub\\SZTAKI\\example9.txt' 
 inputfile = codecs.open(inputPath,'r',"UTF-8")
 
 # Szótár 
@@ -627,6 +505,8 @@ for line in inputfile:
         word = re.sub("\W","",word)
         word = re.sub("\d","",word)
         word = re.sub("[ô]","",word)
+        if lang == "eng":
+            word = re.sub("[ôíéáőúűóüö]","",word)
         if len(word) > 0:
             find = False
             # Végig nézi az eddig beolvasott szavakat
@@ -664,8 +544,6 @@ getFrequentLetters()
 
 print(most_frequent_letters)
 
-lastw = t = Entry('a')
-
 # Megkeresi, hogy melyik kódolt betű szerepel a leggyakrabban, az lesz az 'e'
 key = list(a_info.keys())[0]
 maxm = a_info[key]["frequency"]
@@ -694,29 +572,14 @@ updateAlphabet(key, 'e')
 #     print(oneletter)
 #     raise Exception("WARNING: Több egy betűs szó van")
 
-for l in textwords[3]:
-    if l.coded == 'Őtg':
-        temp = l
-
-for l in textwords[3]:
-    if l.coded == 'qtZ':
-        temp = l
-
-temp.p()
-
 for l in sorted(a_info):
     if len(a_info[l]["options"]) > 1:
         missingletters.append(l)
             
 for j in range(1,WordLength):
     for i in range(1,j):
-        print(missingletters)
         i = j-i
         deselect(textwords[i])
-        for e in textwords[i]:
-            e.p()
-        input()
-
         
 # print print print, ne sípoljál, printelj
 # http://www.youtube.com/watch?v=nmyHJrBNATw
@@ -728,7 +591,6 @@ for j in range(1,WordLength):
 for i in range(1,WordLength):
     for l in textwords[i]:
         l.p()
-    #input('Enter your input:')
 
 print_options()
 print() 
@@ -741,7 +603,7 @@ print()
 
 outputstr = str("")
 inputfile = codecs.open(inputPath,'r',"UTF-8")
-outputPath = 'D:\\GitHub\\Sztaki\\example9out.txt'
+#outputPath = 'D:\\GitHub\\Sztaki\\example9out.txt'
 outputfile = codecs.open(outputPath,'w',"UTF-8")
 
 for line in inputfile:
