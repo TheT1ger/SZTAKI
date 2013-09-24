@@ -173,17 +173,17 @@ def build(db,file):
         words[0] = words[0].strip('\ufeff')
         if len(words[0]) in db:
             # Ha már van
-            add(db[len(words[0])],words[1].strip('\n'),words[0])
+            add(db[len(words[0])],words[1].strip('\n'),words[0].encode("utf-8"))
             # Ha még nincs ilyen kulcsú elem
         else:
             db.update({len(words[0]):{}})
-            add(db[len(words[0])],words[1].strip('\n'),words[0])
+            add(db[len(words[0])],words[1].strip('\n'),words[0].encode("utf-8"))
     
 # Lekéri az adott mintára illeszkedő szavak számát a szótárból
 def get(pattern):
     if len(pattern) in db:
         if pattern in db[len(pattern)]:
-            return db[len(pattern)][pattern].copy()
+            return list(db[len(pattern)][pattern])
         else:
             return None
     else:
@@ -197,7 +197,7 @@ def fill_alphabet():
     for line in inputfile:
         letter = line.strip()
         if letter.isalpha():
-            alphabet.update({letter:"?"})
+            alphabet.update({letter.encode("utf-8"):"?"})
     
     inputfile.close()
 
@@ -213,11 +213,11 @@ def fill_alphabetic_info():
     for line in inputfile:
         letter = line.strip()
         if letter.isalpha():
-            abc.append(letter)
+            abc.append(letter.encode("utf-8"))
     
     for letter in abc:
         if letter.isalpha():
-            a_info.update({letter:{"frequency":0,"options":abc.copy(),"first": False}})
+            a_info.update({letter.encode("utf-8"):{"frequency":0,"options":list(abc),"first": False}})
             
     inputfile.close()
     
@@ -387,7 +387,7 @@ def deselect(ilist):
                     isRemoved = isRemoved or reduceOptions(e) 
                     done = True
     
-    missingletters.clear()
+    missingletters[:]=[]
     for l in sorted(a_info):
         if len(a_info[l]["options"]) > 1:
             missingletters.append(l)
@@ -416,7 +416,7 @@ def updateAlphabet(coded,real):
                 if e.coded[i] == coded:
                     e.pattern[i] = real.lower()
                     
-    a_info[coded]["options"].clear()
+    a_info[coded]["options"][:] = []
     a_info[coded]["options"].append(real)    
     for letter in a_info:
         if letter != coded:
@@ -593,11 +593,11 @@ for i in range(1,WordLength):
         l.p()
 
 print_options()
-print() 
+print
 print_frequency()
-print()
+print
 print_alphabetic()
-print()
+print
 
 
 
